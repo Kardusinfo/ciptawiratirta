@@ -263,6 +263,9 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     .main-header.header-style-two.header-style-two .depth-0 a{
         color: #ffffff !important;
     }
+    .main-header.header-style-two.header-style-two .dropdown.depth-0 ul li a{
+        color: #051650 !important;
+    }
 
     .main-header.header-style-two.normal .depth-0 a {
         color: #051650 !important;
