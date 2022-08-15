@@ -280,13 +280,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         if ($('.slideInDown').length > 0) {
             $('.logo_2').show();
             $('.logo_1').hide();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
             // console.log($('#id_logo').val())
         }else{
             $('.logo_2').hide();
             $('.logo_1').show();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
 
             // $('.logo_1').hide();
