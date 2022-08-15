@@ -8,13 +8,35 @@
     @if($style == 'job-list-v8' || $style == 'job-list-v9')
         {!! App\Helpers\MapEngine::scripts() !!}
     @endif
+
     <script>
         jQuery(".view-more").on("click", function () {
             jQuery(this).closest('ul').find('li.tg').toggleClass("d-none");
             jQuery(this).find('.tg-text').toggleClass('d-none');
         });
 
-        if($( ".job-salary-range-slider" ).length) {
+        $(window).on('scroll', function() {
+        if ($('.slideInDown').length > 0) {
+            $('.logo_2').show();
+            $('.logo_1').hide();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+        }else{
+            $('.logo_2').hide();
+            $('.logo_1').show();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+        }
+        });
+
+        if($(".job-salary-range-slider" ).length) {
             //Salary Range Slider
             $(".job-salary-range-slider").slider({
                 range: true,
@@ -35,7 +57,7 @@
         if($("#bc_results_map").length) {
             var bravo_map_data = {
                 markers: {!! json_encode($markers) !!},
-                center: [{{ !empty($markers[0]['lat']) ? $markers[0]['lat'] : 40.80 }}, {{ !empty($markers[0]['lng']) ? $markers[0]['lng'] : -73.70 }}]
+                center: [{{ !empty($markers[0]['lat']) ? $markers[0]['lat'] : 40.80 }}, {{ !empty($markers[0]['lng']) ? $markers[0]['lng'] : -73.70 }}],
             };
             var mapEngine = new BravoMapEngine('bc_results_map', {
                 fitBounds: true,
@@ -46,7 +68,7 @@
                     if (bravo_map_data.markers) {
                         engineMap.addMarker3(bravo_map_data.markers);
                     }
-                }
+                },
             });
         }
     </script>
