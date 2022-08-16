@@ -7,7 +7,7 @@
             <div class="upper-box">
                 <center>
                 <div class="row">
-                    
+                    <div class="contact-form default-form">
                     @if(!empty($contact_lists = setting_item("page_contact_lists")))
                         @php  $contact_lists = json_decode($contact_lists,true) @endphp
                         @foreach( $contact_lists as $item)
@@ -20,7 +20,7 @@
                             </div>
                         @endforeach
                     @endif
-                        
+                    </div>
                 </div></center>
             </div>
 
