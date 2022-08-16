@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="call-to-action style-two">
+    {{-- <div class="call-to-action style-two">
         <div class="auto-container">
             <div class="outer-box">
                 <div class="content-column">
@@ -90,5 +90,5 @@
                 <div class="image-column" style="background-image: url({{ get_file_url(setting_item('contact_call_to_action_image'),'full') }});"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
