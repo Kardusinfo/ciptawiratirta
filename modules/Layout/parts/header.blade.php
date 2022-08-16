@@ -281,45 +281,59 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
             $('.logo_2').show();
             $('.logo_1').hide();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
 =======
 >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
 
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffffff !important');
             $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#ffffff !important');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 56bad6e (fixed header on some page)
 >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
             $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
         }else{
             $('.logo_2').hide();
             $('.logo_1').show();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
             $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
             
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
             $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
 =======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
 
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
             $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
             
->>>>>>> 56bad6e (fixed header on some page)
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
             $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
 
+<<<<<<< HEAD
 >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
         }
     });
 </script>
@@ -362,9 +376,16 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
         color: #ffffff !important;
     }
 >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
 </style>
