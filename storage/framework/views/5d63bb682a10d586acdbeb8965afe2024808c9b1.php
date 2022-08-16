@@ -291,17 +291,17 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         color: #ffffff;
     }
 
+/* <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
+======= */
     #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
         color: #ffffff !important;
     }
->>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
-=======
+/* >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+======= */
     #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
         color: #ffffff !important;
     }
 
->>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+/* >>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01 */
 </style><?php /**PATH C:\laragon\www\kardusinfo\superio200\modules/Layout/parts/header.blade.php ENDPATH**/ ?>
