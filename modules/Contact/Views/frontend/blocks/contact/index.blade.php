@@ -6,6 +6,7 @@
         <div class="auto-container">
             <div class="upper-box">
                 <div class="row">
+                    <center>
                     @if(!empty($contact_lists = setting_item("page_contact_lists")))
                         @php  $contact_lists = json_decode($contact_lists,true) @endphp
                         @foreach( $contact_lists as $item)
@@ -18,6 +19,7 @@
                             </div>
                         @endforeach
                     @endif
+                        </center>
                 </div>
             </div>
 
