@@ -233,13 +233,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                             @endif
                             <li class="menu-hr"><a
                                     href="{{ route('user.change_password') }}">{{ __('Change password') }}</a></li>
-                            @if (is_employer())
+                            {{-- @if (is_employer())
                                 <li class="menu-hr"><a href="{{ route('job.admin.index') }}">{{ __('My Jobs') }}</a>
                                 </li>
                                 <li class="menu-hr"><a
                                         href="{{ route('job.admin.allApplicants') }}">{{ __('All Applicants') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                             @if (is_candidate() && !is_admin())
                                 <li class="menu-hr"><a
                                         href="{{ route('candidate.admin.myApplied') }}">{{ __('My Applied') }}</a>
