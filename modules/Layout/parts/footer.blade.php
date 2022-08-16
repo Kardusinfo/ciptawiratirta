@@ -53,11 +53,11 @@
                             <div class="head-office">
                                 <h3 class="mb-2">Head Office</h3>
                                 <ul class="d-flex text-light">
-                                    <li><a href="#">Jakarta</a></li>
-                                    <li><a href="#">Bali</a></li>
-                                    <li><a href="#">Yogyakarta</a></li>
-                                    <li><a href="#">Surabaya</a></li>
-                                    <li><a href="#">Bandung</a></li>
+                                    <li><a href="/page/faqs">Jakarta</a></li>
+                                    <li><a href="/page/faqs">Bali</a></li>
+                                    <li><a href="/page/faqs">Yogyakarta</a></li>
+                                    <li><a href="/page/faqs">Surabaya</a></li>
+                                    <li><a href="/page/faqs">Bandung</a></li>
                                 </ul>
                             </div>
                         </div>
