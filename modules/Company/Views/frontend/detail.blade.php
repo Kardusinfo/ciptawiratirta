@@ -26,5 +26,7 @@
             });
             @endif
         })
+
+        
     </script>
 @endsection

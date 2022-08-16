@@ -50,6 +50,28 @@
             });
             @endif
         })
+
+        
+        $(window).on('scroll', function() {
+        if ($('.slideInDown').length > 0) {
+            $('.logo_2').show();
+            $('.logo_1').hide();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+        }else{
+            $('.logo_2').hide();
+            $('.logo_1').show();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+        }
+        });
     </script>
     <script type="text/javascript" src="{{ asset("libs/fotorama/fotorama.js") }}"></script>
     <script type="text/javascript" src="{{ asset('module/gig/js/single-gig.js?_ver='.config('app.version')) }}"></script>
