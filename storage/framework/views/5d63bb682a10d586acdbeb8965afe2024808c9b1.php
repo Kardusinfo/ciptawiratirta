@@ -291,4 +291,10 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         color: #ffffff;
     }
 
+<<<<<<< HEAD
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
 </style><?php /**PATH C:\laragon\www\kardusinfo\superio200\modules/Layout/parts/header.blade.php ENDPATH**/ ?>

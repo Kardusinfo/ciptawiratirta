@@ -1,10 +1,7 @@
 <?php if(!empty($list_item)): ?>
     <section class="testimonial-section style-two alternate" <?php if(!empty($banner_image)): ?> style="background-image: url(<?php echo e($banner_image_url); ?>);" <?php endif; ?>>
         <div class="auto-container">
-            <div class="sec-title text-center light">
-                <h2><?php echo e($title ?? ''); ?></h2>
-                <div class="text"><?php echo e($sub_title ?? ''); ?></div>
-            </div>
+            
             <div class="carousel-outer wow fadeInUp">
                 <div class="testimonial-carousel-three owl-carousel owl-theme default-dots light">
                     <?php $__currentLoopData = $list_item; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

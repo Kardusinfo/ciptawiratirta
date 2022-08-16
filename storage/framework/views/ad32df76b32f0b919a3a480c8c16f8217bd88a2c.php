@@ -1,11 +1,11 @@
 <?php
 $menus = [
-    'admin'=>[
-        'url'   => 'admin',
-        'title' => __("Dashboard"),
-        'icon'  => 'icon ion-ios-desktop',
-        "position"=>0
-    ],
+    // 'admin'=>[
+    //     'url'   => 'admin',
+    //     'title' => __("Dashboard"),
+    //     'icon'  => 'icon ion-ios-desktop',
+    //     "position"=>0
+    // ],
     'menu'=>[
         "position"=>60,
         'url'        => 'admin/module/core/menu',
@@ -51,18 +51,19 @@ if(Auth::id()){
     if(Auth::user()->hasPermission('candidate_manage') && !Auth::user()->hasPermission('candidate_manage_others')){
         $menus['candidate_my_profile'] = [
             "position"=> 27,
-            'url'        => route('user.admin.detail',['id'=>Auth::id()]),
+            // 'url'        => route('user.admin.detail',['id'=>Auth::id()]),
+            'url'        => url('user/profile'),
             'title'      => __("My Profile"),
             'icon'       => 'ion-md-finger-print',
             'permission' => 'candidate_manage'
         ];
-        $menus['candidate_my_contact'] = [
-            "position"=> 28,
-            'url'        => route('candidate.admin.myContact'),
-            'title'      => __("My Contact"),
-            'icon'       => 'ion-md-mail',
-            'permission' => 'candidate_manage'
-        ];
+        // $menus['candidate_my_contact'] = [
+        //     "position"=> 28,
+        //     'url'        => route('candidate.admin.myContact'),
+        //     'title'      => __("My Contact"),
+        //     'icon'       => 'ion-md-mail',
+        //     'permission' => 'candidate_manage'
+        // ];
     }
 }
 

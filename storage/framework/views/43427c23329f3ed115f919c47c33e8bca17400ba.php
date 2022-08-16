@@ -4,11 +4,11 @@
         <div class="form-group">
             <div class="btn-box row">
                 
-                    <input class="checked" type="hidden" name="type" id="checkbox1" value="candidate" checked/>
+                    <input class="checked" style="display: none" type="radio" name="type" id="checkbox1" value="candidate" checked/>
                     
                 
                 
-                    
+                    <input class="checked"style="display: none" type="radio" name="type" id="checkbox2" value="employer"/>
                     
                 
             </div>
@@ -23,6 +23,12 @@
         <div class="form-group">
             <label><?php echo e(__("Password")); ?></label>
             <input id="password-field" type="password" name="password" value="" placeholder="<?php echo e(__("Password")); ?>">
+            <span class="invalid-feedback error error-password"></span>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo e(__("No HP")); ?></label>
+            <input id="password-field" type="text" name="phone" value="" placeholder="<?php echo e(__("Phone Number")); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
 

@@ -11,13 +11,17 @@
 <?php endif; ?>
 
 <?php
+
 $header_class = $header_style = $row->header_style ?? 'normal';
 $logo_id = setting_item('logo_id');
+$logo_white_id = setting_item('logo_white_id');
+
 if ($header_style == 'header-style-two') {
     $logo_id = setting_item('logo_white_id');
 }
+
 if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow)) {
-    $header_class .= ' header-shaddow';
+    $header_class = ' header-shaddow';
 }
 
 ?>
@@ -25,20 +29,38 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     <!-- Header Span -->
     <span class="header-span"></span>
 <?php endif; ?>
+
 <!-- Main Header-->
-<header class="main-header <?php echo e($header_class); ?>">
+<header class="main-header header-style-two <?php echo e($header_class); ?>">
+
     <!-- Main box -->
     <div class="main-box">
         <!--Nav Outer -->
         <div class="nav-outer">
             <div class="logo-box">
                 <div class="logo">
-                    <a href="<?php echo e(home_url()); ?>">
+                    <a href="<?php echo e(home_url()); ?>" class="logo_1" style="display: block">
                         <?php if($logo_id): ?>
                             <?php $logo = get_file_url($logo_id,'full') ?>
                             <img src="<?php echo e($logo); ?>" alt="<?php echo e(setting_item('site_title')); ?>">
                         <?php else: ?>
                             <img src="<?php echo e(asset('/images/logo.svg')); ?>" alt="logo">
+                            
+                            
+
+                            
+                        <?php endif; ?>
+                    </a>
+                    <a href="<?php echo e(home_url()); ?>" class="logo_2" style="display: none">
+                        <?php if($logo_white_id): ?>
+                            <?php $logo2 = get_file_url($logo_white_id,'full') ?>
+                            <img src="<?php echo e($logo2); ?>" alt="<?php echo e(setting_item('site_title')); ?>">
+                        <?php else: ?>
+                            <img src="<?php echo e(asset('/images/logo.svg')); ?>" alt="logo">
+                            
+                            
+
+                            
                         <?php endif; ?>
                     </a>
                 </div>
@@ -147,8 +169,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     <div class="mobile-header">
         <div class="logo">
             <a href="<?php echo e(url(app_get_locale(false, '/'))); ?>">
-                <?php if($logo_id = setting_item('logo_id')): ?>
-                    <?php $logo = get_file_url($logo_id,'full') ?>
+                <?php if($logo= setting_item('logo_id')): ?>
+                    <?php $logo = get_file_url($logo,'full') ?>
                     <img src="<?php echo e($logo); ?>" alt="<?php echo e(setting_item('site_title')); ?>">
                 <?php else: ?>
                     <img src="<?php echo e(asset('/images/logo.svg')); ?>" alt="logo">
@@ -230,4 +252,49 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     <div id="nav-mobile"></div>
 </header>
 <!--End Main Header -->
-<?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/parts/header.blade.php ENDPATH**/ ?>
+
+
+
+<style>
+    .depth-1 a, .depth-0 a {
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.header-style-two .depth-0 a{
+        color: #ffffff !important;
+    }
+    .main-header.header-style-two.header-style-two .dropdown.depth-0 ul li a{
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal .depth-0 a {
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .depth-0 a {
+        color: #ffffff !important;
+    }
+
+    .main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login {
+        color: #051650;
+    }
+
+    .main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+    .main-header.header-style-two.normal .main-box .outer-box .login-item .is_login {
+        color: #051650;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+<<<<<<< HEAD
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+</style><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/parts/header.blade.php ENDPATH**/ ?>

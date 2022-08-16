@@ -20,4 +20,35 @@
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
+<style>
+    .tnc-section .blog-content img {
+        border-radius: 8px;
+        margin-bottom: 24px;
+    }
+</style>
+
+<?php $__env->startSection('footer'); ?>
+<script>
+$(window).on('scroll', function() {
+    if ($('.slideInDown').length > 0) {
+        $('.logo_2').show();
+        $('.logo_1').hide();
+
+        $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+
+        $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+        $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+    }else{
+        $('.logo_2').hide();
+        $('.logo_1').show();
+
+        $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+        
+        $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+        $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+    }
+    });
+</script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Page/Views/frontend/detail.blade.php ENDPATH**/ ?>
