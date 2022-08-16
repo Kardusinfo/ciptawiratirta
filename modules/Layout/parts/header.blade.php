@@ -142,7 +142,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     <li class="menu-hr"><a
                                             href="{{ route('job.admin.index') }}">{{ __('My Jobs') }}</a></li>
                                     <li class="menu-hr"><a
-                                            href="{{ route('job.admin.allApplicants') }}">{{ __('All Applicants') }}</a>
+                                            {{-- href="{{ route('job.admin.allApplicants') }}">{{ __('All Applicants') }}</a> --}}
                                     </li>
                                     {{-- <li class="menu-hr"><a href="{{ route('user.plan') }}">{{ __('My Plans') }}</a>
                                     </li> --}}

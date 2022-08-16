@@ -45,14 +45,14 @@
                                         };
                                         $traverse($list_locations);
                                     @endphp
-                                    {{-- <div class="form-group col-lg-3 col-md-12 col-sm-12 location smart-search">
+                                    <div class="form-group col-lg-3 col-md-12 col-sm-12 location smart-search">
                                         <input type="text" class="smart-search-location parent_text form-control" placeholder="{{__("All City")}}" value="{{ $location_name }}" data-onLoad="{{__("Loading...")}}"
                                                data-default="{{ json_encode($list_json) }}">
                                         <input type="hidden" class="child_id" name="location" value="{{ $location_id }}">
                                         <span class="icon flaticon-map-locator"></span>
-                                    </div> --}}
+                                    </div>
                                 @else
-                                    {{-- <div class="form-group col-lg-3 col-md-12 col-sm-12 location bc-select-has-delete">
+                                    <div class="form-group col-lg-3 col-md-12 col-sm-12 location bc-select-has-delete">
                                         <span class="icon flaticon-map-locator"></span>
                                         <select class="chosen-select" name="location">
                                             <option value="">{{ __("All City") }}</option>
@@ -67,7 +67,7 @@
                                                 $traverse($list_locations);
                                             @endphp
                                         </select>
-                                    </div> --}}
+                                    </div>
                             @endif
                                 <div class="form-group col-lg-3 col-md-12 col-sm-12 category">
                                     <span class="icon flaticon-briefcase"></span>
