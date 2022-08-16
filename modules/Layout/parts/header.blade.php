@@ -281,6 +281,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
             $('.logo_2').show();
             $('.logo_1').hide();
 
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffffff !important');
             $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#ffffff !important');
 
@@ -289,6 +290,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         }else{
             $('.logo_2').hide();
             $('.logo_1').show();
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
 
             $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
             $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
@@ -335,6 +343,10 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 
     .main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
         color: #ffffff;
+    }
+
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
     }
 
 </style>
