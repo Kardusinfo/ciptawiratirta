@@ -36,7 +36,7 @@
                                         };
                                         $traverse($list_locations);
                                     @endphp
-                                    <div class="form-group col-lg-7 col-md-12 col-sm-12 location smart-search">
+                                    <div class="form-group col-lg-4 col-md-12 col-sm-12 location smart-search">
                                         <input type="text" class="smart-search-location parent_text form-control" placeholder="{{__("All City")}}" value="{{ $location_name }}" data-onLoad="{{__("Loading...")}}"
                                                data-default="{{ json_encode($list_json) }}">
                                         <input type="hidden" class="child_id" name="location" value="{{ $location_id }}">
