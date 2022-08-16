@@ -112,7 +112,9 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     <span class="avatar-text">{{ ucfirst(Auth::user()->getDisplayName()[0]) }}</span>
                                 @endif
                                 <span
-                                    class="full-name">{{ __('Hi, :Name', ['name' => Auth::user()->getDisplayName()]) }}</span>
+                                    class="full-name">
+                                    {{-- {{ __('Hi, :Name', ['name' => Auth::user()->getDisplayName()]) }} --}}
+                                </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
