@@ -6,7 +6,7 @@
         <div class="auto-container">
             <div class="upper-box">
                 <center>
-                    <div class="contact-form default-form">
+                    <div class="contact-form default-form"> 
                 <div class="row">
                     
                     @if(!empty($contact_lists = setting_item("page_contact_lists")))
