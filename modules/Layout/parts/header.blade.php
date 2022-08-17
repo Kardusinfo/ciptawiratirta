@@ -343,7 +343,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 
 <style>
     .depth-1 a, .depth-0 a {
-        color: #051650 !important;
+        /* color: #051650 !important; */
+        color: #f9faff !important
     }
 
     .main-header.header-style-two.header-style-two .depth-0 a{
