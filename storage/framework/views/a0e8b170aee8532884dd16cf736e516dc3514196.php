@@ -27,7 +27,7 @@
             <div class="col-md-12 col-lg-6 mb-3">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between align-items-center">
-                        <strong><?php echo e((is_admin()) ? __('Order views') : __('Your Profile Views')); ?></strong>
+                        <strong><?php echo e((is_admin()) ? __('Total Pendaftar') : __('Your Profile Views')); ?></strong>
                         <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
                             <i class="fa fa-calendar"></i>&nbsp;
                             <span></span> <i class="fa fa-caret-down"></i>

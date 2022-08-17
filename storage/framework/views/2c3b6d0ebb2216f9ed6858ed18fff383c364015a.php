@@ -267,6 +267,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="panel">
+                        <div class="panel-title"><strong><?php echo e(__('Passport Uploaded')); ?></strong></div>
+                        <div class="panel-body">
+                            <div class="form-group-item">
+                                <div class="g-items-header">
+                                    <div class="row">
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </div>
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('passport', @$passport, 'passport'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-title"><strong><?php echo e(__('Visa Uploaded')); ?></strong></div>
+                        <div class="panel-body">
+                            <div class="form-group-item">
+                                <div class="g-items-header">
+                                    <div class="row">
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </div>
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('visa', @$visa, 'visa'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-title"><strong><?php echo e(__('Bst / CCM Uploaded')); ?></strong></div>
+                        <div class="panel-body">
+                            <div class="form-group-item">
+                                <div class="g-items-header">
+                                    <div class="row">
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </div>
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('bst_ccm', @$bst_ccm, 'bst_ccm'); ?>
+
+                            </div>
+                        </div>
+                    </div>
                     <?php endif; ?>
                 </div>
             </div>

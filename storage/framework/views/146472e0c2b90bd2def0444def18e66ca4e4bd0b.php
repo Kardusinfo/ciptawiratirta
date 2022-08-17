@@ -223,6 +223,14 @@
 
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label><?php echo e(__("Banner Logo")); ?></label>
+                        <div class="form-controls form-group-image">
+                            <?php echo \Modules\Media\Helpers\FileHelper::fieldUpload('banner_id',$settings['banner_id'] ?? ''); ?>
+
+                        </div>
+                    </div>
                 <?php endif; ?>
                 <div class="form-group">
                     <label><?php echo e(__("Footer Style")); ?></label>

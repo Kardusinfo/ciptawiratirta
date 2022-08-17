@@ -23,8 +23,16 @@
                                         <img src="<?php echo e($logo); ?>" alt="logo footer">
                                     </a>
                                 </div>
-                                <?php echo clean($info_contact); ?>
+                                
+                                <div class="row">
+                                    <div class="big-column force-left col-xl-12 col-lg-12 col-md-12">
+                                        <h5>Social Media</h5>
+                                        <div class="social-links">
+                                            <?php echo @clean(setting_item_with_lang('footer_socials')); ?>
 
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -34,22 +42,15 @@
                             <div class="head-office">
                                 <h3 class="mb-2">Head Office</h3>
                                 <ul class="d-flex text-light">
-                                    <li><a href="#">Jakarta</a></li>
-                                    <li><a href="#">Bali</a></li>
-                                    <li><a href="#">Yogyakarta</a></li>
-                                    <li><a href="#">Surabaya</a></li>
-                                    <li><a href="#">Bandung</a></li>
+                                    <li><a href="/page/faqs">Jakarta</a></li>
+                                    <li><a href="/page/faqs">Bali</a></li>
+                                    <li><a href="/page/faqs">Yogyakarta</a></li>
+                                    <li><a href="/page/faqs">Surabaya</a></li>
+                                    <li><a href="/page/faqs">Bandung</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="big-column col-xl-12 col-lg-12 col-md-12">
-                                <div class="social-links">
-                                    <?php echo @clean(setting_item_with_lang('footer_socials')); ?>
-
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 
@@ -143,7 +144,7 @@
         justify-items: center;
         justify-content: center;
         align-items: center;
-        padding: 32px 0;
+        padding: 1.5rem 0;
     }
 
     .social-links a i {
@@ -167,6 +168,19 @@
 
     .main-footer.style_1 .head-office h3 {
         color: black;
+    }
+
+    .force-left {
+        padding: 0 1.5rem;
+    }
+
+    .force-left .social-links{
+        justify-content: left;
+        padding-left: 4px;
+    }
+
+    .force-left h5 {
+        color: white;
     }
 </style>
 
@@ -207,6 +221,34 @@
 <script>
     $(document).on('ready', function () {
         $.superioHeader.init($('#header'));
+
+        $(window).on('scroll', function() {
+        if ($('.slideInDown').length > 0) {
+            $('.logo_2').show();
+            $('.logo_1').hide();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+            $('.main-header.header-style-two.normal .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+            $('.main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+        }else{
+            $('.logo_2').hide();
+            $('.logo_1').show();
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+            $('.main-header.header-style-two.normal .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+        }
+        });
     });
 </script>
 <script src="<?php echo e(asset('libs/lodash.min.js')); ?>"></script>

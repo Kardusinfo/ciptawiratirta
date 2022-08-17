@@ -7256,8 +7256,8 @@ Job Section Four
 .job-block-four .company-logo {
     position: relative;
     display: block;
-    height: 90px;
-    width: 90px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 12px;
