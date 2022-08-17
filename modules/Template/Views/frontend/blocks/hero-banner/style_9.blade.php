@@ -63,7 +63,7 @@
     .modal-close:hover {
         background: #474747;
     }
-    
+
     .modal-close-line {
         position: absolute;
         top: 16px;
@@ -76,6 +76,7 @@
     .modal-close-line.one {
         transform: rotate(45deg);
     }
+
     .modal-close-line.two {
         transform: rotate(-45deg);
     }
@@ -84,7 +85,7 @@
     style="background-image: url(@if (!empty($banner_image)) {{ $banner_image_url }} @endif)">
     <div class="auto-container">
         <div class="cotnent-box">
-            
+
             <div class="title-box wow fadeInUp" data-wow-delay='300ms'>
                 <h3>{!! $title !!}</h3>
                 <div class="text">{{ $sub_title }}</div>
@@ -102,15 +103,17 @@
             <div id="modal_container" class="modal-container">
                 <div class="modal-custom">
                     {{-- Image --}}
-                    {{-- <a class="go-to" href="/job">
-                        <img class="modal-image" src="popup.png" />
-                    </a> --}}
-                    @if ($logo_id = setting_item('banner_id'))
-                        @php $logo = get_file_url($logo_id,'full') @endphp
-                        <img src="{{ $logo }}">
-                    @else
-                        <img src="{{ asset('/popup.png') }}" alt="logo">
-                    @endif
+                    <a class="go-to" href="/job">
+                        {{-- <img class="modal-image" src="popup.png" /> --}}
+
+                        @if ($logo_id = setting_item('banner_id'))
+                            @php $logo = get_file_url($logo_id,'full') @endphp
+                            <img src="{{ $logo }}">
+                        @else
+                            <img src="{{ asset('/popup.png') }}" alt="logo">
+                        @endif
+
+                    </a>
                     {{-- Close --}}
                     <div id="modal_close" class="modal-close">
                         <span class="modal-close-line one"></span>
@@ -223,17 +226,16 @@
 
 @yield('script.body')
 <script type="text/javascript">
-    window.onload = function () {
+    window.onload = function() {
         var modal_container = document.getElementById("modal_container");
         var modal_close = document.getElementById("modal_close");
-        
+
         setTimeout((event) => {
             modal_container.style.display = 'block';
         }, 2000);
 
-        modal_close.onclick = function () {
+        modal_close.onclick = function() {
             modal_container.style.display = 'none';
         }
     }
-    
 </script>
