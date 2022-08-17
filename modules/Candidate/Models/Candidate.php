@@ -454,11 +454,13 @@ class Candidate extends BaseModel
         return display_date($this->created_at);
     }
 
-    /*public static function getTopCardsReport()
+    public static function getTopCardsReport()
     {
         $userId = Auth::id();
         if (empty($userId)) redirect()->to('login');
-        $applied_job_total = JobCandidate::where('candidate_id',$userId)->where('status','approved')->count();
+        // $applied_job_total = JobCandidate::where('candidate_id',$userId)->where('status','approved')->count();
+        $applied_job_total = JobCandidate::where('status','approved')->count();
+        $total_application = JobCandidate::select()->count();
         $totalMessages = \Modules\Core\Models\NotificationPush::query()->where('notifiable_id', $userId)->count();
         $totalBookmark = UserWishList::where('user_id',$userId)->count();
 
@@ -472,7 +474,15 @@ class Candidate extends BaseModel
             'icon'   => 'icon ion-ios-briefcase'
         ];
         $res[] = [
-
+                'size'   => 6,
+                'size_md'=>3,
+                'title'  => __("Applicants"),
+                'amount' => $total_application ?? 0,
+                'desc'   => __("Total Applicants"),
+                'class'  => 'pink',
+                'icon'   => 'icon ion-ios-paper'
+        ];
+        $res[] = [
             'size'   => 6,
             'size_md'=>3,
             'title'  => __("Messages"),
@@ -492,17 +502,17 @@ class Candidate extends BaseModel
             'icon'   => 'icon ion-ios-heart'
         ];
         return $res;
-    }*/
+    }
 
-    /*public static function getNotifications($limit = 10){
+    public static function getNotifications($limit = 10){
         $userId = Auth::id();
         if (empty($userId)) redirect()->to('login');
         $notifications = \Modules\Core\Models\NotificationPush::query()->where('data','like','%\"for_admin\":0%')->where('notifiable_id', $userId)->limit($limit)->get();
         if (empty($notifications)) return false;
         return $notifications;
-    }*/
+    }
 
-    /*public static function getDashboardChartData($from, $to){
+    public static function getDashboardChartData($from, $to){
         $data = [
             'labels'   => [],
             'datasets' => [
@@ -555,5 +565,5 @@ class Candidate extends BaseModel
         }
 
         return $data;
-    }*/
+    }
 }

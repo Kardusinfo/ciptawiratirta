@@ -1,35 +1,35 @@
-@extends('admin.layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="dashboard-page">
-            <h4 class="welcome-title text-uppercase">{{__('Welcome :name!',['name'=>Auth::user()->nameOrEmail])}}</h4>
+            <h4 class="welcome-title text-uppercase"><?php echo e(__('Welcome :name!',['name'=>Auth::user()->nameOrEmail])); ?></h4>
         </div>
         <br>
         <div class="row">
-            @if(!empty($top_cards))
-                @foreach($top_cards as $card)
-                    <div class="col-sm-{{$card['size']}} col-md-{{$card['size_md']}}">
-                        <div class="dashboard-report-card card {{$card['class']}}">
+            <?php if(!empty($top_cards)): ?>
+                <?php $__currentLoopData = $top_cards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-sm-<?php echo e($card['size']); ?> col-md-<?php echo e($card['size_md']); ?>">
+                        <div class="dashboard-report-card card <?php echo e($card['class']); ?>">
                             <div class="card-content">
-                                <span class="card-title">{{$card['title']}}</span>
-                                <span class="card-amount">{{$card['amount']}}</span>
-                                <span class="card-desc">{{$card['desc']}}</span>
+                                <span class="card-title"><?php echo e($card['title']); ?></span>
+                                <span class="card-amount"><?php echo e($card['amount']); ?></span>
+                                <span class="card-desc"><?php echo e($card['desc']); ?></span>
                             </div>
                             <div class="card-media">
-                                <i class="{{$card['icon']}}"></i>
+                                <i class="<?php echo e($card['icon']); ?>"></i>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            @endif
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
         <br>
         <div class="row">
             <div class="col-md-12 col-lg-6 mb-3">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between align-items-center">
-                        <strong>{{ (is_admin()) ? __('Total Pendaftar') : __('Your Profile Views') }}</strong>
+                        <strong><?php echo e((is_admin()) ? __('Total Pendaftar') : __('Your Profile Views')); ?></strong>
                         <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
                             <i class="fa fa-calendar"></i>&nbsp;
                             <span></span> <i class="fa fa-caret-down"></i>
@@ -38,7 +38,7 @@
                     <div class="panel-body">
                         <canvas id="earning_chart"></canvas>
                         <script>
-                            var views_chart_data = {!! json_encode($views_chart_data) !!};
+                            var views_chart_data = <?php echo json_encode($views_chart_data); ?>;
                         </script>
                     </div>
                 </div>
@@ -46,23 +46,23 @@
             <div class="col-md-12 col-lg-6 ">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between">
-                        <strong>{{__('Notifications')}}</strong>
+                        <strong><?php echo e(__('Notifications')); ?></strong>
                     </div>
                     <div class="panel-body">
                         <ul class="dropdown-list-items p-0">
-                            @php $rows = $notifications @endphp
-                            @include('Core::admin.notification.notification-loop-item')
+                            <?php $rows = $notifications ?>
+                            <?php echo $__env->make('Core::admin.notification.notification-loop-item', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script.body')
-    <script src="{{url('libs/chart_js/Chart.min.js')}}"></script>
-    <script src="{{url('libs/daterange/moment.min.js')}}"></script>
+<?php $__env->startSection('script.body'); ?>
+    <script src="<?php echo e(url('libs/chart_js/Chart.min.js')); ?>"></script>
+    <script src="<?php echo e(url('libs/daterange/moment.min.js')); ?>"></script>
     <script>
         var ctx = document.getElementById('earning_chart').getContext('2d');
 
@@ -131,19 +131,19 @@
             "opens": "left",
             "showDropdowns": true,
             ranges: {
-                '{{__("Today")}}': [moment(), moment()],
-                '{{__("Yesterday")}}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                '{{__("Last 7 Days")}}': [moment().subtract(6, 'days'), moment()],
-                '{{__("Last 30 Days")}}': [moment().subtract(29, 'days'), moment()],
-                '{{__("This Month")}}': [moment().startOf('month'), moment().endOf('month')],
-                '{{__("Last Month")}}': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                '{{__("This Year")}}': [moment().startOf('year'), moment().endOf('year')],
-                '{{__('This Week')}}': [moment().startOf('week'), end]
+                '<?php echo e(__("Today")); ?>': [moment(), moment()],
+                '<?php echo e(__("Yesterday")); ?>': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                '<?php echo e(__("Last 7 Days")); ?>': [moment().subtract(6, 'days'), moment()],
+                '<?php echo e(__("Last 30 Days")); ?>': [moment().subtract(29, 'days'), moment()],
+                '<?php echo e(__("This Month")); ?>': [moment().startOf('month'), moment().endOf('month')],
+                '<?php echo e(__("Last Month")); ?>': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                '<?php echo e(__("This Year")); ?>': [moment().startOf('year'), moment().endOf('year')],
+                '<?php echo e(__('This Week')); ?>': [moment().startOf('week'), end]
             }
         }, cb).on('apply.daterangepicker', function (ev, picker) {
             // Reload Earning JS
             $.ajax({
-                url: '{{ route('admin.reloadChart') }}',
+                url: '<?php echo e(route('admin.reloadChart')); ?>',
                 data: {
                     chart: 'views',
                     from: picker.startDate.format('YYYY-MM-DD'),
@@ -161,4 +161,6 @@
         });
         cb(start, end);
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\superio200\modules/Dashboard/Views/index.blade.php ENDPATH**/ ?>
