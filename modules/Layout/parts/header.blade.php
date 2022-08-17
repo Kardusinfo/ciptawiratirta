@@ -112,7 +112,9 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     <span class="avatar-text">{{ ucfirst(Auth::user()->getDisplayName()[0]) }}</span>
                                 @endif
                                 <span
-                                    class="full-name">{{ __('Hi, :Name', ['name' => Auth::user()->getDisplayName()]) }}</span>
+                                    class="full-name">
+                                    {{-- {{ __('Hi, :Name', ['name' => Auth::user()->getDisplayName()]) }} --}}
+                                </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
@@ -137,11 +139,11 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                         href="{{ route('user.change_password') }}">{{ __('Change password') }}</a>
                                 </li>
                                 @if (is_employer())
-                                    <li class="menu-hr"><a
-                                            href="{{ route('job.admin.index') }}">{{ __('My Jobs') }}</a></li>
-                                    <li class="menu-hr"><a
+                                        {{-- <li class="menu-hr"><a
+                                                href="{{ route('job.admin.index') }}">{{ __('My Jobs') }}</a></li> --}}
+                                    {{-- <li class="menu-hr"><a
                                             href="{{ route('job.admin.allApplicants') }}">{{ __('All Applicants') }}</a>
-                                    </li>
+                                    </li> --}}
                                     {{-- <li class="menu-hr"><a href="{{ route('user.plan') }}">{{ __('My Plans') }}</a>
                                     </li> --}}
                                     {{-- <li class="menu-hr"><a href="{{ route('user.order') }}">{{ __('My Orders') }}</a>
@@ -231,13 +233,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                             @endif
                             <li class="menu-hr"><a
                                     href="{{ route('user.change_password') }}">{{ __('Change password') }}</a></li>
-                            @if (is_employer())
+                            {{-- @if (is_employer())
                                 <li class="menu-hr"><a href="{{ route('job.admin.index') }}">{{ __('My Jobs') }}</a>
                                 </li>
                                 <li class="menu-hr"><a
                                         href="{{ route('job.admin.allApplicants') }}">{{ __('All Applicants') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                             @if (is_candidate() && !is_admin())
                                 <li class="menu-hr"><a
                                         href="{{ route('candidate.admin.myApplied') }}">{{ __('My Applied') }}</a>
@@ -272,7 +274,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 </header>
 <!--End Main Header -->
 
-@section('footer')
+{{-- @section('footer')
 <script>
     const headerStyleTwo = document.getElementsByClassName('slideInDown');
     
@@ -280,28 +282,113 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         if ($('.slideInDown').length > 0) {
             $('.logo_2').show();
             $('.logo_1').hide();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
+=======
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffffff !important');
+            $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#ffffff !important');
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 56bad6e (fixed header on some page)
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
             $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
-            // console.log($('#id_logo').val())
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
         }else{
             $('.logo_2').hide();
             $('.logo_1').show();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
-            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+<<<<<<< HEAD
+<<<<<<< HEAD
 
-            // $('.logo_1').hide();
-            // console.log($('#id_logo_two').val())
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#ffff !important');
+
+            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
+            $('.nav.main-menu ul .depth-0 a').attr('style', 'color:#051650 !important');
+            
+            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
+            $('.main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
+
+<<<<<<< HEAD
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
         }
-});
+    });
 </script>
-@endsection
+@endsection --}}
 
 <style>
-    .depth-1 a {
-        color: black !important;
+    .depth-1 a, .depth-0 a {
+        /* color: #051650 !important; */
+        color: #f9faff !important
+    }
+
+    .main-header.header-style-two.header-style-two .depth-0 a{
+        color: #ffffff !important;
+    }
+    .main-header.header-style-two.header-style-two .dropdown.depth-0 ul li a{
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal .depth-0 a {
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .depth-0 a {
+        color: #ffffff !important;
     }
 
     .main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login {
         color: #051650;
     }
+
+    .main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+    .main-header.header-style-two.normal .main-box .outer-box .login-item .is_login {
+        color: #051650;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
 </style>

@@ -250,7 +250,8 @@ class CompanyController extends AdminController
     public function bulkEdit(Request $request)
     {
         $this->checkPermission('employer_manage_others');
-        $ids = $request->input('ids'); dd($ids);
+        $ids = $request->input('ids'); 
+        //dd($ids);
         $action = $request->input('action');
         if (empty($ids) or !is_array($ids)) {
             return redirect()->back()->with('error', __('No items selected!'));

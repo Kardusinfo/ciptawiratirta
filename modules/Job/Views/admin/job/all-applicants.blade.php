@@ -136,11 +136,10 @@
         {{-- <div class="row"> --}}
 
             <div class="tab">
-
-                <button class="tablinks" onclick="openCity(event, 'Paris')">(1) Profile Not Completed</button>
-                <button class="tablinks" onclick="openCity(event, 'London')">(2) Ready to Approve</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">(3) Approved</button>
-                <button class="tablinks" onclick="openCity(event, 'Kelsi')">Rejected</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">({{ \Modules\Job\Models\JobCandidate::where('status', 'pending')->count() }}) Profile Not Completed</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">({{ \Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count() }}) Ready to Approve</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">({{ \Modules\Job\Models\JobCandidate::where('status', 'approved')->count() }}) Approved</button>
+                <button class="tablinks" onclick="openCity(event, 'Kelsi')">({{ \Modules\Job\Models\JobCandidate::where('status', 'rejected')->count() }}) Rejected</button>
                 <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
@@ -1004,7 +1003,7 @@
                     <div class="panel">
                         <div class="panel-body">
                             <form action="" class="bravo-form-item">
-                                <div class="table-responsive">
+                                <div class="table-responsive" id="horizontal">
                                     <table class="table table-hover table-vertical-middle">
                                         <thead>
                                             <tr>
@@ -1016,7 +1015,7 @@
                                                 <th width="150px"> {{ __('CV') }}</th>
                                                 <th width="150px"> {{ __('Date Applied') }}</th>
                                                 <th width="100px"> {{ __('Status') }}</th>
-                                                <th width="100px"> {{ __('Remarks') }}</th>
+                                                {{-- <th width="100px"> {{ __('Remarks') }}</th>
                                                 <th width="100px"> {{ __('Crew Code') }}</th>
                                                 <th width="100px"> {{ __('Source') }}</th>
                                                 <th width="100px"> {{ __('Applied Position') }}</th>
@@ -1032,7 +1031,7 @@
                                                 <th width="100px"> {{ __('CCM') }}</th>
                                                 <th width="100px"> {{ __('Experience') }}</th>
                                                 <th width="100px"> {{ __('Application Form') }}</th>
-                                                <th width="100px"> {{ __('Contact No') }}</th>
+                                                <th width="100px"> {{ __('Contact No') }}</th> --}}
                                                 <th width="100px"> {{ __('interview date') }}</th>
                                                 <th width="100px"> {{ __('interview by') }}</th>
                                                 <th width="100px"> {{ __('interview result') }}</th>
@@ -1171,7 +1170,7 @@
                                                         <td><span
                                                                 class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
                                                         </td>
-                                                        <td>{{ $row->remarks }}</td>
+                                                        {{-- <td>{{ $row->remarks }}</td>
                                                         <td>{{ $row->crew_code }}</td>
                                                         <td>{{ $row->source }}</td>
                                                         <td>{{ $row->applied_position }}</td>
@@ -1187,7 +1186,7 @@
                                                         <td>{{ $row->ccm }}</td>
                                                         <td>{{ $row->experience }}</td>
                                                         <td>{{ $row->application_form }}</td>
-                                                        <td>{{ $row->contact_no }}</td>
+                                                        <td>{{ $row->contact_no }}</td> --}}
                                                         <td>{{ $row->interview_date }}</td>
                                                         <td>{{ $row->interview_by }}</td>
                                                         <td>{{ $row->interview_result }}</td>

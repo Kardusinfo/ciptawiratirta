@@ -104,7 +104,9 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     <span class="avatar-text"><?php echo e(ucfirst(Auth::user()->getDisplayName()[0])); ?></span>
                                 <?php endif; ?>
                                 <span
-                                    class="full-name"><?php echo e(__('Hi, :Name', ['name' => Auth::user()->getDisplayName()])); ?></span>
+                                    class="full-name">
+                                    
+                                </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
@@ -120,11 +122,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                         href="<?php echo e(route('user.change_password')); ?>"><?php echo e(__('Change password')); ?></a>
                                 </li>
                                 <?php if(is_employer()): ?>
-                                    <li class="menu-hr"><a
-                                            href="<?php echo e(route('job.admin.index')); ?>"><?php echo e(__('My Jobs')); ?></a></li>
-                                    <li class="menu-hr"><a
-                                            href="<?php echo e(route('job.admin.allApplicants')); ?>"><?php echo e(__('All Applicants')); ?></a>
-                                    </li>
+                                        
+                                    
                                     
                                     
                                     
@@ -209,13 +208,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                             <?php endif; ?>
                             <li class="menu-hr"><a
                                     href="<?php echo e(route('user.change_password')); ?>"><?php echo e(__('Change password')); ?></a></li>
-                            <?php if(is_employer()): ?>
-                                <li class="menu-hr"><a href="<?php echo e(route('job.admin.index')); ?>"><?php echo e(__('My Jobs')); ?></a>
-                                </li>
-                                <li class="menu-hr"><a
-                                        href="<?php echo e(route('job.admin.allApplicants')); ?>"><?php echo e(__('All Applicants')); ?></a>
-                                </li>
-                            <?php endif; ?>
+                            
                             <?php if(is_candidate() && !is_admin()): ?>
                                 <li class="menu-hr"><a
                                         href="<?php echo e(route('candidate.admin.myApplied')); ?>"><?php echo e(__('My Applied')); ?></a>
@@ -253,6 +246,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 </header>
 <!--End Main Header -->
 
+<<<<<<< HEAD
 <?php $__env->startSection('footer'); ?>
 <script>
     const headerStyleTwo = document.getElementsByClassName('slideInDown');
@@ -280,9 +274,61 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 <style>
     .depth-1 a {
         color: black !important;
+=======
+
+
+<style>
+    .depth-1 a, .depth-0 a {
+        /* color: #051650 !important; */
+        color: #f9faff !important
+    }
+
+    .main-header.header-style-two.header-style-two .depth-0 a{
+        color: #ffffff !important;
+    }
+    .main-header.header-style-two.header-style-two .dropdown.depth-0 ul li a{
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal .depth-0 a {
+        color: #051650 !important;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .depth-0 a {
+        color: #ffffff !important;
+>>>>>>> 21e9ae01c9fe2d1b373cfc2666a226bcdec153f3
     }
 
     .main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login {
         color: #051650;
     }
+<<<<<<< HEAD
+=======
+
+    .main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+    .main-header.header-style-two.normal .main-box .outer-box .login-item .is_login {
+        color: #051650;
+    }
+
+    .main-header.header-style-two.normal.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
+        color: #ffffff;
+    }
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+>>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+=======
+    #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
+        color: #ffffff !important;
+    }
+
+>>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+>>>>>>> 21e9ae01c9fe2d1b373cfc2666a226bcdec153f3
 </style><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/parts/header.blade.php ENDPATH**/ ?>

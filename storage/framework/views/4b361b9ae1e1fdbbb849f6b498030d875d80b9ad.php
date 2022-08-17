@@ -139,10 +139,10 @@
             <div class="tab">
 
                 <button class="tablinks" onclick="openCity(event, 'Paris')">(1) Profile Not Completed</button>
-                <button class="tablinks" onclick="openCity(event, 'London')">(2) Ready to Approve</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">(2) Profile Complete</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">(3) Approved</button>
                 <button class="tablinks" onclick="openCity(event, 'Kelsi')">Rejected</button>
-                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
+                <button class="tablinks" onclick="openCity(event, 'Andri')">New Apply</button>
             </div>
 
 
@@ -908,7 +908,7 @@
                     <div class="panel">
                         <div class="panel-body">
                             <form action="" class="bravo-form-item">
-                                <div class="table-responsive">
+                                <div class="table-responsive" id="horizontal">
                                     <table class="table table-hover table-vertical-middle">
                                         <thead>
                                             <tr>
@@ -920,23 +920,7 @@
                                                 <th width="150px"> <?php echo e(__('CV')); ?></th>
                                                 <th width="150px"> <?php echo e(__('Date Applied')); ?></th>
                                                 <th width="100px"> <?php echo e(__('Status')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Remarks')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Crew Code')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Source')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Applied Position')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Department')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Gender')); ?></th>
-                                                <th width="100px"> <?php echo e(__('D.O.B')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Age')); ?></th>
-                                                <th width="100px"> <?php echo e(__('vaccination yf')); ?></th>
-                                                <th width="100px"> <?php echo e(__('vaccination covid 19')); ?></th>
-                                                <th width="100px"> <?php echo e(__('CID')); ?></th>
-                                                <th width="100px"> <?php echo e(__('COC')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Rating Able')); ?></th>
-                                                <th width="100px"> <?php echo e(__('CCM')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Experience')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Application Form')); ?></th>
-                                                <th width="100px"> <?php echo e(__('Contact No')); ?></th>
+                                                
                                                 <th width="100px"> <?php echo e(__('interview date')); ?></th>
                                                 <th width="100px"> <?php echo e(__('interview by')); ?></th>
                                                 <th width="100px"> <?php echo e(__('interview result')); ?></th>
@@ -1081,23 +1065,7 @@
                                                         <td><span
                                                                 class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
                                                         </td>
-                                                        <td><?php echo e($row->remarks); ?></td>
-                                                        <td><?php echo e($row->crew_code); ?></td>
-                                                        <td><?php echo e($row->source); ?></td>
-                                                        <td><?php echo e($row->applied_position); ?></td>
-                                                        <td><?php echo e($row->department); ?></td>
-                                                        <td><?php echo e($row->gender); ?></td>
-                                                        <td><?php echo e($row->d_o_b); ?></td>
-                                                        <td><?php echo e($row->age); ?></td>
-                                                        <td><?php echo e($row->vaccination_yf); ?></td>
-                                                        <td><?php echo e($row->vaccination_covid_19); ?></td>
-                                                        <td><?php echo e($row->cid); ?></td>
-                                                        <td><?php echo e($row->coc); ?></td>
-                                                        <td><?php echo e($row->rating_able); ?></td>
-                                                        <td><?php echo e($row->ccm); ?></td>
-                                                        <td><?php echo e($row->experience); ?></td>
-                                                        <td><?php echo e($row->application_form); ?></td>
-                                                        <td><?php echo e($row->contact_no); ?></td>
+                                                        
                                                         <td><?php echo e($row->interview_date); ?></td>
                                                         <td><?php echo e($row->interview_by); ?></td>
                                                         <td><?php echo e($row->interview_result); ?></td>
