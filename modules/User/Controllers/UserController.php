@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\User\Controllers;
 
 use App\Notifications\AdminChannelServices;
@@ -98,7 +99,8 @@ class UserController extends FrontendController
         return view('User::frontend.profile', $data);
     }
 
-    public function profileUpdate(Request $request){
+    public function profileUpdate(Request $request)
+    {
         $user = Auth::user();
         $request->validate([
             'first_name' => 'required|max:255',
@@ -111,7 +113,7 @@ class UserController extends FrontendController
                 Rule::unique('users')->ignore($user->id)
             ],
         ]);
-//        $input = $request->except('bio');
+        //        $input = $request->except('bio');
         // dd($user->fill($request->input()));
         $user->fill($request->input());
         $user->bio = clean($request->input('bio'));
@@ -238,16 +240,16 @@ class UserController extends FrontendController
     public function userRegister(Request $request)
     {
         $rules = [
-//            'first_name' => [
-//                'required',
-//                'string',
-//                'max:255'
-//            ],
-//            'last_name'  => [
-//                'required',
-//                'string',
-//                'max:255'
-//            ],
+            //            'first_name' => [
+            //                'required',
+            //                'string',
+            //                'max:255'
+            //            ],
+            //            'last_name'  => [
+            //                'required',
+            //                'string',
+            //                'max:255'
+            //            ],
             'email'      => [
                 'required',
                 'string',
@@ -259,16 +261,16 @@ class UserController extends FrontendController
                 'required',
                 'string'
             ],
-//            'phone'       => ['required','unique:users'],
-//            'term'       => ['required'],
+            //            'phone'       => ['required','unique:users'],
+            //            'term'       => ['required'],
         ];
         $messages = [
-           // 'phone.required'      => __('Phone is required field'),
+            // 'phone.required'      => __('Phone is required field'),
             'email.required'      => __('Email is required field'),
             'email.email'         => __('Email invalidate'),
             'password.required'   => __('Password is required field'),
             //'first_name.required' => __('The first name is required field'),
-           // 'last_name.required'  => __('The last name is required field'),
+            // 'last_name.required'  => __('The last name is required field'),
             //'term.required'       => __('The terms and conditions field is required'),
         ];
         if (ReCaptchaEngine::isEnable() and setting_item("recaptcha_enable")) {
@@ -291,12 +293,12 @@ class UserController extends FrontendController
 
             $user = \App\User::create([
                 'first_name' => $request->input('email'),
-               // 'last_name'  => $request->input('last_name'),
+                // 'last_name'  => $request->input('last_name'),
                 'name' => $request->input('email'),
                 'email'      => $request->input('email'),
                 'slug'      => $request->input('email'),
                 'password'   => Hash::make($request->input('password')),
-                'status'    => $request->input('publish','publish'),
+                'status'    => $request->input('publish', 'publish'),
                 'phone'    => $request->input('phone'),
             ]);
             event(new Registered($user));
@@ -308,14 +310,12 @@ class UserController extends FrontendController
                 Log::warning("SendMailUserRegistered: " . $exception->getMessage());
             }
             $role = $request->input('type');
-            if(in_array($role, ['employer','candidate']))
-            {
+            if (in_array($role, ['employer', 'candidate'])) {
                 $user->assignRole($role);
-                if($role == 'employer')
-                {
-                    $this->company::firstOrCreate(['name'=>$request->input('email'),'owner_id'=>$user->id,'status'=>'draft']);
+                if ($role == 'employer') {
+                    $this->company::firstOrCreate(['name' => $request->input('email'), 'owner_id' => $user->id, 'status' => 'draft']);
                 }
-                if($role == 'candidate'){
+                if ($role == 'candidate') {
                     Candidate::query()->insert(['id' => $user->id]);
                 }
             }
@@ -358,5 +358,4 @@ class UserController extends FrontendController
         $request->session()->invalidate();
         return redirect(app_get_locale(false, '/'));
     }
-
 }
