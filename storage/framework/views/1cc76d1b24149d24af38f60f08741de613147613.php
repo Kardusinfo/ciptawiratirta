@@ -246,7 +246,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 </header>
 <!--End Main Header -->
 
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 <?php $__env->startSection('footer'); ?>
 <script>
     const headerStyleTwo = document.getElementsByClassName('slideInDown');
@@ -302,8 +302,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
     .main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login {
         color: #051650;
     }
-<<<<<<< HEAD
-=======
+/* <<<<<<< HEAD
+======= */
 
     .main-header.header-style-two.header-shaddow.fixed-header.animated.slideInDown .main-box .outer-box .login-item .is_login {
         color: #ffffff;
@@ -317,18 +317,18 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
         color: #ffffff;
     }
 
+/* <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
+======= */
     #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
         color: #ffffff !important;
     }
->>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
-=======
+/* >>>>>>> 5e4891f86b1f9c1ba7f7ad944329cb5e10b0e220
+======= */
     #nav-mobile .mm-panels #navbar .mm-listview .mm-listitem .mm-listitem__text {
         color: #ffffff !important;
     }
 
->>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
->>>>>>> 21e9ae01c9fe2d1b373cfc2666a226bcdec153f3
+/* >>>>>>> 594e4f48fa1129abd4969f88831f695e8e927d01
+>>>>>>> 21e9ae01c9fe2d1b373cfc2666a226bcdec153f3 */
 </style><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/parts/header.blade.php ENDPATH**/ ?>
