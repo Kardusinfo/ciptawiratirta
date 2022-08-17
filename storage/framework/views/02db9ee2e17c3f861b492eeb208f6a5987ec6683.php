@@ -59,7 +59,7 @@
                 <div class="panel">
                     <div class="panel-body">
                         <form action="" class="bravo-form-item">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="horizontal">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>

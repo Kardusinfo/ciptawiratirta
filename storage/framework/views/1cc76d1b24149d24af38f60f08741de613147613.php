@@ -104,7 +104,9 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     <span class="avatar-text"><?php echo e(ucfirst(Auth::user()->getDisplayName()[0])); ?></span>
                                 <?php endif; ?>
                                 <span
-                                    class="full-name"><?php echo e(__('Hi, :Name', ['name' => Auth::user()->getDisplayName()])); ?></span>
+                                    class="full-name">
+                                    
+                                </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
@@ -120,11 +122,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                         href="<?php echo e(route('user.change_password')); ?>"><?php echo e(__('Change password')); ?></a>
                                 </li>
                                 <?php if(is_employer()): ?>
-                                    <li class="menu-hr"><a
-                                            href="<?php echo e(route('job.admin.index')); ?>"><?php echo e(__('My Jobs')); ?></a></li>
-                                    <li class="menu-hr"><a
-                                            href="<?php echo e(route('job.admin.allApplicants')); ?>"><?php echo e(__('All Applicants')); ?></a>
-                                    </li>
+                                        
+                                    
                                     
                                     
                                     
@@ -209,13 +208,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                             <?php endif; ?>
                             <li class="menu-hr"><a
                                     href="<?php echo e(route('user.change_password')); ?>"><?php echo e(__('Change password')); ?></a></li>
-                            <?php if(is_employer()): ?>
-                                <li class="menu-hr"><a href="<?php echo e(route('job.admin.index')); ?>"><?php echo e(__('My Jobs')); ?></a>
-                                </li>
-                                <li class="menu-hr"><a
-                                        href="<?php echo e(route('job.admin.allApplicants')); ?>"><?php echo e(__('All Applicants')); ?></a>
-                                </li>
-                            <?php endif; ?>
+                            
                             <?php if(is_candidate() && !is_admin()): ?>
                                 <li class="menu-hr"><a
                                         href="<?php echo e(route('candidate.admin.myApplied')); ?>"><?php echo e(__('My Applied')); ?></a>
@@ -257,7 +250,8 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 
 <style>
     .depth-1 a, .depth-0 a {
-        color: #051650 !important;
+        /* color: #051650 !important; */
+        color: #f9faff !important
     }
 
     .main-header.header-style-two.header-style-two .depth-0 a{
