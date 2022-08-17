@@ -136,12 +136,11 @@
         {{-- <div class="row"> --}}
 
             <div class="tab">
-
-                <button class="tablinks" onclick="openCity(event, 'Paris')">(1) Profile Not Completed</button>
-                <button class="tablinks" onclick="openCity(event, 'London')">(2) Profile Complete</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">(3) Approved</button>
-                <button class="tablinks" onclick="openCity(event, 'Kelsi')">Rejected</button>
-                <button class="tablinks" onclick="openCity(event, 'Andri')">New Apply</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">({{ \Modules\Job\Models\JobCandidate::where('status', 'pending')->count() }}) Profile Not Completed</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">({{ \Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count() }}) Ready to Approve</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">({{ \Modules\Job\Models\JobCandidate::where('status', 'approved')->count() }}) Approved</button>
+                <button class="tablinks" onclick="openCity(event, 'Kelsi')">({{ \Modules\Job\Models\JobCandidate::where('status', 'rejected')->count() }}) Rejected</button>
+                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
 
