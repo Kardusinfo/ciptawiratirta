@@ -6,7 +6,10 @@
     <div class="contact-section">
         <div class="auto-container">
             <div class="upper-box">
+                <center>
+                    <div class="contact-form default-form"> 
                 <div class="row">
+                    
                     <?php if(!empty($contact_lists = setting_item("page_contact_lists"))): ?>
                         <?php  $contact_lists = json_decode($contact_lists,true) ?>
                         <?php $__currentLoopData = $contact_lists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -19,7 +22,8 @@
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php endif; ?>
-                </div>
+                    </div>
+                </div></center>
             </div>
 
             <div class="contact-form default-form">
@@ -80,20 +84,6 @@
             </div>
         </div>
     </div>
-    <div class="call-to-action style-two">
-        <div class="auto-container">
-            <div class="outer-box">
-                <div class="content-column">
-                    <div class="sec-title">
-                        <h2><?php echo e(setting_item('contact_call_to_action_title')); ?></h2>
-                        <div class="text"><?php echo clean(setting_item('contact_call_to_action_sub_title')); ?></div>
-                        <a href="<?php echo e(setting_item('contact_call_to_action_button_link')); ?>" class="theme-btn btn-style-one bg-blue"><span class="btn-title"><?php echo e(setting_item('contact_call_to_action_button_text')); ?></span></a>
-                    </div>
-                </div>
-
-                <div class="image-column" style="background-image: url(<?php echo e(get_file_url(setting_item('contact_call_to_action_image'),'full')); ?>);"></div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Contact/Views/frontend/blocks/contact/index.blade.php ENDPATH**/ ?>

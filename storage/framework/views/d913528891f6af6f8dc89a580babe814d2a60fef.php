@@ -26,6 +26,8 @@
             });
             <?php endif; ?>
         })
+
+        
     </script>
 <?php $__env->stopSection(); ?>
 

@@ -1,3 +1,9 @@
+<style>
+    .theme-btn {
+        font-size: 1rem;
+    }
+</style>
+
 <section class="call-to-action-two" <?php if(!empty($bg_image_url)): ?> style="background-image: url(<?php echo e($bg_image_url ?? ""); ?>) !important;" <?php endif; ?>>
     <div class="auto-container">
         <div class="sec-title light text-center">
@@ -6,12 +12,9 @@
         </div>
 
         <div class="btn-box">
-            <?php if(!empty($link_search)): ?>
-                <a href="<?php echo e($url_search); ?>" class="theme-btn btn-style-three"><?php echo e($link_search); ?></a>
-            <?php endif; ?>
-            <?php if(!empty($link_apply)): ?>
-                <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two"><?php echo e($link_apply); ?></a>
-            <?php endif; ?>
+            
+            <a href="<?php echo e('/job'); ?>" class="theme-btn  btn-style-three">Find Jobs</a>
+            <a href="<?php echo e('/page/recruitment-procedure'); ?>" class="theme-btn btn-style-two">Recruitment Procudure</a>
         </div>
     </div>
 </section>

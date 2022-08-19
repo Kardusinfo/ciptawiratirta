@@ -5,7 +5,10 @@
     <div class="contact-section">
         <div class="auto-container">
             <div class="upper-box">
+                <center>
+                    <div class="contact-form default-form"> 
                 <div class="row">
+                    
                     @if(!empty($contact_lists = setting_item("page_contact_lists")))
                         @php  $contact_lists = json_decode($contact_lists,true) @endphp
                         @foreach( $contact_lists as $item)
@@ -18,7 +21,8 @@
                             </div>
                         @endforeach
                     @endif
-                </div>
+                    </div>
+                </div></center>
             </div>
 
             <div class="contact-form default-form">
@@ -76,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="call-to-action style-two">
+    {{-- <div class="call-to-action style-two">
         <div class="auto-container">
             <div class="outer-box">
                 <div class="content-column">
@@ -90,5 +94,5 @@
                 <div class="image-column" style="background-image: url({{ get_file_url(setting_item('contact_call_to_action_image'),'full') }});"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>

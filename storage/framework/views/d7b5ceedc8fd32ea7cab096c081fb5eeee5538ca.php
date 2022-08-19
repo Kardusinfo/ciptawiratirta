@@ -24,5 +24,4 @@
     <!-- Mobile Nav -->
     <div id="nav-mobile"></div>
 </header>
-<!--End Main Header -->
-<?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/auth/header.blade.php ENDPATH**/ ?>
+<!--End Main Header --><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Layout/auth/header.blade.php ENDPATH**/ ?>
