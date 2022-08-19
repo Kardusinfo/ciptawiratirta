@@ -30,6 +30,7 @@
 @endif
 <select class="chosen-select" name="orderby" onchange="this.form.submit()">
     <option value="">{{__('Sort by (Default)')}}</option>
+    <option value="urgent" @if(request()->get('orderby') == 1) selected @endif>{{__('Urgent')}}</option>
     <option value="new" @if(request()->get('orderby') == 'new') selected @endif>{{__('Newest')}}</option>
     <option value="old" @if(request()->get('orderby') == 'old') selected @endif>{{__('Oldest')}}</option>
     <option value="name_high" @if(request()->get('orderby') == 'name_high') selected @endif>{{__('Name [a->z]')}}</option>
