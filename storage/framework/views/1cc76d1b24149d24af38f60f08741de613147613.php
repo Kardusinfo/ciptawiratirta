@@ -247,35 +247,6 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 <!--End Main Header -->
 
 
-<?php $__env->startSection('footer'); ?>
-<script>
-    const headerStyleTwo = document.getElementsByClassName('slideInDown');
-    
-    $(window).on('scroll', function() {
-        if ($('.slideInDown').length > 0) {
-            $('.logo_2').show();
-            $('.logo_1').hide();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
-            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#ffffff !important');
-            // console.log($('#id_logo').val())
-        }else{
-            $('.logo_2').hide();
-            $('.logo_1').show();
-            $('.nav.main-menu ul .depth-1 a').attr('style', 'color:#051650 !important');
-            $('.main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login').attr('style', 'color:#051650 !important');
-
-            // $('.logo_1').hide();
-            // console.log($('#id_logo_two').val())
-        }
-});
-</script>
-<?php $__env->stopSection(); ?>
-
-<style>
-    .depth-1 a {
-        color: black !important;
-=======
-
 
 <style>
     .depth-1 a, .depth-0 a {
@@ -296,7 +267,6 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
 
     .main-header.header-style-two.normal.fixed-header.animated.slideInDown .depth-0 a {
         color: #ffffff !important;
-
     }
 
     .main-header.header-style-two.header-shaddow .main-box .outer-box .login-item .is_login {

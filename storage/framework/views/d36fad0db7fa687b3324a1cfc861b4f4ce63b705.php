@@ -63,7 +63,7 @@
     .modal-close:hover {
         background: #474747;
     }
-    
+
     .modal-close-line {
         position: absolute;
         top: 16px;
@@ -76,6 +76,7 @@
     .modal-close-line.one {
         transform: rotate(45deg);
     }
+
     .modal-close-line.two {
         transform: rotate(-45deg);
     }
@@ -84,7 +85,7 @@
     style="background-image: url(<?php if(!empty($banner_image)): ?> <?php echo e($banner_image_url); ?> <?php endif; ?>)">
     <div class="auto-container">
         <div class="cotnent-box">
-            
+
             <div class="title-box wow fadeInUp" data-wow-delay='300ms'>
                 <h3><?php echo $title; ?></h3>
                 <div class="text"><?php echo e($sub_title); ?></div>
@@ -95,13 +96,17 @@
             <div id="modal_container" class="modal-container">
                 <div class="modal-custom">
                     
-                    
-                    <?php if($logo_id = setting_item('banner_id')): ?>
-                        <?php $logo = get_file_url($logo_id,'full') ?>
-                        <img src="<?php echo e($logo); ?>">
-                    <?php else: ?>
-                        <img src="<?php echo e(asset('/popup.png')); ?>" alt="logo">
-                    <?php endif; ?>
+                    <a class="go-to" href="/job?orderby=urgent&limit=10">
+                        
+
+                        <?php if($logo_id = setting_item('banner_id')): ?>
+                            <?php $logo = get_file_url($logo_id,'full') ?>
+                            <img src="<?php echo e($logo); ?>">
+                        <?php else: ?>
+                            <img src="<?php echo e(asset('/popup.png')); ?>" alt="logo">
+                        <?php endif; ?>
+
+                    </a>
                     
                     <div id="modal_close" class="modal-close">
                         <span class="modal-close-line one"></span>
@@ -136,17 +141,17 @@
 
 <?php echo $__env->yieldContent('script.body'); ?>
 <script type="text/javascript">
-    window.onload = function () {
+    window.onload = function() {
         var modal_container = document.getElementById("modal_container");
         var modal_close = document.getElementById("modal_close");
-        
+
         setTimeout((event) => {
             modal_container.style.display = 'block';
         }, 2000);
 
-        modal_close.onclick = function () {
+        modal_close.onclick = function() {
             modal_container.style.display = 'none';
         }
     }
-    
-</script><?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Template/Views/frontend/blocks/hero-banner/style_9.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH /home/forkomdi/ciptawiratirta.com/modules/Template/Views/frontend/blocks/hero-banner/style_9.blade.php ENDPATH**/ ?>

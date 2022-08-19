@@ -30,6 +30,7 @@
 <?php endif; ?>
 <select class="chosen-select" name="orderby" onchange="this.form.submit()">
     <option value=""><?php echo e(__('Sort by (Default)')); ?></option>
+    <option value="urgent" <?php if(request()->get('orderby') == 1): ?> selected <?php endif; ?>><?php echo e(__('Urgent')); ?></option>
     <option value="new" <?php if(request()->get('orderby') == 'new'): ?> selected <?php endif; ?>><?php echo e(__('Newest')); ?></option>
     <option value="old" <?php if(request()->get('orderby') == 'old'): ?> selected <?php endif; ?>><?php echo e(__('Oldest')); ?></option>
     <option value="name_high" <?php if(request()->get('orderby') == 'name_high'): ?> selected <?php endif; ?>><?php echo e(__('Name [a->z]')); ?></option>
