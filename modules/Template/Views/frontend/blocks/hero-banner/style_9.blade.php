@@ -103,7 +103,7 @@
             <div id="modal_container" class="modal-container">
                 <div class="modal-custom">
                     {{-- Image --}}
-                    <a class="go-to" href="/job">
+                    <a class="go-to" href="/job?orderby=urgent&limit=10">
                         {{-- <img class="modal-image" src="popup.png" /> --}}
 
                         @if ($logo_id = setting_item('banner_id'))
