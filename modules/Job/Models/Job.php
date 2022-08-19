@@ -264,6 +264,9 @@ class Job extends BaseModel
 
         if(!empty($orderby = $request->query("orderby"))) {
             switch($orderby) {
+                case"urgent":
+                    $model_job->where("is_urgent", 1)->orderBy("id", "asc");
+                    break;
                 case"new":
                     $model_job->orderBy("id", "desc");
                     break;
