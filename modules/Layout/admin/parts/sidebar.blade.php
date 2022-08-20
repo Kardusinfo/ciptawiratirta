@@ -309,7 +309,7 @@ if (!empty($custom_modules)) {
                     <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
                     Candidate
                 </a>
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="">
                     <li class=" has-children http:__localhost:8000_admin_module_candidate"><a
                             href="https://ciptawiratirta.com/admin/module/candidate">
@@ -369,7 +369,7 @@ if (!empty($custom_modules)) {
                     <span class="icon text-center"><i class="icon ion-ios-cog"></i></span>
                     Setting
                 </a>
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_core_settings_index_general"><a
                             href="https://ciptawiratirta.com/admin/module/core/settings/index/general">
@@ -434,7 +434,7 @@ if (!empty($custom_modules)) {
                     <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
                     Tools
                 </a>
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_core_tools"><a
                             href="https://ciptawiratirta.com/admin/module/language">
@@ -458,7 +458,7 @@ if (!empty($custom_modules)) {
                     <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                     Users
                 </a>
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_user"><a href="https://ciptawiratirta.com/admin/module/user">
                             All Users</a>
@@ -478,7 +478,7 @@ if (!empty($custom_modules)) {
                     <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
                     Report
                 </a>
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_contact"><a
                             href="https://ciptawiratirta.com/admin/module/contact">
