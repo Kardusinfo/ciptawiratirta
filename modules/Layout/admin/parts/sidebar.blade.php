@@ -292,13 +292,12 @@ if (!empty($custom_modules)) {
         </ul>
     </li>
 
-    <li class=" has-children admin_module_candidate position-26"><a
-            href="https://ciptawiratirta.com/admin/module/candidate">
+    <li class=" has-children admin_module_candidate position-26"><a href="https://ciptawiratirta.com/admin/module/candidate">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             Candidate
         </a>
         {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-        <ul class="">
+        <ul class="children">
             <li class=" has-children admin_module_candidate"><a
                     href="https://ciptawiratirta.com/admin/module/candidate">
                     All Candidates</a>
