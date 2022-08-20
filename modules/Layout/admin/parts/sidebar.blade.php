@@ -229,7 +229,8 @@ if (!empty($custom_modules)) {
             <li class=" has-children admin_module_company"><a href="https://ciptawiratirta.com/admin/module/company">
                     All Company</a>
             </li>
-            <li class=" has-children admin_module_company"><a href="https://ciptawiratirta.com/admin/module/company/create">
+            <li class=" has-children admin_module_company"><a
+                    href="https://ciptawiratirta.com/admin/module/company/create">
                     Add Company</a>
             </li>
             <li class=" has-children admin_module_company"><a
@@ -276,18 +277,43 @@ if (!empty($custom_modules)) {
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
-            <li class="active has-children admin_module_news"><a href="https://ciptawiratirta.com/admin/module/news/create">
+            <li class="active has-children admin_module_news"><a
+                    href="https://ciptawiratirta.com/admin/module/news/create">
                     Add News</a>
             </li>
             <li class="active has-children admin_module_news"><a
                     href="https://ciptawiratirta.com/admin/module/news/category">
                     Categories</a>
             </li>
-            <li class="active has-children admin_module_news"><a href="https://ciptawiratirta.com/admin/module/news/tag">
+            <li class="active has-children admin_module_news"><a
+                    href="https://ciptawiratirta.com/admin/module/news/tag">
                     Tags</a>
             </li>
         </ul>
     </li>
+
+    <li class=" has-children admin_module_candidate position-26"><a
+            href="https://ciptawiratirta.com/admin/module/candidate">
+            <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
+            Candidate
+        </a>
+        {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+        <ul class="">
+            <li class=" has-children admin_module_candidate"><a
+                    href="https://ciptawiratirta.com/admin/module/candidate">
+                    All Candidates</a>
+            </li>
+            <li class=" has-children admin_module_candidate"><a
+                    href="https://ciptawiratirta.com/admin/module/user/create?candidate_create=1">
+                    Add Candidate</a>
+            </li>
+            <li class=" has-children admin_module_candidate"><a
+                    href="https://ciptawiratirta.com/admin/module/candidate/category">
+                    Category</a>
+            </li>
+        </ul>
+    </li>
+
     <li class=" has-children"><a href="#">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             Other Menu
@@ -304,47 +330,24 @@ if (!empty($custom_modules)) {
 
 
 
-            <li class=" has-children http:__localhost:8000_admin_module_candidate position-26"><a
-                    href="https://ciptawiratirta.com/admin/module/candidate">
-                    <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-                    Candidate
-                </a>
-                {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-                <ul class="">
-                    <li class=" has-children http:__localhost:8000_admin_module_candidate"><a
-                            href="https://ciptawiratirta.com/admin/module/candidate">
-                            All Candidates</a>
-                    </li>
-                    <li class=" has-children http:__localhost:8000_admin_module_candidate"><a
-                            href="https://ciptawiratirta.com/admin/module/user/create?candidate_create=1">
-                            Add Candidate</a>
-                    </li>
-                    <li class=" has-children http:__localhost:8000_admin_module_candidate"><a
-                            href="https://ciptawiratirta.com/admin/module/candidate/category">
-                            Category</a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" http:__localhost:8000_admin_module_company_my-contact position-28"><a
+
+            <li class=" admin_module_company_my-contact position-28"><a
                     href="https://ciptawiratirta.com/admin/module/company/my-contact">
                     <span class="icon text-center"><i class="ion-md-mail"></i></span>
                     My Contact
                 </a>
             </li>
-            <li class=" http:__localhost:8000_admin_module_skill position-30"><a
-                    href="https://ciptawiratirta.com/admin/module/skill">
+            <li class=" admin_module_skill position-30"><a href="https://ciptawiratirta.com/admin/module/skill">
                     <span class="icon text-center"><i class="icon ion-md-bookmarks"></i></span>
                     Skill
                 </a>
             </li>
-            <li class=" http:__localhost:8000_admin_module_location position-40"><a
-                    href="https://ciptawiratirta.com/admin/module/location">
+            <li class=" admin_module_location position-40"><a href="https://ciptawiratirta.com/admin/module/location">
                     <span class="icon text-center"><i class="icon ion-md-compass"></i></span>
                     Location
                 </a>
             </li>
-            <li class=" http:__localhost:8000_admin_module_user_plan position-50"><a
-                    href="https://ciptawiratirta.com/admin/module/user/plan">
+            <li class=" admin_module_user_plan position-50"><a href="https://ciptawiratirta.com/admin/module/user/plan">
                     <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                     User Plans
                 </a>
@@ -460,7 +463,8 @@ if (!empty($custom_modules)) {
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
-                    <li class=" has-children admin_module_user"><a href="https://ciptawiratirta.com/admin/module/user">
+                    <li class=" has-children admin_module_user"><a
+                            href="https://ciptawiratirta.com/admin/module/user">
                             All Users</a>
                     </li>
                     <li class=" has-children admin_module_user"><a
