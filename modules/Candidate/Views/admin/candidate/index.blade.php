@@ -9,8 +9,8 @@
             </div>
         </div>
         @include('admin.message')
-        <div class="filter-div d-flex justify-content-between ">
-            <div class="col-left">
+        <div class="filter-div d-flex justify-content-end ">
+            {{-- <div class="col-left">
                 @if(!empty($rows))
                     <form method="post" action="{{url('admin/module/candidate/bulkEdit')}}"
                           class="filter-form filter-form-left d-flex justify-content-start">
@@ -22,7 +22,7 @@
                         <button data-confirm="{{__("Do you want to delete?")}}" class="btn-info btn btn-icon dungdt-apply-form-btn" type="button">{{__('Apply')}}</button>
                     </form>
                 @endif
-            </div>
+            </div> --}}
             <div class="col-left">
                 <form method="get" action="{{url('/admin/module/candidate/')}} " class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name')}}"
@@ -48,6 +48,15 @@
                         <option @if((Request()->allow_search == 'hide')) selected @endif value="hide"> {{__('Hide')}} </option>
                     </select>
                     <button class="btn-info btn btn-icon btn_search" type="submit">{{__('Search Candidate')}}</button>
+                </form>
+                <form method="post" action="{{url('admin/module/candidate/bulkEdit')}}"
+                          class="filter-form filter-form-left d-flex justify-content-end">
+                    {{csrf_field()}}
+                    <select name="action" class="form-control">
+                        <option value="">{{__(" Bulk Actions ")}}</option>
+                        <option value="delete">{{__(" Delete ")}}</option>
+                    </select>
+                    <button data-confirm="{{__("Do you want to delete?")}}" class="btn-info btn btn-icon dungdt-apply-form-btn" type="button">{{__('Apply')}}</button>
                 </form>
             </div>
         </div>
