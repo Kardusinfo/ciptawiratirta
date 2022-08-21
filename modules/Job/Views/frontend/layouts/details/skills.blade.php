@@ -1,5 +1,5 @@
 <!-- Job Skills -->
-@if($row->skills)
+{{-- @if($row->skills)
 <h4 class="widget-title">{{ __("Job Skills") }}</h4>
 <div class="widget-content">
     <ul class="job-skills">
@@ -9,4 +9,4 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif --}}
