@@ -219,96 +219,96 @@ if (!empty($custom_modules)) {
 
 
 <ul class="main-menu">
-
-    <li class=" has-children admin_module_company position-22"><a href="https://ciptawiratirta.com/admin/module/company">
+    
+    <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             Company
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
-            <li class=" has-children admin_module_company"><a href="https://ciptawiratirta.com/admin/module/company">
+            <li class=" has-children admin_module_company"><a href="/admin/module/company">
                     All Company</a>
             </li>
             <li class=" has-children admin_module_company"><a
-                    href="https://ciptawiratirta.com/admin/module/company/create">
+                    href="/admin/module/company/create">
                     Add Company</a>
             </li>
             <li class=" has-children admin_module_company"><a
-                    href="https://ciptawiratirta.com/admin/module/company/attribute">
+                    href="/admin/module/company/attribute">
                     Attributes</a>
             </li>
             <li class=" has-children admin_module_company"><a
-                    href="https://ciptawiratirta.com/admin/module/company/category">
+                    href="/admin/module/company/category">
                     Ship</a>
             </li>
         </ul>
     </li>
     
-    <li class=" has-children admin_module_job position-24"><a href="https://ciptawiratirta.com/admin/module/job">
+    <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             Job
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
-            <li class=" has-children admin_module_job"><a href="https://ciptawiratirta.com/admin/module/job">
+            <li class=" has-children admin_module_job"><a href="/admin/module/job">
                     All Jobs</a>
             </li>
-            <li class=" has-children admin_module_job"><a href="https://ciptawiratirta.com/admin/module/job/create">
+            <li class=" has-children admin_module_job"><a href="/admin/module/job/create">
                     Add Job</a>
             </li>
-            <li class=" has-children admin_module_job"><a href="https://ciptawiratirta.com/admin/module/job/job-type">
+            <li class=" has-children admin_module_job"><a href="/admin/module/job/job-type">
                     Job Types</a>
             </li>
-            <li class=" has-children admin_module_job"><a href="https://ciptawiratirta.com/admin/module/job/category">
+            <li class=" has-children admin_module_job"><a href="/admin/module/job/category">
                     Category</a>
             </li>
         </ul>
     </li>
 
     <li class=" admin_module_job_all-applicants position-25"><a
-            href="https://ciptawiratirta.com/admin/module/job/all-applicants">
+            href="/admin/module/job/all-applicants">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             All Applicants
         </a>
     </li>
 
-    <li class=" has-children admin_module_news position-10"><a href="https://ciptawiratirta.com/admin/module/news">
+    <li class=" has-children admin_module_news position-10"><a href="/admin/module/news">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             News
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
             <li class="active has-children admin_module_news"><a
-                    href="https://ciptawiratirta.com/admin/module/news/create">
+                    href="/admin/module/news/create">
                     Add News</a>
             </li>
             <li class="active has-children admin_module_news"><a
-                    href="https://ciptawiratirta.com/admin/module/news/category">
+                    href="/admin/module/news/category">
                     Categories</a>
             </li>
             <li class="active has-children admin_module_news"><a
-                    href="https://ciptawiratirta.com/admin/module/news/tag">
+                    href="/admin/module/news/tag">
                     Tags</a>
             </li>
         </ul>
     </li>
 
-    <li class=" has-children admin_module_candidate position-26"><a href="https://ciptawiratirta.com/admin/module/candidate">
+    <li class=" has-children admin_module_candidate position-26"><a href="/admin/module/candidate">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             Candidate
         </a>
         {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
         <ul class="children">
             <li class=" has-children admin_module_candidate"><a
-                    href="https://ciptawiratirta.com/admin/module/candidate">
+                    href="/admin/module/candidate">
                     All Candidates</a>
             </li>
             <li class=" has-children admin_module_candidate"><a
-                    href="https://ciptawiratirta.com/admin/module/user/create?candidate_create=1">
+                    href="/admin/module/user/create?candidate_create=1">
                     Add Candidate</a>
             </li>
             <li class=" has-children admin_module_candidate"><a
-                    href="https://ciptawiratirta.com/admin/module/candidate/category">
+                    href="/admin/module/candidate/category">
                     Category</a>
             </li>
         </ul>
@@ -322,7 +322,7 @@ if (!empty($custom_modules)) {
         <ul class="children">
 
 
-            <li class=" admin_module_page position-20"><a href="https://ciptawiratirta.com/admin/module/page">
+            <li class=" admin_module_page position-20"><a href="/admin/module/page">
                     <span class="icon text-center"><i class="icon ion-ios-bookmarks"></i></span>
                     Page
                 </a>
@@ -332,160 +332,160 @@ if (!empty($custom_modules)) {
 
 
             <li class=" admin_module_company_my-contact position-28"><a
-                    href="https://ciptawiratirta.com/admin/module/company/my-contact">
+                    href="/admin/module/company/my-contact">
                     <span class="icon text-center"><i class="ion-md-mail"></i></span>
                     My Contact
                 </a>
             </li>
-            <li class=" admin_module_skill position-30"><a href="https://ciptawiratirta.com/admin/module/skill">
+            <li class=" admin_module_skill position-30"><a href="/admin/module/skill">
                     <span class="icon text-center"><i class="icon ion-md-bookmarks"></i></span>
                     Skill
                 </a>
             </li>
-            <li class=" admin_module_location position-40"><a href="https://ciptawiratirta.com/admin/module/location">
+            <li class=" admin_module_location position-40"><a href="/admin/module/location">
                     <span class="icon text-center"><i class="icon ion-md-compass"></i></span>
                     Location
                 </a>
             </li>
-            <li class=" admin_module_user_plan position-50"><a href="https://ciptawiratirta.com/admin/module/user/plan">
+            <li class=" admin_module_user_plan position-50"><a href="/admin/module/user/plan">
                     <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                     User Plans
                 </a>
             </li>
-            <li class=" admin_module_review position-55"><a href="https://ciptawiratirta.com/admin/module/review">
+            <li class=" admin_module_review position-55"><a href="/admin/module/review">
                     <span class="icon text-center"><i class="icon ion-ios-text"></i></span>
                     Reviews
                 </a>
             </li>
-            <li class=" admin_module_core_menu position-60"><a href="https://ciptawiratirta.com/admin/module/core/menu">
+            <li class=" admin_module_core_menu position-60"><a href="/admin/module/core/menu">
                     <span class="icon text-center"><i class="icon ion-ios-apps"></i></span>
                     Menu
                 </a>
             </li>
-            <li class=" admin_module_template position-70"><a href="https://ciptawiratirta.com/admin/module/template">
+            <li class=" admin_module_template position-70"><a href="/admin/module/template">
                     <span class="icon text-center"><i class="icon ion-logo-html5"></i></span>
                     Templates
                 </a>
             </li>
             <li class=" has-children admin_module_core_settings_index_general position-80"><a
-                    href="https://ciptawiratirta.com/admin/module/core/settings/index/general">
+                    href="/admin/module/core/settings/index/general">
                     <span class="icon text-center"><i class="icon ion-ios-cog"></i></span>
                     Setting
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/general">
+                            href="/admin/module/core/settings/index/general">
                             General Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/gig">
+                            href="/admin/module/core/settings/index/gig">
                             Gig Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/candidate">
+                            href="/admin/module/core/settings/index/candidate">
                             Candidate Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/company">
+                            href="/admin/module/core/settings/index/company">
                             Company Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/job">
+                            href="/admin/module/core/settings/index/job">
                             Job Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/news">
+                            href="/admin/module/core/settings/index/news">
                             News Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/order">
+                            href="/admin/module/core/settings/index/order">
                             Order Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/email">
+                            href="/admin/module/core/settings/index/email">
                             Email Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/user">
+                            href="/admin/module/core/settings/index/user">
                             User Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/user_plans">
+                            href="/admin/module/core/settings/index/user_plans">
                             User Plans Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/payment">
+                            href="/admin/module/core/settings/index/payment">
                             Payment Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/style">
+                            href="/admin/module/core/settings/index/style">
                             Style Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/advance">
+                            href="/admin/module/core/settings/index/advance">
                             Advance Settings</a>
                     </li>
                     <li class=" has-children admin_module_core_settings_index_general"><a
-                            href="https://ciptawiratirta.com/admin/module/core/settings/index/sms">
+                            href="/admin/module/core/settings/index/sms">
                             Sms Settings</a>
                     </li>
                 </ul>
             </li>
             <li class=" has-children admin_module_core_tools position-90"><a
-                    href="https://ciptawiratirta.com/admin/module/core/tools">
+                    href="/admin/module/core/tools">
                     <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
                     Tools
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_core_tools"><a
-                            href="https://ciptawiratirta.com/admin/module/language">
+                            href="/admin/module/language">
                             Languages</a>
                     </li>
                     <li class=" has-children admin_module_core_tools"><a
-                            href="https://ciptawiratirta.com/admin/module/language/translations">
+                            href="/admin/module/language/translations">
                             Translation Manager</a>
                     </li>
-                    <li class=" has-children admin_module_core_tools"><a href="https://ciptawiratirta.com/admin/logs">
+                    <li class=" has-children admin_module_core_tools"><a href="/admin/logs">
                             System Logs</a>
                     </li>
                     <li class=" has-children admin_module_core_tools"><a
-                            href="https://ciptawiratirta.com/admin/module/core/plugins">
+                            href="/admin/module/core/plugins">
                             Plugins</a>
                     </li>
                 </ul>
             </li>
             <li class=" has-children admin_module_user position-100"><a
-                    href="https://ciptawiratirta.com/admin/module/user">
+                    href="/admin/module/user">
                     <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                     Users
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_user"><a
-                            href="https://ciptawiratirta.com/admin/module/user">
+                            href="/admin/module/user">
                             All Users</a>
                     </li>
                     <li class=" has-children admin_module_user"><a
-                            href="https://ciptawiratirta.com/admin/module/user/role">
+                            href="/admin/module/user/role">
                             Role Manager</a>
                     </li>
                     <li class=" has-children admin_module_user"><a
-                            href="https://ciptawiratirta.com/admin/module/user/subscriber">
+                            href="/admin/module/user/subscriber">
                             Subscribers</a>
                     </li>
                 </ul>
             </li>
             <li class=" has-children admin_module_contact position-200"><a
-                    href="https://ciptawiratirta.com/admin/module/contact">
+                    href="/admin/module/contact">
                     <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
                     Report
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
                     <li class=" has-children admin_module_contact"><a
-                            href="https://ciptawiratirta.com/admin/module/contact">
+                            href="/admin/module/contact">
                             Contact Submissions</a>
                     </li>
                 </ul>
