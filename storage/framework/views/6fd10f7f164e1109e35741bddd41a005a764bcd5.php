@@ -1,0 +1,1 @@
+<?php echo $__env->make("Layout::user", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/failamir/Sites/localhost/superio200/resources/views/layouts/user.blade.php ENDPATH**/ ?>

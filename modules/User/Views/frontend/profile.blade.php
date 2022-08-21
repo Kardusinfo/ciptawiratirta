@@ -59,7 +59,9 @@
                             <label>{{ __('Biographical (Wajib)') }}</label>
                             <textarea name="bio" rows="5" class="form-control">{{ strip_tags(old('bio', $row->bio)) }}</textarea>
                         </div>
-
+                        {{-- @dump($row->role_id); --}}
+                        <input type="hidden" value="{{ old('role_id', $row->role_id) }}" name="role_id"
+                                placeholder="{{ __('role_id') }}" class="form-control">
                         <div class="form-group">
                             <label for="education_level">{{__("Kantor CWT Mendaftar")}}</label>
                             <select class="form-control" id="education_level" name="education_level">
