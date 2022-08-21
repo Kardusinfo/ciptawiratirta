@@ -1,4 +1,4 @@
-
+{{-- 
 <div class="sidebar-widget contact-widget">
     <h4 class="widget-title">{{__('Contact Us')}}</h4>
     <div class="widget-content">
@@ -39,4 +39,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}

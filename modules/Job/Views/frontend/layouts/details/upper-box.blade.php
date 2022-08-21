@@ -14,9 +14,9 @@
             @php $location_translation = $row->location->translateOrOrigin(app()->getLocale()) @endphp
             <li><span class="icon flaticon-map-locator"></span> {{ $location_translation->name }}</li>
         @endif
-        @if($row->created_at)
+        {{-- @if($row->created_at)
             <li><span class="icon flaticon-clock-3"></span> {{ $row->timeAgo() }}</li>
-        @endif
+        @endif --}}
         @if($row->salary_min)
             <li><span class="icon flaticon-money"></span> {{ $row->getSalary() }}</li>
         @endif
