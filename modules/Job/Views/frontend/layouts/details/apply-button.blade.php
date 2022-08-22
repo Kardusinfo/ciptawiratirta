@@ -9,7 +9,7 @@
                 @break
             @default
                 @if(!auth()->check())
-                    <a href="#" class="theme-btn btn-style-one bc-call-modal login">{{ __("Apply For Job") }}</a>
+                    <a href="/register" class="theme-btn btn-style-one ">{{ __("Apply For Job") }}</a>
                 @else
                     @if($applied)
                         <a href="javascript:void(0)" class="theme-btn btn-style-one bc-apply-job-button">{{ __("Applied") }}</a>
