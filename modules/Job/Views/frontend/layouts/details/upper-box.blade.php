@@ -5,6 +5,7 @@
             <img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}">
         </span> --}}
     @endif
+    
     <h4>{{ $translation->title }}</h4>
     <ul class="job-info">
         @if($row->category)
