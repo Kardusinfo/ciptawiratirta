@@ -130,7 +130,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                 @endif --}}
                                 @if (is_candidate() && !is_admin())
                                     <li class="menu-hr"><a
-                                            href="{{ route('candidate.admin.myApplied') }}">{{ __('Dashboard') }}</a>
+                                            href="{{ url('/admin') }}">{{ __('Dashboard') }}</a>
                                     </li>
                                 @endif
                                 <li class="@if (Auth::user()->hasPermission('dashboard_vendor_access')) menu-hr @endif">

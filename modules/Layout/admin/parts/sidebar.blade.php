@@ -475,26 +475,31 @@ if (!empty($custom_modules)) {
 
     </ul>
 @elseif(Auth::user()->role_id != 1)
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/admin">
+            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+            Dashboard
+        </a>
+    </li>
+    <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             My Profile
         </a>
     </li>
 
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             My Document
         </a>
     </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             My Applied
         </a>
     </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/user/departure">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             Departure Scheduled
         </a>
