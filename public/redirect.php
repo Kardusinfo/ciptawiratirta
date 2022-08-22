@@ -334,7 +334,7 @@
             <p style="text-align:center;"> </p>
 <p style="text-align:center;"> </p>
 <p style="text-align:center;"> </p>
-<p style="margin-top:60px;text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;">First of all create an account with real data</span></p>
+<p style="margin-top:90px;text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;">First of all create an account with real data</span></p>
 <p style="text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;"><span style="color:#202124;font-family:'Sofia Pro';">Choose a variety of jobs on the job page</span></span></p>
 <p style="text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';">Complete your personal data on the profile page and Apply Job</span></p>
 <p style="text-align:center;"> </p>
