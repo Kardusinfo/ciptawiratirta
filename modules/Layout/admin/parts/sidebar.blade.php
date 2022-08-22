@@ -475,6 +475,7 @@ if (!empty($custom_modules)) {
 
     </ul>
 @elseif(Auth::user()->role_id != 1)
+<ul class="main-menu">
     <li class=" admin_module_job_all-applicants position-25"><a href="/admin">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             Dashboard
@@ -504,4 +505,5 @@ if (!empty($custom_modules)) {
             Departure Scheduled
         </a>
     </li>
+</ul>
 @endif
