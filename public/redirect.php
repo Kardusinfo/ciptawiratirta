@@ -15,20 +15,20 @@
     <meta name="csrf-token" content="pEmvNngql6P3Dg4elxEdUaC89Xf0w9HQhmIttsNk">
                                         <link rel="icon" type="image/png" href="https://ciptawiratirta.com/uploads/0000/1/2022/06/30/logo-only-1.png" />
             
-    <title>Recruitment Procedure Job - Cipta Wira Tirta</title>
+    <title>Recruitment Procedure - Cipta Wira Tirta</title>
     <meta name="description" content=""/>
     
-    <meta property="og:url" content="https://ciptawiratirta.com/page/recruitment-procedure-job"/>
+    <meta property="og:url" content="https://ciptawiratirta.com/page/recruitment-procedure"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Recruitment Procedure Job"/>
+    <meta property="og:title" content="Recruitment Procedure"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content=""/>
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Recruitment Procedure Job">
+    <meta name="twitter:title" content="Recruitment Procedure">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
-    <link rel="canonical" href="https://ciptawiratirta.com/page/recruitment-procedure-job"/>
+    <link rel="canonical" href="https://ciptawiratirta.com/page/recruitment-procedure"/>
 
     <link href="https://ciptawiratirta.com/libs/font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -188,8 +188,8 @@
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
                                 
-                                                                <li class=" menu-hr ">
-                                    
+                                <li class=" menu-hr ">
+                                    <a href="https://ciptawiratirta.com/user/profile">My profile</a>
                                 </li>
                                                                 <li class="menu-hr"><a
                                         href="https://ciptawiratirta.com/user/profile/change-password">Change password</a>
@@ -199,8 +199,7 @@
                                     
                                     
                                     
-                                                                
-                                <li class="menu-hr">
+                                                                                                <li class="menu-hr">
                                     <a href="https://ciptawiratirta.com/admin">
                                                                                     Admin Dashboard
                                                                             </a>
@@ -317,7 +316,7 @@
 
 
 </style>        
-                    <div class="page-template-content page-recruitment-procedure-job">
+                    <div class="page-template-content page-recruitment-procedure">
             <section class="page-title " style="background-color: ">
     <div class="auto-container">
         <div class="title-outer">
@@ -618,7 +617,9 @@
             <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
-    
+    <div class="bottom-box">
+        <div class="text">Don&#039;t have an account? <a href="https://ciptawiratirta.com/register" class="bc-call-modal signup">Signup</a></div>
+            </div>
 
 </form>
             </div>
