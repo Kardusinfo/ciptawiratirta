@@ -20,7 +20,7 @@
 
                     @include("Job::frontend.layouts.details.video")
 
-                    <a href="/page/recruitment-procedure-job" class="theme-btn btn-style-two">Recruitment Procudure</a>
+                    <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procudure</a>
 
                     @include("Job::frontend.layouts.details.social-share")
 
