@@ -104,6 +104,7 @@
                 <div class="modal-custom">
                     {{-- Image --}}
                     <a class="go-to" href="/page/recruitment-procedure">
+                        
                         {{-- <img class="modal-image" src="popup.png" /> --}}
 
                         @if ($logo_id = setting_item('banner_id'))
