@@ -1,4 +1,5 @@
-<div class="content">
+{{-- <div class="content"> --}}
+<div class="">
     @if(empty($hide_avatar) && $company_logo = $row->getThumbnailUrl())
         {{-- <span class="company-logo">
             <img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}">
