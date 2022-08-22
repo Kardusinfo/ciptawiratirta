@@ -222,15 +222,15 @@ if (!empty($custom_modules)) {
 
     <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-            Company
+            Principle
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
             <li class=" has-children admin_module_company"><a href="/admin/module/company">
-                    All Company</a>
+                    All Principle</a>
             </li>
             <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
-                    Add Company</a>
+                    Add Principle</a>
             </li>
             <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
                     Attributes</a>
