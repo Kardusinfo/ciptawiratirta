@@ -225,7 +225,7 @@ class UserController extends FrontendController
                     'error'    => false,
                     'messages' => false,
                     // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
-                    'redirect' => 'user/dashboard'
+                    'redirect' => admin
                 ], 200);
             } else {
                 $errors = new MessageBag(['email' => __('Email or password incorrect')]);
@@ -323,7 +323,7 @@ class UserController extends FrontendController
                 'error'    => false,
                 'messages' => false,
                 // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
-                'redirect' => 'user/dashboard'
+                'redirect' => admin
             ], 200);
         }
     }

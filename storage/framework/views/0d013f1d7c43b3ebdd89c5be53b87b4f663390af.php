@@ -111,8 +111,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                             </a>
                             <ul class="dropdown-menu text-left" aria-labelledby="dropdownMenuUser">
                                 
+                                <?php if(is_candidate() && !is_admin()): ?>
+                                    <li class="menu-hr"><a
+                                            href="<?php echo e(route('candidate.admin.myApplied')); ?>"><?php echo e(__('Dashboard')); ?></a>
+                                    </li>
+                                <?php endif; ?>
                                 <li class="<?php if(Auth::user()->hasPermission('dashboard_vendor_access')): ?> menu-hr <?php endif; ?>">
-                                    <a href="<?php echo e(route('user.profile.index')); ?>"><?php echo e(__('My profile')); ?></a>
+                                    
                                 </li>
                                 <?php if(setting_item('inbox_enable')): ?>
                                     <li class="menu-hr"><a href="<?php echo e(route('user.chat')); ?>"><?php echo e(__('Messages')); ?></a>
@@ -128,11 +133,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                     
                                     
                                 <?php endif; ?>
-                                <?php if(is_candidate() && !is_admin()): ?>
-                                    <li class="menu-hr"><a
-                                            href="<?php echo e(route('candidate.admin.myApplied')); ?>"><?php echo e(__('My Applied')); ?></a>
-                                    </li>
-                                <?php endif; ?>
+                                
                                 <li class="menu-hr">
                                     <a href="<?php echo e(url('/admin')); ?>">
                                         <?php if(is_admin()): ?>
