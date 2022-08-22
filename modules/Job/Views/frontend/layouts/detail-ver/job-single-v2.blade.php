@@ -46,7 +46,7 @@
                         @include("Job::frontend.layouts.details.company-2")
 
                         @if(!empty($row->company->id))
-                            @include("Job::frontend.layouts.details.contact", ['origin_id' => $row->company->id, 'job_id' => $row->id])
+                            {{-- @include("Job::frontend.layouts.details.contact", ['origin_id' => $row->company->id, 'job_id' => $row->id]) --}}
                         @endif
 
                     </aside>
