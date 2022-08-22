@@ -35,7 +35,7 @@
             <span class="spinner-grow spinner-grow-sm icon-loading" role="status" aria-hidden="true"></span>
         </button>
     </div>
-    <div class="bottom-box">
+    {{-- <div class="bottom-box">
         <div class="text">{{ __("Don't have an account?") }} <a href="{{ route('register') }}" class="{{ (isset($popup) && $popup) ? 'bc-call-modal' : '' }} signup">{{ __("Signup") }}</a></div>
         @if(setting_item('facebook_enable') or setting_item('google_enable'))
             <div class="divider"><span>{{ __("or") }}</span></div>
@@ -52,6 +52,6 @@
                 @endif
             </div>
         @endif
-    </div>
+    </div> --}}
 
 </form>
