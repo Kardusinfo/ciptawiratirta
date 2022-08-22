@@ -317,7 +317,7 @@
 
 </style>        
                     <div class="page-template-content page-recruitment-procedure">
-            <section class="page-title " style="background-color: ">
+            <section class="page-title " style="margin-top:-1px;background-color: ">
     <div class="auto-container">
         <div class="title-outer">
             <h1>Recruitment Procudure</h1>
@@ -334,7 +334,7 @@
             <p style="text-align:center;"> </p>
 <p style="text-align:center;"> </p>
 <p style="text-align:center;"> </p>
-<p style="text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;">First of all create an account with real data</span></p>
+<p style="margin-top:60px;text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;">First of all create an account with real data</span></p>
 <p style="text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';font-size:16px;background-color:#ffffff;"><span style="color:#202124;font-family:'Sofia Pro';">Choose a variety of jobs on the job page</span></span></p>
 <p style="text-align:center;"><span style="color:#202124;font-family:'Sofia Pro';">Complete your personal data on the profile page and Apply Job</span></p>
 <p style="text-align:center;"> </p>
@@ -360,7 +360,7 @@
     }
 </style>
 <!-- Call To Action -->
-<section class="call-to-action">
+<section class="call-to-action" style="margin-top:90px;">
     <div class="auto-container">
         <div class="outer-box wow fadeInUp">
             <div class="content-column">
@@ -408,7 +408,7 @@
     
         <!-- Main Footer -->
         
-    <footer class="main-footer style-six">
+    <footer class="main-footer style-six" style="margin-top:90px;">
         <div class="auto-container">
             <!--Widgets Section-->
             <div class="widgets-section wow fadeInUp">
