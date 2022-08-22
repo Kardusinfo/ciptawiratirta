@@ -1,6 +1,6 @@
 @if(!empty($job_related) && count($job_related) > 0)
     <!-- Related Jobs -->
-    <div class="related-jobs">
+    {{-- <div class="related-jobs">
         <div class="title-box">
             <h3>{{ __("Related Jobs") }}</h3>
         </div>
@@ -19,5 +19,5 @@
                 </div>
             @endforeach
         @endif
-    </div>
+    </div> --}}
 @endif

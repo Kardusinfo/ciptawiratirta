@@ -306,7 +306,6 @@ class UserController extends FrontendController
             try {
                 event(new SendMailUserRegistered($user));
             } catch (Exception $exception) {
-
                 Log::warning("SendMailUserRegistered: " . $exception->getMessage());
             }
             $role = $request->input('type');

@@ -1,8 +1,8 @@
 <div class="content">
     @if(empty($hide_avatar) && $company_logo = $row->getThumbnailUrl())
-        <span class="company-logo">
+        {{-- <span class="company-logo">
             <img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}">
-        </span>
+        </span> --}}
     @endif
     <h4>{{ $translation->title }}</h4>
     <ul class="job-info">

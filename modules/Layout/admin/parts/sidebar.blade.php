@@ -217,9 +217,9 @@ if (!empty($custom_modules)) {
     @endforeach
 </ul> --}}
 
-
+@if(Auth::user()->role_id == 1)
 <ul class="main-menu">
-    
+
     <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
             Company
@@ -229,21 +229,18 @@ if (!empty($custom_modules)) {
             <li class=" has-children admin_module_company"><a href="/admin/module/company">
                     All Company</a>
             </li>
-            <li class=" has-children admin_module_company"><a
-                    href="/admin/module/company/create">
+            <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
                     Add Company</a>
             </li>
-            <li class=" has-children admin_module_company"><a
-                    href="/admin/module/company/attribute">
+            <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
                     Attributes</a>
             </li>
-            <li class=" has-children admin_module_company"><a
-                    href="/admin/module/company/category">
+            <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
                     Ship</a>
             </li>
         </ul>
     </li>
-    
+
     <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             Job
@@ -265,8 +262,7 @@ if (!empty($custom_modules)) {
         </ul>
     </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a
-            href="/admin/module/job/all-applicants">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             All Applicants
         </a>
@@ -278,16 +274,13 @@ if (!empty($custom_modules)) {
         </a>
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
-            <li class="active has-children admin_module_news"><a
-                    href="/admin/module/news/create">
+            <li class="active has-children admin_module_news"><a href="/admin/module/news/create">
                     Add News</a>
             </li>
-            <li class="active has-children admin_module_news"><a
-                    href="/admin/module/news/category">
+            <li class="active has-children admin_module_news"><a href="/admin/module/news/category">
                     Categories</a>
             </li>
-            <li class="active has-children admin_module_news"><a
-                    href="/admin/module/news/tag">
+            <li class="active has-children admin_module_news"><a href="/admin/module/news/tag">
                     Tags</a>
             </li>
         </ul>
@@ -299,16 +292,13 @@ if (!empty($custom_modules)) {
         </a>
         {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
         <ul class="children">
-            <li class=" has-children admin_module_candidate"><a
-                    href="/admin/module/candidate">
+            <li class=" has-children admin_module_candidate"><a href="/admin/module/candidate">
                     All Candidates</a>
             </li>
-            <li class=" has-children admin_module_candidate"><a
-                    href="/admin/module/user/create?candidate_create=1">
+            <li class=" has-children admin_module_candidate"><a href="/admin/module/user/create?candidate_create=1">
                     Add Candidate</a>
             </li>
-            <li class=" has-children admin_module_candidate"><a
-                    href="/admin/module/candidate/category">
+            <li class=" has-children admin_module_candidate"><a href="/admin/module/candidate/category">
                     Category</a>
             </li>
         </ul>
@@ -331,8 +321,7 @@ if (!empty($custom_modules)) {
 
 
 
-            <li class=" admin_module_company_my-contact position-28"><a
-                    href="/admin/module/company/my-contact">
+            <li class=" admin_module_company_my-contact position-28"><a href="/admin/module/company/my-contact">
                     <span class="icon text-center"><i class="ion-md-mail"></i></span>
                     My Contact
                 </a>
@@ -432,60 +421,50 @@ if (!empty($custom_modules)) {
                     </li>
                 </ul>
             </li>
-            <li class=" has-children admin_module_core_tools position-90"><a
-                    href="/admin/module/core/tools">
+            <li class=" has-children admin_module_core_tools position-90"><a href="/admin/module/core/tools">
                     <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
                     Tools
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
-                    <li class=" has-children admin_module_core_tools"><a
-                            href="/admin/module/language">
+                    <li class=" has-children admin_module_core_tools"><a href="/admin/module/language">
                             Languages</a>
                     </li>
-                    <li class=" has-children admin_module_core_tools"><a
-                            href="/admin/module/language/translations">
+                    <li class=" has-children admin_module_core_tools"><a href="/admin/module/language/translations">
                             Translation Manager</a>
                     </li>
                     <li class=" has-children admin_module_core_tools"><a href="/admin/logs">
                             System Logs</a>
                     </li>
-                    <li class=" has-children admin_module_core_tools"><a
-                            href="/admin/module/core/plugins">
+                    <li class=" has-children admin_module_core_tools"><a href="/admin/module/core/plugins">
                             Plugins</a>
                     </li>
                 </ul>
             </li>
-            <li class=" has-children admin_module_user position-100"><a
-                    href="/admin/module/user">
+            <li class=" has-children admin_module_user position-100"><a href="/admin/module/user">
                     <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                     Users
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
-                    <li class=" has-children admin_module_user"><a
-                            href="/admin/module/user">
+                    <li class=" has-children admin_module_user"><a href="/admin/module/user">
                             All Users</a>
                     </li>
-                    <li class=" has-children admin_module_user"><a
-                            href="/admin/module/user/role">
+                    <li class=" has-children admin_module_user"><a href="/admin/module/user/role">
                             Role Manager</a>
                     </li>
-                    <li class=" has-children admin_module_user"><a
-                            href="/admin/module/user/subscriber">
+                    <li class=" has-children admin_module_user"><a href="/admin/module/user/subscriber">
                             Subscribers</a>
                     </li>
                 </ul>
             </li>
-            <li class=" has-children admin_module_contact position-200"><a
-                    href="/admin/module/contact">
+            <li class=" has-children admin_module_contact position-200"><a href="/admin/module/contact">
                     <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
                     Report
                 </a>
                 {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
                 <ul class="children">
-                    <li class=" has-children admin_module_contact"><a
-                            href="/admin/module/contact">
+                    <li class=" has-children admin_module_contact"><a href="/admin/module/contact">
                             Contact Submissions</a>
                     </li>
                 </ul>
@@ -494,3 +473,28 @@ if (!empty($custom_modules)) {
     </li>
 
 </ul>
+
+@elseif(Auth::user()->role_id != 1)
+<li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+    My Profile
+</a>
+</li>
+
+<li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+    My Document
+</a>
+</li>
+
+<li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+    My Applied
+</a>
+</li>
+
+<li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/job/all-applicants">
+    <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+    Departure Scheduled 
+</a>
+</li>

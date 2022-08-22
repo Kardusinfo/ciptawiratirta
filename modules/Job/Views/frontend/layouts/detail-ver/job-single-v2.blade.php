@@ -20,6 +20,8 @@
 
                     @include("Job::frontend.layouts.details.video")
 
+                    <a href="/page/recruitment-procedure" class="theme-btn btn-style-two">Recruitment Procudure</a>
+
                     @include("Job::frontend.layouts.details.social-share")
 
                     @if($row->map_lat && $row->map_lng)
