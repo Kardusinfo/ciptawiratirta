@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-8">
                 <div class="filter-div d-flex justify-content-between ">
-                    <div class="col-left">
+                    {{-- <div class="col-left">
                         @if(!empty($rows))
                             <form method="post" action="{{url('admin/module/candidate/category/bulkEdit')}}"
                                   class="filter-form filter-form-left d-flex justify-content-start">
@@ -43,7 +43,33 @@
                             <input type="text" name="s" value="{{ Request()->s }}" class="form-control">
                             <button class="btn-info btn btn-icon btn_search" id="search-submit" type="submit">{{__('Search Category')}}</button>
                         </form>
-                    </div>
+                    </div> --}}
+
+                    {{-- <div class="col-left"> --}}
+                        
+                        <div class="col-left">
+                            <div>
+                            <form method="get" action="{{url('/admin/module/candidate/category/')}} " class="filter-form filter-form-right d-flex justify-content-end" role="search">
+                                @csrf
+                                <input type="text" name="s" value="{{ Request()->s }}" class="form-control">
+                                <button class="btn-info btn btn-icon btn_search" id="search-submit" type="submit">{{__('Search Category')}}</button>
+                            </form>
+                        </div>
+                        <div>
+                            @if(!empty($rows))
+                                <form method="post" action="{{url('admin/module/candidate/category/bulkEdit')}}"
+                                      class="filter-form filter-form-left d-flex justify-content-start">
+                                    {{csrf_field()}}
+                                    <select name="action" class="form-control">
+                                        <option value="">{{__(" Bulk Action ")}}</option>
+                                        <option value="publish">{{__(" Publish ")}}</option>
+                                        <option value="draft">{{__(" Draft ")}}</option>
+                                        <option value="delete">{{__(" Delete ")}}</option>
+                                    </select>
+                                    <button data-confirm="{{__("Do you want to delete?")}}" class="btn-info btn btn-icon dungdt-apply-form-btn" type="button">{{__('Apply')}}</button>
+                                </form>
+                            @endif
+                        </div>
                 </div>
                 <div class="panel">
                     <div class="panel-body">

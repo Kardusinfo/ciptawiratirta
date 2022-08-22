@@ -288,7 +288,7 @@ if (!empty($custom_modules)) {
 
     <li class=" has-children admin_module_candidate position-26"><a href="/admin/module/candidate">
             <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-            Candidate
+            All Candidate
         </a>
         {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
         <ul class="children">
