@@ -28,7 +28,7 @@
                         @include("Job::frontend.layouts.details.location")
                     @endif
 
-                    @include("Job::frontend.layouts.details.related", ['item_style' => 'job-item-4'])
+                    {{-- @include("Job::frontend.layouts.details.related", ['item_style' => 'job-item-4']) --}}
                 </div>
 
                 <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
@@ -40,7 +40,7 @@
 
                             @include("Job::frontend.layouts.details.overview")
 
-                            @include("Job::frontend.layouts.details.skills")
+                            {{-- @include("Job::frontend.layouts.details.skills") --}}
                         </div>
 
                         @include("Job::frontend.layouts.details.company-2")
