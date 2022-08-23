@@ -204,7 +204,7 @@
                                         <tbody>
                                             @if ($rows->total() > 0)
                                                 @foreach ($rows as $row)
-                                                @dump($row)
+                                                {{-- @dump($row) --}}
                                                 @if($row->status == 'profile_completed')
                                                     <tr class="{{ $row->status }}">
                                                         <td>
