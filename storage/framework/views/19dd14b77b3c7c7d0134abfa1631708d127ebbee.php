@@ -26,11 +26,9 @@
                                 
                                 <div class="row">
                                     <div class="big-column force-left col-xl-12 col-lg-12 col-md-12">
-                                        <h5>Social Media</h5>
-                                        <div class="social-links">
-                                            <?php echo @clean(setting_item_with_lang('footer_socials')); ?>
+                                        <h5>Follow Us</h5>  <?php echo @clean(setting_item_with_lang('footer_socials')); ?>
 
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

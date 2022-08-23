@@ -26,7 +26,8 @@
                                 {{-- {!! clean($info_contact) !!} --}}
                                 <div class="row">
                                     <div class="big-column force-left col-xl-12 col-lg-12 col-md-12">
-                                        <h5>Social Media</h5>
+                                        <h5>Follow Us</h5>  
+                                        {{-- {!! @clean(setting_item_with_lang('footer_socials')) !!} --}}
                                         <div class="social-links">
                                             {!! @clean(setting_item_with_lang('footer_socials')) !!}
                                         </div>

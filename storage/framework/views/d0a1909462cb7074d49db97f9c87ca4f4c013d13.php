@@ -1,9 +1,9 @@
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb20">
-            <h1 class="title-bar"><?php echo e(__("All company")); ?></h1>
+            <h1 class="title-bar"><?php echo e(__("All Principal")); ?></h1>
             <div class="title-actions">
-                <a href="<?php echo e(url('admin/module/company/create')); ?>" class="btn btn-primary"><?php echo e(__("Add new Company")); ?></a>
+                <a href="<?php echo e(url('admin/module/company/create')); ?>" class="btn btn-primary"><?php echo e(__("Add new Principal")); ?></a>
             </div>
         </div>
         <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

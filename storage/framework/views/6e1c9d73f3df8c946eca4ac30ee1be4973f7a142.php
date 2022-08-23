@@ -21,13 +21,15 @@
 
                     <?php echo $__env->make("Job::frontend.layouts.details.video", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+                    <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procudure</a>
+
                     <?php echo $__env->make("Job::frontend.layouts.details.social-share", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                     <?php if($row->map_lat && $row->map_lng): ?>
                         <?php echo $__env->make("Job::frontend.layouts.details.location", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php endif; ?>
 
-                    <?php echo $__env->make("Job::frontend.layouts.details.related", ['item_style' => 'job-item-4'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    
                 </div>
 
                 <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
@@ -39,13 +41,13 @@
 
                             <?php echo $__env->make("Job::frontend.layouts.details.overview", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-                            <?php echo $__env->make("Job::frontend.layouts.details.skills", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            
                         </div>
 
                         <?php echo $__env->make("Job::frontend.layouts.details.company-2", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                         <?php if(!empty($row->company->id)): ?>
-                            <?php echo $__env->make("Job::frontend.layouts.details.contact", ['origin_id' => $row->company->id, 'job_id' => $row->id], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            
                         <?php endif; ?>
 
                     </aside>

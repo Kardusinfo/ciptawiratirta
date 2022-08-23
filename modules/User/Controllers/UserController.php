@@ -224,7 +224,8 @@ class UserController extends FrontendController
                 return response()->json([
                     'error'    => false,
                     'messages' => false,
-                    'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                    // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                    'redirect' => url('/admin')
                 ], 200);
             } else {
                 $errors = new MessageBag(['email' => __('Email or password incorrect')]);
@@ -306,7 +307,6 @@ class UserController extends FrontendController
             try {
                 event(new SendMailUserRegistered($user));
             } catch (Exception $exception) {
-
                 Log::warning("SendMailUserRegistered: " . $exception->getMessage());
             }
             $role = $request->input('type');
@@ -322,7 +322,8 @@ class UserController extends FrontendController
             return response()->json([
                 'error'    => false,
                 'messages' => false,
-                'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                'redirect' => url('/admin')
             ], 200);
         }
     }

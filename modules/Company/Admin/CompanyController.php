@@ -147,7 +147,7 @@ class CompanyController extends AdminController
             'company_location'     => $this->location::where('status', 'publish')->get()->toTree(),
             'translation'  => $translation,
             'enable_multi_lang'=>true,
-            'page_title'=>__("Edit Company :name",['name'=>$translation->name]),
+            'page_title'=>__("Edit Principal :name",['name'=>$translation->name]),
             "selected_terms"    => $row->companyTerm ? $row->companyTerm->pluck('term_id') : [],
         ];
         return view('Company::admin.company.detail', $data);

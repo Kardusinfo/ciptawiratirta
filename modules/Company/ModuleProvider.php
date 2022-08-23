@@ -43,18 +43,18 @@ class ModuleProvider extends ModuleServiceProvider
                 'company'=>[
                     "position"=>22,
                     'url'        => 'admin/module/company',
-                    'title'      => __("Company"),
+                    'title'      => __("Principal"),
                     'icon'       => 'ion-md-bookmarks',
                     'permission' => 'employer_manage',
                     'children'   => [
                         'company_view'=>[
                             'url'        => 'admin/module/company',
-                            'title'      => __("All Company"),
+                            'title'      => __("All Principal"),
                             'permission' => 'employer_manage',
                         ],
                         'company_create'=>[
                             'url'        => 'admin/module/company/create',
-                            'title'      => __("Add Company"),
+                            'title'      => __("Add Principal"),
                             'permission' => 'employer_manage',
                         ],
                         'attribute'=>[

@@ -4,12 +4,14 @@
         <div class="form-group">
             <div class="btn-box row">
                 
-                    <input class="checked" style="display: none" type="radio" name="type" id="checkbox1" value="candidate" checked/>
-                    
+                <input class="checked" style="display: none" type="radio" name="type" id="checkbox1" value="candidate"
+                    checked />
                 
                 
-                    <input class="checked"style="display: none" type="radio" name="type" id="checkbox2" value="employer"/>
-                    
+                
+                <input class="checked"style="display: none" type="radio" name="type" id="checkbox2"
+                    value="employer" />
+                
                 
             </div>
         </div>
@@ -21,18 +23,20 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo e(__("Password")); ?></label>
-            <input id="password-field" type="password" name="password" value="" placeholder="<?php echo e(__("Password")); ?>">
+            <label><?php echo e(__('Password')); ?></label>
+            <input id="password-field" type="password" name="password" value=""
+                placeholder="<?php echo e(__('Password')); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
 
         <div class="form-group">
-            <label><?php echo e(__("No HP")); ?></label>
-            <input id="password-field" type="text" name="phone" value="" placeholder="<?php echo e(__("Phone Number")); ?>">
+            <label><?php echo e(__('No HP')); ?></label>
+            <input id="password-field" type="text" name="phone" value=""
+                placeholder="<?php echo e(__('Phone Number')); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-        <?php if(setting_item("recaptcha_enable")): ?>
+        <?php if(setting_item('recaptcha_enable')): ?>
             <div class="form-group">
                 <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>
 
@@ -53,12 +57,16 @@
             <div class="btn-box row">
                 <?php if(setting_item('facebook_enable')): ?>
                     <div class="col-lg-6 col-md-12">
-                        <a href="<?php echo e(url('/social-login/facebook')); ?>" class="theme-btn social-btn-two facebook-btn btn_login_fb_link"><i class="fab fa-facebook-f"></i><?php echo e(__('Facebook')); ?></a>
+                        <a href="<?php echo e(url('/social-login/facebook')); ?>"
+                            class="theme-btn social-btn-two facebook-btn btn_login_fb_link"><i
+                                class="fab fa-facebook-f"></i><?php echo e(__('Facebook')); ?></a>
                     </div>
                 <?php endif; ?>
                 <?php if(setting_item('google_enable')): ?>
                     <div class="col-lg-6 col-md-12">
-                        <a href="<?php echo e(url('social-login/google')); ?>" class="theme-btn social-btn-two google-btn btn_login_gg_link"><i class="fab fa-google"></i><?php echo e(__('Google')); ?></a>
+                        <a href="<?php echo e(url('social-login/google')); ?>"
+                            class="theme-btn social-btn-two google-btn btn_login_gg_link"><i
+                                class="fab fa-google"></i><?php echo e(__('Google')); ?></a>
                     </div>
                 <?php endif; ?>
             </div>

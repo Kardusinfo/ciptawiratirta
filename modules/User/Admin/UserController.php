@@ -174,7 +174,7 @@ class UserController extends AdminController
 
     public function store(Request $request, $id)
     {
-        dd($_POST);
+        // dd($_POST);
         if(!is_candidate() && !is_admin() && !is_employer()){
             abort(403);
         }

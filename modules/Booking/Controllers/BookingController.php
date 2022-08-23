@@ -442,7 +442,7 @@ class BookingController extends \App\Http\Controllers\Controller
         }
         return view('Booking::frontend/detail', $data);
     }
-	public function exportIcal($service_type = '', $id)
+	public function exportIcal($service_type = '', $id = '')
 	{
 		\Debugbar::disable();
 		$allServices = get_bookable_services();

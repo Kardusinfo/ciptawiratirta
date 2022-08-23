@@ -20,13 +20,15 @@
 
                     @include("Job::frontend.layouts.details.video")
 
+                    <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procudure</a>
+
                     @include("Job::frontend.layouts.details.social-share")
 
                     @if($row->map_lat && $row->map_lng)
                         @include("Job::frontend.layouts.details.location")
                     @endif
 
-                    @include("Job::frontend.layouts.details.related", ['item_style' => 'job-item-4'])
+                    {{-- @include("Job::frontend.layouts.details.related", ['item_style' => 'job-item-4']) --}}
                 </div>
 
                 <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
@@ -38,13 +40,13 @@
 
                             @include("Job::frontend.layouts.details.overview")
 
-                            @include("Job::frontend.layouts.details.skills")
+                            {{-- @include("Job::frontend.layouts.details.skills") --}}
                         </div>
 
                         @include("Job::frontend.layouts.details.company-2")
 
                         @if(!empty($row->company->id))
-                            @include("Job::frontend.layouts.details.contact", ['origin_id' => $row->company->id, 'job_id' => $row->id])
+                            {{-- @include("Job::frontend.layouts.details.contact", ['origin_id' => $row->company->id, 'job_id' => $row->id]) --}}
                         @endif
 
                     </aside>

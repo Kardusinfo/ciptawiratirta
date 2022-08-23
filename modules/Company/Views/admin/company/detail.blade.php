@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="d-flex justify-content-between mb20">
                 <div class="">
-                    <h1 class="title-bar">{{$row->id ? __('Edit Company :name',['name'=>$translation->name]) : __('Add new Company')}}</h1>
+                    <h1 class="title-bar">{{$row->id ? __('Edit Principal :name',['name'=>$translation->name]) : __('Add new Company')}}</h1>
                     @if($row->slug)
                         <p class="item-url-demo">{{__("Permalink")}}: {{ url( (request()->query('lang') ? request()->query('lang').'/' : '').config('companies.companies_route_prefix'))  }}/<a href="#" class="open-edit-input" data-name="slug">{{$row->slug}}</a>
                         </p>

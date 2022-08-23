@@ -128,8 +128,13 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                         @end_has_permission
                                     </li>
                                 @endif --}}
+                                @if (is_candidate() && !is_admin())
+                                    <li class="menu-hr"><a
+                                            href="{{ url('/admin') }}">{{ __('Dashboard') }}</a>
+                                    </li>
+                                @endif
                                 <li class="@if (Auth::user()->hasPermission('dashboard_vendor_access')) menu-hr @endif">
-                                    <a href="{{ route('user.profile.index') }}">{{ __('My profile') }}</a>
+                                    {{-- <a href="{{ route('user.profile.index') }}">{{ __('My profile') }}</a> --}}
                                 </li>
                                 @if (setting_item('inbox_enable'))
                                     <li class="menu-hr"><a href="{{ route('user.chat') }}">{{ __('Messages') }}</a>
@@ -152,11 +157,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                             href="{{ route('company.admin.myContact') }}">{{ __('My Contact') }}</a>
                                     </li> --}}
                                 @endif
-                                @if (is_candidate() && !is_admin())
-                                    <li class="menu-hr"><a
-                                            href="{{ route('candidate.admin.myApplied') }}">{{ __('My Applied') }}</a>
-                                    </li>
-                                @endif
+                                
                                 <li class="menu-hr">
                                     <a href="{{ url('/admin') }}">
                                         @if (is_admin())
