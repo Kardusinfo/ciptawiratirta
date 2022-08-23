@@ -96,7 +96,8 @@
             <div id="modal_container" class="modal-container">
                 <div class="modal-custom">
                     
-                    <a class="go-to" href="/job?orderby=urgent&limit=10">
+                    <a class="go-to" href="/page/recruitment-procedure">
+                        
                         
 
                         <?php if($logo_id = setting_item('banner_id')): ?>
