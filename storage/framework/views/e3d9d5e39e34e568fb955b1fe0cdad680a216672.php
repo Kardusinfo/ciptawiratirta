@@ -36,7 +36,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 600px;
+        width: 500px;
         max-width: 100%;
         height: auto;
         max-height: 80%;
@@ -96,12 +96,13 @@
             <div id="modal_container" class="modal-container">
                 <div class="modal-custom">
                     
-                    <a class="go-to" href="/job?orderby=urgent&limit=10">
+                    <a class="go-to" href="/page/recruitment-procedure">
+
                         
 
                         <?php if($logo_id = setting_item('banner_id')): ?>
                             <?php $logo = get_file_url($logo_id,'full') ?>
-                            <img src="<?php echo e($logo); ?>">
+                            <img src="<?php echo e($logo); ?>" style="border-radius: 5px">
                         <?php else: ?>
                             <img src="<?php echo e(asset('/popup.png')); ?>" alt="logo">
                         <?php endif; ?>

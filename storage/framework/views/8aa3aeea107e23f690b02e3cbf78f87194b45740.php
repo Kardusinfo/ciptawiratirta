@@ -146,6 +146,7 @@ $locale = App::getLocale();
                 <i class="fa fa-angle-down"></i>
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                
                 <a class="dropdown-item" href="<?php echo e(route('user.profile.index')); ?>"><?php echo e(__('Edit Profile')); ?></a>
                 <a class="dropdown-item" href="<?php echo e(url('admin/module/user/password/'.$user->id)); ?>"><?php echo e(__('Change Password')); ?></a>
                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <?php echo e(__('Logout')); ?>

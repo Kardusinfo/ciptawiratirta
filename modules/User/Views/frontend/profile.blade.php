@@ -37,27 +37,27 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Whatsapp No (Required)') }}</label>
+                            <label>{{ __('Whatsapp No') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="phone"
-                                placeholder="{{ __('Phone Number') }}" class="form-control">
+                                placeholder="{{ __('Phone Number') }}" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('ID Card/KTP (Required)') }}</label>
+                            <label>{{ __('ID Card/KTP') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="ktp"
-                                placeholder="{{ __('Nomor KTP') }}" class="form-control">
+                                placeholder="{{ __('Nomor KTP') }}" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('Date Of Birth (Required)') }}</label>
+                            <label>{{ __('D.O.B') }}</label>
                             <input type="text"
                                 value="{{ old('birthday', $row->birthday ? display_date($row->birthday) : '') }}"
                                 name="birthday" placeholder="{{ __('Tanggal Lahir (Wajib)') }}"
-                                class="form-control has-datepicker" autocomplete="off">
+                                class="form-control has-datepicker" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Experience (Wajib)') }}</label>
-                            <textarea name="bio" rows="5" class="form-control">{{ strip_tags(old('bio', $row->bio)) }}</textarea>
+                            <label>{{ __('Background/Experience') }}</label>
+                            <textarea name="bio" rows="5" class="form-control" required>{{ strip_tags(old('bio', $row->bio)) }}</textarea>
                         </div>
                         {{-- @dump($row->role_id); --}}
                         <input type="hidden" value="{{ old('role_id', $row->role_id) }}" name="role_id"
@@ -120,7 +120,7 @@
 
             <div class="col-lg-3">
                 <div class="panel">
-                    <div class="panel-title"><strong>{{ __('CV , Passport, Visa, BST/CCM Anda (Wajib)') }}</strong></div>
+                    <div class="panel-title"><strong>{{ __('CV dan Lamaran') }}</strong></div>
                     <div class="panel-body">
                         <div class="form-group-item">
                             <div class="g-items-header">

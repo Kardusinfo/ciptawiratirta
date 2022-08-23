@@ -37,27 +37,27 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(__('Whatsapp No (Required)')); ?></label>
+                            <label><?php echo e(__('Whatsapp No')); ?></label>
                             <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="phone"
-                                placeholder="<?php echo e(__('Phone Number')); ?>" class="form-control">
+                                placeholder="<?php echo e(__('Phone Number')); ?>" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label><?php echo e(__('ID Card/KTP (Required)')); ?></label>
+                            <label><?php echo e(__('ID Card/KTP')); ?></label>
                             <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="ktp"
-                                placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control">
+                                placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label><?php echo e(__('Date Of Birth (Required)')); ?></label>
+                            <label><?php echo e(__('D.O.B')); ?></label>
                             <input type="text"
                                 value="<?php echo e(old('birthday', $row->birthday ? display_date($row->birthday) : '')); ?>"
                                 name="birthday" placeholder="<?php echo e(__('Tanggal Lahir (Wajib)')); ?>"
-                                class="form-control has-datepicker" autocomplete="off">
+                                class="form-control has-datepicker" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(__('Experience (Wajib)')); ?></label>
-                            <textarea name="bio" rows="5" class="form-control"><?php echo e(strip_tags(old('bio', $row->bio))); ?></textarea>
+                            <label><?php echo e(__('Background/Experience')); ?></label>
+                            <textarea name="bio" rows="5" class="form-control" required><?php echo e(strip_tags(old('bio', $row->bio))); ?></textarea>
                         </div>
                         
                         <input type="hidden" value="<?php echo e(old('role_id', $row->role_id)); ?>" name="role_id"
@@ -101,7 +101,7 @@
 
             <div class="col-lg-3">
                 <div class="panel">
-                    <div class="panel-title"><strong><?php echo e(__('CV , Passport, Visa, BST/CCM Anda (Wajib)')); ?></strong></div>
+                    <div class="panel-title"><strong><?php echo e(__('CV dan Lamaran')); ?></strong></div>
                     <div class="panel-body">
                         <div class="form-group-item">
                             <div class="g-items-header">

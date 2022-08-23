@@ -41,25 +41,40 @@
                 </div>
             </div> --}}
         @else
-            <div class="col-md-12 col-lg-6 mb-3 ">
-                <div class="panel ">
-                    <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
-                        <strong>Warning!</strong>
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-3 ">
+                    <div class="panel ">
+                        <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
+                            <strong>Warning!</strong>
 
+                        </div>
+                        {{-- @dump(Auth::user()); --}}
+                        <div class="panel-body">
+                            Complete your profile and upload your cv with your application first <br> <br>
+                            <a href="/user/profile" class="btn btn-info">
+                                <span class="btn-title">Next</span>
+                            </a>
+                        </div>
                     </div>
-                    {{-- @dump(Auth::user()); --}}
-                    <div class="panel-body">
-                        Complete your profile and upload your cv with your application first <br> <br>
-                        <a href="/user/profile" class="btn btn-info">
-                            <span class="btn-title">Next</span>
-                        </a>
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <div class="panel">
+                        <div class="panel-title d-flex justify-content-between">
+                            <strong>{{ __('Notifications') }}</strong>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="dropdown-list-items p-0">
+                                @php $rows = $notifications @endphp
+                                @include('Core::admin.notification.notification-loop-item')
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         @endif
         <br>
         <div class="row">
-            <div class="col-md-12 col-lg-6 mb-3">
+            {{-- <div class="col-md-12 col-lg-6 mb-3">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between align-items-center">
                         <strong>{{ is_admin() ? __('Total Pendaftar') : __('Your Profile Views') }}</strong>
@@ -76,8 +91,8 @@
                         </script>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12 col-lg-6 ">
+            </div> --}}
+            {{-- <div class="col-md-12 col-lg-6 ">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between">
                         <strong>{{ __('Notifications') }}</strong>
@@ -89,7 +104,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
