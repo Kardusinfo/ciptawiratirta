@@ -5,28 +5,8 @@
             <h1 class="title-bar"><?php echo e(__('All Applicants')); ?></h1>
         </div>
         <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <div class="filter-div d-flex justify-content-between ">
-            <div class="col-left">
-                <?php if(!empty($rows)): ?>
-                    <form method="post" action="<?php echo e(route('job.admin.applicants.bulkEdit')); ?>"
-                        class="filter-form filter-form-left d-flex justify-content-start">
-                        <?php echo e(csrf_field()); ?>
-
-                        <select name="action" class="form-control">
-                            <option value=""><?php echo e(__(' Bulk Actions ')); ?></option>
-                            <option value="approved"><?php echo e(__('Approved')); ?></option>
-                            <option value="rejected"><?php echo e(__('Rejected')); ?></option>
-                        </select>
-                        <button data-confirm="<?php echo e(__('Do you want to delete?')); ?>"
-                            class="btn-info btn btn-icon dungdt-apply-form-btn" type="button"><?php echo e(__('Apply')); ?></button>
-                        <a class="btn btn-warning btn-icon" href="<?php echo e(route('job.admin.applicants.export')); ?>"
-                            target="_blank" title="<?php echo e(__('Export to excel')); ?>"><i
-                                class="icon ion-md-cloud-download"></i>&nbsp;<?php echo e(__('Export')); ?>
-
-                        </a>
-                    </form>
-                <?php endif; ?>
-            </div>
+        <div class="filter-div d-flex justify-content-end ">
+            
             <div class="col-left">
                 <form method="get" action="<?php echo e(route('job.admin.allApplicants')); ?> "
                     class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
@@ -85,6 +65,23 @@
 
                     <button class="btn-info btn btn-icon btn_search" type="submit"><?php echo e(__('Search')); ?></button>
                 </form>
+                <form method="post" action="<?php echo e(route('job.admin.applicants.bulkEdit')); ?>"
+                        class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row">
+                        <?php echo e(csrf_field()); ?>
+
+                        <select name="action" class="form-control">
+                            <option value=""><?php echo e(__(' Bulk Actions ')); ?></option>
+                            <option value="approved"><?php echo e(__('Approved')); ?></option>
+                            <option value="rejected"><?php echo e(__('Rejected')); ?></option>
+                        </select>
+                        <button data-confirm="<?php echo e(__('Do you want to delete?')); ?>"
+                            class="btn-info btn btn-icon dungdt-apply-form-btn" type="button"><?php echo e(__('Apply')); ?></button>
+                        <a class="btn btn-warning btn-icon ml-3" href="<?php echo e(route('job.admin.applicants.export')); ?>"
+                            target="_blank" title="<?php echo e(__('Export to excel')); ?>"><i
+                                class="icon ion-md-cloud-download"></i>&nbsp;<?php echo e(__('Export')); ?>
+
+                        </a>
+                </form>
             </div>
         </div>
         <div class="row">
@@ -137,12 +134,11 @@
         
 
             <div class="tab">
-
-                <button class="tablinks" onclick="openCity(event, 'Paris')">(1) Profile Not Completed</button>
-                <button class="tablinks" onclick="openCity(event, 'London')">(2) Profile Complete</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">(3) Approved</button>
-                <button class="tablinks" onclick="openCity(event, 'Kelsi')">Rejected</button>
-                <button class="tablinks" onclick="openCity(event, 'Andri')">New Apply</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'pending')->count()); ?>) Profile Not Completed</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count()); ?>) Ready to Approve</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'approved')->count()); ?>) Approved</button>
+                <button class="tablinks" onclick="openCity(event, 'Kelsi')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'rejected')->count()); ?>) Rejected</button>
+                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
 
@@ -172,6 +168,7 @@
                                         <tbody>
                                             <?php if($rows->total() > 0): ?>
                                                 <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php dump($row); ?>
                                                 <?php if($row->status == 'profile_completed'): ?>
                                                     <tr class="<?php echo e($row->status); ?>">
                                                         <td>

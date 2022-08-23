@@ -4,12 +4,12 @@
         <div class="outer-box">
             <!-- Login Form -->
             <div class="login-form default-form bravo-login-form-page bravo-login-page">
-                <?php if($site_title = setting_item("site_title")): ?>
-                    <h3><?php echo e(__("Create a Free :site_title Account", ['site_title' => $site_title])); ?></h3>
+                <?php if($site_title = setting_item('site_title')): ?>
+                    <h3><?php echo e(__('Create a :site_title Account', ['site_title' => $site_title])); ?></h3>
                 <?php else: ?>
-                    <h3><?php echo e(__("Register")); ?></h3>
+                    <h3><?php echo e(__('Register')); ?></h3>
                 <?php endif; ?>
-                <?php echo $__env->make('Layout::auth.register-form',['captcha_action'=>'register_normal'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('Layout::auth.register-form', ['captcha_action' => 'register_normal'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </div>
     </div>
