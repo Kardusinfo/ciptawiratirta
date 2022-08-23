@@ -192,6 +192,9 @@ class UserController extends AdminController
                 // 'last_name'              => 'required|max:255',
                 'status'              => 'required|max:50',
                 'phone'              => 'required',
+                'ktp'              => 'required',
+                'birthday'              => 'required',
+                'bio'              => 'required',
                 'role_id'              => 'sometimes|required|max:11',
                 'email'              =>[
                     'required',
@@ -207,6 +210,9 @@ class UserController extends AdminController
                 // 'last_name'              => 'required|max:255',
                 'status'              => 'required|max:50',
                 'phone'              => 'required',
+                'ktp'              => 'required',
+                'birthday'              => 'required',
+                'bio'              => 'required',
                 'role_id'              => 'sometimes|required|max:11',
                 'email'              =>[
                     'required',

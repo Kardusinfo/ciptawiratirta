@@ -1,5 +1,11 @@
 
 <?php $__env->startSection('head'); ?>
+    <style>
+    .form-group { 
+        content:"*";
+        color:red;
+    }
+    </style>
     <link href="<?php echo e(asset('module/user/css/user.css')); ?>" rel="stylesheet">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -25,6 +31,16 @@
                                         <label><?php echo e(__('First Name')); ?></label>
                                         <input type="text" value="<?php echo e(old('first_name', $row->first_name)); ?>"
                                             name="first_name" placeholder="<?php echo e(__('First name')); ?>" class="form-control">
+                                        <?php $__errorArgs = ['first_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <div style="color:red">*Tidak boleh kosong</div>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -39,13 +55,33 @@
                         <div class="form-group">
                             <label><?php echo e(__('Whatsapp No')); ?></label>
                             <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="phone"
-                                placeholder="<?php echo e(__('Phone Number')); ?>" class="form-control" required>
+                                placeholder="<?php echo e(__('Phone Number')); ?>" class="form-control">
+                            <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group">
                             <label><?php echo e(__('ID Card/KTP')); ?></label>
                             <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="ktp"
-                                placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control" required>
+                                placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control">
+                            <?php $__errorArgs = ['ktp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group">
@@ -53,11 +89,31 @@
                             <input type="text"
                                 value="<?php echo e(old('birthday', $row->birthday ? display_date($row->birthday) : '')); ?>"
                                 name="birthday" placeholder="<?php echo e(__('Tanggal Lahir (Wajib)')); ?>"
-                                class="form-control has-datepicker" autocomplete="off" required>
+                                class="form-control has-datepicker" autocomplete="off">
+                            <?php $__errorArgs = ['birthday'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="form-group">
                             <label><?php echo e(__('Background/Experience')); ?></label>
-                            <textarea name="bio" rows="5" class="form-control" required><?php echo e(strip_tags(old('bio', $row->bio))); ?></textarea>
+                            <textarea name="bio" rows="5" class="form-control"><?php echo e(strip_tags(old('bio', $row->bio))); ?></textarea>
+                            <?php $__errorArgs = ['bio'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         
                         <input type="hidden" value="<?php echo e(old('role_id', $row->role_id)); ?>" name="role_id"

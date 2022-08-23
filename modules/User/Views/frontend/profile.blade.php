@@ -1,5 +1,11 @@
 @extends('layouts.user')
 @section('head')
+    <style>
+    .form-group { 
+        content:"*";
+        color:red;
+    }
+    </style>
     <link href="{{ asset('module/user/css/user.css') }}" rel="stylesheet">
 @endsection
 @section('content')
@@ -25,6 +31,9 @@
                                         <label>{{ __('First Name') }}</label>
                                         <input type="text" value="{{ old('first_name', $row->first_name) }}"
                                             name="first_name" placeholder="{{ __('First name') }}" class="form-control">
+                                        @error('first_name')
+                                            <div style="color:red">*Tidak boleh kosong</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -39,13 +48,19 @@
                         <div class="form-group">
                             <label>{{ __('Whatsapp No') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="phone"
-                                placeholder="{{ __('Phone Number') }}" class="form-control" required>
+                                placeholder="{{ __('Phone Number') }}" class="form-control">
+                            @error('phone')
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label>{{ __('ID Card/KTP') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="ktp"
-                                placeholder="{{ __('Nomor KTP') }}" class="form-control" required>
+                                placeholder="{{ __('Nomor KTP') }}" class="form-control">
+                            @error('ktp')
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -53,11 +68,17 @@
                             <input type="text"
                                 value="{{ old('birthday', $row->birthday ? display_date($row->birthday) : '') }}"
                                 name="birthday" placeholder="{{ __('Tanggal Lahir (Wajib)') }}"
-                                class="form-control has-datepicker" autocomplete="off" required>
+                                class="form-control has-datepicker" autocomplete="off">
+                            @error('birthday')
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>{{ __('Background/Experience') }}</label>
-                            <textarea name="bio" rows="5" class="form-control" required>{{ strip_tags(old('bio', $row->bio)) }}</textarea>
+                            <textarea name="bio" rows="5" class="form-control">{{ strip_tags(old('bio', $row->bio)) }}</textarea>
+                            @error('bio')
+                                <div style="color:red">*Tidak boleh kosong</div>
+                            @enderror
                         </div>
                         {{-- @dump($row->role_id); --}}
                         <input type="hidden" value="{{ old('role_id', $row->role_id) }}" name="role_id"
