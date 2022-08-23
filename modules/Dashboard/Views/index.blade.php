@@ -3,21 +3,21 @@
 @section('content')
     <div class="container-fluid">
         <div class="dashboard-page">
-            <h4 class="welcome-title text-uppercase">{{__('Welcome :name!',['name'=>Auth::user()->nameOrEmail])}}</h4>
+            <h4 class="welcome-title text-uppercase">{{ __('Welcome :name!', ['name' => Auth::user()->nameOrEmail]) }}</h4>
         </div>
         <br>
         <div class="row">
-            @if(!empty($top_cards))
-                @foreach($top_cards as $card)
-                    <div class="col-sm-{{$card['size']}} col-md-{{$card['size_md']}}">
-                        <div class="dashboard-report-card card {{$card['class']}}">
+            @if (!empty($top_cards))
+                @foreach ($top_cards as $card)
+                    <div class="col-sm-{{ $card['size'] }} col-md-{{ $card['size_md'] }}">
+                        <div class="dashboard-report-card card {{ $card['class'] }}">
                             <div class="card-content">
-                                <span class="card-title">{{$card['title']}}</span>
-                                <span class="card-amount">{{$card['amount']}}</span>
-                                <span class="card-desc">{{$card['desc']}}</span>
+                                <span class="card-title">{{ $card['title'] }}</span>
+                                <span class="card-amount">{{ $card['amount'] }}</span>
+                                <span class="card-desc">{{ $card['desc'] }}</span>
                             </div>
                             <div class="card-media">
-                                <i class="{{$card['icon']}}"></i>
+                                <i class="{{ $card['icon'] }}"></i>
                             </div>
                         </div>
                     </div>
@@ -25,28 +25,46 @@
             @endif
         </div>
         <br>
-        <div class="col-md-12 col-lg-6 mb-3 ">
-            <div class="panel ">
-                <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
-                    <strong>Warning!</strong>
-                    
+        @if (Auth::user()->role_id == 1)
+            {{-- <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="dashboard-report-card card">
+                        <div class="card-content">
+                            <span class="card-title">{{ __('Admin Dashboard') }}</span>
+                            <span class="card-amount">{{ __('Welcome to the admin dashboard') }}</span>
+                            <span class="card-desc">{{ __('Here you can manage your website') }}</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                    </div>
                 </div>
-                {{-- @dump(Auth::user()); --}}
-                <div class="panel-body">
-                Complete your profile and upload your cv with your application first  <br> <br>
-                <a href="/user/profile" class="btn btn-info">
-                    <span class="btn-title">Next</span>
-                </a>
+            </div> --}}
+        @else
+            <div class="col-md-12 col-lg-6 mb-3 ">
+                <div class="panel ">
+                    <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
+                        <strong>Warning!</strong>
+
+                    </div>
+                    {{-- @dump(Auth::user()); --}}
+                    <div class="panel-body">
+                        Complete your profile and upload your cv with your application first <br> <br>
+                        <a href="/user/profile" class="btn btn-info">
+                            <span class="btn-title">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         <br>
         <div class="row">
             <div class="col-md-12 col-lg-6 mb-3">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between align-items-center">
-                        <strong>{{ (is_admin()) ? __('Total Pendaftar') : __('Your Profile Views') }}</strong>
-                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                        <strong>{{ is_admin() ? __('Total Pendaftar') : __('Your Profile Views') }}</strong>
+                        <div id="reportrange"
+                            style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
                             <i class="fa fa-calendar"></i>&nbsp;
                             <span></span> <i class="fa fa-caret-down"></i>
                         </div>
@@ -62,7 +80,7 @@
             <div class="col-md-12 col-lg-6 ">
                 <div class="panel">
                     <div class="panel-title d-flex justify-content-between">
-                        <strong>{{__('Notifications')}}</strong>
+                        <strong>{{ __('Notifications') }}</strong>
                     </div>
                     <div class="panel-body">
                         <ul class="dropdown-list-items p-0">
@@ -77,8 +95,8 @@
 @endsection
 
 @section('script.body')
-    <script src="{{url('libs/chart_js/Chart.min.js')}}"></script>
-    <script src="{{url('libs/daterange/moment.min.js')}}"></script>
+    <script src="{{ url('libs/chart_js/Chart.min.js') }}"></script>
+    <script src="{{ url('libs/daterange/moment.min.js') }}"></script>
     <script>
         var ctx = document.getElementById('earning_chart').getContext('2d');
 
@@ -137,6 +155,7 @@
 
         var start = moment().startOf('week');
         var end = moment();
+
         function cb(start, end) {
             $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         }
@@ -147,16 +166,17 @@
             "opens": "left",
             "showDropdowns": true,
             ranges: {
-                '{{__("Today")}}': [moment(), moment()],
-                '{{__("Yesterday")}}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                '{{__("Last 7 Days")}}': [moment().subtract(6, 'days'), moment()],
-                '{{__("Last 30 Days")}}': [moment().subtract(29, 'days'), moment()],
-                '{{__("This Month")}}': [moment().startOf('month'), moment().endOf('month')],
-                '{{__("Last Month")}}': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                '{{__("This Year")}}': [moment().startOf('year'), moment().endOf('year')],
-                '{{__('This Week')}}': [moment().startOf('week'), end]
+                '{{ __('Today') }}': [moment(), moment()],
+                '{{ __('Yesterday') }}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                '{{ __('Last 7 Days') }}': [moment().subtract(6, 'days'), moment()],
+                '{{ __('Last 30 Days') }}': [moment().subtract(29, 'days'), moment()],
+                '{{ __('This Month') }}': [moment().startOf('month'), moment().endOf('month')],
+                '{{ __('Last Month') }}': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                    'month').endOf('month')],
+                '{{ __('This Year') }}': [moment().startOf('year'), moment().endOf('year')],
+                '{{ __('This Week') }}': [moment().startOf('week'), end]
             }
-        }, cb).on('apply.daterangepicker', function (ev, picker) {
+        }, cb).on('apply.daterangepicker', function(ev, picker) {
             // Reload Earning JS
             $.ajax({
                 url: '{{ route('admin.reloadChart') }}',
@@ -167,7 +187,7 @@
                 },
                 dataType: 'json',
                 type: 'post',
-                success: function (res) {
+                success: function(res) {
                     if (res.status) {
                         window.myMixedChart.data = res.data;
                         window.myMixedChart.update();
