@@ -22,14 +22,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('Nama Depan') }}</label>
+                                        <label>{{ __('First Name') }}</label>
                                         <input type="text" value="{{ old('first_name', $row->first_name) }}"
                                             name="first_name" placeholder="{{ __('First name') }}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('Nama Belakang') }}</label>
+                                        <label>{{ __('Last Name') }}</label>
                                         <input type="text" value="{{ old('last_name', $row->last_name) }}"
                                             name="last_name" placeholder="{{ __('Last name') }}" class="form-control">
                                     </div>
@@ -37,33 +37,33 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Nomor HP (Wajib)') }}</label>
+                            <label>{{ __('Whatsapp No (Required)') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="phone"
                                 placeholder="{{ __('Phone Number') }}" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('No KTP (Wajib)') }}</label>
+                            <label>{{ __('ID Card/KTP (Required)') }}</label>
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="ktp"
                                 placeholder="{{ __('Nomor KTP') }}" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('Tanggal Lahir (Wajib)') }}</label>
+                            <label>{{ __('Date Of Birth (Required)') }}</label>
                             <input type="text"
                                 value="{{ old('birthday', $row->birthday ? display_date($row->birthday) : '') }}"
                                 name="birthday" placeholder="{{ __('Tanggal Lahir (Wajib)') }}"
                                 class="form-control has-datepicker" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Biographical (Wajib)') }}</label>
+                            <label>{{ __('Experience (Wajib)') }}</label>
                             <textarea name="bio" rows="5" class="form-control">{{ strip_tags(old('bio', $row->bio)) }}</textarea>
                         </div>
                         {{-- @dump($row->role_id); --}}
                         <input type="hidden" value="{{ old('role_id', $row->role_id) }}" name="role_id"
                                 placeholder="{{ __('role_id') }}" class="form-control">
                         <div class="form-group">
-                            <label for="education_level">{{__("Kantor CWT Mendaftar")}}</label>
+                            <label for="education_level">{{__("CWT Office Register")}}</label>
                             <select class="form-control" id="education_level" name="education_level">
                                 <option value="" @if(old('education_level', $row->education_level) == '') selected @endif >{{ __("Select") }}</option>
                                 <option value="Jakarta" @if(old('education_level', $row->education_level) == 'Jakarta') selected @endif >{{ __("Jakarta") }}</option>
@@ -185,7 +185,7 @@
 
 
                 <div class="panel">
-                    <div class="panel-title"><strong>{{ __('Foto Formal (Wajib)') }}</strong></div>
+                    <div class="panel-title"><strong>{{ __('Photo formal (Required)') }}</strong></div>
                     <div class="panel-body">
                         <div class="form-group">
                             {!! \Modules\Media\Helpers\FileHelper::fieldUpload('avatar_id', old('avatar_id', $row->avatar_id)) !!}
