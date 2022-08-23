@@ -431,12 +431,12 @@
                                                                     aria-labelledby="dropdownMenuButton">
                                                                     {{-- <a class="dropdown-item"
                                                                         href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Edit') }}</a> --}}
-                                                                    <a class="dropdown-item" href="{{ $row->candidateInfo->getDetailUrl() }}" data-toggle="modal"
+                                                                    {{-- <a class="dropdown-item" href="{{ $row->candidateInfo->getDetailUrl() }}" data-toggle="modal"
                                                                         data-target="{{ $row->candidateInfo->getDetailUrl() }}">{{ __('Detail') }}</a>
                                                                         <a class="dropdown-item"
                                                                         href="{{ route('job.admin.applicants.changeStatus', ['status' => 'profile_completed', 'id' => $row->id]) }}">{{ __('Approved Kelengkapan') }}</a>
                                                                     <a class="dropdown-item"
-                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'pending', 'id' => $row->id]) }}">{{ __('Rejected Kelengkapan') }}</a>
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'pending', 'id' => $row->id]) }}">{{ __('Rejected Kelengkapan') }}</a> --}}
                                                                 </div>
                                                             </div>
                                                             <div class="modal fade" id="modal-applied-{{ $row->id }}">

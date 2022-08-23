@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
-
         if(env('APP_HTTPS')) {
             \URL::forceScheme('https');
             $this->app['request']->server->set('HTTPS','on');

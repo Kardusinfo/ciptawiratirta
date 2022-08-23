@@ -23,6 +23,22 @@
             <?php endif; ?>
         </div>
         <br>
+        <div class="col-md-12 col-lg-6 mb-3 ">
+            <div class="panel ">
+                <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
+                    <strong>Warning!</strong>
+                    
+                </div>
+                <?php dump(Auth::user()); ?>;
+                <div class="panel-body">
+                Complete your profile and upload your cv with your application first  <br> <br>
+                <a href="/user/profile" class="btn btn-info">
+                    <span class="btn-title">Next</span>
+                </a>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-12 col-lg-6 mb-3">
                 <div class="panel">

@@ -361,12 +361,7 @@
                                                                 <div class="dropdown-menu dropdown-menu-right"
                                                                     aria-labelledby="dropdownMenuButton">
                                                                     
-                                                                    <a class="dropdown-item" href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>" data-toggle="modal"
-                                                                        data-target="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"><?php echo e(__('Detail')); ?></a>
-                                                                        <a class="dropdown-item"
-                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'profile_completed', 'id' => $row->id])); ?>"><?php echo e(__('Approved Kelengkapan')); ?></a>
-                                                                    <a class="dropdown-item"
-                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'pending', 'id' => $row->id])); ?>"><?php echo e(__('Rejected Kelengkapan')); ?></a>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <div class="modal fade" id="modal-applied-<?php echo e($row->id); ?>">
@@ -850,15 +845,7 @@
                                                                 value="<?php echo e($row->id); ?>">
                                                         </td>
                                                         <td>
-                                                            <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                                <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                    target="_blank">
-                                                                    <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                        style="border-radius: 50%" class="company-logo" />
-                                                                    <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
-
-                                                                </a>
-                                                            <?php endif; ?>
+                                                            
                                                         </td>
                                                         <td class="title">
                                                             <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
@@ -964,16 +951,7 @@
                                                                                         <div class="label">
                                                                                             <?php echo e(__('Candidate:')); ?></div>
                                                                                         <div class="val">
-                                                                                            <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                                                                <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                                                    target="_blank">
-                                                                                                    <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                                                        style="border-radius: 50%"
-                                                                                                        class="company-logo" />
-                                                                                                    <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
-
-                                                                                                </a>
-                                                                                            <?php endif; ?>
+                                                                                            
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="applied-item">
@@ -1034,15 +1012,7 @@
                                                                 value="<?php echo e($row->id); ?>">
                                                         </td>
                                                         <td>
-                                                            <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                                <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                    target="_blank">
-                                                                    <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                        style="border-radius: 50%" class="company-logo" />
-                                                                    <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
-
-                                                                </a>
-                                                            <?php endif; ?>
+                                                            
                                                         </td>
                                                         <td class="title">
                                                             <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
