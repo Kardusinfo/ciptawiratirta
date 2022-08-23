@@ -113,7 +113,7 @@ if (empty($is_home) && $header_style == 'normal' && empty($disable_header_shadow
                                 
                                 <?php if(is_candidate() && !is_admin()): ?>
                                     <li class="menu-hr"><a
-                                            href="<?php echo e(route('candidate.admin.myApplied')); ?>"><?php echo e(__('Dashboard')); ?></a>
+                                            href="<?php echo e(url('/admin')); ?>"><?php echo e(__('Dashboard')); ?></a>
                                     </li>
                                 <?php endif; ?>
                                 <li class="<?php if(Auth::user()->hasPermission('dashboard_vendor_access')): ?> menu-hr <?php endif; ?>">
