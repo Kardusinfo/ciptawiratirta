@@ -104,12 +104,12 @@
                 <div class="modal-custom">
                     {{-- Image --}}
                     <a class="go-to" href="/page/recruitment-procedure">
-                        
+
                         {{-- <img class="modal-image" src="popup.png" /> --}}
 
                         @if ($logo_id = setting_item('banner_id'))
                             @php $logo = get_file_url($logo_id,'full') @endphp
-                            <img src="{{ $logo }}">
+                            <img src="{{ $logo }}" style="border-radius: 5px">
                         @else
                             <img src="{{ asset('/popup.png') }}" alt="logo">
                         @endif
