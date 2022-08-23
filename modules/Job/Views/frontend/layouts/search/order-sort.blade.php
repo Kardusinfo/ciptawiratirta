@@ -33,8 +33,8 @@
     <option value="urgent" @if(request()->get('orderby') == 1) selected @endif>{{__('Urgent')}}</option>
     <option value="new" @if(request()->get('orderby') == 'new') selected @endif>{{__('Newest')}}</option>
     <option value="old" @if(request()->get('orderby') == 'old') selected @endif>{{__('Oldest')}}</option>
-    <option value="name_high" @if(request()->get('orderby') == 'name_high') selected @endif>{{__('Name [a->z]')}}</option>
-    <option value="name_low" @if(request()->get('orderby') == 'name_low') selected @endif>{{__('Name [z->a]')}}</option>
+    {{-- <option value="name_high" @if(request()->get('orderby') == 'name_high') selected @endif>{{__('Name [a->z]')}}</option>
+    <option value="name_low" @if(request()->get('orderby') == 'name_low') selected @endif>{{__('Name [z->a]')}}</option> --}}
 </select>
 
 <select class="chosen-select" name="limit" onchange="this.form.submit()">

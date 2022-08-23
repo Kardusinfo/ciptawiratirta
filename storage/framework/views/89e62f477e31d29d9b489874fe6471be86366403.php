@@ -33,8 +33,7 @@
     <option value="urgent" <?php if(request()->get('orderby') == 1): ?> selected <?php endif; ?>><?php echo e(__('Urgent')); ?></option>
     <option value="new" <?php if(request()->get('orderby') == 'new'): ?> selected <?php endif; ?>><?php echo e(__('Newest')); ?></option>
     <option value="old" <?php if(request()->get('orderby') == 'old'): ?> selected <?php endif; ?>><?php echo e(__('Oldest')); ?></option>
-    <option value="name_high" <?php if(request()->get('orderby') == 'name_high'): ?> selected <?php endif; ?>><?php echo e(__('Name [a->z]')); ?></option>
-    <option value="name_low" <?php if(request()->get('orderby') == 'name_low'): ?> selected <?php endif; ?>><?php echo e(__('Name [z->a]')); ?></option>
+    
 </select>
 
 <select class="chosen-select" name="limit" onchange="this.form.submit()">
