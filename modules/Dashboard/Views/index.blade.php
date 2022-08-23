@@ -31,7 +31,7 @@
                     <strong>Warning!</strong>
                     
                 </div>
-                @dump(Auth::user());
+                {{-- @dump(Auth::user()); --}}
                 <div class="panel-body">
                 Complete your profile and upload your cv with your application first  <br> <br>
                 <a href="/user/profile" class="btn btn-info">
