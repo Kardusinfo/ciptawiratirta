@@ -27,12 +27,12 @@
                 <form method="get" action="{{url('/admin/module/candidate/')}} " class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name')}}"
                            class="form-control">
-                    <select name="cate_id" class="form-control">
+                    <select name="cat_id" class="form-control">
                         <option value="">{{ __('--All Category --')}} </option>
                         <?php
                         if (!empty($categories)) {
                             foreach ($categories as $category) {
-                                printf("<option ".(Request()->cate_id == $category->id ? 'selected' : '')." value='%s' >%s</option>", $category->id, $category->name);
+                                printf("<option ".(Request()->cat_id == $category->id ? 'selected' : '')." value='%s' >%s</option>", $category->id, $category->name);
                             }
                         }
                         ?>

@@ -63,7 +63,7 @@
                         <input type="hidden" value="<?php echo e(old('role_id', $row->role_id)); ?>" name="role_id"
                                 placeholder="<?php echo e(__('role_id')); ?>" class="form-control">
                         <div class="form-group">
-                            <label for="education_level"><?php echo e(__("Kantor CWT Mendaftar")); ?></label>
+                            <label for="education_level"><?php echo e(__("CWT Office Register")); ?></label>
                             <select class="form-control" id="education_level" name="education_level">
                                 <option value="" <?php if(old('education_level', $row->education_level) == ''): ?> selected <?php endif; ?> ><?php echo e(__("Select")); ?></option>
                                 <option value="Jakarta" <?php if(old('education_level', $row->education_level) == 'Jakarta'): ?> selected <?php endif; ?> ><?php echo e(__("Jakarta")); ?></option>
@@ -121,7 +121,7 @@
 
 
                 <div class="panel">
-                    <div class="panel-title"><strong><?php echo e(__('Foto Formal (Wajib)')); ?></strong></div>
+                    <div class="panel-title"><strong><?php echo e(__('Photo formal (Required)')); ?></strong></div>
                     <div class="panel-body">
                         <div class="form-group">
                             <?php echo \Modules\Media\Helpers\FileHelper::fieldUpload('avatar_id', old('avatar_id', $row->avatar_id)); ?>

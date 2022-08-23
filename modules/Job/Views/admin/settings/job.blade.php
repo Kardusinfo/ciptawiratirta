@@ -45,7 +45,7 @@
                                 <option value="job-list-v5" @if(setting_item('jobs_list_layout') == 'job-list-v5') selected @endif >{{ __("V5") }}</option>
                                 <option value="job-list-v6" @if(setting_item('jobs_list_layout') == 'job-list-v6') selected @endif >{{ __("V6") }}</option>
                                 <option value="job-list-v7" @if(setting_item('jobs_list_layout') == 'job-list-v7') selected @endif >{{ __("V7") }}</option>
-                                <option value="job-list-v8" @if(setting_item('jobs_list_layout') == 'job-list-v6') selected @endif >{{ __("V8") }}</option>
+                                <option value="job-list-v8" @if(setting_item('jobs_list_layout') == 'job-list-v8') selected @endif >{{ __("V8") }}</option>
                                 <option value="job-list-v9" @if(setting_item('jobs_list_layout') == 'job-list-v9') selected @endif >{{ __("V9") }}</option>
                             </select>
                         </div>
