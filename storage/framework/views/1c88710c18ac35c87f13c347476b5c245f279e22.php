@@ -90,6 +90,8 @@ unset($__errorArgs, $__bag); ?>
                                 value="<?php echo e(old('birthday', $row->birthday ? display_date($row->birthday) : '')); ?>"
                                 name="birthday" placeholder="<?php echo e(__('Tanggal Lahir (Wajib)')); ?>"
                                 class="form-control has-datepicker" autocomplete="off">
+                            
+                        </div>
                             <?php $__errorArgs = ['birthday'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -200,25 +202,18 @@ unset($__errorArgs, $__bag); ?>
     <script type="text/javascript" src="<?php echo e(asset('libs/daterange/moment.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('libs/daterange/daterangepicker.min.js')); ?>"></script>
     <script src="<?php echo e(asset('libs/select2/js/select2.min.js')); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
     <script>
-        $('.has-datepicker').daterangepicker({
-            singleDatePicker: true,
-            showCalendar: false,
-            autoUpdateInput: false,
-            sameDate: true,
-            autoApply: true,
-            disabledPast: true,
-            enableLoading: true,
-            showEventTooltip: true,
-            classNotAvailable: ['disabled', 'off'],
-            disableHightLight: true,
-            locale: {
-                format: superio.date_format
-            }
-        }).on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format(superio.date_format));
+        $(function() {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'),10)
+            });
         });
     </script>
+    
     <script>
         <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
             $(document).ready(function() {

@@ -69,6 +69,11 @@
                                 value="{{ old('birthday', $row->birthday ? display_date($row->birthday) : '') }}"
                                 name="birthday" placeholder="{{ __('Tanggal Lahir (Wajib)') }}"
                                 class="form-control has-datepicker" autocomplete="off">
+                            {{-- <input type='text' class="form-control" id='datetimepicker1'/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>         --}}
+                        </div>
                             @error('birthday')
                                 <div style="color:red">*Tidak boleh kosong</div>
                             @enderror
@@ -334,7 +339,18 @@
     <script type="text/javascript" src="{{ asset('libs/daterange/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('libs/daterange/daterangepicker.min.js') }}"></script>
     <script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
     <script>
+        $(function() {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'),10)
+            });
+        });
+    </script>
+    {{-- <script>
         $('.has-datepicker').daterangepicker({
             singleDatePicker: true,
             showCalendar: false,
@@ -352,7 +368,7 @@
         }).on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format(superio.date_format));
         });
-    </script>
+    </script> --}}
     <script>
         @if ($row->hasRole('candidate') || !empty($candidate_create))
             $(document).ready(function() {
