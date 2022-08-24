@@ -23,7 +23,7 @@
                     </form>
                 <?php endif; ?>
             </div>
-            <div class="col-left">
+            <div class="">
                 <form method="get" action="<?php echo e(route('job.admin.index')); ?>" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <?php if(is_admin()): ?>
                         <?php
@@ -31,11 +31,11 @@
                         \App\Helpers\AdminForm::select2('category_id', [
                             'configs' => [
                                 'ajax'        => [
-                                    'url' => route('category.admin.getForSelect2'),
+                                    'url' => route('categories.admin.getForSelect2'),
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
-                                'placeholder' => __('-- Select Principal --')
+                                'placeholder' => __('-- Select Department --')
                             ]
                         ], !empty($category->id) ? [
                             $category->id,
@@ -43,8 +43,7 @@
                         ] : false)
                         ?>
                     <?php endif; ?>
-                    <input type="text" name="s" value="<?php echo e(Request()->input('s')); ?>" placeholder="<?php echo e(__('Search by name')); ?>" class="form-control">
-                    <button class="btn-default btn btn-icon btn_search" type="submit"><?php echo e(__('Search')); ?></button>
+                    
                 </form>
             </div>
 

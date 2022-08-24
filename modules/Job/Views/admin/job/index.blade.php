@@ -23,7 +23,7 @@
                     </form>
                 @endif
             </div>
-            <div class="col-left">
+            <div class="">
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
@@ -35,7 +35,7 @@
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
-                                'placeholder' => __('-- Select Principal --')
+                                'placeholder' => __('-- Select Department --')
                             ]
                         ], !empty($category->id) ? [
                             $category->id,
@@ -43,8 +43,8 @@
                         ] : false)
                         ?>
                     @endif
-                    <input type="text" name="s" value="{{ Request()->input('s') }}" placeholder="{{__('Search by name')}}" class="form-control">
-                    <button class="btn-default btn btn-icon btn_search" type="submit">{{__('Search')}}</button>
+                    {{-- <input type="text" name="s" value="{{ Request()->input('s') }}" placeholder="{{__('Search by name')}}" class="form-control">
+                    <button class="btn-default btn btn-icon btn_search" type="submit">{{__('Search')}}</button> --}}
                 </form>
             </div>
 
