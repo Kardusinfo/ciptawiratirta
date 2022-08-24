@@ -59,10 +59,10 @@
                             <thead>
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
-                                <th> {{ __('Name Position')}}</th>
+                                <th width="150px"> {{ __('Name Position')}}</th>
                                 {{-- <th width="200px"> {{ __('Location')}}</th> --}}
-                                <th width="70px"> {{ __('Department')}}</th>
-                                <th width="180px"> {{ __('Principal')}}</th>
+                                <th width="150px"> {{ __('Department')}}</th>
+                                <th width="150px"> {{ __('Principal')}}</th>
                                 <th width="100px"> {{ __('Status')}}</th>
                                 <th width="100px"> {{ __('Date')}}</th>
                                 <th width="100px"></th>
