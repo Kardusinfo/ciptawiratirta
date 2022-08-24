@@ -1,174 +1,175 @@
-@extends('admin.layouts.app')
 
-@section('content')
-    <form action="{{url('admin/module/user/store/'.($row->id ?? -1))}}" method="post" class="needs-validation" novalidate>
-        @csrf
+
+<?php $__env->startSection('content'); ?>
+    <form action="<?php echo e(url('admin/module/user/store/'.($row->id ?? -1))); ?>" method="post" class="needs-validation" novalidate>
+        <?php echo csrf_field(); ?>
         <div class="container-fluid">
             <div class="d-flex justify-content-between mb20">
                 <div class="">
-                    <h1 class="title-bar">{{$row->id ? 'Edit: '.$row->getDisplayName() : 'Add new user'}}</h1>
-                    @if(!empty($row->candidate))
-                        <p class="item-url-demo">{{__("Permalink")}}: {{ url(config('candidate.candidate_route_prefix') ) }}/<a href="#" class="open-edit-input" data-name="slug">{{$row->candidate->slug}}</a>
+                    <h1 class="title-bar"><?php echo e($row->id ? 'Edit: '.$row->getDisplayName() : 'Add new user'); ?></h1>
+                    <?php if(!empty($row->candidate)): ?>
+                        <p class="item-url-demo"><?php echo e(__("Permalink")); ?>: <?php echo e(url(config('candidate.candidate_route_prefix') )); ?>/<a href="#" class="open-edit-input" data-name="slug"><?php echo e($row->candidate->slug); ?></a>
                         </p>
-                    @endif
+                    <?php endif; ?>
                 </div>
-                @if(is_admin() && !empty($row->candidate) && !empty($row->candidate->slug) && old('role_id',$row->role_id) == 3)
+                <?php if(is_admin() && !empty($row->candidate) && !empty($row->candidate->slug) && old('role_id',$row->role_id) == 3): ?>
                     <div class="flex">
-                        <a class="btn btn-default btn-sm" href="{{ route('candidate.detail', ['slug' => $row->candidate->slug]) }}" target="_blank"><i class="fa fa-eye"></i> {{ __("View Candidate") }}</a>
+                        <a class="btn btn-default btn-sm" href="<?php echo e(route('candidate.detail', ['slug' => $row->candidate->slug])); ?>" target="_blank"><i class="fa fa-eye"></i> <?php echo e(__("View Candidate")); ?></a>
                     </div>
-                @endif
+                <?php endif; ?>
             </div>
-            @include('admin.message')
+            <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <div class="row">
                 <div class="col-md-9">
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('User Info')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('User Info')); ?></strong></div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('E-mail')}}</label>
-                                        <input type="email" required value="{{old('email',$row->email)}}" placeholder="{{ __('Email')}}" name="email" class="form-control"  >
+                                        <label><?php echo e(__('E-mail')); ?></label>
+                                        <input type="email" required value="<?php echo e(old('email',$row->email)); ?>" placeholder="<?php echo e(__('Email')); ?>" name="email" class="form-control"  >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{__("First name")}}</label>
-                                        <input type="text" required value="{{old('first_name',$row->first_name)}}" name="first_name" placeholder="{{__("First name")}}" class="form-control">
+                                        <label><?php echo e(__("First name")); ?></label>
+                                        <input type="text" required value="<?php echo e(old('first_name',$row->first_name)); ?>" name="first_name" placeholder="<?php echo e(__("First name")); ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{__("Last name")}}</label>
-                                        <input type="text" required value="{{old('last_name',$row->last_name)}}" name="last_name" placeholder="{{__("Last name")}}" class="form-control">
+                                        <label><?php echo e(__("Last name")); ?></label>
+                                        <input type="text" required value="<?php echo e(old('last_name',$row->last_name)); ?>" name="last_name" placeholder="<?php echo e(__("Last name")); ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('Whatsapp No')}}</label>
-                                        <input type="text" value="{{old('phone',$row->phone)}}" placeholder="{{ __('Phone')}}" name="phone" class="form-control" required>
+                                        <label><?php echo e(__('Whatsapp No')); ?></label>
+                                        <input type="text" value="<?php echo e(old('phone',$row->phone)); ?>" placeholder="<?php echo e(__('Phone')); ?>" name="phone" class="form-control" required>
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                    <label>{{ __('Whatsapp No') }}</label>
-                                    <input type="text" value="{{ old('phone', $row->phone) }}" name="phone"
-                                        placeholder="{{ __('Phone Number') }}" class="form-control">
-                                    @error('phone')
-                                        <div style="color:red">*Tidak boleh kosong</div>
-                                    @enderror
-                                </div> --}}
+                                
         
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('ID Card/KTP') }}</label>
-                                        <input type="text" value="{{ old('ktp', $row->ktp) }}" name="ktp"
-                                            placeholder="{{ __('Nomor KTP') }}" class="form-control">
-                                        @error('ktp')
+                                        <label><?php echo e(__('ID Card/KTP')); ?></label>
+                                        <input type="text" value="<?php echo e(old('ktp', $row->ktp)); ?>" name="ktp"
+                                            placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control">
+                                        <?php $__errorArgs = ['ktp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                             <div style="color:red">*Tidak boleh kosong</div>
-                                        @enderror
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{ __('D.O.B')}}</label>
-                                        <input type="text" readonly style="background: white" value="{{ old('birthday',$row->birthday ? date("Y/m/d",strtotime($row->birthday)) :'') }}" placeholder="{{ __('Birthday')}}" name="birthday" class="form-control has-datepicker input-group date">
+                                        <label><?php echo e(__('D.O.B')); ?></label>
+                                        <input type="text" readonly style="background: white" value="<?php echo e(old('birthday',$row->birthday ? date("Y/m/d",strtotime($row->birthday)) :'')); ?>" placeholder="<?php echo e(__('Birthday')); ?>" name="birthday" class="form-control has-datepicker input-group date">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label">{{ __('Background/Experience')}}</label>
+                                <label class="control-label"><?php echo e(__('Background/Experience')); ?></label>
                                 <div class="">
-                                    <textarea name="bio" class="d-none has-ckeditor" cols="30" rows="10">{{old('bio',$row->bio)}}</textarea>
+                                    <textarea name="bio" class="d-none has-ckeditor" cols="30" rows="10"><?php echo e(old('bio',$row->bio)); ?></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    @if($row->hasRole('candidate') || !empty($candidate_create))
+                    <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
                         <div class="panel">
-                            <div class="panel-title"><strong>{{ __('Candidate Info')}}</strong></div>
+                            <div class="panel-title"><strong><?php echo e(__('Candidate Info')); ?></strong></div>
                             <div class="panel-body">
-                                @include('Candidate::admin/candidate/form',['row'=> $row])
+                                <?php echo $__env->make('Candidate::admin/candidate/form',['row'=> $row], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             </div>
                         </div>
 
                         <div class="panel">
-                            <div class="panel-title"><strong>{{ __('Location Info')}}</strong></div>
+                            <div class="panel-title"><strong><?php echo e(__('Location Info')); ?></strong></div>
                             <div class="panel-body">
-                                @include('Candidate::admin/candidate/location',['row'=> $row, 'locations' => $locations])
+                                <?php echo $__env->make('Candidate::admin/candidate/location',['row'=> $row, 'locations' => $locations], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             </div>
                         </div>
 
                         <div class="panel">
-                            <div class="panel-title"><strong>{{ __('Education - Experience - Award')}}</strong></div>
+                            <div class="panel-title"><strong><?php echo e(__('Education - Experience - Award')); ?></strong></div>
                             <div class="panel-body">
-                                @include('Candidate::admin/candidate/sub_information',['row'=> $row])
+                                <?php echo $__env->make('Candidate::admin/candidate/sub_information',['row'=> $row], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             </div>
                         </div>
 
-                        @include('Core::admin/seo-meta/seo-meta', ['row' => ($row->candidate ?? $candidate)])
-                    @endif
+                        <?php echo $__env->make('Core::admin/seo-meta/seo-meta', ['row' => ($row->candidate ?? $candidate)], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php endif; ?>
                 </div>
 
                 <div class="col-md-3">
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Publish')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Publish')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label>{{__('Status')}}</label>
+                                <label><?php echo e(__('Status')); ?></label>
                                 <select required class="custom-select" name="status">
-                                    <option value="">{{ __('-- Select --')}}</option>
-                                    <option @if(old('status',$row->status) =='publish') selected @endif value="publish">{{ __('Publish')}}</option>
-                                    <option @if(old('status',$row->status) =='blocked') selected @endif value="blocked">{{ __('Blocked')}}</option>
+                                    <option value=""><?php echo e(__('-- Select --')); ?></option>
+                                    <option <?php if(old('status',$row->status) =='publish'): ?> selected <?php endif; ?> value="publish"><?php echo e(__('Publish')); ?></option>
+                                    <option <?php if(old('status',$row->status) =='blocked'): ?> selected <?php endif; ?> value="blocked"><?php echo e(__('Blocked')); ?></option>
                                 </select>
                             </div>
-                            @if(is_admin())
+                            <?php if(is_admin()): ?>
                             <div class="form-group">
-                                <label>{{__('Role')}}</label>
+                                <label><?php echo e(__('Role')); ?></label>
                                 <select required class="form-control" name="role_id">
-                                    <option value="">{{ __('-- Select --')}}</option>
-                                    @foreach($roles as $role)
-                                        <option value="{{$role->id}}" @if(old('role_id',$row->role_id) == $role->id) selected @elseif(old('role_id')  == $role->id ) selected @endif >{{ucfirst($role->name)}}</option>
-                                    @endforeach
+                                    <option value=""><?php echo e(__('-- Select --')); ?></option>
+                                    <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($role->id); ?>" <?php if(old('role_id',$row->role_id) == $role->id): ?> selected <?php elseif(old('role_id')  == $role->id ): ?> selected <?php endif; ?> ><?php echo e(ucfirst($role->name)); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
-                            @endif
-                            @if($row->hasRole('candidate') || !empty($candidate_create))
+                            <?php endif; ?>
+                            <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
                                 <div class="form-group">
-                                    <label>{{__('Allow Search')}}</label>
+                                    <label><?php echo e(__('Allow Search')); ?></label>
                                     <select required class="custom-select" name="allow_search">
-                                        <option value="">{{ __('-- Select --')}}</option>
-                                        <option @if(old('allow_search',@$row->candidate->allow_search) =='publish') selected @endif value="publish">{{ __('Publish')}}</option>
-                                        <option @if(old('allow_search',@$row->candidate->allow_search) =='hide') selected @endif value="hide">{{ __('Hide')}}</option>
+                                        <option value=""><?php echo e(__('-- Select --')); ?></option>
+                                        <option <?php if(old('allow_search',@$row->candidate->allow_search) =='publish'): ?> selected <?php endif; ?> value="publish"><?php echo e(__('Publish')); ?></option>
+                                        <option <?php if(old('allow_search',@$row->candidate->allow_search) =='hide'): ?> selected <?php endif; ?> value="hide"><?php echo e(__('Hide')); ?></option>
                                     </select>
                                 </div>
-                            @endif
+                            <?php endif; ?>
 
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <span></span>
-                                <button class="btn btn-primary" type="submit">{{ __('Save Change')}}</button>
+                                <button class="btn btn-primary" type="submit"><?php echo e(__('Save Change')); ?></button>
                             </div>
                         </div>
                     </div>
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Avatar')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Avatar')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group">
-                                {!! \Modules\Media\Helpers\FileHelper::fieldUpload('avatar_id',old('avatar_id',$row->avatar_id)) !!}
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldUpload('avatar_id',old('avatar_id',$row->avatar_id)); ?>
+
                             </div>
                         </div>
                     </div>
-                    @if($row->hasRole('candidate') || !empty($candidate_create))
+                    <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
                     <div class="panel">
-                        <div class="panel-title"><strong>{{__('Categories')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Categories')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <select id="categories" class="form-control" name="categories[]" multiple="multiple">
-                                    <option value="">{{__("-- Please Select --")}}</option>
+                                    <option value=""><?php echo e(__("-- Please Select --")); ?></option>
                                     <?php
                                     foreach ($categories as $oneCategories) {
                                         $selected = '';
@@ -190,12 +191,12 @@
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{__("Skills")}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__("Skills")); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="">
                                     <select id="skills" name="skills[]" class="form-control" multiple="multiple">
-                                        <option value="">{{__("-- Please Select --")}}</option>
+                                        <option value=""><?php echo e(__("-- Please Select --")); ?></option>
                                         <?php
                                         foreach ($skills as $oneSkill) {
                                             $selected = '';
@@ -217,147 +218,152 @@
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Social Media')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Social Media')); ?></strong></div>
                         <div class="panel-body">
                             <?php $socialMediaData = !empty($row->candidate) ? $row->candidate->social_media : []; ?>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-skype"><i class="fa fa-skype"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[skype]" value="{{@$socialMediaData['skype']}}" placeholder="{{__('Skype')}}" aria-label="{{__('Skype')}}" aria-describedby="social-skype">
+                                <input type="text" class="form-control" name="social_media[skype]" value="<?php echo e(@$socialMediaData['skype']); ?>" placeholder="<?php echo e(__('Skype')); ?>" aria-label="<?php echo e(__('Skype')); ?>" aria-describedby="social-skype">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-facebook"><i class="fa fa-facebook"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[facebook]" value="{{@$socialMediaData['facebook']}}" placeholder="{{__('Facebook')}}" aria-label="{{__('Facebook')}}" aria-describedby="social-facebook">
+                                <input type="text" class="form-control" name="social_media[facebook]" value="<?php echo e(@$socialMediaData['facebook']); ?>" placeholder="<?php echo e(__('Facebook')); ?>" aria-label="<?php echo e(__('Facebook')); ?>" aria-describedby="social-facebook">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-twitter"><i class="fa fa-twitter"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[twitter]" value="{{@$socialMediaData['twitter']}}" placeholder="{{__('Twitter')}}" aria-label="{{__('Twitter')}}" aria-describedby="social-twitter">
+                                <input type="text" class="form-control" name="social_media[twitter]" value="<?php echo e(@$socialMediaData['twitter']); ?>" placeholder="<?php echo e(__('Twitter')); ?>" aria-label="<?php echo e(__('Twitter')); ?>" aria-describedby="social-twitter">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-instagram"><i class="fa fa-instagram"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[instagram]" value="{{@$socialMediaData['instagram']}}" placeholder="{{__('Instagram')}}" aria-label="{{__('Instagram')}}" aria-describedby="social-instagram">
+                                <input type="text" class="form-control" name="social_media[instagram]" value="<?php echo e(@$socialMediaData['instagram']); ?>" placeholder="<?php echo e(__('Instagram')); ?>" aria-label="<?php echo e(__('Instagram')); ?>" aria-describedby="social-instagram">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-pinterest"><i class="fa fa-pinterest"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[pinterest]" value="{{@$socialMediaData['pinterest']}}" placeholder="{{__('Pinterest')}}" aria-label="{{__('Pinterest')}}" aria-describedby="social-pinterest">
+                                <input type="text" class="form-control" name="social_media[pinterest]" value="<?php echo e(@$socialMediaData['pinterest']); ?>" placeholder="<?php echo e(__('Pinterest')); ?>" aria-label="<?php echo e(__('Pinterest')); ?>" aria-describedby="social-pinterest">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-dribbble"><i class="fa fa-dribbble"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[dribbble]" value="{{@$socialMediaData['dribbble']}}" placeholder="{{__('Dribbble')}}" aria-label="{{__('Dribbble')}}" aria-describedby="social-dribbble">
+                                <input type="text" class="form-control" name="social_media[dribbble]" value="<?php echo e(@$socialMediaData['dribbble']); ?>" placeholder="<?php echo e(__('Dribbble')); ?>" aria-label="<?php echo e(__('Dribbble')); ?>" aria-describedby="social-dribbble">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-google"><i class="fa fa-google"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[google]" value="{{@$socialMediaData['google']}}" placeholder="{{__('Google')}}" aria-label="{{__('Google')}}" aria-describedby="social-google">
+                                <input type="text" class="form-control" name="social_media[google]" value="<?php echo e(@$socialMediaData['google']); ?>" placeholder="<?php echo e(__('Google')); ?>" aria-label="<?php echo e(__('Google')); ?>" aria-describedby="social-google">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="social-google"><i class="fa fa-linkedin"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="social_media[linkedin]" value="{{@$socialMediaData['linkedin']}}" placeholder="{{__('Linkedin')}}" aria-label="{{__('Linkedin')}}" aria-describedby="social-linkedin">
+                                <input type="text" class="form-control" name="social_media[linkedin]" value="<?php echo e(@$socialMediaData['linkedin']); ?>" placeholder="<?php echo e(__('Linkedin')); ?>" aria-label="<?php echo e(__('Linkedin')); ?>" aria-describedby="social-linkedin">
                             </div>
                         </div>
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('CV Uploaded')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('CV Uploaded')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">
                                 <div class="g-items-header">
                                     <div class="row">
-                                        <div class="col-md-2">{{__("Default")}}</div>
-                                        <div class="col-md-8">{{__("Name")}}</div>
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
                                         <div class="col-md-2"></div>
                                     </div>
                                 </div>
-                                {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('cvs', @$cvs, 'cvs') !!}
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('cvs', @$cvs, 'cvs'); ?>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Passport Uploaded')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Passport Uploaded')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">
                                 <div class="g-items-header">
                                     <div class="row">
-                                        <div class="col-md-2">{{__("Default")}}</div>
-                                        <div class="col-md-8">{{__("Name")}}</div>
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
                                         <div class="col-md-2"></div>
                                     </div>
                                 </div>
-                                {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('passport', @$passport, 'passport') !!}
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('passport', @$passport, 'passport'); ?>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Visa Uploaded')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Visa Uploaded')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">
                                 <div class="g-items-header">
                                     <div class="row">
-                                        <div class="col-md-2">{{__("Default")}}</div>
-                                        <div class="col-md-8">{{__("Name")}}</div>
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
                                         <div class="col-md-2"></div>
                                     </div>
                                 </div>
-                                {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('visa', @$visa, 'visa') !!}
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('visa', @$visa, 'visa'); ?>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="panel">
-                        <div class="panel-title"><strong>{{ __('Bst / CCM Uploaded')}}</strong></div>
+                        <div class="panel-title"><strong><?php echo e(__('Bst / CCM Uploaded')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">
                                 <div class="g-items-header">
                                     <div class="row">
-                                        <div class="col-md-2">{{__("Default")}}</div>
-                                        <div class="col-md-8">{{__("Name")}}</div>
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
                                         <div class="col-md-2"></div>
                                     </div>
                                 </div>
-                                {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('bst_ccm', @$bst_ccm, 'bst_ccm') !!}
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('bst_ccm', @$bst_ccm, 'bst_ccm'); ?>
+
                             </div>
                         </div>
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
             <hr>
             <div class="d-flex justify-content-between">
                 <span></span>
-                <button class="btn btn-primary" type="submit">{{ __('Save Change')}}</button>
+                <button class="btn btn-primary" type="submit"><?php echo e(__('Save Change')); ?></button>
             </div>
         </div>
     </form>
 
-@endsection
-@section ('script.body')
-    {!! App\Helpers\MapEngine::scripts() !!}
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script.body'); ?>
+    <?php echo App\Helpers\MapEngine::scripts(); ?>
+
     <script>
-        @if($row->hasRole('candidate') || !empty($candidate_create))
+        <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
         $(document).ready(function() {
             $('#categories').select2();
             $('#skills').select2();
         });
 
-        let mapLat = {{ !empty($row->candidate) ? ($row->candidate->map_lat ?? "51.505") : "51.505" }};
-        let mapLng = {{ !empty($row->candidate) ? ($row->candidate->map_lng ?? "-0.09") : "-0.09" }};
-        let mapZoom = {{ !empty($row->candidate) ? ($row->candidate->map_zoom ?? '8') : "8" }};
+        let mapLat = <?php echo e(!empty($row->candidate) ? ($row->candidate->map_lat ?? "51.505") : "51.505"); ?>;
+        let mapLng = <?php echo e(!empty($row->candidate) ? ($row->candidate->map_lng ?? "-0.09") : "-0.09"); ?>;
+        let mapZoom = <?php echo e(!empty($row->candidate) ? ($row->candidate->map_zoom ?? '8') : "8"); ?>;
 
         jQuery(function ($) {
             new BravoMapEngine('map_content', {
@@ -400,6 +406,8 @@
             });
 
         })
-        @endif
+        <?php endif; ?>
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\gawean\project mas chan\superio200\modules/User/Views/admin/detail.blade.php ENDPATH**/ ?>

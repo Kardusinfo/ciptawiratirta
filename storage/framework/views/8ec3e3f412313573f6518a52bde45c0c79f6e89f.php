@@ -70,7 +70,7 @@ unset($__errorArgs, $__bag); ?>
 
                         <div class="form-group">
                             <label><?php echo e(__('ID Card/KTP')); ?></label>
-                            <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="ktp"
+                            <input type="text" value="<?php echo e(old('ktp', $row->ktp)); ?>" name="ktp"
                                 placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control">
                             <?php $__errorArgs = ['ktp'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

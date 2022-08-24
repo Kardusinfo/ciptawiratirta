@@ -764,7 +764,15 @@ class JobController extends AdminController
         return redirect()->back()->with('success', __('Update success!'));
     }
 
-    public function applicantsExport(){
+    public function applicantsExport(Request $request){
+
+        // $company = \Modules\Company\Models\Company::find(Request()->input('company_id'));
+        // $candidate = \App\User::find(Request()->input('candidate_id'));
+        // $job = \Modules\Job\Models\Job::find(Request()->input('job_id'));
+        // $data = [];
+        // array_push($data,$company);
+        // array_push($data, $candidate);
+        // array_push($data, $job);
         return (new ApplicantsExport())->download('applicants-' . date('M-d-Y') . '.xlsx');
     }
 
