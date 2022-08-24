@@ -111,7 +111,7 @@
     <div class="main-content">
         @include('Layout::admin.parts.bc')
         @yield('content')
-        <footer class="main-footer">
+        {{-- <footer class="main-footer">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 copy-right" >
@@ -124,7 +124,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
     </div>
 
     <div class="backdrop-sidebar-mobile"></div>
