@@ -38,21 +38,14 @@
 
         @php
             $job = \Modules\Job\Models\Job::all();
-            \App\Helpers\AdminForm::select2(
-                'job_id',
-                [
-                    'configs' => [
-                        'ajax' => [
-                            'url' => route('job.admin.getForSelect2'),
-                            'dataType' => 'json',
-                        ],
-                        'allowClear' => true,
-                        'placeholder' => __('-- Select Job --'),
-                    ],
-                ],
-                !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
-            );
         @endphp
+
+        @foreach ($job as $item)
+            <div class="form-group">
+                <label>{{ __('Posisi') }}</label>
+                <select name="job_id" id="job_id" class="form-control">
+                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+            </div>
 
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">
