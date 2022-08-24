@@ -23,6 +23,30 @@
                     </form>
                 <?php endif; ?>
             </div>
+            <div class="">
+                <form method="get" action="<?php echo e(route('job.admin.index')); ?>" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
+                    <?php if(is_admin()): ?>
+                        <?php
+                        $company = \Modules\Candidate\Models\Category::find(Request()->input('category_id'));
+                        \App\Helpers\AdminForm::select2('category_id', [
+                            'configs' => [
+                                'ajax'        => [
+                                    'url' => route('candidate.admin.getForSelect2'),
+                                    'dataType' => 'json'
+                                ],
+                                'allowClear'  => true,
+                                'placeholder' => __('-- Select Department --')
+                            ]
+                        ], !empty($category->id) ? [
+                            $category->id,
+                            $category->name . ' (#' . $category->id . ')'
+                        ] : false)
+                        ?>
+                    <?php endif; ?>
+                    
+                </form>
+            </div>
+
             <div class="col-left">
                 <form method="get" action="<?php echo e(route('job.admin.index')); ?>" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <?php if(is_admin()): ?>
@@ -59,10 +83,10 @@
                             <thead>
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
-                                <th> <?php echo e(__('Title')); ?></th>
-                                <th width="200px"> <?php echo e(__('Location')); ?></th>
-                                <th width="150px"> <?php echo e(__('Category')); ?></th>
-                                <th width="150px"> <?php echo e(__('Company')); ?></th>
+                                <th width="150px"> <?php echo e(__('Name Position')); ?></th>
+                                
+                                <th width="150px"> <?php echo e(__('Department')); ?></th>
+                                <th width="150px"> <?php echo e(__('Principal')); ?></th>
                                 <th width="100px"> <?php echo e(__('Status')); ?></th>
                                 <th width="100px"> <?php echo e(__('Date')); ?></th>
                                 <th width="100px"></th>
@@ -77,7 +101,7 @@
                                         <td class="title">
                                             <a href="<?php echo e($row->getEditUrl()); ?>"><?php echo e($row->title); ?></a>
                                         </td>
-                                        <td><?php echo e($row->location->name ?? ''); ?></td>
+                                        
                                         <td><?php echo e($row->category->name ?? ''); ?></td>
                                         <td><?php echo e($row->company->name ?? ''); ?></td>
                                         <td><span class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span></td>
