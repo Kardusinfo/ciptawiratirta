@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <label>{{ __('ID Card/KTP') }}</label>
-                            <input type="text" value="{{ old('phone', $row->phone) }}" name="ktp"
+                            <input type="text" value="{{ old('ktp', $row->ktp) }}" name="ktp"
                                 placeholder="{{ __('Nomor KTP') }}" class="form-control">
                             @error('ktp')
                                 <div style="color:red">*Tidak boleh kosong</div>

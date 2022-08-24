@@ -15,11 +15,12 @@ class ApplicantsExport implements FromCollection, WithHeadings, WithMapping
 
     public function collection()
     {
-        $candidate_id = request()->query('candidate_id');
+        $candidate_id = request()->input('candidate_id');
+
         $rows = JobCandidate::with(['jobInfo', 'candidateInfo', 'cvInfo', 'company', 'company.getAuthor'])
             ->whereHas('jobInfo', function ($q){
-                $job_id = request()->query('job_id');
-                $company_id = request()->query('company_id');
+                $job_id = request()->input('job_id');
+                $company_id = request()->input('company_id');
                 if (!Auth::user()->hasPermission('job_manage_others')) {
                     $company_id = Auth::user()->company->id ?? '';
                     $q->where('company_id', $company_id);
