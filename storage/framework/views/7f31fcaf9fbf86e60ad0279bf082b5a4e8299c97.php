@@ -187,59 +187,12 @@ if (!empty($custom_modules)) {
 // }
 
 ?>
-{{-- <ul class="main-menu">
-    @foreach ($menus as $menuItem)
-        @php $menuItem['class'] .= " ".str_ireplace("/","_",$menuItem['url']) @endphp
-        <li class="{{$menuItem['class']}} position-{{ $menuItem['position'] }}"><a href="{{ url($menuItem['url']) }}">
-                @if (!empty($menuItem['icon']))
-                    <span class="icon text-center"><i class="{{$menuItem['icon']}}"></i></span>
-                @endif
-                {!! clean($menuItem['title'],[
-                    'Attr.AllowedClasses'=>null
-                ]) !!}
-            </a>
-            @if (!empty($menuItem['children']))
-                <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-                <ul class="children">
-                    @foreach ($menuItem['children'] as $menuItem2)
-                        <li class="{{$menuItem['class']}}"><a href="{{ url($menuItem2['url']) }}">
-                                @if (!empty($menuItem2['icon']))
-                                    <i class="{{$menuItem2['icon']}}"></i>
-                                @endif
-                                {!! clean($menuItem2['title'],[
-                                    'Attr.AllowedClasses'=>null
-                                ]) !!}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
-        </li>
-    @endforeach
-</ul> --}}
 
-@if (Auth::user()->role_id == 1)
+
+<?php if(Auth::user()->role_id == 1): ?>
     <ul class="main-menu">
 
-        {{-- <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
-                <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-                Client
-            </a>
-            <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-            <ul class="children">
-                <li class=" has-children admin_module_company"><a href="/admin/module/company">
-                        All Principal</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
-                        Add Principal</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
-                        Attributes</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
-                        Ship</a>
-                </li>
-            </ul>
-        </li> --}}
+        
 
         <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -268,23 +221,7 @@ if (!empty($custom_modules)) {
             </a>
         </li>
 
-        {{-- <li class=" has-children admin_module_candidate position-26"><a href="/admin/module/candidate">
-                <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-                All Candidate
-            </a>
-            <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-            <ul class="children">
-                <li class=" has-children admin_module_candidate"><a href="/admin/module/candidate">
-                        All Candidates</a>
-                </li>
-                <li class=" has-children admin_module_candidate"><a href="/admin/module/user/create?candidate_create=1">
-                        Add Candidate</a>
-                </li>
-                <li class=" has-children admin_module_candidate"><a href="/admin/module/candidate/category">
-                        Category</a>
-                </li>
-            </ul>
-        </li> --}}
+        
 
         <li class=" has-children"><a href="#">
                 <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
@@ -357,7 +294,7 @@ if (!empty($custom_modules)) {
                         <span class="icon text-center"><i class="icon ion-ios-cog"></i></span>
                         Setting
                     </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+                    
                     <ul class="children">
                         <li class=" has-children admin_module_core_settings_index_general"><a
                                 href="/admin/module/core/settings/index/general">
@@ -421,7 +358,7 @@ if (!empty($custom_modules)) {
                         <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
                         Tools
                     </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+                    
                     <ul class="children">
                         <li class=" has-children admin_module_core_tools"><a href="/admin/module/language">
                                 Languages</a>
@@ -442,7 +379,7 @@ if (!empty($custom_modules)) {
                         <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
                         Users
                     </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+                    
                     <ul class="children">
                         <li class=" has-children admin_module_user"><a href="/admin/module/user">
                                 All Users</a>
@@ -459,7 +396,7 @@ if (!empty($custom_modules)) {
                         <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
                         Report
                     </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+                    
                     <ul class="children">
                         <li class=" has-children admin_module_contact"><a href="/admin/module/contact">
                                 Contact Submissions</a>
@@ -470,7 +407,7 @@ if (!empty($custom_modules)) {
         </li>
 
     </ul>
-@elseif(Auth::user()->role_id != 1)
+<?php elseif(Auth::user()->role_id != 1): ?>
 <ul class="main-menu">
     <li class=" admin_module_job_all-applicants position-25"><a href="/admin">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -502,4 +439,5 @@ if (!empty($custom_modules)) {
         </a>
     </li>
 </ul>
-@endif
+<?php endif; ?>
+<?php /**PATH D:\gawean\project mas chan\superio200\modules/Layout/admin/parts/sidebar.blade.php ENDPATH**/ ?>
