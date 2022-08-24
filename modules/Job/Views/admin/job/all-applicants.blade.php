@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb-4">
-            <h1 class="title-bar">{{ __('Selection Gate Pool') }}</h1>
+            <h1 class="title-bar">{{ __('All Applicants') }}</h1>
         </div>
         @include('admin.message')
         <div class="filter-div d-flex justify-content-end ">
@@ -41,7 +41,7 @@
                                         'dataType' => 'json',
                                     ],
                                     'allowClear' => true,
-                                    'placeholder' => __('-- Select Principal --'),
+                                    'placeholder' => __('-- Select Company --'),
                                 ],
                             ],
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
@@ -151,11 +151,11 @@
         {{-- <div class="row"> --}}
 
             <div class="tab">
-                {{-- <button class="tablinks" onclick="openCity(event, 'Paris')">({{ \Modules\Job\Models\JobCandidate::where('status', 'pending')->count() }}) Profile Not Completed</button> --}}
-                {{-- <button class="tablinks" onclick="openCity(event, 'London')">({{ \Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count() }}) Profile Completed</button> --}}
-                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">({{ \Modules\Job\Models\JobCandidate::where('status', 'pending')->count() }}) Profile Not Completed</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">({{ \Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count() }}) Ready to Approve</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">({{ \Modules\Job\Models\JobCandidate::where('status', 'approved')->count() }}) Approved</button>
                 <button class="tablinks" onclick="openCity(event, 'Kelsi')">({{ \Modules\Job\Models\JobCandidate::where('status', 'rejected')->count() }}) Rejected</button>
+                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
 

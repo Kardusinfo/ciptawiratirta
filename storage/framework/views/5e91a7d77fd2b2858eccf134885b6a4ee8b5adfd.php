@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb-4">
-            <h1 class="title-bar"><?php echo e(__('Selection Gate Pool')); ?></h1>
+            <h1 class="title-bar"><?php echo e(__('All Applicants')); ?></h1>
         </div>
         <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="filter-div d-flex justify-content-end ">
@@ -22,7 +22,7 @@
                                         'dataType' => 'json',
                                     ],
                                     'allowClear' => true,
-                                    'placeholder' => __('-- Select Principal --'),
+                                    'placeholder' => __('-- Select Company --'),
                                 ],
                             ],
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
@@ -134,11 +134,11 @@
         
 
             <div class="tab">
-                
-                
-                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'pending')->count()); ?>) Profile Not Completed</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count()); ?>) Ready to Approve</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'approved')->count()); ?>) Approved</button>
                 <button class="tablinks" onclick="openCity(event, 'Kelsi')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'rejected')->count()); ?>) Rejected</button>
+                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
 
