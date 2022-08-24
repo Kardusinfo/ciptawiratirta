@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="dashboard-page">
-            <h4 class="welcome-title text-uppercase"><?php echo e(__('Welcome :name!',['name'=>Auth::user()->nameOrEmail])); ?></h4>
+            <h4 class="welcome-title text-uppercase"><?php echo e(__('Welcome :name!', ['name' => Auth::user()->nameOrEmail])); ?></h4>
         </div>
         <br>
         <div class="row">
@@ -23,53 +23,44 @@
             <?php endif; ?>
         </div>
         <br>
-        <div class="col-md-12 col-lg-6 mb-3 ">
-            <div class="panel ">
-                <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
-                    <strong>Warning!</strong>
-                    
-                </div>
-                <?php dump(Auth::user()); ?>;
-                <div class="panel-body">
-                Complete your profile and upload your cv with your application first  <br> <br>
-                <a href="/user/profile" class="btn btn-info">
-                    <span class="btn-title">Next</span>
-                </a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12 col-lg-6 mb-3">
-                <div class="panel">
-                    <div class="panel-title d-flex justify-content-between align-items-center">
-                        <strong><?php echo e((is_admin()) ? __('Total Pendaftar') : __('Your Profile Views')); ?></strong>
-                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
-                            <i class="fa fa-calendar"></i>&nbsp;
-                            <span></span> <i class="fa fa-caret-down"></i>
+        <?php if(Auth::user()->role_id == 1): ?>
+            
+        <?php else: ?>
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-3 ">
+                    <div class="panel ">
+                        <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
+                            <strong>Warning!</strong>
+
+                        </div>
+                        
+                        <div class="panel-body">
+                            Complete your profile and upload your cv with your application first <br> <br>
+                            <a href="/user/profile" class="btn btn-info">
+                                <span class="btn-title">Next</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="panel-body">
-                        <canvas id="earning_chart"></canvas>
-                        <script>
-                            var views_chart_data = <?php echo json_encode($views_chart_data); ?>;
-                        </script>
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <div class="panel">
+                        <div class="panel-title d-flex justify-content-between">
+                            <strong><?php echo e(__('Notifications')); ?></strong>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="dropdown-list-items p-0">
+                                <?php $rows = $notifications ?>
+                                <?php echo $__env->make('Core::admin.notification.notification-loop-item', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 col-lg-6 ">
-                <div class="panel">
-                    <div class="panel-title d-flex justify-content-between">
-                        <strong><?php echo e(__('Notifications')); ?></strong>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="dropdown-list-items p-0">
-                            <?php $rows = $notifications ?>
-                            <?php echo $__env->make('Core::admin.notification.notification-loop-item', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <?php endif; ?>
+        <br>
+        <div class="row">
+            
+            
         </div>
     </div>
 <?php $__env->stopSection(); ?>
@@ -135,6 +126,7 @@
 
         var start = moment().startOf('week');
         var end = moment();
+
         function cb(start, end) {
             $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         }
@@ -145,16 +137,17 @@
             "opens": "left",
             "showDropdowns": true,
             ranges: {
-                '<?php echo e(__("Today")); ?>': [moment(), moment()],
-                '<?php echo e(__("Yesterday")); ?>': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                '<?php echo e(__("Last 7 Days")); ?>': [moment().subtract(6, 'days'), moment()],
-                '<?php echo e(__("Last 30 Days")); ?>': [moment().subtract(29, 'days'), moment()],
-                '<?php echo e(__("This Month")); ?>': [moment().startOf('month'), moment().endOf('month')],
-                '<?php echo e(__("Last Month")); ?>': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                '<?php echo e(__("This Year")); ?>': [moment().startOf('year'), moment().endOf('year')],
+                '<?php echo e(__('Today')); ?>': [moment(), moment()],
+                '<?php echo e(__('Yesterday')); ?>': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                '<?php echo e(__('Last 7 Days')); ?>': [moment().subtract(6, 'days'), moment()],
+                '<?php echo e(__('Last 30 Days')); ?>': [moment().subtract(29, 'days'), moment()],
+                '<?php echo e(__('This Month')); ?>': [moment().startOf('month'), moment().endOf('month')],
+                '<?php echo e(__('Last Month')); ?>': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                    'month').endOf('month')],
+                '<?php echo e(__('This Year')); ?>': [moment().startOf('year'), moment().endOf('year')],
                 '<?php echo e(__('This Week')); ?>': [moment().startOf('week'), end]
             }
-        }, cb).on('apply.daterangepicker', function (ev, picker) {
+        }, cb).on('apply.daterangepicker', function(ev, picker) {
             // Reload Earning JS
             $.ajax({
                 url: '<?php echo e(route('admin.reloadChart')); ?>',
@@ -165,7 +158,7 @@
                 },
                 dataType: 'json',
                 type: 'post',
-                success: function (res) {
+                success: function(res) {
                     if (res.status) {
                         window.myMixedChart.data = res.data;
                         window.myMixedChart.update();

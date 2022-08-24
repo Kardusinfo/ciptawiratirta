@@ -27,7 +27,7 @@
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
-                        $company = \Modules\Company\Models\Category::find(Request()->input('category_id'));
+                        $company = \Modules\Candidate\Models\Category::find(Request()->input('category_id'));
                         \App\Helpers\AdminForm::select2('category_id', [
                             'configs' => [
                                 'ajax'        => [
