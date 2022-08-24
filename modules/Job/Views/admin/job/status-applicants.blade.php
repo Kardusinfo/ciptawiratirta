@@ -35,7 +35,7 @@
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
-                                'placeholder' => __('-- Select Company --')
+                                'placeholder' => __('-- Select Principal --')
                             ]
                         ], !empty($company->id) ? [
                             $company->id,

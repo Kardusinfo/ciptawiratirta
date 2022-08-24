@@ -27,6 +27,31 @@
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
+                        $company = \Modules\Company\Models\Category::find(Request()->input('category_id'));
+                        \App\Helpers\AdminForm::select2('category_id', [
+                            'configs' => [
+                                'ajax'        => [
+                                    'url' => route('category.admin.getForSelect2'),
+                                    'dataType' => 'json'
+                                ],
+                                'allowClear'  => true,
+                                'placeholder' => __('-- Select Principal --')
+                            ]
+                        ], !empty($category->id) ? [
+                            $category->id,
+                            $category->name . ' (#' . $category->id . ')'
+                        ] : false)
+                        ?>
+                    @endif
+                    <input type="text" name="s" value="{{ Request()->input('s') }}" placeholder="{{__('Search by name')}}" class="form-control">
+                    <button class="btn-default btn btn-icon btn_search" type="submit">{{__('Search')}}</button>
+                </form>
+            </div>
+
+            <div class="col-left">
+                <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
+                    @if(is_admin())
+                        <?php
                         $company = \Modules\Company\Models\Company::find(Request()->input('company_id'));
                         \App\Helpers\AdminForm::select2('company_id', [
                             'configs' => [
@@ -35,7 +60,7 @@
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
-                                'placeholder' => __('-- Select Company --')
+                                'placeholder' => __('-- Select Principal --')
                             ]
                         ], !empty($company->id) ? [
                             $company->id,
