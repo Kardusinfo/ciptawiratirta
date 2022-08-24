@@ -114,20 +114,7 @@
     <div class="main-content">
         <?php echo $__env->make('Layout::admin.parts.bc', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->yieldContent('content'); ?>
-        <footer class="main-footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 copy-right" >
-                        <?php echo e(date('Y')); ?> &copy; <?php echo e(__('Superio by')); ?> <a href="<?php echo e(__('https://www.superio.bookingcore.org')); ?>" target="_blank"><?php echo e(__('Superio Team')); ?></a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="<?php echo e(__('https://www.facebook.com/bookingcore')); ?>" target="_blank"><?php echo e(__('About Us')); ?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        
     </div>
 
     <div class="backdrop-sidebar-mobile"></div>

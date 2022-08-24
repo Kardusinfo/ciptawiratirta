@@ -46,6 +46,7 @@
                 @foreach ($job as $item)
                     <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
                 @endforeach
+            </select>
         </div>
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">

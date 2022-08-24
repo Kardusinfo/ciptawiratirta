@@ -46,6 +46,7 @@
                 <?php $__currentLoopData = $job; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option value="<?php echo e($item->id); ?>"><?php echo e($item->title . ' | ' . $item->category->name . ' | ' . $item->company->name); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
         </div>
         <?php if(setting_item('recaptcha_enable')): ?>
             <div class="form-group">
