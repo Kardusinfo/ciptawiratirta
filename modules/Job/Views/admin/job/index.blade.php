@@ -31,7 +31,7 @@
                         \App\Helpers\AdminForm::select2('category_id', [
                             'configs' => [
                                 'ajax'        => [
-                                    'url' => route('category.admin.getForSelect2'),
+                                    'url' => route('candidate.admin.getForSelect2'),
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
