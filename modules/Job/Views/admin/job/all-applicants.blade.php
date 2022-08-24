@@ -80,22 +80,18 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
-
-                        \App\Helpers\AdminForm::select2(
-                            'job_id',
-                            [
-                                'configs' => [
-                                    'ajax' => [
-                                        'url' => route('job.admin.getForSelect2'),
-                                        'dataType' => 'json',
-                                    ],
-                                    'allowClear' => true,
-                                    'placeholder' => __('-- Select City --'),
-                                ],
-                            ],
-                            !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
-                        );
                     @endphp
+                    {{-- @php
+                        $candidate = \Modules\Candidate\Models\Candidate::find(Request()->input('candidate_id'));
+                    @endphp
+                    <div class="form-group">
+                        @dump($candidate[0]->category->name)
+                        <label>{{ __('Posisi') }}</label>
+                        <select name="candidate_id" id="candidate_id" class="form-control">
+                            @foreach ($candidate as $item)
+                                <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
+                            @endforeach
+                    </div> --}}
 
                     <button class="btn-info btn btn-icon btn_search" type="submit">{{ __('Search') }}</button>
                 </form>

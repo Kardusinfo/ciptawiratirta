@@ -18,12 +18,21 @@ $languages = \Modules\Language\Models\Language::getActive();
 $locale = App::getLocale();
 ?>
 
-<div class="header-logo flex-shrink-0">
-    <h3 class="logo-text"><a href="{{url('/admin')}}">{{__('CWT')}} <span class="app-version">
-        {{-- {{config('app.version')}} --}}
-        Admin
-    </span></a></h3>
-</div>
+@if (Auth::user()->role_id == 0)
+    <div class="header-logo flex-shrink-0">
+        <h3 class="logo-text"><a href="{{url('/admin')}}">{{__('CWT')}} <span class="app-version">
+            {{-- {{config('app.version')}} --}}
+            Admin
+        </span></a></h3>
+    </div>
+@else
+    <div class="header-logo flex-shrink-0">
+        <h3 class="logo-text"><a>User<span class="app-version">
+            {{-- {{config('app.version')}} --}}
+        </span></a></h3>
+    </div>
+@endif
+
 <div class="header-widgets d-flex flex-grow-1">
     <div class="widgets-left d-flex flex-grow-1 align-items-center">
         <div class="header-widget">

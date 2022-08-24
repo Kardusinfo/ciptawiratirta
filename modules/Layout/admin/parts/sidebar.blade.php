@@ -492,7 +492,7 @@ if (!empty($custom_modules)) {
 
     <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            My Applied
+            Applied Position
         </a>
     </li>
 
