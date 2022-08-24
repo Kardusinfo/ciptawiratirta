@@ -693,19 +693,38 @@
                                             <th class="title"> <?php echo e(__('Action')); ?></th>
                                             <th width="60px"><input type="checkbox" class="check-all"></th>
 
-                                            <th class="title"> <?php echo e(__('Candidate')); ?></th>
-                                            <th> <?php echo e(__('Job Title')); ?></th>
-                                            <th width="150px"> <?php echo e(__('CV')); ?></th>
-                                            <th width="150px"> <?php echo e(__('Date Applied')); ?></th>
-                                            <th width="100px"> <?php echo e(__('Status')); ?></th>
                                             
+                                            
+                                            
+                                            
+                                            
+                                            <th width="100px"> <?php echo e(__('Remarks')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Crew Code')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Source')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Applied Position')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Department')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Gender')); ?></th>
+                                            <th width="100px"> <?php echo e(__('D.O.B')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Age')); ?></th>
+                                            <th width="100px"> <?php echo e(__('vaccination yf')); ?></th>
+                                            <th width="100px"> <?php echo e(__('vaccination covid 19')); ?></th>
+                                            <th width="100px"> <?php echo e(__('CID')); ?></th>
+                                            <th width="100px"> <?php echo e(__('COC')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Rating Able')); ?></th>
+                                            <th width="100px"> <?php echo e(__('CCM')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Experience')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Application Form')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Contact No')); ?></th>
+                                            <th width="100px"> <?php echo e(__('interview date')); ?></th>
+                                            <th width="100px"> <?php echo e(__('interview by')); ?></th>
+                                            <th width="100px"> <?php echo e(__('interview result')); ?></th>
                                             <th width="100px"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php if($rows->total() > 0): ?>
                                             <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <?php if($row->status == 'rejected'): ?>
+                                                <?php if($row->status == 'approved'): ?>
                                                     <tr class="<?php echo e($row->status); ?>">
                                                         <td>
                                                             <div class="dropdown">
@@ -718,12 +737,8 @@
                                                                 <div class="dropdown-menu dropdown-menu-right"
                                                                     aria-labelledby="dropdownMenuButton">
                                                                     
-                                                                    <a class="dropdown-item" href="#"
-                                                                        data-toggle="modal"
-                                                                        data-target="#modal-applied-<?php echo e($row->id); ?>"><?php echo e(__('Detail')); ?></a>
                                                                     <a class="dropdown-item"
-                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id])); ?>"><?php echo e(__('Approved')); ?></a>
-                                                                    
+                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id])); ?>"><?php echo e(__('Rejected')); ?></a>
                                                                 </div>
                                                             </div>
                                                             <div class="modal fade"
@@ -739,68 +754,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="info-form">
                                                                                 <div class="applied-list">
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('Candidate:')); ?></div>
-                                                                                        <div class="val">
-                                                                                            <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                                                                <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                                                    target="_blank">
-                                                                                                    <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                                                        style="border-radius: 50%"
-                                                                                                        class="company-logo" />
-                                                                                                    <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
-
-                                                                                                </a>
-                                                                                            <?php endif; ?>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('Job Title:')); ?></div>
-                                                                                        <div class="val">
-                                                                                            <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
-                                                                                                target="_blank"><?php echo e($row->jobInfo->title); ?></a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('CV:')); ?></div>
-                                                                                        <div class="val">
-                                                                                            <?php if(!empty($row->cvInfo->file_id)): ?>
-                                                                                                <?php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) ?>
-                                                                                                <a href="<?php echo e(\Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id)); ?>"
-                                                                                                    target="_blank"
-                                                                                                    download>
-                                                                                                    <?php echo e($file->file_name . '.' . $file->file_extension); ?>
-
-                                                                                                </a>
-                                                                                            <?php endif; ?>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('Message:')); ?></div>
-                                                                                        <div class="val">
-                                                                                            <?php echo e($row->message); ?></div>
-                                                                                    </div>
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('Date Applied:')); ?>
-
-                                                                                        </div>
-                                                                                        <div class="val">
-                                                                                            <?php echo e(display_date($row->created_at)); ?>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="applied-item">
-                                                                                        <div class="label">
-                                                                                            <?php echo e(__('Status:')); ?></div>
-                                                                                        <div class="val"><span
-                                                                                                class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                    
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -844,7 +798,26 @@
                                                         <td><span
                                                                 class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
                                                         </td>
-                                                        
+                                                        <td><?php echo e($row->remarks); ?></td>
+                                                        <td><?php echo e($row->crew_code); ?></td>
+                                                        <td><?php echo e($row->source); ?></td>
+                                                        <td><?php echo e($row->applied_position); ?></td>
+                                                        <td><?php echo e($row->department); ?></td>
+                                                        <td><?php echo e($row->gender); ?></td>
+                                                        <td><?php echo e($row->d_o_b); ?></td>
+                                                        <td><?php echo e($row->age); ?></td>
+                                                        <td><?php echo e($row->vaccination_yf); ?></td>
+                                                        <td><?php echo e($row->vaccination_covid_19); ?></td>
+                                                        <td><?php echo e($row->cid); ?></td>
+                                                        <td><?php echo e($row->coc); ?></td>
+                                                        <td><?php echo e($row->rating_able); ?></td>
+                                                        <td><?php echo e($row->ccm); ?></td>
+                                                        <td><?php echo e($row->experience); ?></td>
+                                                        <td><?php echo e($row->application_form); ?></td>
+                                                        <td><?php echo e($row->contact_no); ?></td>
+                                                        <td><?php echo e($row->interview_date); ?></td>
+                                                        <td><?php echo e($row->interview_by); ?></td>
+                                                        <td><?php echo e($row->interview_result); ?></td>
                                                     </tr>
                                                 <?php endif; ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -866,24 +839,40 @@
 
         <div id="Andri" class="tabcontent">
             <h3>All Applicants</h3>
-            <p>Tokyo is the capital of Japan.</p>
+            <p>Semua Pelamar Cipta Wira Tirta.</p>
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-body">
                         <form action="" class="bravo-form-item">
-                            <div class="table-responsive" id="horizontal">
+                            <div class="table-responsive">
                                 <table class="table table-hover table-vertical-middle">
                                     <thead>
                                         <tr>
                                             <th class="title"> <?php echo e(__('Action')); ?></th>
                                             <th width="60px"><input type="checkbox" class="check-all"></th>
 
-                                            <th class="title"> <?php echo e(__('Candidate')); ?></th>
-                                            <th> <?php echo e(__('Job Title')); ?></th>
-                                            <th width="150px"> <?php echo e(__('CV')); ?></th>
-                                            <th width="150px"> <?php echo e(__('Date Applied')); ?></th>
-                                            <th width="100px"> <?php echo e(__('Status')); ?></th>
                                             
+                                            
+                                            
+                                            
+                                            
+                                            <th width="100px"> <?php echo e(__('Remarks')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Crew Code')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Source')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Applied Position')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Department')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Gender')); ?></th>
+                                            <th width="100px"> <?php echo e(__('D.O.B')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Age')); ?></th>
+                                            <th width="100px"> <?php echo e(__('vaccination yf')); ?></th>
+                                            <th width="100px"> <?php echo e(__('vaccination covid 19')); ?></th>
+                                            <th width="100px"> <?php echo e(__('CID')); ?></th>
+                                            <th width="100px"> <?php echo e(__('COC')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Rating Able')); ?></th>
+                                            <th width="100px"> <?php echo e(__('CCM')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Experience')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Application Form')); ?></th>
+                                            <th width="100px"> <?php echo e(__('Contact No')); ?></th>
                                             <th width="100px"> <?php echo e(__('interview date')); ?></th>
                                             <th width="100px"> <?php echo e(__('interview by')); ?></th>
                                             <th width="100px"> <?php echo e(__('interview result')); ?></th>
@@ -893,147 +882,102 @@
                                     <tbody>
                                         <?php if($rows->total() > 0): ?>
                                             <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <tr class="<?php echo e($row->status); ?>">
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-primary btn-sm dropdown-toggle"
-                                                                type="button" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false">
-                                                                <?php echo e(__('Actions')); ?>
+                                                <?php if($row->status == 'approved'): ?>
+                                                    <tr class="<?php echo e($row->status); ?>">
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-primary btn-sm dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <?php echo e(__('Actions')); ?>
 
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-right"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item"
-                                                                    href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id])); ?>"><?php echo e(__('Edit')); ?></a>
-                                                                <a class="dropdown-item" href="#"
-                                                                    data-toggle="modal"
-                                                                    data-target="#modal-applied-<?php echo e($row->id); ?>"><?php echo e(__('Detail')); ?></a>
-                                                                <a class="dropdown-item"
-                                                                    href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'approved', 'id' => $row->id])); ?>"><?php echo e(__('Approved')); ?></a>
-                                                                <a class="dropdown-item"
-                                                                    href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id])); ?>"><?php echo e(__('Rejected')); ?></a>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    
+                                                                    <a class="dropdown-item"
+                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id])); ?>"><?php echo e(__('Rejected')); ?></a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal fade" id="modal-applied-<?php echo e($row->id); ?>">
-                                                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                                <div class="modal-content">
+                                                            <div class="modal fade"
+                                                                id="modal-applied-<?php echo e($row->id); ?>">
+                                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                                    <div class="modal-content">
 
-                                                                    <div class="modal-header">
-                                                                        <h4 class="modal-title">
-                                                                            <?php echo e(__('Applied Detail')); ?></h4>
-                                                                    </div>
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title">
+                                                                                <?php echo e(__('Applied Detail')); ?></h4>
+                                                                        </div>
 
-                                                                    <div class="modal-body">
-                                                                        <div class="info-form">
-                                                                            <div class="applied-list">
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('Candidate:')); ?></div>
-                                                                                    <div class="val">
-                                                                                        <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                                                            <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                                                target="_blank">
-                                                                                                <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                                                    style="border-radius: 50%"
-                                                                                                    class="company-logo" />
-                                                                                                <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
-
-                                                                                            </a>
-                                                                                        <?php endif; ?>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('Job Title:')); ?></div>
-                                                                                    <div class="val">
-                                                                                        <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
-                                                                                            target="_blank"><?php echo e($row->jobInfo->title); ?></a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('CV:')); ?></div>
-                                                                                    <div class="val">
-                                                                                        <?php if(!empty($row->cvInfo->file_id)): ?>
-                                                                                            <?php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) ?>
-                                                                                            <a href="<?php echo e(\Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id)); ?>"
-                                                                                                target="_blank" download>
-                                                                                                <?php echo e($file->file_name . '.' . $file->file_extension); ?>
-
-                                                                                            </a>
-                                                                                        <?php endif; ?>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('Message:')); ?></div>
-                                                                                    <div class="val">
-                                                                                        <?php echo e($row->message); ?></div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('Date Applied:')); ?></div>
-                                                                                    <div class="val">
-                                                                                        <?php echo e(display_date($row->created_at)); ?>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        <?php echo e(__('Status:')); ?></div>
-                                                                                    <div class="val"><span
-                                                                                            class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
-                                                                                    </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="info-form">
+                                                                                <div class="applied-list">
+                                                                                    
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <span class="btn btn-secondary"
-                                                                            data-dismiss="modal"><?php echo e(__('Close')); ?></span>
+                                                                        <div class="modal-footer">
+                                                                            <span class="btn btn-secondary"
+                                                                                data-dismiss="modal"><?php echo e(__('Close')); ?></span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="checkbox" name="ids[]" class="check-item"
-                                                            value="<?php echo e($row->id); ?>">
-                                                    </td>
-                                                    <td>
-                                                        <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
-                                                            <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
-                                                                target="_blank">
-                                                                <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
-                                                                    style="border-radius: 50%" class="company-logo" />
-                                                                <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
+                                                        </td>
+                                                        <td><input type="checkbox" name="ids[]" class="check-item"
+                                                                value="<?php echo e($row->id); ?>">
+                                                        </td>
+                                                        <td>
+                                                            <?php if(!empty($row->candidateInfo->getAuthor->getDisplayName())): ?>
+                                                                <a href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"
+                                                                    target="_blank">
+                                                                    <img src="<?php echo e($row->candidateInfo->getAuthor->getAvatarUrl()); ?>"
+                                                                        style="border-radius: 50%" class="company-logo" />
+                                                                    <?php echo e($row->candidateInfo->getAuthor->getDisplayName() ?? ''); ?>
 
-                                                            </a>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td class="title">
-                                                        <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
-                                                            target="_blank"><?php echo e($row->jobInfo->title); ?></a>
-                                                    </td>
-                                                    <td>
-                                                        <?php if(!empty($row->cvInfo->file_id)): ?>
-                                                            <?php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) ?>
-                                                            <a href="<?php echo e(\Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id)); ?>"
-                                                                target="_blank" download>
-                                                                <?php echo e($file->file_name . '.' . $file->file_extension); ?>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td class="title">
+                                                            <a href="<?php echo e($row->jobInfo->getDetailUrl()); ?>"
+                                                                target="_blank"><?php echo e($row->jobInfo->title); ?></a>
+                                                        </td>
+                                                        <td>
+                                                            <?php if(!empty($row->cvInfo->file_id)): ?>
+                                                                <?php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) ?>
+                                                                <a href="<?php echo e(\Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id)); ?>"
+                                                                    target="_blank" download>
+                                                                    <?php echo e($file->file_name . '.' . $file->file_extension); ?>
 
-                                                            </a>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td><?php echo e(display_date($row->created_at)); ?></td>
-                                                    <td><span
-                                                            class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
-                                                    </td>
-                                                    
-                                                    <td><?php echo e($row->interview_date); ?></td>
-                                                    <td><?php echo e($row->interview_by); ?></td>
-                                                    <td><?php echo e($row->interview_result); ?></td>
-                                                </tr>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td><?php echo e(display_date($row->created_at)); ?></td>
+                                                        <td><span
+                                                                class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span>
+                                                        </td>
+                                                        <td><?php echo e($row->remarks); ?></td>
+                                                        <td><?php echo e($row->crew_code); ?></td>
+                                                        <td><?php echo e($row->source); ?></td>
+                                                        <td><?php echo e($row->applied_position); ?></td>
+                                                        <td><?php echo e($row->department); ?></td>
+                                                        <td><?php echo e($row->gender); ?></td>
+                                                        <td><?php echo e($row->d_o_b); ?></td>
+                                                        <td><?php echo e($row->age); ?></td>
+                                                        <td><?php echo e($row->vaccination_yf); ?></td>
+                                                        <td><?php echo e($row->vaccination_covid_19); ?></td>
+                                                        <td><?php echo e($row->cid); ?></td>
+                                                        <td><?php echo e($row->coc); ?></td>
+                                                        <td><?php echo e($row->rating_able); ?></td>
+                                                        <td><?php echo e($row->ccm); ?></td>
+                                                        <td><?php echo e($row->experience); ?></td>
+                                                        <td><?php echo e($row->application_form); ?></td>
+                                                        <td><?php echo e($row->contact_no); ?></td>
+                                                        <td><?php echo e($row->interview_date); ?></td>
+                                                        <td><?php echo e($row->interview_by); ?></td>
+                                                        <td><?php echo e($row->interview_result); ?></td>
+                                                    </tr>
+                                                <?php endif; ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
                                             <tr>

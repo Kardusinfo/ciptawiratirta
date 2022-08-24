@@ -838,38 +838,38 @@
                                             <th class="title"> {{ __('Action') }}</th>
                                             <th width="60px"><input type="checkbox" class="check-all"></th>
 
-                                            <th class="title"> {{ __('Candidate') }}</th>
-                                            <th> {{ __('Job Title') }}</th>
-                                            <th width="150px"> {{ __('CV') }}</th>
-                                            <th width="150px"> {{ __('Date Applied') }}</th>
-                                            <th width="100px"> {{ __('Status') }}</th>
-                                            {{-- <th width="100px"> {{ __('Remarks') }}</th>
-                                                <th width="100px"> {{ __('Crew Code') }}</th>
-                                                <th width="100px"> {{ __('Source') }}</th>
-                                                <th width="100px"> {{ __('Applied Position') }}</th>
-                                                <th width="100px"> {{ __('Department') }}</th>
-                                                <th width="100px"> {{ __('Gender') }}</th>
-                                                <th width="100px"> {{ __('D.O.B') }}</th>
-                                                <th width="100px"> {{ __('Age') }}</th>
-                                                <th width="100px"> {{ __('vaccination yf') }}</th>
-                                                <th width="100px"> {{ __('vaccination covid 19') }}</th>
-                                                <th width="100px"> {{ __('CID') }}</th>
-                                                <th width="100px"> {{ __('COC') }}</th>
-                                                <th width="100px"> {{ __('Rating Able') }}</th>
-                                                <th width="100px"> {{ __('CCM') }}</th>
-                                                <th width="100px"> {{ __('Experience') }}</th>
-                                                <th width="100px"> {{ __('Application Form') }}</th>
-                                                <th width="100px"> {{ __('Contact No') }}</th>
-                                                <th width="100px"> {{ __('interview date') }}</th>
-                                                <th width="100px"> {{ __('interview by') }}</th>
-                                                <th width="100px"> {{ __('interview result') }}</th> --}}
+                                            {{-- <th class="title"> {{ __('Candidate') }}</th> --}}
+                                            {{-- <th> {{ __('Job Title') }}</th> --}}
+                                            {{-- <th width="150px"> {{ __('CV') }}</th> --}}
+                                            {{-- <th width="150px"> {{ __('Date Applied') }}</th> --}}
+                                            {{-- <th width="100px"> {{ __('Status') }}</th> --}}
+                                            <th width="100px"> {{ __('Remarks') }}</th>
+                                            <th width="100px"> {{ __('Crew Code') }}</th>
+                                            <th width="100px"> {{ __('Source') }}</th>
+                                            <th width="100px"> {{ __('Applied Position') }}</th>
+                                            <th width="100px"> {{ __('Department') }}</th>
+                                            <th width="100px"> {{ __('Gender') }}</th>
+                                            <th width="100px"> {{ __('D.O.B') }}</th>
+                                            <th width="100px"> {{ __('Age') }}</th>
+                                            <th width="100px"> {{ __('vaccination yf') }}</th>
+                                            <th width="100px"> {{ __('vaccination covid 19') }}</th>
+                                            <th width="100px"> {{ __('CID') }}</th>
+                                            <th width="100px"> {{ __('COC') }}</th>
+                                            <th width="100px"> {{ __('Rating Able') }}</th>
+                                            <th width="100px"> {{ __('CCM') }}</th>
+                                            <th width="100px"> {{ __('Experience') }}</th>
+                                            <th width="100px"> {{ __('Application Form') }}</th>
+                                            <th width="100px"> {{ __('Contact No') }}</th>
+                                            <th width="100px"> {{ __('interview date') }}</th>
+                                            <th width="100px"> {{ __('interview by') }}</th>
+                                            <th width="100px"> {{ __('interview result') }}</th>
                                             <th width="100px"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if ($rows->total() > 0)
                                             @foreach ($rows as $row)
-                                                @if ($row->status == 'rejected')
+                                                @if ($row->status == 'approved')
                                                     <tr class="{{ $row->status }}">
                                                         <td>
                                                             <div class="dropdown">
@@ -881,14 +881,13 @@
                                                                 <div class="dropdown-menu dropdown-menu-right"
                                                                     aria-labelledby="dropdownMenuButton">
                                                                     {{-- <a class="dropdown-item"
-                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Edit') }}</a> --}}
-                                                                    <a class="dropdown-item" href="#"
-                                                                        data-toggle="modal"
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Edit') }}</a>
+                                                                    <a class="dropdown-item" href="#" data-toggle="modal"
                                                                         data-target="#modal-applied-{{ $row->id }}">{{ __('Detail') }}</a>
                                                                     <a class="dropdown-item"
-                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Approved') }}</a>
-                                                                    {{-- <a class="dropdown-item"
-                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id]) }}">{{ __('Rejected') }}</a> --}}
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'approved', 'id' => $row->id]) }}">{{ __('Approved') }}</a> --}}
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id]) }}">{{ __('Rejected') }}</a>
                                                                 </div>
                                                             </div>
                                                             <div class="modal fade"
@@ -904,7 +903,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="info-form">
                                                                                 <div class="applied-list">
-                                                                                    <div class="applied-item">
+                                                                                    {{-- <div class="applied-item">
                                                                                         <div class="label">
                                                                                             {{ __('Candidate:') }}</div>
                                                                                         <div class="val">
@@ -934,8 +933,7 @@
                                                                                             @if (!empty($row->cvInfo->file_id))
                                                                                                 @php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) @endphp
                                                                                                 <a href="{{ \Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id) }}"
-                                                                                                    target="_blank"
-                                                                                                    download>
+                                                                                                    target="_blank" download>
                                                                                                     {{ $file->file_name . '.' . $file->file_extension }}
                                                                                                 </a>
                                                                                             @endif
@@ -949,8 +947,7 @@
                                                                                     </div>
                                                                                     <div class="applied-item">
                                                                                         <div class="label">
-                                                                                            {{ __('Date Applied:') }}
-                                                                                        </div>
+                                                                                            {{ __('Date Applied:') }}</div>
                                                                                         <div class="val">
                                                                                             {{ display_date($row->created_at) }}
                                                                                         </div>
@@ -961,7 +958,7 @@
                                                                                         <div class="val"><span
                                                                                                 class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
                                                                                         </div>
-                                                                                    </div>
+                                                                                    </div> --}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1003,7 +1000,7 @@
                                                         <td><span
                                                                 class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
                                                         </td>
-                                                        {{-- <td>{{ $row->remarks }}</td>
+                                                        <td>{{ $row->remarks }}</td>
                                                         <td>{{ $row->crew_code }}</td>
                                                         <td>{{ $row->source }}</td>
                                                         <td>{{ $row->applied_position }}</td>
@@ -1022,7 +1019,7 @@
                                                         <td>{{ $row->contact_no }}</td>
                                                         <td>{{ $row->interview_date }}</td>
                                                         <td>{{ $row->interview_by }}</td>
-                                                        <td>{{ $row->interview_result }}</td> --}}
+                                                        <td>{{ $row->interview_result }}</td>
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -1043,40 +1040,40 @@
 
         <div id="Andri" class="tabcontent">
             <h3>All Applicants</h3>
-            <p>Tokyo is the capital of Japan.</p>
+            <p>Semua Pelamar Cipta Wira Tirta.</p>
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-body">
                         <form action="" class="bravo-form-item">
-                            <div class="table-responsive" id="horizontal">
+                            <div class="table-responsive">
                                 <table class="table table-hover table-vertical-middle">
                                     <thead>
                                         <tr>
                                             <th class="title"> {{ __('Action') }}</th>
                                             <th width="60px"><input type="checkbox" class="check-all"></th>
 
-                                            <th class="title"> {{ __('Candidate') }}</th>
-                                            <th> {{ __('Job Title') }}</th>
-                                            <th width="150px"> {{ __('CV') }}</th>
-                                            <th width="150px"> {{ __('Date Applied') }}</th>
-                                            <th width="100px"> {{ __('Status') }}</th>
-                                            {{-- <th width="100px"> {{ __('Remarks') }}</th>
-                                                <th width="100px"> {{ __('Crew Code') }}</th>
-                                                <th width="100px"> {{ __('Source') }}</th>
-                                                <th width="100px"> {{ __('Applied Position') }}</th>
-                                                <th width="100px"> {{ __('Department') }}</th>
-                                                <th width="100px"> {{ __('Gender') }}</th>
-                                                <th width="100px"> {{ __('D.O.B') }}</th>
-                                                <th width="100px"> {{ __('Age') }}</th>
-                                                <th width="100px"> {{ __('vaccination yf') }}</th>
-                                                <th width="100px"> {{ __('vaccination covid 19') }}</th>
-                                                <th width="100px"> {{ __('CID') }}</th>
-                                                <th width="100px"> {{ __('COC') }}</th>
-                                                <th width="100px"> {{ __('Rating Able') }}</th>
-                                                <th width="100px"> {{ __('CCM') }}</th>
-                                                <th width="100px"> {{ __('Experience') }}</th>
-                                                <th width="100px"> {{ __('Application Form') }}</th>
-                                                <th width="100px"> {{ __('Contact No') }}</th> --}}
+                                            {{-- <th class="title"> {{ __('Candidate') }}</th> --}}
+                                            {{-- <th> {{ __('Job Title') }}</th> --}}
+                                            {{-- <th width="150px"> {{ __('CV') }}</th> --}}
+                                            {{-- <th width="150px"> {{ __('Date Applied') }}</th> --}}
+                                            {{-- <th width="100px"> {{ __('Status') }}</th> --}}
+                                            <th width="100px"> {{ __('Remarks') }}</th>
+                                            <th width="100px"> {{ __('Crew Code') }}</th>
+                                            <th width="100px"> {{ __('Source') }}</th>
+                                            <th width="100px"> {{ __('Applied Position') }}</th>
+                                            <th width="100px"> {{ __('Department') }}</th>
+                                            <th width="100px"> {{ __('Gender') }}</th>
+                                            <th width="100px"> {{ __('D.O.B') }}</th>
+                                            <th width="100px"> {{ __('Age') }}</th>
+                                            <th width="100px"> {{ __('vaccination yf') }}</th>
+                                            <th width="100px"> {{ __('vaccination covid 19') }}</th>
+                                            <th width="100px"> {{ __('CID') }}</th>
+                                            <th width="100px"> {{ __('COC') }}</th>
+                                            <th width="100px"> {{ __('Rating Able') }}</th>
+                                            <th width="100px"> {{ __('CCM') }}</th>
+                                            <th width="100px"> {{ __('Experience') }}</th>
+                                            <th width="100px"> {{ __('Application Form') }}</th>
+                                            <th width="100px"> {{ __('Contact No') }}</th>
                                             <th width="100px"> {{ __('interview date') }}</th>
                                             <th width="100px"> {{ __('interview by') }}</th>
                                             <th width="100px"> {{ __('interview result') }}</th>
@@ -1086,137 +1083,138 @@
                                     <tbody>
                                         @if ($rows->total() > 0)
                                             @foreach ($rows as $row)
-                                                <tr class="{{ $row->status }}">
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-primary btn-sm dropdown-toggle"
-                                                                type="button" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false">
-                                                                {{ __('Actions') }}
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-right"
-                                                                aria-labelledby="dropdownMenuButton">
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Edit') }}</a>
-                                                                <a class="dropdown-item" href="#"
-                                                                    data-toggle="modal"
-                                                                    data-target="#modal-applied-{{ $row->id }}">{{ __('Detail') }}</a>
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('job.admin.applicants.changeStatus', ['status' => 'approved', 'id' => $row->id]) }}">{{ __('Approved') }}</a>
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id]) }}">{{ __('Rejected') }}</a>
+                                                @if ($row->status == 'approved')
+                                                    <tr class="{{ $row->status }}">
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-primary btn-sm dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    {{ __('Actions') }}
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    {{-- <a class="dropdown-item"
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'edit', 'id' => $row->id]) }}">{{ __('Edit') }}</a>
+                                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                                        data-target="#modal-applied-{{ $row->id }}">{{ __('Detail') }}</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'approved', 'id' => $row->id]) }}">{{ __('Approved') }}</a> --}}
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('job.admin.applicants.changeStatus', ['status' => 'rejected', 'id' => $row->id]) }}">{{ __('Rejected') }}</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal fade" id="modal-applied-{{ $row->id }}">
-                                                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                                <div class="modal-content">
+                                                            <div class="modal fade"
+                                                                id="modal-applied-{{ $row->id }}">
+                                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                                    <div class="modal-content">
 
-                                                                    <div class="modal-header">
-                                                                        <h4 class="modal-title">
-                                                                            {{ __('Applied Detail') }}</h4>
-                                                                    </div>
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title">
+                                                                                {{ __('Applied Detail') }}</h4>
+                                                                        </div>
 
-                                                                    <div class="modal-body">
-                                                                        <div class="info-form">
-                                                                            <div class="applied-list">
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('Candidate:') }}</div>
-                                                                                    <div class="val">
-                                                                                        @if (!empty($row->candidateInfo->getAuthor->getDisplayName()))
-                                                                                            <a href="{{ $row->candidateInfo->getDetailUrl() }}"
-                                                                                                target="_blank">
-                                                                                                <img src="{{ $row->candidateInfo->getAuthor->getAvatarUrl() }}"
-                                                                                                    style="border-radius: 50%"
-                                                                                                    class="company-logo" />
-                                                                                                {{ $row->candidateInfo->getAuthor->getDisplayName() ?? '' }}
-                                                                                            </a>
-                                                                                        @endif
+                                                                        <div class="modal-body">
+                                                                            <div class="info-form">
+                                                                                <div class="applied-list">
+                                                                                    {{-- <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('Candidate:') }}</div>
+                                                                                        <div class="val">
+                                                                                            @if (!empty($row->candidateInfo->getAuthor->getDisplayName()))
+                                                                                                <a href="{{ $row->candidateInfo->getDetailUrl() }}"
+                                                                                                    target="_blank">
+                                                                                                    <img src="{{ $row->candidateInfo->getAuthor->getAvatarUrl() }}"
+                                                                                                        style="border-radius: 50%"
+                                                                                                        class="company-logo" />
+                                                                                                    {{ $row->candidateInfo->getAuthor->getDisplayName() ?? '' }}
+                                                                                                </a>
+                                                                                            @endif
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('Job Title:') }}</div>
-                                                                                    <div class="val">
-                                                                                        <a href="{{ $row->jobInfo->getDetailUrl() }}"
-                                                                                            target="_blank">{{ $row->jobInfo->title }}</a>
+                                                                                    <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('Job Title:') }}</div>
+                                                                                        <div class="val">
+                                                                                            <a href="{{ $row->jobInfo->getDetailUrl() }}"
+                                                                                                target="_blank">{{ $row->jobInfo->title }}</a>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('CV:') }}</div>
-                                                                                    <div class="val">
-                                                                                        @if (!empty($row->cvInfo->file_id))
-                                                                                            @php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) @endphp
-                                                                                            <a href="{{ \Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id) }}"
-                                                                                                target="_blank" download>
-                                                                                                {{ $file->file_name . '.' . $file->file_extension }}
-                                                                                            </a>
-                                                                                        @endif
+                                                                                    <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('CV:') }}</div>
+                                                                                        <div class="val">
+                                                                                            @if (!empty($row->cvInfo->file_id))
+                                                                                                @php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) @endphp
+                                                                                                <a href="{{ \Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id) }}"
+                                                                                                    target="_blank" download>
+                                                                                                    {{ $file->file_name . '.' . $file->file_extension }}
+                                                                                                </a>
+                                                                                            @endif
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('Message:') }}</div>
-                                                                                    <div class="val">
-                                                                                        {{ $row->message }}</div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('Date Applied:') }}</div>
-                                                                                    <div class="val">
-                                                                                        {{ display_date($row->created_at) }}
+                                                                                    <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('Message:') }}</div>
+                                                                                        <div class="val">
+                                                                                            {{ $row->message }}</div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="applied-item">
-                                                                                    <div class="label">
-                                                                                        {{ __('Status:') }}</div>
-                                                                                    <div class="val"><span
-                                                                                            class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
+                                                                                    <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('Date Applied:') }}</div>
+                                                                                        <div class="val">
+                                                                                            {{ display_date($row->created_at) }}
+                                                                                        </div>
                                                                                     </div>
+                                                                                    <div class="applied-item">
+                                                                                        <div class="label">
+                                                                                            {{ __('Status:') }}</div>
+                                                                                        <div class="val"><span
+                                                                                                class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
+                                                                                        </div>
+                                                                                    </div> --}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <span class="btn btn-secondary"
-                                                                            data-dismiss="modal">{{ __('Close') }}</span>
+                                                                        <div class="modal-footer">
+                                                                            <span class="btn btn-secondary"
+                                                                                data-dismiss="modal">{{ __('Close') }}</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="checkbox" name="ids[]" class="check-item"
-                                                            value="{{ $row->id }}">
-                                                    </td>
-                                                    <td>
-                                                        @if (!empty($row->candidateInfo->getAuthor->getDisplayName()))
-                                                            <a href="{{ $row->candidateInfo->getDetailUrl() }}"
-                                                                target="_blank">
-                                                                <img src="{{ $row->candidateInfo->getAuthor->getAvatarUrl() }}"
-                                                                    style="border-radius: 50%" class="company-logo" />
-                                                                {{ $row->candidateInfo->getAuthor->getDisplayName() ?? '' }}
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                                                    <td class="title">
-                                                        <a href="{{ $row->jobInfo->getDetailUrl() }}"
-                                                            target="_blank">{{ $row->jobInfo->title }}</a>
-                                                    </td>
-                                                    <td>
-                                                        @if (!empty($row->cvInfo->file_id))
-                                                            @php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) @endphp
-                                                            <a href="{{ \Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id) }}"
-                                                                target="_blank" download>
-                                                                {{ $file->file_name . '.' . $file->file_extension }}
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                                                    <td>{{ display_date($row->created_at) }}</td>
-                                                    <td><span
-                                                            class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
-                                                    </td>
-                                                    {{-- <td>{{ $row->remarks }}</td>
+                                                        </td>
+                                                        <td><input type="checkbox" name="ids[]" class="check-item"
+                                                                value="{{ $row->id }}">
+                                                        </td>
+                                                        <td>
+                                                            @if (!empty($row->candidateInfo->getAuthor->getDisplayName()))
+                                                                <a href="{{ $row->candidateInfo->getDetailUrl() }}"
+                                                                    target="_blank">
+                                                                    <img src="{{ $row->candidateInfo->getAuthor->getAvatarUrl() }}"
+                                                                        style="border-radius: 50%" class="company-logo" />
+                                                                    {{ $row->candidateInfo->getAuthor->getDisplayName() ?? '' }}
+                                                                </a>
+                                                            @endif
+                                                        </td>
+                                                        <td class="title">
+                                                            <a href="{{ $row->jobInfo->getDetailUrl() }}"
+                                                                target="_blank">{{ $row->jobInfo->title }}</a>
+                                                        </td>
+                                                        <td>
+                                                            @if (!empty($row->cvInfo->file_id))
+                                                                @php $file = (new \Modules\Media\Models\MediaFile())->findById($row->cvInfo->file_id) @endphp
+                                                                <a href="{{ \Modules\Media\Helpers\FileHelper::url($row->cvInfo->file_id) }}"
+                                                                    target="_blank" download>
+                                                                    {{ $file->file_name . '.' . $file->file_extension }}
+                                                                </a>
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ display_date($row->created_at) }}</td>
+                                                        <td><span
+                                                                class="badge badge-{{ $row->status }}">{{ $row->status }}</span>
+                                                        </td>
+                                                        <td>{{ $row->remarks }}</td>
                                                         <td>{{ $row->crew_code }}</td>
                                                         <td>{{ $row->source }}</td>
                                                         <td>{{ $row->applied_position }}</td>
@@ -1232,11 +1230,12 @@
                                                         <td>{{ $row->ccm }}</td>
                                                         <td>{{ $row->experience }}</td>
                                                         <td>{{ $row->application_form }}</td>
-                                                        <td>{{ $row->contact_no }}</td> --}}
-                                                    <td>{{ $row->interview_date }}</td>
-                                                    <td>{{ $row->interview_by }}</td>
-                                                    <td>{{ $row->interview_result }}</td>
-                                                </tr>
+                                                        <td>{{ $row->contact_no }}</td>
+                                                        <td>{{ $row->interview_date }}</td>
+                                                        <td>{{ $row->interview_by }}</td>
+                                                        <td>{{ $row->interview_result }}</td>
+                                                    </tr>
+                                                @endif
                                             @endforeach
                                         @else
                                             <tr>
