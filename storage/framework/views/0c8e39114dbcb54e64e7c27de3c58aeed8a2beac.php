@@ -14,7 +14,7 @@
         <div class="btn-box">
             
             <a href="<?php echo e($url_apply); ?>" class="theme-btn  btn-style-three">Find Jobs</a>
-            <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two">Recruitment Procudure</a>
+            <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two">Recruitment Procedure</a>
         </div>
     </div>
 </section>

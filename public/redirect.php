@@ -320,10 +320,10 @@
             <section class="page-title " style="margin-top:-1px;background-color: ">
     <div class="auto-container">
         <div class="title-outer">
-            <h1>Recruitment Procudure</h1>
+            <h1>Recruitment Procedure</h1>
             <ul class="page-breadcrumb">
                 <li><a href="https://ciptawiratirta.com">Home</a></li>
-                <li>Recruitment Procudure</li>
+                <li>Recruitment Procedure</li>
             </ul>
         </div>
     </div>

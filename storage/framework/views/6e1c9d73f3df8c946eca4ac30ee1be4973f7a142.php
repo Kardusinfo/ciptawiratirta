@@ -21,7 +21,7 @@
 
                     <?php echo $__env->make("Job::frontend.layouts.details.video", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-                    <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procudure</a>
+                    <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procedure</a>
 
                     <?php echo $__env->make("Job::frontend.layouts.details.social-share", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
