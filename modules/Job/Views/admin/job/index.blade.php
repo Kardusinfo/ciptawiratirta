@@ -23,15 +23,19 @@
                     </form>
                 @endif
             </div>
-            <div class="">
+            {{-- <div class="">
+                
+            </div> --}}
+
+            <div class="col-left">
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
-                        $company = \Modules\Candidate\Models\Category::find(Request()->input('category_id'));
+                        $company = \Modules\Job\Models\Job::find(Request()->input('category_id'));
                         \App\Helpers\AdminForm::select2('category_id', [
                             'configs' => [
                                 'ajax'        => [
-                                    'url' => route('candidate.admin.getForSelect2'),
+                                    'url' => route('job.admin.getForSelect2'),
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
@@ -46,9 +50,6 @@
                     {{-- <input type="text" name="s" value="{{ Request()->input('s') }}" placeholder="{{__('Search by name')}}" class="form-control">
                     <button class="btn-default btn btn-icon btn_search" type="submit">{{__('Search')}}</button> --}}
                 </form>
-            </div>
-
-            <div class="col-left">
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
