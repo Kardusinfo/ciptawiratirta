@@ -61,6 +61,21 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
+
+                        \App\Helpers\AdminForm::select2(
+                            'job_id',
+                            [
+                                'configs' => [
+                                    'ajax' => [
+                                        'url' => route('job.admin.getForSelect2'),
+                                        'dataType' => 'json',
+                                    ],
+                                    'allowClear' => true,
+                                    'placeholder' => __('-- Select City --'),
+                                ],
+                            ],
+                            !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
+                        );
                     ?>
 
                     <button class="btn-info btn btn-icon btn_search" type="submit"><?php echo e(__('Search')); ?></button>
@@ -1093,6 +1108,9 @@
                     document.getElementById(cityName).style.display = "block";
                     evt.currentTarget.className += " active";
                 }
+            </script>
+            <script type="text/javascript">
+
             </script>
 
         
