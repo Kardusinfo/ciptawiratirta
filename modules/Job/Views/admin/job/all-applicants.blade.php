@@ -71,7 +71,7 @@
                             [
                                 'configs' => [
                                     'ajax' => [
-                                        'url' => route('job.admin.getForSelect2'),
+                                        'url' => route('job.admin.getForSelect2 '),
                                         'dataType' => 'json',
                                     ],
                                     'allowClear' => true,
