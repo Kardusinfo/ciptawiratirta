@@ -28,6 +28,9 @@
                         </li>
                         <?php
                     }
+					if(is_candidate()){
+						echo '<li class=" depth-0"><a target="" href="https://ciptawiratirta.com/public/job">Jobs</a></li>';
+					}
                     echo ob_get_clean();
                 }
 				echo '</ul>';

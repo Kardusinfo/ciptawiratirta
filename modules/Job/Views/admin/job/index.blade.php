@@ -59,10 +59,10 @@
                             <thead>
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
-                                <th> {{ __('Title')}}</th>
-                                <th width="200px"> {{ __('Location')}}</th>
-                                <th width="150px"> {{ __('Category')}}</th>
-                                <th width="150px"> {{ __('Company')}}</th>
+                                <th> {{ __('Name Position')}}</th>
+                                {{-- <th width="200px"> {{ __('Location')}}</th> --}}
+                                <th width="150px"> {{ __('Department')}}</th>
+                                <th width="150px"> {{ __('Principal')}}</th>
                                 <th width="100px"> {{ __('Status')}}</th>
                                 <th width="100px"> {{ __('Date')}}</th>
                                 <th width="100px"></th>
@@ -77,7 +77,7 @@
                                         <td class="title">
                                             <a href="{{ $row->getEditUrl() }}">{{$row->title}}</a>
                                         </td>
-                                        <td>{{$row->location->name ?? ''}}</td>
+                                        {{-- <td>{{$row->location->name ?? ''}}</td> --}}
                                         <td>{{$row->category->name ?? ''}}</td>
                                         <td>{{$row->company->name ?? ''}}</td>
                                         <td><span class="badge badge-{{ $row->status }}">{{ $row->status }}</span></td>

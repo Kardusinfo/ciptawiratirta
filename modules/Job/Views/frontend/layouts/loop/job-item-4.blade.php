@@ -16,7 +16,8 @@
     </ul>
     @if($row->company && $company_logo = $row->getThumbnailUrl())
         <span class="company-logo">
-            <a href="{{ $row->company->getDetailUrl() }}"><img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}" class="full-width object-cover"></a>
+            {{-- <a href="{{ $row->company->getDetailUrl() }}"><img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}" class="full-width object-cover"></a> --}}
+            <a href=""><img src="{{ $company_logo }}" alt="{{ $row->company ? $row->company->name : 'company' }}" class="full-width object-cover"></a>
         </span>
     @endif
     @if($row->category)
