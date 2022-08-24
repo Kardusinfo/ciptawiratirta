@@ -47,7 +47,7 @@
                                                 <input type="text" readonly value="{{ old( 'expiration_date', $row->expiration_date ? date('Y/m/d', strtotime($row->expiration_date)) : '') }}" placeholder="YYYY/MM/DD" name="expiration_date" autocomplete="false" class="form-control has-datepicker bg-white">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{{__("Hours")}}</label>
                                                 <div class="input-group">
@@ -63,7 +63,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="gender">{{__("Gender")}}</label>
@@ -74,7 +74,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{{__("Salary")}}</label>
                                                 <div class="input-group">
@@ -94,8 +94,8 @@
                                                     <input type="checkbox" name="wage_agreement" @if(old('wage_agreement', $row->wage_agreement)) checked @endif value="1" /> {{ __("Wage Agreement") }}
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        </div> --}}
+                                        {{-- <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{{__("Experience")}}</label>
                                                 <div class="input-group">
@@ -105,7 +105,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         @if(is_default_lang())
-                            <div class="panel">
+                            {{-- <div class="panel">
                                 <div class="panel-title"><strong>{{__("Job Location")}}</strong></div>
                                 <div class="panel-body">
 
@@ -214,10 +214,10 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> --}}
                         @endif
 
-                        @include('Core::admin/seo-meta/seo-meta')
+                        {{-- @include('Core::admin/seo-meta/seo-meta') --}}
                     </div>
                     <div class="col-md-3">
                         <div class="panel">
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                         @if(is_default_lang())
-                            <div class="panel">
+                            {{-- <div class="panel">
                                 <div class="panel-title"><strong>{{__('Job Apply')}}</strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
@@ -258,11 +258,11 @@
                                         <small><i>{{ __("If is empty, it will be sent to the company's email") }}</i></small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="panel">
                                 <div class="panel-title"><strong>{{__("Availability")}}</strong></div>
                                 <div class="panel-body">
-                                    @if(is_admin())
+                                    {{-- @if(is_admin())
                                         <div class="form-group">
                                             <label>{{__('Job Featured')}}</label>
                                             <br>
@@ -270,7 +270,7 @@
                                                 <input type="checkbox" name="is_featured" @if(old('is_featured', $row->is_featured)) checked @endif value="1"> {{__("Enable featured")}}
                                             </label>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="form-group">
                                         <label>{{__('Job Urgent')}}</label>
                                         <br>
@@ -282,7 +282,7 @@
                             </div>
 
                             <div class="panel">
-                                <div class="panel-title"><strong>{{__("Category")}}</strong></div>
+                                <div class="panel-title"><strong>{{__("Department")}}</strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <div class="">
@@ -309,7 +309,7 @@
                             </div>
 
                             <div class="panel">
-                                <div class="panel-title"><strong>{{__("Job Type")}}</strong></div>
+                                <div class="panel-title"><strong>{{__("Ship Type")}}</strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <div class="">
@@ -328,7 +328,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel">
+                            {{-- <div class="panel">
                                 <div class="panel-title"><strong>{{__("Job Skills")}}</strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
@@ -352,11 +352,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             @if(is_admin())
                                 <div class="panel">
-                                    <div class="panel-title"><strong>{{__("Company")}}</strong></div>
+                                    <div class="panel-title"><strong>{{__("Principal")}}</strong></div>
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <?php
