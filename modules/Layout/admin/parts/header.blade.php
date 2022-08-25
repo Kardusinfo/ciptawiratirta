@@ -27,9 +27,10 @@ $locale = App::getLocale();
     </div>
 @else
     <div class="header-logo flex-shrink-0">
-        <h3 class="logo-text"><a>User<span class="app-version">
+        <h3 class="logo-text"><a>Welcome<span class="app-version">
             {{-- {{config('app.version')}} --}}
         </span></a></h3>
+        
     </div>
 @endif
 

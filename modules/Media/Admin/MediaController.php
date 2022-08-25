@@ -277,6 +277,13 @@ class MediaController extends Controller
                 $model->whereIn('file_extension', $ext);
                 $model2->whereIn('file_extension',$ext);
                 break;
+            case "skk":
+                $ext = [
+                    'ppt','pptx','pdf','docx','doc'
+                ];
+                $model->whereIn('file_extension', $ext);
+                $model2->whereIn('file_extension',$ext);
+                break;
             case "passport":
                 $ext = [
                     'ppt','pptx','pdf','docx','doc'
@@ -335,6 +342,15 @@ class MediaController extends Controller
                 return "video/*";
                 break;
             case 'cvs':
+                return implode(',',[
+                    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                    'application/vnd.ms-powerpoint',
+                    'application/pdf',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                ]);
+                break;
+            case 'skk':
                 return implode(',',[
                     'application/vnd.openxmlformats-officedocument.presentationml.presentation',
                     'application/vnd.ms-powerpoint',

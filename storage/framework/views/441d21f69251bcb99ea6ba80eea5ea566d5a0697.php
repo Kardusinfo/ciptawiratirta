@@ -290,6 +290,23 @@ unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <div class="panel">
+                        <div class="panel-title"><strong><?php echo e(__('SKK Uploaded')); ?></strong></div>
+                        <div class="panel-body">
+                            <div class="form-group-item">
+                                <div class="g-items-header">
+                                    <div class="row">
+                                        <div class="col-md-2"><?php echo e(__("Default")); ?></div>
+                                        <div class="col-md-8"><?php echo e(__("Name")); ?></div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </div>
+                                <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('skk', @$skk, 'skk'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
                         <div class="panel-title"><strong><?php echo e(__('Passport Uploaded')); ?></strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">
