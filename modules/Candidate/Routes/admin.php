@@ -23,4 +23,7 @@ Route::post('/category/bulkEdit','CategoryController@bulkEdit')->name('candidate
 Route::get('/my-applied','CandidateController@myApplied')->name('candidate.admin.myApplied');
 Route::get('/my-applied/delete/{id}','CandidateController@deleteJobApplied')->name('candidate.admin.myApplied.delete');
 
+Route::get('/my-interview','CandidateController@myInterview')->name('candidate.admin.myInterview');
+Route::get('/my-departure','CandidateController@myDeparture')->name('candidate.admin.myDeparture');
+
 Route::get('/my-contact','CandidateController@myContact')->name('candidate.admin.myContact');

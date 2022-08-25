@@ -182,6 +182,68 @@ class CandidateController extends AdminController
         return view('Candidate::admin.candidate.my-applied', $data);
     }
 
+    function myInterview(Request $request){
+        $this->setActiveMenu('admin/module/candidate/my-applied');
+        $query = JobCandidate::with(['jobInfo', 'candidateInfo', 'cvInfo'])->where('candidate_id', Auth::id());
+        if($s = $request->get('s')){
+            $query->whereHas('jobInfo', function ($q) use ($s){
+                $q->where("title", 'like', '%'.$s.'%');
+            });
+        }
+        if($status = $request->get('status')){
+            $query->where('status', $status);
+        }
+        if($orderby = $request->get('orderby')){
+            switch ($orderby){
+                case 'oldest':
+                    $query->orderBy('id', 'asc');
+                    break;
+                default:
+                    $query->orderBy('id', 'desc');
+                    break;
+            }
+        }else{
+            $query->orderBy('id', 'desc');
+        }
+
+        $rows = $query->paginate(20);
+        $data = [
+            'rows' => $rows
+        ];
+        return view('Candidate::admin.candidate.my-applied', $data);
+    }
+
+    function myDeparture(Request $request){
+        $this->setActiveMenu('admin/module/candidate/my-applied');
+        $query = JobCandidate::with(['jobInfo', 'candidateInfo', 'cvInfo'])->where('candidate_id', Auth::id());
+        if($s = $request->get('s')){
+            $query->whereHas('jobInfo', function ($q) use ($s){
+                $q->where("title", 'like', '%'.$s.'%');
+            });
+        }
+        if($status = $request->get('status')){
+            $query->where('status', $status);
+        }
+        if($orderby = $request->get('orderby')){
+            switch ($orderby){
+                case 'oldest':
+                    $query->orderBy('id', 'asc');
+                    break;
+                default:
+                    $query->orderBy('id', 'desc');
+                    break;
+            }
+        }else{
+            $query->orderBy('id', 'desc');
+        }
+
+        $rows = $query->paginate(20);
+        $data = [
+            'rows' => $rows
+        ];
+        return view('Candidate::admin.candidate.my-applied', $data);
+    }
+
     public function deleteJobApplied(Request $request, $id){
         $this->checkPermission('candidate_manage');
         $row = JobCandidate::with('jobInfo', 'jobInfo.user', 'candidateInfo', 'company')

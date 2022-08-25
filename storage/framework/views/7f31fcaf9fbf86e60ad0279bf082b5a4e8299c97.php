@@ -429,7 +429,13 @@ if (!empty($custom_modules)) {
         </a>
     </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/user/departure">
+    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-interview">
+        <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+        Intereview Scheduled
+        </a>
+    </li>
+
+    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-departure">
             <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
             Departure Scheduled
         </a>
