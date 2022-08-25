@@ -92,7 +92,7 @@ class UserController extends FrontendController
             'categories' => Category::get()->toTree(),
             'skills' => Skill::query()->where('status', 'publish')->get(),
             'cvs'   => CandidateCvs::query()->where('origin_id', $user->id)->with('media')->get(),
-            // 'skk'   => User::query()->where('origin_id', $user->id)->with('media')->get(),
+            'skk'   => User::query()->where('origin_id', $user->id)->with('media')->get(),
             'passport'   => CandidatePassport::query()->where('origin_id', $user->id)->with('media')->get(),
             'visa'   => CandidateVisa::query()->where('origin_id', $user->id)->with('media')->get(),
             'bst_ccm'   => CandidateBstCcm::query()->where('origin_id', $user->id)->with('media')->get()
