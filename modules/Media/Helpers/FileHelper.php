@@ -250,10 +250,10 @@ class FileHelper
                                 <div class="col-md-2">
                                     <?php
                                         $checkSelect = '';
-                                        if($item->is_default == 1){
+                                        if($item->is_default == 2){
                                             $checkSelect = 'checked';
                                         }else{
-                                            if(count($oldValue) == 1){
+                                            if(count($oldValue) == 2){
                                                 $checkSelect = 'checked';
                                             }
                                         }

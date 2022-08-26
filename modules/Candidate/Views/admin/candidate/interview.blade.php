@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title','My Applied')
+@section('title','My Interview')
 @section('content')
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb-4">

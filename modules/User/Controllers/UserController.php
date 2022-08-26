@@ -31,6 +31,7 @@ use Modules\Booking\Models\Enquiry;
 use Illuminate\Support\Str;
 use Modules\Candidate\Models\CandidateBstCcm;
 use Modules\Candidate\Models\CandidatePassport;
+use Modules\Candidate\Models\CandidateSkk;
 use Modules\Candidate\Models\CandidateVisa;
 use Modules\Company\Models\Company;
 
@@ -92,7 +93,7 @@ class UserController extends FrontendController
             'categories' => Category::get()->toTree(),
             'skills' => Skill::query()->where('status', 'publish')->get(),
             'cvs'   => CandidateCvs::query()->where('origin_id', $user->id)->with('media')->get(),
-            'skk'   => User::query()->where('origin_id', $user->id)->with('media')->get(),
+            'skk'   => CandidateSkk::query()->where('origin_id', $user->id)->with('media')->get(),
             'passport'   => CandidatePassport::query()->where('origin_id', $user->id)->with('media')->get(),
             'visa'   => CandidateVisa::query()->where('origin_id', $user->id)->with('media')->get(),
             'bst_ccm'   => CandidateBstCcm::query()->where('origin_id', $user->id)->with('media')->get()
