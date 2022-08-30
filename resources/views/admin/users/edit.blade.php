@@ -170,7 +170,7 @@
                         <div class="form-group">
                             <label for="b_o_d">B.O.D</label>
                             <input class="form-control date {{ $errors->has('b_o_d') ? 'is-invalid' : '' }}"
-                                type="datetime-local" name="b_o_d" id="b_o_d" value="{{ old('b_o_d', $user->b_o_d) }}">
+                                type="date" name="b_o_d" id="b_o_d" value="{{ old('b_o_d', $user->b_o_d) }}">
                             @if ($errors->has('b_o_d'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('b_o_d') }}
@@ -363,7 +363,7 @@
                                 </div>
                             @endforeach --}}
                             <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="radio" id="ccm_{{ $key }}"
+                                <input class="form-check-input" type="text" id="ccm_{{ $key }}"
                                     name="ccm" value="{{ $key }}"
                                     {{ old('ccm', $user->ccm) === (string) $key ? 'checked' : '' }}>
                                 <label class="form-check-label"
@@ -444,7 +444,7 @@
                                 </div>
                             @endforeach --}}
                             <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="datetime-local" id="vc_yf_{{ $key }}"
+                                <input class="form-check-input" type="date" id="vc_yf_{{ $key }}"
                                     name="vc_yf" value="{{ $key }}"
                                     {{ old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : '' }}>
                                 <label class="form-check-label"
@@ -468,7 +468,7 @@
                                 </div>
                             @endforeach --}}
                             <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="datetime-local" id="vc_covid_{{ $key }}"
+                                <input class="form-check-input" type="date" id="vc_covid_{{ $key }}"
                                     name="vc_covid" value="{{ $key }}"
                                     {{ old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : '' }}>
                                 <label class="form-check-label"
