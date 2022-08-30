@@ -16,6 +16,18 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
+                        <th rowspan="5">
+                            {{ trans('cruds.user.fields.photo') }}
+                        </th>
+                        <td>
+                            @if($user->photo)
+                                <a href="{{ $user->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $user->photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
                         <th>
                             {{ trans('cruds.user.fields.id') }}
                         </th>
@@ -281,18 +293,6 @@
                         </th>
                         <td>
                             {{ $user->contact_no }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.photo') }}
-                        </th>
-                        <td>
-                            @if($user->photo)
-                                <a href="{{ $user->photo->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $user->photo->getUrl('thumb') }}">
-                                </a>
-                            @endif
                         </td>
                     </tr>
                 </tbody>
