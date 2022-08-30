@@ -37,7 +37,15 @@
             <span class="invalid-feedback error error-password"></span>
         </div>
         @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
-        {{-- <input id="password-field" type="hidden" name="job" value="{{ $_GET['job'] }}" --}}
+        <?php if(isset($_GET['job']) == true)
+        $job = $_GET['job'];
+        ?>
+        <?php if(isset($_GET['job']) == false)
+        $job = '';
+        ?>
+        
+
+        <input id="password-field" type="hidden" name="job" value="<?= $job ?>"
         placeholder="{{ __('Retype Password') }}">
         <div class="form-group text-left">
 
