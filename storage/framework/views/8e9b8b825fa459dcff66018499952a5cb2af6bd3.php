@@ -22,7 +22,6 @@ echo $uriSegments[2]; ?>" class="theme-btn btn-style-one "><?php echo e(__('Appl
                         <?php if($candidate and !empty(($check_apply_job = $candidate->check_maximum_apply_job()))): ?>
                             <div class="text-danger apply-out"><?php echo e($check_apply_job['mess']); ?></div>
                         <?php else: ?>
-                        
                             <a href="#" data-require-text="<?php echo e(__('Please login as "Candidate" to apply')); ?>"
                                 class="theme-btn btn-style-one bc-apply-job-button <?php if(!is_candidate() || empty($candidate)): ?> bc-require-candidate-apply <?php else: ?> bc-call-modal apply-job <?php endif; ?>"><?php echo e(__('Apply For Job')); ?></a>
                         <?php endif; ?>
