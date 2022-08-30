@@ -17,19 +17,6 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th rowspan="5">
-                            <?php echo e(trans('cruds.user.fields.photo')); ?>
-
-                        </th>
-                        <td>
-                            <?php if($user->photo): ?>
-                                <a href="<?php echo e($user->photo->getUrl()); ?>" target="_blank" style="display: inline-block">
-                                    <img src="<?php echo e($user->photo->getUrl('thumb')); ?>">
-                                </a>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <tr>
                         <th>
                             <?php echo e(trans('cruds.user.fields.id')); ?>
 
@@ -37,6 +24,17 @@
                         <td>
                             <?php echo e($user->id); ?>
 
+                        </td>
+                        <th rowspan="5">
+                            <?php echo e(trans('cruds.user.fields.photo')); ?>
+
+                        </th>
+                        <td  rowspan="5">
+                            <?php if($user->photo): ?>
+                                <a href="<?php echo e($user->photo->getUrl()); ?>" target="_blank" style="display: inline-block">
+                                    <img src="<?php echo e($user->photo->getUrl('thumb')); ?>">
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <tr>

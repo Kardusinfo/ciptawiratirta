@@ -34,7 +34,7 @@ use Modules\Candidate\Models\CandidatePassport;
 use Modules\Candidate\Models\CandidateSkk;
 use Modules\Candidate\Models\CandidateVisa;
 use Modules\Company\Models\Company;
-
+use Modules\Job\Models\JobCandidate;
 class UserController extends FrontendController
 {
     use AuthenticatesUsers;
@@ -322,6 +322,14 @@ class UserController extends FrontendController
                     Candidate::query()->insert(['id' => $user->id]);
                 }
             }
+            $row = new JobCandidate();
+            $row->job_id = Job::where('slug',$request->input('job'))->first()->id;
+            $row->candidate_id = $user->id;
+            // $row->cv_id = $apply_cv_id;
+            // $row->message = $message;
+            $row->status = 'pending';
+            // $row->company_id = $company_id;
+            $row->save();
             return response()->json([
                 'error'    => false,
                 'messages' => false,

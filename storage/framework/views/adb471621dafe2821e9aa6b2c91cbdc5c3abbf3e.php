@@ -37,15 +37,7 @@
 
             </a>
         </li>
-        <li class="c-sidebar-nav-item">
-            <a href="<?php echo e(url("admin/module/candidate/my-applied")); ?>" class="c-sidebar-nav-link <?php echo e(request()->is("admin/sgps") || request()->is("admin/sgps/*") ? "c-active" : ""); ?>">
-                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
-
-                </i>
-                <?php echo e(trans('Applied Position')); ?>
-
-            </a>
-        </li>
+        
             
                 
                 

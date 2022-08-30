@@ -41,7 +41,7 @@ Route::get('bc-helper/icons', '\App\Http\Controllers\BCController@index')->middl
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 // Auth::routes();
-// Route::get('/logout', 'AuthController@logout')->name('logout');
+Route::get('/logout', '\Modules\User\Controllers\UserController@logout')->name('logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', '2fa']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
