@@ -30,6 +30,15 @@
         </div>
 
         <div class="form-group text-left">
+            <label>{{ __('Retype Password') }}</label>
+            <input id="password-field" type="password" name="retype_password" value=""
+                placeholder="{{ __('Retype Password') }}">
+            <span class="invalid-feedback error error-password"></span>
+        </div>
+        @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
+        <input id="password-field" type="hidden" name="job" value="{{ $_GET['job'] }}"
+        placeholder="{{ __('Retype Password') }}">
+        <div class="form-group text-left">
             <label>{{ __('No HP') }}</label>
             <input id="password-field" type="text" name="phone" value=""
                 placeholder="{{ __('Phone Number') }}">
@@ -59,7 +68,7 @@
 =======
             </select>
         </div> --}}
->>>>>>> Stashed changes
+{{-- >>>>>>> Stashed changes --}}
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">
                 {{ recaptcha_field($captcha_action ?? 'register') }}
