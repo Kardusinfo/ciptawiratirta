@@ -83,7 +83,7 @@
                         </div>
                         <?php if(Auth::user()->roles()->first() != null): ?>
                             <div class="form-group">
-                                <label class="required" for="password"><?php echo e(trans('cruds.user.fields.password')); ?></label>
+                                <label class="required" for="password">ID Passport</label>
                                 <input class="form-control <?php echo e($errors->has('password') ? 'is-invalid' : ''); ?>"
                                     type="password" name="password" id="password">
                                 <?php if($errors->has('password')): ?>
@@ -180,7 +180,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.address_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="b_o_d"><?php echo e(trans('cruds.user.fields.b_o_d')); ?></label>
+                            <label for="b_o_d">B.O.D</label>
                             <input class="form-control date <?php echo e($errors->has('b_o_d') ? 'is-invalid' : ''); ?>"
                                 type="text" name="b_o_d" id="b_o_d" value="<?php echo e(old('b_o_d', $user->b_o_d)); ?>">
                             <?php if($errors->has('b_o_d')): ?>
@@ -242,7 +242,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.rating_able_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.ccm')); ?></label>
+                            <label>CCM</label>
                             <?php $__currentLoopData = App\Models\User::CCM_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="form-check <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>">
                                     <input class="form-check-input" type="radio" id="ccm_<?php echo e($key); ?>"
@@ -372,7 +372,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.passport_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="visa"><?php echo e(trans('cruds.user.fields.visa')); ?></label>
+                            <label for="visa">ID Visa</label>
                             <input class="form-control <?php echo e($errors->has('visa') ? 'is-invalid' : ''); ?>" type="text"
                                 name="visa" id="visa" value="<?php echo e(old('visa', $user->visa)); ?>">
                             <?php if($errors->has('visa')): ?>
@@ -384,7 +384,19 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.visa_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.cid')); ?></label>
+                            <label for="seamen_book">Seamen Book</label>
+                            <input class="form-control <?php echo e($errors->has('seamen_book') ? 'is-invalid' : ''); ?>" type="text"
+                                name="seamen_book" id="seamen_book" value="<?php echo e(old('seamen_book', $user->seamen_book)); ?>">
+                            <?php if($errors->has('seamen_book')): ?>
+                                <div class="invalid-feedback">
+                                    <?php echo e($errors->first('seamen_book')); ?>
+
+                                </div>
+                            <?php endif; ?>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.seamen_book_helper')); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>CID</label>
                             <?php $__currentLoopData = App\Models\User::CID_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="form-check <?php echo e($errors->has('cid') ? 'is-invalid' : ''); ?>">
                                     <input class="form-check-input" type="radio" id="cid_<?php echo e($key); ?>"
@@ -403,7 +415,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.cid_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.coc')); ?></label>
+                            <label>COC</label>
                             <select class="form-control <?php echo e($errors->has('coc') ? 'is-invalid' : ''); ?>" name="coc"
                                 id="coc">
                                 <option value disabled <?php echo e(old('coc', null) === null ? 'selected' : ''); ?>>
@@ -425,7 +437,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.coc_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="bst_ccm"><?php echo e(trans('cruds.user.fields.bst_ccm')); ?></label>
+                            <label for="bst_ccm">BST/CCM</label>
                             <input class="form-control <?php echo e($errors->has('bst_ccm') ? 'is-invalid' : ''); ?>" type="text"
                                 name="bst_ccm" id="bst_ccm" value="<?php echo e(old('bst_ccm', $user->bst_ccm)); ?>">
                             <?php if($errors->has('bst_ccm')): ?>
