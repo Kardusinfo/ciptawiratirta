@@ -1,9 +1,9 @@
 <?php
-namespace App\Models;
+namespace App;
 
 use Illuminate\Support\Facades\App;
 
-class Sgp extends \App\Sgp
+class Ship extends \App\Models\Ship
 {
     protected $dateFormat = 'Y-m-d H:i:sO';
 }

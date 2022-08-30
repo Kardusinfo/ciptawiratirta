@@ -136,7 +136,7 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $user->load('roles', 'office_registered', 'experiences', 'candidateSgps', 'intBySgps', 'candidateDepartures', 'candidateInterviews', 'userUserAlerts');
 
