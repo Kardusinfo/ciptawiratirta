@@ -33,14 +33,14 @@
                 {{ trans('My Profile') }}
             </a>
         </li>
-        <li class="c-sidebar-nav-item">
+        {{-- <li class="c-sidebar-nav-item">
             <a href="{{ url("admin/module/candidate/my-applied") }}" class="c-sidebar-nav-link {{ request()->is("admin/sgps") || request()->is("admin/sgps/*") ? "c-active" : "" }}">
                 <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
                 </i>
                 {{ trans('Applied Position') }}
             </a>
-        </li>
+        </li> --}}
             
                 {{-- <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link {{ request()->is('profile/password') || request()->is('profile/password/*') ? 'c-active' : '' }}" href="{{ route('profile.password.edit') }}">
