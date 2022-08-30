@@ -12,7 +12,7 @@
                 <?php echo method_field('PUT'); ?>
                 <?php echo csrf_field(); ?>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-9">
                         <div class="form-group">
                             <label class="required" for="name"><?php echo e(trans('cruds.user.fields.name')); ?></label>
                             <input class="form-control <?php echo e($errors->has('name') ? 'is-invalid' : ''); ?>" type="text"
@@ -422,7 +422,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.photo_helper')); ?></span>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="passport"><?php echo e(trans('cruds.user.fields.passport')); ?></label>
                             <input class="form-control <?php echo e($errors->has('passport') ? 'is-invalid' : ''); ?>"
