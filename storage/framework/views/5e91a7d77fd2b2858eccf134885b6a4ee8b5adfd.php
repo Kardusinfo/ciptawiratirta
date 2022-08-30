@@ -28,7 +28,7 @@
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
                         );
                         
-                        $candidate = \App\User::find(Request()->input('candidate_id'));
+                        $candidate = \App\Models\User::find(Request()->input('candidate_id'));
                         \App\Helpers\AdminForm::select2(
                             'candidate_id',
                             [
@@ -62,6 +62,7 @@
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
                     ?>
+                    
 
                     <button class="btn-info btn btn-icon btn_search" type="submit"><?php echo e(__('Search')); ?></button>
                 </form>
@@ -1093,6 +1094,9 @@
                     document.getElementById(cityName).style.display = "block";
                     evt.currentTarget.className += " active";
                 }
+            </script>
+            <script type="text/javascript">
+
             </script>
 
         

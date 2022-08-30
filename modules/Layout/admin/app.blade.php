@@ -107,6 +107,7 @@
     </div>
     <div class="main-sidebar">
         @include('Layout::admin.parts.sidebar')
+        {{-- @include('partials.menu') --}}
     </div>
     <div class="main-content">
         @include('Layout::admin.parts.bc')

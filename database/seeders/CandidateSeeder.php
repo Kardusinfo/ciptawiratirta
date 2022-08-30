@@ -99,7 +99,7 @@ class CandidateSeeder extends Seeder
             'map_lng' => ['-74.16938781738281','-74.26002502441406','-73.11445617675781','-73.98674011230469','-73.778139','-73.535957','-73.519478']
         ];
 
-        $dataArr = \App\User::where('role_id', 3)->take(9)->get();
+        $dataArr = \App\Models\User::where('role_id', 3)->take(9)->get();
         $i = 1;
         foreach($dataArr as $data){
             DB::table('bc_candidates')->insert(

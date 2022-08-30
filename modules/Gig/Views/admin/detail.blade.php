@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <?php
                                         $user_id = old('author_id',$row->author_id);
-                                        $user = $user_id ? App\User::find($user_id) : false;
+                                        $user = $user_id ? App\Models\User::find($user_id) : false;
                                         \App\Helpers\AdminForm::select2('author_id', [
                                             'configs' => [
                                                 'ajax'        => [

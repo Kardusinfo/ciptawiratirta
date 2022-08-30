@@ -28,7 +28,7 @@ class CandidateController extends AdminController
         $this->checkPermission('candidate_manage_others');
         $username = $request->query('s');
         $cate_id = $request->query('cate_id');
-        $listUser = \App\User::query()->where('role_id',3);
+        $listUser = \App\Models\User::query()->where('role_id',3);
         if (!empty($username)) {
             $listUser->where(function($query) use($username){
                 $query->where('first_name', 'LIKE', '%' . $username . '%');
@@ -95,7 +95,7 @@ class CandidateController extends AdminController
         if ($action == "delete") {
             foreach ($ids as $id) {
                 if($id == Auth::id()) continue;
-                $query = \App\User::where("id", $id)->first();
+                $query = \App\Models\User::where("id", $id)->first();
                 $candidate = Candidate::where("id", $id)->first();
                 if(!empty($query)){
                     $query->email.='_d_'.uniqid().rand(0,99999);
@@ -295,7 +295,7 @@ class CandidateController extends AdminController
     public function getForSelect2(Request $request)
     {
         $s = $request->query('q');
-        $listUser = \App\User::query()->whereHas(
+        $listUser = \App\Models\User::query()->whereHas(
             'role', function($q){
             $q->where('id', 3);
         });

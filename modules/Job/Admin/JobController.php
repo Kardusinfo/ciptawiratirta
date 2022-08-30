@@ -767,7 +767,7 @@ class JobController extends AdminController
     public function applicantsExport(Request $request){
 
         // $company = \Modules\Company\Models\Company::find(Request()->input('company_id'));
-        // $candidate = \App\User::find(Request()->input('candidate_id'));
+        // $candidate = \App\Models\User::find(Request()->input('candidate_id'));
         // $job = \Modules\Job\Models\Job::find(Request()->input('job_id'));
         // $data = [];
         // array_push($data,$company);
