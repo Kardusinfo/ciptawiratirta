@@ -40,7 +40,7 @@ Route::get('admin/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@inde
 Route::get('bc-helper/icons', '\App\Http\Controllers\BCController@index')->middleware(['auth'])->name('bc.icons');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
-Auth::routes();
+// Auth::routes();
 Route::get('/logout', '\Modules\User\Controllers\UserController@logout')->name('logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', '2fa']], function () {
