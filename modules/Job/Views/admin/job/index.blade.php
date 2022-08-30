@@ -23,7 +23,33 @@
                     </form>
                 @endif
             </div>
+            {{-- <div class="">
+                
+            </div> --}}
+
             <div class="col-left">
+                <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
+                    @if(is_admin())
+                        <?php
+                        $company = \Modules\Job\Models\Job::find(Request()->input('category_id'));
+                        \App\Helpers\AdminForm::select2('category_id', [
+                            'configs' => [
+                                'ajax'        => [
+                                    'url' => route('job.admin.getForSelect2'),
+                                    'dataType' => 'json'
+                                ],
+                                'allowClear'  => true,
+                                'placeholder' => __('-- Select Department --')
+                            ]
+                        ], !empty($category->id) ? [
+                            $category->id,
+                            $category->name . ' (#' . $category->id . ')'
+                        ] : false)
+                        ?>
+                    @endif
+                    {{-- <input type="text" name="s" value="{{ Request()->input('s') }}" placeholder="{{__('Search by name')}}" class="form-control">
+                    <button class="btn-default btn btn-icon btn_search" type="submit">{{__('Search')}}</button> --}}
+                </form>
                 <form method="get" action="{{ route('job.admin.index') }}" class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     @if(is_admin())
                         <?php
@@ -35,7 +61,7 @@
                                     'dataType' => 'json'
                                 ],
                                 'allowClear'  => true,
-                                'placeholder' => __('-- Select Company --')
+                                'placeholder' => __('-- Select Principal --')
                             ]
                         ], !empty($company->id) ? [
                             $company->id,
@@ -59,10 +85,10 @@
                             <thead>
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
-                                <th> {{ __('Title')}}</th>
-                                <th width="200px"> {{ __('Location')}}</th>
-                                <th width="150px"> {{ __('Category')}}</th>
-                                <th width="150px"> {{ __('Company')}}</th>
+                                <th width="150px"> {{ __('Name Position')}}</th>
+                                {{-- <th width="200px"> {{ __('Location')}}</th> --}}
+                                <th width="150px"> {{ __('Department')}}</th>
+                                <th width="150px"> {{ __('Principal')}}</th>
                                 <th width="100px"> {{ __('Status')}}</th>
                                 <th width="100px"> {{ __('Date')}}</th>
                                 <th width="100px"></th>
@@ -77,7 +103,7 @@
                                         <td class="title">
                                             <a href="{{ $row->getEditUrl() }}">{{$row->title}}</a>
                                         </td>
-                                        <td>{{$row->location->name ?? ''}}</td>
+                                        {{-- <td>{{$row->location->name ?? ''}}</td> --}}
                                         <td>{{$row->category->name ?? ''}}</td>
                                         <td>{{$row->company->name ?? ''}}</td>
                                         <td><span class="badge badge-{{ $row->status }}">{{ $row->status }}</span></td>

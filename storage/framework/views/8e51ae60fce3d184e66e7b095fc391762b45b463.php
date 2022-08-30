@@ -36,6 +36,17 @@
             <span class="invalid-feedback error error-password"></span>
         </div>
 
+        <?php
+            $job = \Modules\Job\Models\Job::with('category','company')->get();
+        ?>
+        <div class="form-group">
+            
+            <label><?php echo e(__('Posisi')); ?></label>
+            <select name="job_id" id="job_id" class="form-control">
+                <?php $__currentLoopData = $job; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($item->id); ?>"><?php echo e($item->title . ' | ' . $item->category->name . ' | ' . $item->company->name); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
         <?php if(setting_item('recaptcha_enable')): ?>
             <div class="form-group">
                 <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>

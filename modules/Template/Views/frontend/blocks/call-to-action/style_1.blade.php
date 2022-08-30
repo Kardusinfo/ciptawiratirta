@@ -19,7 +19,7 @@
                 <a href="{{$url_apply}}" class="theme-btn btn-style-two">{{$link_apply}}</a>
             @endif --}}
             <a href="{{'/job'}}" class="theme-btn  btn-style-three">Find Jobs</a>
-            <a href="{{'/page/recruitment-procedure'}}" class="theme-btn btn-style-two">Recruitment Procudure</a>
+            <a href="{{'/page/recruitment-procedure'}}" class="theme-btn btn-style-two">Recruitment Procedure</a>
         </div>
     </div>
 </section>

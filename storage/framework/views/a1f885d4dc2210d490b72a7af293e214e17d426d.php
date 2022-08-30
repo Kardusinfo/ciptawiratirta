@@ -13,7 +13,7 @@
                 <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two"><?php echo e($link_apply); ?></a>
             <?php endif; ?>
 
-            <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two">Recruitment Procudure</a>
+            <a href="<?php echo e($url_apply); ?>" class="theme-btn btn-style-two">Recruitment Procedure</a>
         </div>
     </div>
 </section>

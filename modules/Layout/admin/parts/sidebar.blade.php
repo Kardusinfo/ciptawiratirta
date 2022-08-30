@@ -220,26 +220,7 @@ if (!empty($custom_modules)) {
 @if (Auth::user()->role_id == 1)
     <ul class="main-menu">
 
-        {{-- <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
-                <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-                Client
-            </a>
-            <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-            <ul class="children">
-                <li class=" has-children admin_module_company"><a href="/admin/module/company">
-                        All Principal</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
-                        Add Principal</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
-                        Attributes</a>
-                </li>
-                <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
-                        Ship</a>
-                </li>
-            </ul>
-        </li> --}}
+
 
         <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -297,215 +278,228 @@ if (!empty($custom_modules)) {
                         News
                     </a>
                     <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-                    <li class="active has-children admin_module_news"><a href="/admin/module/news/create">
+                <li class="active has-children admin_module_news"><a href="/admin/module/news/create">
                         Add News</a>
-                    </li>
-                    <li class="active has-children admin_module_news"><a href="/admin/module/news/category">
-                            Categories</a>
-                    </li>
-                    <li class="active has-children admin_module_news"><a href="/admin/module/news/tag">
-                            Tags</a>
-                    </li>
                 </li>
-
-                <li class=" admin_module_page position-20"><a href="/admin/module/page">
-                        <span class="icon text-center"><i class="icon ion-ios-bookmarks"></i></span>
-                        Page
-                    </a>
+                <li class="active has-children admin_module_news"><a href="/admin/module/news/category">
+                        Categories</a>
                 </li>
+                <li class="active has-children admin_module_news"><a href="/admin/module/news/tag">
+                        Tags</a>
+                </li>
+        </li>
 
-
+        <li class=" admin_module_page position-20"><a href="/admin/module/page">
+                <span class="icon text-center"><i class="icon ion-ios-bookmarks"></i></span>
+                Page
+            </a>
+        </li>
 
 
-                <li class=" admin_module_company_my-contact position-28"><a href="/admin/module/company/my-contact">
-                        <span class="icon text-center"><i class="ion-md-mail"></i></span>
-                        My Contact
+
+
+        <li class=" admin_module_company_my-contact position-28"><a href="/admin/module/company/my-contact">
+                <span class="icon text-center"><i class="ion-md-mail"></i></span>
+                My Contact
+            </a>
+        </li>
+        <li class=" admin_module_skill position-30"><a href="/admin/module/skill">
+                <span class="icon text-center"><i class="icon ion-md-bookmarks"></i></span>
+                Skill
+            </a>
+        </li>
+        <li class=" admin_module_location position-40"><a href="/admin/module/location">
+                <span class="icon text-center"><i class="icon ion-md-compass"></i></span>
+                Location
+            </a>
+        </li>
+        <li class=" admin_module_user_plan position-50"><a href="/admin/module/user/plan">
+                <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
+                User Plans
+            </a>
+        </li>
+        <li class=" admin_module_review position-55"><a href="/admin/module/review">
+                <span class="icon text-center"><i class="icon ion-ios-text"></i></span>
+                Reviews
+            </a>
+        </li>
+        <li class=" admin_module_core_menu position-60"><a href="/admin/module/core/menu">
+                <span class="icon text-center"><i class="icon ion-ios-apps"></i></span>
+                Menu
+            </a>
+        </li>
+        <li class=" admin_module_template position-70"><a href="/admin/module/template">
+                <span class="icon text-center"><i class="icon ion-logo-html5"></i></span>
+                Templates
+            </a>
+        </li>
+        <li class=" has-children admin_module_core_settings_index_general position-80"><a
+                href="/admin/module/core/settings/index/general">
+                <span class="icon text-center"><i class="icon ion-ios-cog"></i></span>
+                Setting
+            </a>
+            {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+            <ul class="children">
+                <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
+                        <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
+                        Client
                     </a>
+                    <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+                    <ul class="children">
+                        <li class=" has-children admin_module_company"><a href="/admin/module/company">
+                                All Principal</a>
+                        </li>
+                        <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
+                                Add Principal</a>
+                        </li>
+                        <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
+                                Attributes</a>
+                        </li>
+                        <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
+                                Ship</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class=" admin_module_skill position-30"><a href="/admin/module/skill">
-                        <span class="icon text-center"><i class="icon ion-md-bookmarks"></i></span>
-                        Skill
-                    </a>
-                </li>
-                <li class=" admin_module_location position-40"><a href="/admin/module/location">
-                        <span class="icon text-center"><i class="icon ion-md-compass"></i></span>
-                        Location
-                    </a>
-                </li>
-                <li class=" admin_module_user_plan position-50"><a href="/admin/module/user/plan">
-                        <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
-                        User Plans
-                    </a>
-                </li>
-                <li class=" admin_module_review position-55"><a href="/admin/module/review">
-                        <span class="icon text-center"><i class="icon ion-ios-text"></i></span>
-                        Reviews
-                    </a>
-                </li>
-                <li class=" admin_module_core_menu position-60"><a href="/admin/module/core/menu">
-                        <span class="icon text-center"><i class="icon ion-ios-apps"></i></span>
-                        Menu
-                    </a>
-                </li>
-                <li class=" admin_module_template position-70"><a href="/admin/module/template">
-                        <span class="icon text-center"><i class="icon ion-logo-html5"></i></span>
-                        Templates
-                    </a>
-                </li>
-                <li class=" has-children admin_module_core_settings_index_general position-80"><a
+                <li class=" has-children admin_module_core_settings_index_general"><a
                         href="/admin/module/core/settings/index/general">
-                        <span class="icon text-center"><i class="icon ion-ios-cog"></i></span>
-                        Setting
-                    </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-                    <ul class="children">
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/general">
-                                General Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/gig">
-                                Gig Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/candidate">
-                                Candidate Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/company">
-                                Company Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/job">
-                                Job Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/news">
-                                News Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/order">
-                                Order Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/email">
-                                Email Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/user">
-                                User Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/user_plans">
-                                User Plans Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/payment">
-                                Payment Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/style">
-                                Style Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/advance">
-                                Advance Settings</a>
-                        </li>
-                        <li class=" has-children admin_module_core_settings_index_general"><a
-                                href="/admin/module/core/settings/index/sms">
-                                Sms Settings</a>
-                        </li>
-                    </ul>
+                        General Settings</a>
                 </li>
-                <li class=" has-children admin_module_core_tools position-90"><a href="/admin/module/core/tools">
-                        <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
-                        Tools
-                    </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-                    <ul class="children">
-                        <li class=" has-children admin_module_core_tools"><a href="/admin/module/language">
-                                Languages</a>
-                        </li>
-                        <li class=" has-children admin_module_core_tools"><a
-                                href="/admin/module/language/translations">
-                                Translation Manager</a>
-                        </li>
-                        <li class=" has-children admin_module_core_tools"><a href="/admin/logs">
-                                System Logs</a>
-                        </li>
-                        <li class=" has-children admin_module_core_tools"><a href="/admin/module/core/plugins">
-                                Plugins</a>
-                        </li>
-                    </ul>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/gig">
+                        Gig Settings</a>
                 </li>
-                <li class=" has-children admin_module_user position-100"><a href="/admin/module/user">
-                        <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
-                        Users
-                    </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-                    <ul class="children">
-                        <li class=" has-children admin_module_user"><a href="/admin/module/user">
-                                All Users</a>
-                        </li>
-                        <li class=" has-children admin_module_user"><a href="/admin/module/user/role">
-                                Role Manager</a>
-                        </li>
-                        <li class=" has-children admin_module_user"><a href="/admin/module/user/subscriber">
-                                Subscribers</a>
-                        </li>
-                    </ul>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/candidate">
+                        Candidate Settings</a>
                 </li>
-                <li class=" has-children admin_module_contact position-200"><a href="/admin/module/contact">
-                        <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
-                        Report
-                    </a>
-                    {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
-                    <ul class="children">
-                        <li class=" has-children admin_module_contact"><a href="/admin/module/contact">
-                                Contact Submissions</a>
-                        </li>
-                    </ul>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/company">
+                        Company Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/job">
+                        Job Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/news">
+                        News Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/order">
+                        Order Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/email">
+                        Email Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/user">
+                        User Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/user_plans">
+                        User Plans Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/payment">
+                        Payment Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/style">
+                        Style Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/advance">
+                        Advance Settings</a>
+                </li>
+                <li class=" has-children admin_module_core_settings_index_general"><a
+                        href="/admin/module/core/settings/index/sms">
+                        Sms Settings</a>
                 </li>
             </ul>
         </li>
+        <li class=" has-children admin_module_core_tools position-90"><a href="/admin/module/core/tools">
+                <span class="icon text-center"><i class="icon ion-ios-hammer"></i></span>
+                Tools
+            </a>
+            {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+            <ul class="children">
+                <li class=" has-children admin_module_core_tools"><a href="/admin/module/language">
+                        Languages</a>
+                </li>
+                <li class=" has-children admin_module_core_tools"><a href="/admin/module/language/translations">
+                        Translation Manager</a>
+                </li>
+                <li class=" has-children admin_module_core_tools"><a href="/admin/logs">
+                        System Logs</a>
+                </li>
+                <li class=" has-children admin_module_core_tools"><a href="/admin/module/core/plugins">
+                        Plugins</a>
+                </li>
+            </ul>
+        </li>
+        <li class=" has-children admin_module_user position-100"><a href="/admin/module/user">
+                <span class="icon text-center"><i class="icon ion-ios-contacts"></i></span>
+                Users
+            </a>
+            {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+            <ul class="children">
+                <li class=" has-children admin_module_user"><a href="/admin/module/user">
+                        All Users</a>
+                </li>
+                <li class=" has-children admin_module_user"><a href="/admin/module/user/role">
+                        Role Manager</a>
+                </li>
+                <li class=" has-children admin_module_user"><a href="/admin/module/user/subscriber">
+                        Subscribers</a>
+                </li>
+            </ul>
+        </li>
+        <li class=" has-children admin_module_contact position-200"><a href="/admin/module/contact">
+                <span class="icon text-center"><i class="icon ion ion-md-stats"></i></span>
+                Report
+            </a>
+            {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
+            <ul class="children">
+                <li class=" has-children admin_module_contact"><a href="/admin/module/contact">
+                        Contact Submissions</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </li>
 
     </ul>
 @elseif(Auth::user()->role_id != 1)
-<ul class="main-menu">
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin">
-            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            Dashboard
-        </a>
-    </li>
-    <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
-            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            My Profile
-        </a>
-    </li>
+    <ul class="main-menu">
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                Dashboard
+            </a>
+        </li>
+        <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                My Profile
+            </a>
+        </li>
 
 
-    {{-- <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
-            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            My Document
-        </a>
-    </li> --}}
+        <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                My Document
+            </a>
+        </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
-            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            Applied Position
-        </a>
-    </li>
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                My Applied
+            </a>
+        </li>
 
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-interview">
-        <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-        Intereview Scheduled
-        </a>
-    </li>
-
-    <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-departure">
-            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-            Departure Scheduled
-        </a>
-    </li>
-</ul>
+        <li class=" admin_module_job_all-applicants position-25"><a href="/user/departure">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                Departure Scheduled
+            </a>
+        </li>
+    </ul>
 @endif
