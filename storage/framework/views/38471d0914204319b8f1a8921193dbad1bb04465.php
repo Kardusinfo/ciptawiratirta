@@ -36,7 +36,7 @@
 // // <<<<<<< HEAD
                         $company = \Modules\Job\Models\JobCategory::all();
                         // var_dump($company);
-// // =======
+// =======
                         $company = \Modules\Job\Models\Job::find(Request()->input('category_id'));
                         \App\Helpers\AdminForm::select2('category_id', [
                             'configs' => [
@@ -82,7 +82,7 @@
                             ],
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
                         );
-// // =======
+// =======
                                 'allowClear'  => true,
                                 'placeholder' => __('-- Select Principal --')
                             ]
@@ -139,7 +139,7 @@
                                             <td>
                                                 <a href="<?php echo e($row->getEditUrl()); ?>" class="btn btn-default btn-sm"><i
                                                         class="fa fa-edit"></i> <?php echo e(__('Edit')); ?>
-// =======
+=======
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
                                 <th width="150px"> <?php echo e(__('Name Position')); ?></th>

@@ -18,7 +18,7 @@
         <span class="company-logo">
 // <<<<<<< HEAD
             <a href="<?php echo e($row->company->getDetailUrl()); ?>"><img src="<?php echo e($company_logo); ?>" alt="<?php echo e($row->company ? $row->company->name : 'company'); ?>" class="full-width object-cover"></a>
-// =======
+=======
             
             <a href="#"><img src="<?php echo e($company_logo); ?>" alt="<?php echo e($row->company ? $row->company->name : 'company'); ?>" class="full-width object-cover"></a>
 // >>>>>>> origin/back

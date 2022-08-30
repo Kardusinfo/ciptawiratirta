@@ -23,7 +23,7 @@
 
 // <<<<<<< HEAD
                     <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procudure</a>
-// =======
+=======
                     <a href="/redirect.php" class="theme-btn btn-style-two">Recruitment Procedure</a>
 // >>>>>>> origin/back
 

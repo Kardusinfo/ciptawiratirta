@@ -194,7 +194,7 @@ if (!empty($custom_modules)) {
 
 // <<<<<<< HEAD
         
-// =======
+=======
 
 // >>>>>>> origin/back
 
@@ -301,7 +301,7 @@ if (!empty($custom_modules)) {
             
             <ul class="children">
 // <<<<<<< HEAD
-// =======
+=======
                 <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
                         <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
                         Client
@@ -444,7 +444,7 @@ if (!empty($custom_modules)) {
         <li class=" admin_module_job_all-applicants position-25">
             
                 <a href="<?php echo e(url('admin/users/'. Auth::user()->id .'/edit')); ?>">
-// =======
+=======
         <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
 // >>>>>>> origin/back
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -469,7 +469,7 @@ if (!empty($custom_modules)) {
         </li>
 
         <li class=" admin_module_job_all-applicants position-25"><a href="/admin/messenger">
-// =======
+=======
         <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 My Document

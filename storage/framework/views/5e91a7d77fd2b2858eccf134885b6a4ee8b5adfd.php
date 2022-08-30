@@ -77,7 +77,7 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
                         );
-// // =======
+// =======
 // // >>>>>>> origin/back
                     ?>
                     
