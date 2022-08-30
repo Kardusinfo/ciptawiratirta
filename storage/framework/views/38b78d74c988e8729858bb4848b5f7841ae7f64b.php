@@ -374,19 +374,18 @@
 
                                 </div>
                             <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.seamen_book_helper')); ?></span>
+                            
                         </div>
                         <div class="form-group">
-                            <label>CCM</label>
-                            <?php $__currentLoopData = App\Models\User::CCM_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="radio" id="ccm_<?php echo e($key); ?>"
-                                        name="ccm" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('ccm', $user->ccm) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="ccm_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <label>CCM Number</label>
+                            
+                            <div class="form-check <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>">
+                                <input class="form-check-input" type="radio" id="ccm_<?php echo e($key); ?>"
+                                    name="ccm" value="<?php echo e($key); ?>"
+                                    <?php echo e(old('ccm', $user->ccm) === (string) $key ? 'checked' : ''); ?>>
+                                <label class="form-check-label"
+                                    for="ccm_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                            </div>
                             <?php if($errors->has('ccm')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('ccm')); ?>
@@ -396,16 +395,15 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.ccm_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label>CID</label>
-                            <?php $__currentLoopData = App\Models\User::CID_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('cid') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="radio" id="cid_<?php echo e($key); ?>"
-                                        name="cid" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('cid', $user->cid) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="cid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <label>CID Number</label>
+                            
+                            <div class="form-check <?php echo e($errors->has('cid') ? 'is-invalid' : ''); ?>">
+                                <input class="form-check-input" type="text" id="cid_<?php echo e($key); ?>"
+                                    name="cid" value="<?php echo e($key); ?>"
+                                    <?php echo e(old('cid', $user->cid) === (string) $key ? 'checked' : ''); ?>>
+                                <label class="form-check-label"
+                                    for="cid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                            </div>
                             <?php if($errors->has('cid')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('cid')); ?>
@@ -491,7 +489,7 @@
                         </div>
                     </div>
                 </div>
-                < </form>
+            </form>
         </div>
     </div>
 
