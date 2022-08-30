@@ -78,7 +78,7 @@
                         </div>
                         @if (Auth::user()->roles()->first() != null)
                             <div class="form-group">
-                                <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
+                                <label class="required" for="password">ID Passport</label>
                                 <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                                     type="password" name="password" id="password">
                                 @if ($errors->has('password'))
@@ -168,7 +168,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.address_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="b_o_d">{{ trans('cruds.user.fields.b_o_d') }}</label>
+                            <label for="b_o_d">B.O.D</label>
                             <input class="form-control date {{ $errors->has('b_o_d') ? 'is-invalid' : '' }}"
                                 type="text" name="b_o_d" id="b_o_d" value="{{ old('b_o_d', $user->b_o_d) }}">
                             @if ($errors->has('b_o_d'))
@@ -226,7 +226,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.rating_able_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.ccm') }}</label>
+                            <label>CCM</label>
                             @foreach (App\Models\User::CCM_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="ccm_{{ $key }}"
@@ -348,7 +348,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.passport_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="visa">{{ trans('cruds.user.fields.visa') }}</label>
+                            <label for="visa">ID Visa</label>
                             <input class="form-control {{ $errors->has('visa') ? 'is-invalid' : '' }}" type="text"
                                 name="visa" id="visa" value="{{ old('visa', $user->visa) }}">
                             @if ($errors->has('visa'))
@@ -359,7 +359,18 @@
                             <span class="help-block">{{ trans('cruds.user.fields.visa_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.cid') }}</label>
+                            <label for="seamen_book">Seamen Book</label>
+                            <input class="form-control {{ $errors->has('seamen_book') ? 'is-invalid' : '' }}" type="text"
+                                name="seamen_book" id="seamen_book" value="{{ old('seamen_book', $user->seamen_book) }}">
+                            @if ($errors->has('seamen_book'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('seamen_book') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>CID</label>
                             @foreach (App\Models\User::CID_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="cid_{{ $key }}"
@@ -377,7 +388,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.cid_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.coc') }}</label>
+                            <label>COC</label>
                             <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
                                 id="coc">
                                 <option value disabled {{ old('coc', null) === null ? 'selected' : '' }}>
@@ -397,7 +408,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.coc_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="bst_ccm">{{ trans('cruds.user.fields.bst_ccm') }}</label>
+                            <label for="bst_ccm">BST/CCM</label>
                             <input class="form-control {{ $errors->has('bst_ccm') ? 'is-invalid' : '' }}" type="text"
                                 name="bst_ccm" id="bst_ccm" value="{{ old('bst_ccm', $user->bst_ccm) }}">
                             @if ($errors->has('bst_ccm'))
