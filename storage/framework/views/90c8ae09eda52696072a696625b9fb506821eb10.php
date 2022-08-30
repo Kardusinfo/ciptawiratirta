@@ -19,7 +19,6 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="dashboard-report-card card pink">
@@ -96,7 +95,7 @@
                             <a href="/user/profile" class="btn btn-info">
                                 <span class="btn-title">Next</span>
                             </a>
->>>>>>> origin/back
+
                         </div>
                     </div>
                 </div>
@@ -114,7 +113,7 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
+
         <?php else: ?>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
@@ -211,14 +210,14 @@
             </div>
         <?php endif; ?>
         <br>
-=======
+
         <?php endif; ?>
         <br>
         <div class="row">
             
             
         </div>
->>>>>>> origin/back
+
     </div>
 <?php $__env->stopSection(); ?>
 
