@@ -197,42 +197,6 @@
                             <span class="help-block">{{ trans('cruds.user.fields.office_registered_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.vc_yf') }}</label>
-                            @foreach (App\Models\User::VC_YF_RADIO as $key => $label)
-                                <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
-                                    <input class="form-check-input" type="radio" id="vc_yf_{{ $key }}"
-                                        name="vc_yf" value="{{ $key }}"
-                                        {{ old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : '' }}>
-                                    <label class="form-check-label"
-                                        for="vc_yf_{{ $key }}">{{ $label }}</label>
-                                </div>
-                            @endforeach
-                            @if ($errors->has('vc_yf'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('vc_yf') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.vc_yf_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.vc_covid') }}</label>
-                            @foreach (App\Models\User::VC_COVID_RADIO as $key => $label)
-                                <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
-                                    <input class="form-check-input" type="radio" id="vc_covid_{{ $key }}"
-                                        name="vc_covid" value="{{ $key }}"
-                                        {{ old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : '' }}>
-                                    <label class="form-check-label"
-                                        for="vc_covid_{{ $key }}">{{ $label }}</label>
-                                </div>
-                            @endforeach
-                            @if ($errors->has('vc_covid'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('vc_covid') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.vc_covid_helper') }}</span>
-                        </div>
-                        <div class="form-group">
                             <label for="age">{{ trans('cruds.user.fields.age') }}</label>
                             <input class="form-control {{ $errors->has('age') ? 'is-invalid' : '' }}" type="text"
                                 name="age" id="age" value="{{ old('age', $user->age) }}">
@@ -336,19 +300,7 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="photo">{{ trans('cruds.user.fields.photo') }}</label>
-                            <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
-                                id="photo-dropzone">
-                            </div>
-                            @if ($errors->has('photo'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('photo') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
+                            <label for="cv">CV</label>
                             <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}"
                                 id="cv-dropzone">
                             </div>
@@ -360,7 +312,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">{{ trans('cruds.user.fields.skk') }}</label>
+                            <label for="skk">Surat Keterangan Kerja</label>
                             <div class="needsclick dropzone {{ $errors->has('skk') ? 'is-invalid' : '' }}"
                                 id="skk-dropzone">
                             </div>
@@ -370,6 +322,18 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">{{ trans('cruds.user.fields.photo') }}</label>
+                            <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
+                                id="photo-dropzone">
+                            </div>
+                            @if ($errors->has('photo'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('photo') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <label for="passport">{{ trans('cruds.user.fields.passport') }}</label>
@@ -442,6 +406,42 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.bst_ccm_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ trans('cruds.user.fields.vc_yf') }}</label>
+                            @foreach (App\Models\User::VC_YF_RADIO as $key => $label)
+                                <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
+                                    <input class="form-check-input" type="datetime-local" id="vc_yf_{{ $key }}"
+                                        name="vc_yf" value="{{ $key }}"
+                                        {{ old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : '' }}>
+                                    <label class="form-check-label"
+                                        for="vc_yf_{{ $key }}">{{ $label }}</label>
+                                </div>
+                            @endforeach
+                            @if ($errors->has('vc_yf'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('vc_yf') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.vc_yf_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ trans('cruds.user.fields.vc_covid') }}</label>
+                            @foreach (App\Models\User::VC_COVID_RADIO as $key => $label)
+                                <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
+                                    <input class="form-check-input" type="datetime-local" id="vc_covid_{{ $key }}"
+                                        name="vc_covid" value="{{ $key }}"
+                                        {{ old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : '' }}>
+                                    <label class="form-check-label"
+                                        for="vc_covid_{{ $key }}">{{ $label }}</label>
+                                </div>
+                            @endforeach
+                            @if ($errors->has('vc_covid'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('vc_covid') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.vc_covid_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
