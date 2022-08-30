@@ -262,9 +262,9 @@
                             {{ trans('cruds.user.fields.experience') }}
                         </th>
                         <td>
-                            @foreach($user->experiences as $key => $experience)
+                            {{-- @foreach($user->experiences as $key => $experience)
                                 <span class="label label-info">{{ $experience->value }}</span>
-                            @endforeach
+                            @endforeach --}}
                         </td>
                     </tr>
                     <tr>
