@@ -52,8 +52,6 @@
 
         
             
-
-
         <?php if(setting_item('recaptcha_enable')): ?>
             <div class="form-group">
                 <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>

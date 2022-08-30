@@ -29,7 +29,7 @@
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-{{-- <<<<<<< HEAD --}}
+
         <div class="form-group text-left">
             <label>{{ __('Retype Password') }}</label>
             <input id="password-field" type="password" name="retype_password" value=""
@@ -40,9 +40,9 @@
         {{-- <input id="password-field" type="hidden" name="job" value="{{ $_GET['job'] }}" --}}
         placeholder="{{ __('Retype Password') }}">
         <div class="form-group text-left">
-{{-- ======= --}}
+
         <div class="form-group">
-{{-- >>>>>>> parent of 9b7f5eb (qwerty) --}}
+
             <label>{{ __('No HP') }}</label>
             <input id="password-field" type="text" name="phone" value=""
                 placeholder="{{ __('Phone Number') }}">
@@ -66,12 +66,9 @@
                     <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
                 @endforeach
         </div>
-<<<<<<< HEAD
+
             </select>
         </div>  --}}
-{{-- >>>>>>> Stashed changes --}}
-{{-- =======
->>>>>>> parent of 9b7f5eb (qwerty) --}}
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">
                 {{ recaptcha_field($captcha_action ?? 'register') }}

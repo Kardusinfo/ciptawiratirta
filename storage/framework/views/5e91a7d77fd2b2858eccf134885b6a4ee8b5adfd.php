@@ -61,7 +61,7 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
-// // <<<<<<< HEAD
+
                         
                         \App\Helpers\AdminForm::select2(
                             'job_id',
@@ -77,8 +77,6 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
                         );
-// =======
-// // >>>>>>> origin/back
                     ?>
                     
 
