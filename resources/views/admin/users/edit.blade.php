@@ -124,17 +124,6 @@
                             <span class="help-block">{{ trans('cruds.user.fields.ktp_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="bst_ccm">{{ trans('cruds.user.fields.bst_ccm') }}</label>
-                            <input class="form-control {{ $errors->has('bst_ccm') ? 'is-invalid' : '' }}" type="text"
-                                name="bst_ccm" id="bst_ccm" value="{{ old('bst_ccm', $user->bst_ccm) }}">
-                            @if ($errors->has('bst_ccm'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('bst_ccm') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.bst_ccm_helper') }}</span>
-                        </div>
-                        <div class="form-group">
                             <label for="country">{{ trans('cruds.user.fields.country') }}</label>
                             <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text"
                                 name="country" id="country" value="{{ old('country', $user->country) }}">
@@ -255,44 +244,6 @@
                             <span class="help-block">{{ trans('cruds.user.fields.age_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.cid') }}</label>
-                            @foreach (App\Models\User::CID_RADIO as $key => $label)
-                                <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
-                                    <input class="form-check-input" type="radio" id="cid_{{ $key }}"
-                                        name="cid" value="{{ $key }}"
-                                        {{ old('cid', $user->cid) === (string) $key ? 'checked' : '' }}>
-                                    <label class="form-check-label"
-                                        for="cid_{{ $key }}">{{ $label }}</label>
-                                </div>
-                            @endforeach
-                            @if ($errors->has('cid'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('cid') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.cid_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label>{{ trans('cruds.user.fields.coc') }}</label>
-                            <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
-                                id="coc">
-                                <option value disabled {{ old('coc', null) === null ? 'selected' : '' }}>
-                                    {{ trans('global.pleaseSelect') }}</option>
-                                @foreach (App\Models\User::COC_SELECT as $key => $label)
-                                    <option value="{{ $key }}"
-                                        {{ old('coc', $user->coc) === (string) $key ? 'selected' : '' }}>
-                                        {{ $label }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('coc'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('coc') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.coc_helper') }}</span>
-                        </div>
-                        <div class="form-group">
                             <label>{{ trans('cruds.user.fields.rating_able') }}</label>
                             @foreach (App\Models\User::RATING_ABLE_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('rating_able') ? 'is-invalid' : '' }}">
@@ -382,6 +333,8 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.contact_no_helper') }}</span>
                         </div>
+                    </div>
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="photo">{{ trans('cruds.user.fields.photo') }}</label>
                             <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
@@ -393,31 +346,6 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="passport">{{ trans('cruds.user.fields.passport') }}</label>
-                            <input class="form-control {{ $errors->has('passport') ? 'is-invalid' : '' }}"
-                                type="text" name="passport" id="passport"
-                                value="{{ old('passport', $user->passport) }}">
-                            @if ($errors->has('passport'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('passport') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.passport_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="visa">{{ trans('cruds.user.fields.visa') }}</label>
-                            <input class="form-control {{ $errors->has('visa') ? 'is-invalid' : '' }}" type="text"
-                                name="visa" id="visa" value="{{ old('visa', $user->visa) }}">
-                            @if ($errors->has('visa'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('visa') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.visa_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
@@ -442,6 +370,78 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="passport">{{ trans('cruds.user.fields.passport') }}</label>
+                            <input class="form-control {{ $errors->has('passport') ? 'is-invalid' : '' }}"
+                                type="text" name="passport" id="passport"
+                                value="{{ old('passport', $user->passport) }}">
+                            @if ($errors->has('passport'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('passport') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.passport_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="visa">{{ trans('cruds.user.fields.visa') }}</label>
+                            <input class="form-control {{ $errors->has('visa') ? 'is-invalid' : '' }}" type="text"
+                                name="visa" id="visa" value="{{ old('visa', $user->visa) }}">
+                            @if ($errors->has('visa'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('visa') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.visa_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ trans('cruds.user.fields.cid') }}</label>
+                            @foreach (App\Models\User::CID_RADIO as $key => $label)
+                                <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
+                                    <input class="form-check-input" type="radio" id="cid_{{ $key }}"
+                                        name="cid" value="{{ $key }}"
+                                        {{ old('cid', $user->cid) === (string) $key ? 'checked' : '' }}>
+                                    <label class="form-check-label"
+                                        for="cid_{{ $key }}">{{ $label }}</label>
+                                </div>
+                            @endforeach
+                            @if ($errors->has('cid'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('cid') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.cid_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ trans('cruds.user.fields.coc') }}</label>
+                            <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
+                                id="coc">
+                                <option value disabled {{ old('coc', null) === null ? 'selected' : '' }}>
+                                    {{ trans('global.pleaseSelect') }}</option>
+                                @foreach (App\Models\User::COC_SELECT as $key => $label)
+                                    <option value="{{ $key }}"
+                                        {{ old('coc', $user->coc) === (string) $key ? 'selected' : '' }}>
+                                        {{ $label }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('coc'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('coc') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.coc_helper') }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="bst_ccm">{{ trans('cruds.user.fields.bst_ccm') }}</label>
+                            <input class="form-control {{ $errors->has('bst_ccm') ? 'is-invalid' : '' }}" type="text"
+                                name="bst_ccm" id="bst_ccm" value="{{ old('bst_ccm', $user->bst_ccm) }}">
+                            @if ($errors->has('bst_ccm'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('bst_ccm') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.bst_ccm_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
