@@ -42,6 +42,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\HideDebugbar::class,
             SetCurrentCurrency::class,
             SetLanguageForAdmin::class,
+            \App\Http\Middleware\AuthGates::class,
         ],
         'api' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -70,7 +71,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
-
+        '2fa'              => \App\Http\Middleware\TwoFactorMiddleware::class,
 
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,

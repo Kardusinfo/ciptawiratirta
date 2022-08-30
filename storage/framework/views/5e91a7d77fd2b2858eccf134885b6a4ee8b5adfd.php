@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <div class="d-flex justify-content-between mb-4">
-            <h1 class="title-bar"><?php echo e(__('All Applicants')); ?></h1>
+            <h1 class="title-bar"><?php echo e(__('Selection Gate Pool')); ?></h1>
         </div>
         <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="filter-div d-flex justify-content-end ">
@@ -28,7 +28,7 @@
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
                         );
                         
-                        $candidate = \App\User::find(Request()->input('candidate_id'));
+                        $candidate = \App\Models\User::find(Request()->input('candidate_id'));
                         \App\Helpers\AdminForm::select2(
                             'candidate_id',
                             [
@@ -62,6 +62,7 @@
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
                     ?>
+                    
 
                     <button class="btn-info btn btn-icon btn_search" type="submit"><?php echo e(__('Search')); ?></button>
                 </form>
@@ -134,11 +135,11 @@
         
 
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'Paris')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'pending')->count()); ?>) Profile Not Completed</button>
-                <button class="tablinks" onclick="openCity(event, 'London')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'profile_completed')->count()); ?>) Ready to Approve</button>
+                
+                
+                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'approved')->count()); ?>) Approved</button>
                 <button class="tablinks" onclick="openCity(event, 'Kelsi')">(<?php echo e(\Modules\Job\Models\JobCandidate::where('status', 'rejected')->count()); ?>) Rejected</button>
-                <button class="tablinks" onclick="openCity(event, 'Andri')">All</button>
             </div>
 
 
@@ -168,6 +169,7 @@
                                         <tbody>
                                             <?php if($rows->total() > 0): ?>
                                                 <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                
                                                 <?php if($row->status == 'profile_completed'): ?>
                                                     <tr class="<?php echo e($row->status); ?>">
                                                         <td>
@@ -360,12 +362,7 @@
                                                                 <div class="dropdown-menu dropdown-menu-right"
                                                                     aria-labelledby="dropdownMenuButton">
                                                                     
-                                                                    <a class="dropdown-item" href="<?php echo e($row->candidateInfo->getDetailUrl()); ?>" data-toggle="modal"
-                                                                        data-target="<?php echo e($row->candidateInfo->getDetailUrl()); ?>"><?php echo e(__('Detail')); ?></a>
-                                                                        <a class="dropdown-item"
-                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'profile_completed', 'id' => $row->id])); ?>"><?php echo e(__('Approved Kelengkapan')); ?></a>
-                                                                    <a class="dropdown-item"
-                                                                        href="<?php echo e(route('job.admin.applicants.changeStatus', ['status' => 'pending', 'id' => $row->id])); ?>"><?php echo e(__('Rejected Kelengkapan')); ?></a>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <div class="modal fade" id="modal-applied-<?php echo e($row->id); ?>">
@@ -1097,6 +1094,9 @@
                     document.getElementById(cityName).style.display = "block";
                     evt.currentTarget.className += " active";
                 }
+            </script>
+            <script type="text/javascript">
+
             </script>
 
         

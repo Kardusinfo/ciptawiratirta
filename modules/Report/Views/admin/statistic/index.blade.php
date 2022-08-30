@@ -33,7 +33,7 @@
                             <div class="item no-padding">
                                 <div class="group-icon">
                                     <?php
-                                    $user = !empty(Request()->user_id) ? App\User::find(Request()->user_id) : false;
+                                    $user = !empty(Request()->user_id) ? App\Models\User::find(Request()->user_id) : false;
                                     \App\Helpers\AdminForm::select2('user_id', [
                                         'configs' => [
                                             'ajax'        => [

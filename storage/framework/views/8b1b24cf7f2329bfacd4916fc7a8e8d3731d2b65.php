@@ -1,4 +1,10 @@
 <?php $__env->startSection('head'); ?>
+    <style>
+    .form-group { 
+        content:"*";
+        color:red;
+    }
+    </style>
     <link href="<?php echo e(asset('module/user/css/user.css')); ?>" rel="stylesheet">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -21,14 +27,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label><?php echo e(__('Nama Depan')); ?></label>
+                                        <label><?php echo e(__('First Name')); ?></label>
                                         <input type="text" value="<?php echo e(old('first_name', $row->first_name)); ?>"
                                             name="first_name" placeholder="<?php echo e(__('First name')); ?>" class="form-control">
+                                        <?php $__errorArgs = ['first_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <div style="color:red">*Required</div>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label><?php echo e(__('Nama Belakang')); ?></label>
+                                        <label><?php echo e(__('Last Name')); ?></label>
                                         <input type="text" value="<?php echo e(old('last_name', $row->last_name)); ?>"
                                             name="last_name" placeholder="<?php echo e(__('Last name')); ?>" class="form-control">
                                     </div>
@@ -36,33 +52,75 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(__('Nomor HP (Wajib)')); ?></label>
+                            <label><?php echo e(__('Whatsapp No')); ?></label>
                             <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="phone"
                                 placeholder="<?php echo e(__('Phone Number')); ?>" class="form-control">
+                            <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Required</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group">
-                            <label><?php echo e(__('No KTP (Wajib)')); ?></label>
-                            <input type="text" value="<?php echo e(old('phone', $row->phone)); ?>" name="ktp"
+                            <label><?php echo e(__('ID Card/KTP')); ?></label>
+                            <input type="text" value="<?php echo e(old('ktp', $row->ktp)); ?>" name="ktp"
                                 placeholder="<?php echo e(__('Nomor KTP')); ?>" class="form-control">
+                            <?php $__errorArgs = ['ktp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Required</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group">
-                            <label><?php echo e(__('Tanggal Lahir (Wajib)')); ?></label>
+                            <label><?php echo e(__('D.O.B')); ?></label>
                             <input type="text"
                                 value="<?php echo e(old('birthday', $row->birthday ? display_date($row->birthday) : '')); ?>"
                                 name="birthday" placeholder="<?php echo e(__('Tanggal Lahir (Wajib)')); ?>"
                                 class="form-control has-datepicker" autocomplete="off">
+                            
+                        </div>
+                            <?php $__errorArgs = ['birthday'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Required</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(__('Biographical (Wajib)')); ?></label>
+                            <label><?php echo e(__('Background/Experience')); ?></label>
                             <textarea name="bio" rows="5" class="form-control"><?php echo e(strip_tags(old('bio', $row->bio))); ?></textarea>
+                            <?php $__errorArgs = ['bio'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div style="color:red">*Required</div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         
                         <input type="hidden" value="<?php echo e(old('role_id', $row->role_id)); ?>" name="role_id"
                                 placeholder="<?php echo e(__('role_id')); ?>" class="form-control">
                         <div class="form-group">
-                            <label for="education_level"><?php echo e(__("Kantor CWT Mendaftar")); ?></label>
+                            <label for="education_level"><?php echo e(__("CWT Office Register")); ?></label>
                             <select class="form-control" id="education_level" name="education_level">
                                 <option value="" <?php if(old('education_level', $row->education_level) == ''): ?> selected <?php endif; ?> ><?php echo e(__("Select")); ?></option>
                                 <option value="Jakarta" <?php if(old('education_level', $row->education_level) == 'Jakarta'): ?> selected <?php endif; ?> ><?php echo e(__("Jakarta")); ?></option>
@@ -100,7 +158,7 @@
 
             <div class="col-lg-3">
                 <div class="panel">
-                    <div class="panel-title"><strong><?php echo e(__('CV , Passport, Visa, BST/CCM Anda (Wajib)')); ?></strong></div>
+                    <div class="panel-title"><strong><?php echo e(__('CV (Max 4 MB)')); ?></strong></div>
                     <div class="panel-body">
                         <div class="form-group-item">
                             <div class="g-items-header">
@@ -116,11 +174,28 @@
                     </div>
                 </div>
 
+                <div class="panel">
+                    <div class="panel-title"><strong><?php echo e(__('SKK (Max 4 MB)')); ?></strong></div>
+                    <div class="panel-body">
+                        <div class="form-group-item">
+                            <div class="g-items-header">
+                                <div class="row">
+                                    <div class="col-md-2"><?php echo e(__('Default')); ?></div>
+                                    <div class="col-md-8"><?php echo e(__('Name')); ?></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                            <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('skk', @$skk, 'skk'); ?>
+
+                        </div>
+                    </div>
+                </div>
+
                 
 
 
                 <div class="panel">
-                    <div class="panel-title"><strong><?php echo e(__('Foto Formal (Wajib)')); ?></strong></div>
+                    <div class="panel-title"><strong><?php echo e(__('Photo formal (Required)')); ?></strong></div>
                     <div class="panel-body">
                         <div class="form-group">
                             <?php echo \Modules\Media\Helpers\FileHelper::fieldUpload('avatar_id', old('avatar_id', $row->avatar_id)); ?>
@@ -143,25 +218,18 @@
     <script type="text/javascript" src="<?php echo e(asset('libs/daterange/moment.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('libs/daterange/daterangepicker.min.js')); ?>"></script>
     <script src="<?php echo e(asset('libs/select2/js/select2.min.js')); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
     <script>
-        $('.has-datepicker').daterangepicker({
-            singleDatePicker: true,
-            showCalendar: false,
-            autoUpdateInput: false,
-            sameDate: true,
-            autoApply: true,
-            disabledPast: true,
-            enableLoading: true,
-            showEventTooltip: true,
-            classNotAvailable: ['disabled', 'off'],
-            disableHightLight: true,
-            locale: {
-                format: superio.date_format
-            }
-        }).on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format(superio.date_format));
+        $(function() {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'),10)
+            });
         });
     </script>
+    
     <script>
         <?php if($row->hasRole('candidate') || !empty($candidate_create)): ?>
             $(document).ready(function() {

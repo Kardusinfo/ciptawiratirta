@@ -36,13 +36,7 @@
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-        <?php if(setting_item('recaptcha_enable')): ?>
-            <div class="form-group">
-                <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>
-
-                <span class="invalid-feedback error error-recaptcha"></span>
-            </div>
-        <?php endif; ?>
+        
 
         <div class="form-group">
             <button class="theme-btn btn-style-one " type="submit" name="Register"><?php echo e(__('Sign Up')); ?>

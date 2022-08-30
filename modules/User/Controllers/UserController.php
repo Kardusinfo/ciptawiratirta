@@ -294,10 +294,10 @@ class UserController extends FrontendController
             ], 200);
         } else {
 
-            $user = \App\User::create([
+            $user = User::create([
                 'first_name' => $request->input('email'),
                 // 'last_name'  => $request->input('last_name'),
-                'name' => $request->input('email'),
+                'name' => '',
                 'email'      => $request->input('email'),
                 'slug'      => $request->input('email'),
                 'password'   => Hash::make($request->input('password')),

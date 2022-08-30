@@ -8,7 +8,8 @@ use Modules\Company\Models\Company;
 
 class JobCandidate extends BaseModel
 {
-    protected $table = 'bc_job_candidates';
+    // protected $table = 'bc_job_candidates';
+    public $table = 'sgps';
     protected $fillable = [
         'job_id',
         'candidate_id',
