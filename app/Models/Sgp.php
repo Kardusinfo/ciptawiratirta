@@ -26,7 +26,8 @@ class Sgp extends Model
         'wa'     => 'wa',
     ];
 
-    public $table = 'sgps';
+    // public $table = 'sgps';
+    public $table = 'bc_job_candidates';
 
     protected $dates = [
         'date_of_entry',

@@ -13,7 +13,8 @@
 
             @default
                 @if (!auth()->check())
-                    <a href="/register" class="theme-btn btn-style-one ">{{ __('Apply For Job') }}</a>
+                @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
+                    <a href="/register?job={{ $uriSegments[2] }}" class="theme-btn btn-style-one ">{{ __('Apply For Job') }}</a>
                 @else
                     @if ($applied)
                         <a href="javascript:void(0)" class="theme-btn btn-style-one bc-apply-job-button">{{ __('Applied') }}</a>
