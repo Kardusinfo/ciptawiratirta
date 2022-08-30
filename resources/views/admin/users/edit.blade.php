@@ -12,7 +12,7 @@
                 @method('PUT')
                 @csrf
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-9">
                         <div class="form-group">
                             <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
                             <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
@@ -395,7 +395,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-3">
                         <div class="form-group">
                             <label for="passport">{{ trans('cruds.user.fields.passport') }}</label>
                             <input class="form-control {{ $errors->has('passport') ? 'is-invalid' : '' }}"
