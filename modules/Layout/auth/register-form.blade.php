@@ -36,24 +36,23 @@
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-        @php
+        {{-- @php
             $job = \Modules\Job\Models\Job::with('category','company')->get();
         @endphp
         <div class="form-group">
-            {{-- @dump($job[0]->category->name) --}}
+            
             <label>{{ __('Posisi') }}</label>
             <select name="job_id" id="job_id" class="form-control">
                 @foreach ($job as $item)
                     <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
                 @endforeach
-            </select>
         </div>
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">
                 {{ recaptcha_field($captcha_action ?? 'register') }}
                 <span class="invalid-feedback error error-recaptcha"></span>
             </div>
-        @endif
+        @endif --}}
 
         <div class="form-group">
             <button class="theme-btn btn-style-one " type="submit" name="Register">{{ __('Sign Up') }}

@@ -28,7 +28,7 @@ class CandidateController extends AdminController
         $this->checkPermission('candidate_manage_others');
         $username = $request->query('s');
         $cate_id = $request->query('cate_id');
-        $listUser = \App\User::query()->where('role_id',3);
+        $listUser = \App\Models\User::query()->where('role_id',3);
         if (!empty($username)) {
             $listUser->where(function($query) use($username){
                 $query->where('first_name', 'LIKE', '%' . $username . '%');
@@ -95,7 +95,7 @@ class CandidateController extends AdminController
         if ($action == "delete") {
             foreach ($ids as $id) {
                 if($id == Auth::id()) continue;
-                $query = \App\User::where("id", $id)->first();
+                $query = \App\Models\User::where("id", $id)->first();
                 $candidate = Candidate::where("id", $id)->first();
                 if(!empty($query)){
                     $query->email.='_d_'.uniqid().rand(0,99999);
@@ -182,6 +182,68 @@ class CandidateController extends AdminController
         return view('Candidate::admin.candidate.my-applied', $data);
     }
 
+    function myInterview(Request $request){
+        $this->setActiveMenu('admin/module/candidate/my-applied');
+        $query = JobCandidate::with(['jobInfo', 'candidateInfo', 'cvInfo'])->where('candidate_id', Auth::id());
+        if($s = $request->get('s')){
+            $query->whereHas('jobInfo', function ($q) use ($s){
+                $q->where("title", 'like', '%'.$s.'%');
+            });
+        }
+        if($status = $request->get('status')){
+            $query->where('status', $status);
+        }
+        if($orderby = $request->get('orderby')){
+            switch ($orderby){
+                case 'oldest':
+                    $query->orderBy('id', 'asc');
+                    break;
+                default:
+                    $query->orderBy('id', 'desc');
+                    break;
+            }
+        }else{
+            $query->orderBy('id', 'desc');
+        }
+
+        $rows = $query->paginate(20);
+        $data = [
+            'rows' => $rows
+        ];
+        return view('Candidate::admin.candidate.my-applied', $data);
+    }
+
+    function myDeparture(Request $request){
+        $this->setActiveMenu('admin/module/candidate/my-applied');
+        $query = JobCandidate::with(['jobInfo', 'candidateInfo', 'cvInfo'])->where('candidate_id', Auth::id());
+        if($s = $request->get('s')){
+            $query->whereHas('jobInfo', function ($q) use ($s){
+                $q->where("title", 'like', '%'.$s.'%');
+            });
+        }
+        if($status = $request->get('status')){
+            $query->where('status', $status);
+        }
+        if($orderby = $request->get('orderby')){
+            switch ($orderby){
+                case 'oldest':
+                    $query->orderBy('id', 'asc');
+                    break;
+                default:
+                    $query->orderBy('id', 'desc');
+                    break;
+            }
+        }else{
+            $query->orderBy('id', 'desc');
+        }
+
+        $rows = $query->paginate(20);
+        $data = [
+            'rows' => $rows
+        ];
+        return view('Candidate::admin.candidate.my-applied', $data);
+    }
+
     public function deleteJobApplied(Request $request, $id){
         $this->checkPermission('candidate_manage');
         $row = JobCandidate::with('jobInfo', 'jobInfo.user', 'candidateInfo', 'company')
@@ -233,7 +295,7 @@ class CandidateController extends AdminController
     public function getForSelect2(Request $request)
     {
         $s = $request->query('q');
-        $listUser = \App\User::query()->whereHas(
+        $listUser = \App\Models\User::query()->whereHas(
             'role', function($q){
             $q->where('id', 3);
         });

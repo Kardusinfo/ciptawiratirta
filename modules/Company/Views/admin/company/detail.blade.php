@@ -172,7 +172,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <?php
-                                        $user = !empty($row->create_user) ? App\User::find($row->owner_id) : false;
+                                        $user = !empty($row->create_user) ? App\Models\User::find($row->owner_id) : false;
                                         \App\Helpers\AdminForm::select2('owner_id', [
                                             'configs' => [
                                                 'ajax'        => [

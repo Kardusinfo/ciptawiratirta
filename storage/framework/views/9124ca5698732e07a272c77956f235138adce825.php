@@ -45,7 +45,23 @@
                                                 <input type="text" readonly value="<?php echo e(old( 'expiration_date', $row->expiration_date ? date('Y/m/d', strtotime($row->expiration_date)) : '')); ?>" placeholder="YYYY/MM/DD" name="expiration_date" autocomplete="false" class="form-control has-datepicker bg-white">
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo e(__("Hours")); ?></label>
+                                                <div class="input-group">
+                                                    <input type="text" value="<?php echo e(old('hours', $row->hours)); ?>" placeholder="<?php echo e(__("hours")); ?>" name="hours" class="form-control">
+                                                    <div class="input-group-append">
+                                                        <select class="form-control" name="hours_type">
+                                                            <option value="" <?php if(old('hours_type', $row->hours_type) == ''): ?> selected <?php endif; ?> > -- </option>
+                                                            <option value="day" <?php if(old('hours_type', $row->hours_type) == 'day'): ?> selected <?php endif; ?> ><?php echo e(__("/day")); ?></option>
+                                                            <option value="week" <?php if(old('hours_type', $row->hours_type) == 'week'): ?> selected <?php endif; ?> ><?php echo e(__("/week")); ?></option>
+                                                            <option value="month" <?php if(old('hours_type', $row->hours_type) == 'month'): ?> selected <?php endif; ?> ><?php echo e(__("/month")); ?></option>
+                                                            <option value="year" <?php if(old('hours_type', $row->hours_type) == 'year'): ?> selected <?php endif; ?> ><?php echo e(__("/year")); ?></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="gender"><?php echo e(__("Gender")); ?></label>
@@ -56,8 +72,39 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        
-                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo e(__("Salary")); ?></label>
+                                                <div class="input-group">
+                                                    <input type="text" value="<?php echo e(old('salary_min', $row->salary_min)); ?>" placeholder="<?php echo e(__("Min")); ?>" name="salary_min" class="form-control">
+                                                    <input type="text" value="<?php echo e(old('salary_max', $row->salary_max)); ?>" placeholder="<?php echo e(__("Max")); ?>" name="salary_max" class="form-control">
+                                                    <div class="input-group-append">
+                                                        <select class="form-control" name="salary_type">
+                                                            <option value="hourly" <?php if(old('salary_type', $row->salary_type) == 'hourly'): ?> selected <?php endif; ?> > <?php echo e(__("/hourly")); ?> </option>
+                                                            <option value="daily" <?php if(old('salary_type', $row->salary_type) == 'daily'): ?> selected <?php endif; ?> ><?php echo e(__("/daily")); ?></option>
+                                                            <option value="weekly" <?php if(old('salary_type', $row->salary_type) == 'weekly'): ?> selected <?php endif; ?> ><?php echo e(__("/weekly")); ?></option>
+                                                            <option value="monthly" <?php if(old('salary_type', $row->salary_type) == 'monthly'): ?> selected <?php endif; ?> ><?php echo e(__("/monthly")); ?></option>
+                                                            <option value="yearly" <?php if(old('salary_type', $row->salary_type) == 'yearly'): ?> selected <?php endif; ?> ><?php echo e(__("/yearly")); ?></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="mt-2">
+                                                    <input type="checkbox" name="wage_agreement" <?php if(old('wage_agreement', $row->wage_agreement)): ?> checked <?php endif; ?> value="1" /> <?php echo e(__("Wage Agreement")); ?>
+
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo e(__("Experience")); ?></label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="<?php echo e(__("Experience")); ?>" name="experience" value="<?php echo e(old('experience',$row->experience)); ?>">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" style="font-size: 14px;"><?php echo e(__("year(s)")); ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -91,10 +138,87 @@
                             </div>
                         </div>
                         <?php if(is_default_lang()): ?>
-                            
+                            <div class="panel">
+                                <div class="panel-title"><strong><?php echo e(__("Job Location")); ?></strong></div>
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <label class="control-label"><?php echo e(__("Location")); ?></label>
+                                        <?php if(!empty($is_smart_search)): ?>
+                                            <div class="form-group-smart-search">
+                                                <div class="form-content">
+                                                    <?php
+                                                    $location_name = "";
+                                                    $list_json = [];
+                                                    $traverse = function ($locations, $prefix = '') use (&$traverse, &$list_json , &$location_name,$row) {
+                                                        foreach ($locations as $location) {
+                                                            $translate = $location->translateOrOrigin(app()->getLocale());
+                                                            if (old('location_id', $row->location_id) == $location->id){
+                                                                $location_name = $translate->name;
+                                                            }
+                                                            $list_json[] = [
+                                                                'id' => $location->id,
+                                                                'title' => $prefix . ' ' . $translate->name,
+                                                            ];
+                                                            $traverse($location->children, $prefix . '-');
+                                                        }
+                                                    };
+                                                    $traverse($job_location);
+                                                    ?>
+                                                    <div class="smart-search">
+                                                        <input type="text" class="smart-search-location parent_text form-control" placeholder="<?php echo e(__("-- Please Select --")); ?>" value="<?php echo e($location_name); ?>" data-onLoad="<?php echo e(__("Loading...")); ?>"
+                                                               data-default="<?php echo e(json_encode($list_json)); ?>">
+                                                        <input type="hidden" class="child_id" name="location_id" value="<?php echo e($row->location_id ?? Request::query('location_id')); ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="">
+                                                <select name="location_id" class="form-control">
+                                                    <option value=""><?php echo e(__("-- Please Select --")); ?></option>
+                                                    <?php
+                                                    $traverse = function ($locations, $prefix = '') use (&$traverse, $row) {
+                                                        foreach ($locations as $location) {
+                                                            $selected = '';
+                                                            if (old('location_id', $row->location_id) == $location->id)
+                                                                $selected = 'selected';
+                                                            printf("<option value='%s' %s>%s</option>", $location->id, $selected, $prefix . ' ' . $location->name);
+                                                            $traverse($location->children, $prefix . '-');
+                                                        }
+                                                    };
+                                                    $traverse($job_location);
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><?php echo e(__("The geographic coordinate")); ?></label>
+                                        <div class="control-map-group">
+                                            <div id="map_content"></div>
+                                            <input type="text" placeholder="<?php echo e(__("Search by name...")); ?>" class="bravo_searchbox form-control" autocomplete="off" onkeydown="return event.key !== 'Enter';">
+                                            <div class="g-control">
+                                                <div class="form-group">
+                                                    <label><?php echo e(__("Map Latitude")); ?>:</label>
+                                                    <input type="text" name="map_lat" class="form-control" value="<?php echo e(old('map_lat', $row->map_lat)); ?>" onkeydown="return event.key !== 'Enter';">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label><?php echo e(__("Map Longitude")); ?>:</label>
+                                                    <input type="text" name="map_lng" class="form-control" value="<?php echo e(old('map_lng', $row->map_lng)); ?>" onkeydown="return event.key !== 'Enter';">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label><?php echo e(__("Map Zoom")); ?>:</label>
+                                                    <input type="text" name="map_zoom" class="form-control" value="<?php echo e(old('map_zoom', $row->map_zoom ?? "8")); ?>" onkeydown="return event.key !== 'Enter';">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         <?php endif; ?>
 
-                        
+                        <?php echo $__env->make('Core::admin/seo-meta/seo-meta', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </div>
                     <div class="col-md-3">
                         <div class="panel">
@@ -114,11 +238,41 @@
                             </div>
                         </div>
                         <?php if(is_default_lang()): ?>
-                            
+                            <div class="panel">
+                                <div class="panel-title"><strong><?php echo e(__('Job Apply')); ?></strong></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label><?php echo e(__('Apply Type')); ?></label>
+                                        <select name="apply_type" class="form-control">
+                                            <option value=""><?php echo e(__("Default")); ?></option>
+                                            <option value="email" <?php if(old('apply_type', $row->apply_type) == 'email'): ?> selected <?php endif; ?> ><?php echo e(__("Send Email")); ?></option>
+                                            <option value="external" <?php if(old('apply_type', $row->apply_type) == 'external'): ?> selected <?php endif; ?> ><?php echo e(__("External")); ?></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" data-condition="apply_type:is(external)">
+                                        <label><?php echo e(__("Apply Link")); ?></label>
+                                        <input type="text" name="apply_link" class="form-control" value="<?php echo e(old('apply_link',$row->apply_link)); ?>" />
+                                    </div>
+                                    <div class="form-group" data-condition="apply_type:is(email)">
+                                        <label><?php echo e(__("Apply Email")); ?></label>
+                                        <input type="text" name="apply_email" class="form-control" value="<?php echo e(old('apply_email',$row->apply_email)); ?>" />
+                                        <small><i><?php echo e(__("If is empty, it will be sent to the company's email")); ?></i></small>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="panel">
                                 <div class="panel-title"><strong><?php echo e(__("Availability")); ?></strong></div>
                                 <div class="panel-body">
-                                    
+                                    <?php if(is_admin()): ?>
+                                        <div class="form-group">
+                                            <label><?php echo e(__('Job Featured')); ?></label>
+                                            <br>
+                                            <label>
+                                                <input type="checkbox" name="is_featured" <?php if(old('is_featured', $row->is_featured)): ?> checked <?php endif; ?> value="1"> <?php echo e(__("Enable featured")); ?>
+
+                                            </label>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="form-group">
                                         <label><?php echo e(__('Job Urgent')); ?></label>
                                         <br>
@@ -131,7 +285,7 @@
                             </div>
 
                             <div class="panel">
-                                <div class="panel-title"><strong><?php echo e(__("Department")); ?></strong></div>
+                                <div class="panel-title"><strong><?php echo e(__("Category")); ?></strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <div class="">
@@ -158,7 +312,7 @@
                             </div>
 
                             <div class="panel">
-                                <div class="panel-title"><strong><?php echo e(__("Ship Type")); ?></strong></div>
+                                <div class="panel-title"><strong><?php echo e(__("Job Type")); ?></strong></div>
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <div class="">
@@ -177,11 +331,35 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="panel">
+                                <div class="panel-title"><strong><?php echo e(__("Job Skills")); ?></strong></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="">
+                                            <select id="job_type_id" name="job_skills[]" class="form-control" multiple="multiple">
+                                                <option value=""><?php echo e(__("-- Please Select --")); ?></option>
+                                                <?php
+                                                foreach ($job_skills as $job_skill) {
+                                                    $selected = '';
+                                                    if ($row->skills){
+                                                        foreach ($row->skills as $skill){
+                                                            if($job_skill->id == $skill->id){
+                                                                $selected = 'selected';
+                                                            }
+                                                        }
+                                                    }
+                                                    printf("<option value='%s' %s>%s</option>", $job_skill->id, $selected, $job_skill->name);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <?php if(is_admin()): ?>
                                 <div class="panel">
-                                    <div class="panel-title"><strong><?php echo e(__("Principal")); ?></strong></div>
+                                    <div class="panel-title"><strong><?php echo e(__("Company")); ?></strong></div>
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <?php
@@ -193,7 +371,7 @@
                                                         'dataType' => 'json'
                                                     ],
                                                     'allowClear'  => true,
-                                                    'placeholder' => __('-- Select Principal --')
+                                                    'placeholder' => __('-- Select Company --')
                                                 ]
                                             ], !empty($company->id) ? [
                                                 $company->id,

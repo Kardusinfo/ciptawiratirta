@@ -32,7 +32,7 @@
                                         <input type="text" value="{{ old('first_name', $row->first_name) }}"
                                             name="first_name" placeholder="{{ __('First name') }}" class="form-control">
                                         @error('first_name')
-                                            <div style="color:red">*Tidak boleh kosong</div>
+                                            <div style="color:red">*Required</div>
                                         @enderror
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                             <input type="text" value="{{ old('phone', $row->phone) }}" name="phone"
                                 placeholder="{{ __('Phone Number') }}" class="form-control">
                             @error('phone')
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             @enderror
                         </div>
 
@@ -59,7 +59,7 @@
                             <input type="text" value="{{ old('ktp', $row->ktp) }}" name="ktp"
                                 placeholder="{{ __('Nomor KTP') }}" class="form-control">
                             @error('ktp')
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             @enderror
                         </div>
 
@@ -75,14 +75,14 @@
                             </span>         --}}
                         </div>
                             @error('birthday')
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>{{ __('Background/Experience') }}</label>
                             <textarea name="bio" rows="5" class="form-control">{{ strip_tags(old('bio', $row->bio)) }}</textarea>
                             @error('bio')
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             @enderror
                         </div>
                         {{-- @dump($row->role_id); --}}
@@ -146,7 +146,7 @@
 
             <div class="col-lg-3">
                 <div class="panel">
-                    <div class="panel-title"><strong>{{ __('CV dan Lamaran') }}</strong></div>
+                    <div class="panel-title"><strong>{{ __('CV (Max 4 MB)') }}</strong></div>
                     <div class="panel-body">
                         <div class="form-group-item">
                             <div class="g-items-header">
@@ -157,6 +157,22 @@
                                 </div>
                             </div>
                             {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('cvs', @$cvs, 'cvs') !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title"><strong>{{ __('SKK (Max 4 MB)') }}</strong></div>
+                    <div class="panel-body">
+                        <div class="form-group-item">
+                            <div class="g-items-header">
+                                <div class="row">
+                                    <div class="col-md-2">{{ __('Default') }}</div>
+                                    <div class="col-md-8">{{ __('Name') }}</div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                            {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('skk', @$skk, 'skk') !!}
                         </div>
                     </div>
                 </div>

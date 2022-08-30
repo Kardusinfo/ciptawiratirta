@@ -21,6 +21,7 @@
                         @if ($candidate and !empty(($check_apply_job = $candidate->check_maximum_apply_job())))
                             <div class="text-danger apply-out">{{ $check_apply_job['mess'] }}</div>
                         @else
+                        {{-- @dump($candidate) --}}
                             <a href="#" data-require-text="{{ __('Please login as "Candidate" to apply') }}"
                                 class="theme-btn btn-style-one bc-apply-job-button @if (!is_candidate() || empty($candidate)) bc-require-candidate-apply @else bc-call-modal apply-job @endif">{{ __('Apply For Job') }}</a>
                         @endif

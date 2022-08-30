@@ -288,6 +288,22 @@
                     </div>
 
                     <div class="panel">
+                        <div class="panel-title"><strong>{{ __('SKK Uploaded')}}</strong></div>
+                        <div class="panel-body">
+                            <div class="form-group-item">
+                                <div class="g-items-header">
+                                    <div class="row">
+                                        <div class="col-md-2">{{__("Default")}}</div>
+                                        <div class="col-md-8">{{__("Name")}}</div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </div>
+                                {!! \Modules\Media\Helpers\FileHelper::fieldFileUpload('skk', @$skk, 'skk') !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
                         <div class="panel-title"><strong>{{ __('Passport Uploaded')}}</strong></div>
                         <div class="panel-body">
                             <div class="form-group-item">

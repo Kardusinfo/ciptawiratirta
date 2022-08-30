@@ -220,7 +220,26 @@ if (!empty($custom_modules)) {
 @if (Auth::user()->role_id == 1)
     <ul class="main-menu">
 
-
+        {{-- <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
+                <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
+                Client
+            </a>
+            <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
+            <ul class="children">
+                <li class=" has-children admin_module_company"><a href="/admin/module/company">
+                        All Principal</a>
+                </li>
+                <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
+                        Add Principal</a>
+                </li>
+                <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
+                        Attributes</a>
+                </li>
+                <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
+                        Ship</a>
+                </li>
+            </ul>
+        </li> --}}
 
         <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -340,26 +359,6 @@ if (!empty($custom_modules)) {
             </a>
             {{-- <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span> --}}
             <ul class="children">
-                <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
-                        <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
-                        Client
-                    </a>
-                    <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-                    <ul class="children">
-                        <li class=" has-children admin_module_company"><a href="/admin/module/company">
-                                All Principal</a>
-                        </li>
-                        <li class=" has-children admin_module_company"><a href="/admin/module/company/create">
-                                Add Principal</a>
-                        </li>
-                        <li class=" has-children admin_module_company"><a href="/admin/module/company/attribute">
-                                Attributes</a>
-                        </li>
-                        <li class=" has-children admin_module_company"><a href="/admin/module/company/category">
-                                Ship</a>
-                        </li>
-                    </ul>
-                </li>
                 <li class=" has-children admin_module_core_settings_index_general"><a
                         href="/admin/module/core/settings/index/general">
                         General Settings</a>
@@ -477,26 +476,34 @@ if (!empty($custom_modules)) {
                 Dashboard
             </a>
         </li>
-        <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
+        <li class=" admin_module_job_all-applicants position-25">
+            {{-- <a href="/user/profile"> --}}
+                <a href="{{ url('admin/users/'. Auth::user()->id .'/edit') }}">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 My Profile
             </a>
         </li>
 
 
-        <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
-                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-                My Document
-            </a>
-        </li>
+        {{-- <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
+            <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+            My Document
+        </a>
+    </li> --}}
 
         <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-                My Applied
+                Applied Position
             </a>
         </li>
 
-        <li class=" admin_module_job_all-applicants position-25"><a href="/user/departure">
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-interview">
+                <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
+                Intereview Scheduled
+            </a>
+        </li>
+
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-departure">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 Departure Scheduled
             </a>

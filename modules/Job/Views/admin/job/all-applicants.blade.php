@@ -47,7 +47,7 @@
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
                         );
                         
-                        $candidate = \App\User::find(Request()->input('candidate_id'));
+                        $candidate = \App\Models\User::find(Request()->input('candidate_id'));
                         \App\Helpers\AdminForm::select2(
                             'candidate_id',
                             [
@@ -80,6 +80,7 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
+// <<<<<<< HEAD
                         
                         \App\Helpers\AdminForm::select2(
                             'job_id',
@@ -95,7 +96,20 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
                         );
+// =======
+// >>>>>>> origin/back
                     @endphp
+                    {{-- @php
+                        $candidate = \Modules\Candidate\Models\Candidate::find(Request()->input('candidate_id'));
+                    @endphp
+                    <div class="form-group">
+                        @dump($candidate[0]->category->name)
+                        <label>{{ __('Posisi') }}</label>
+                        <select name="candidate_id" id="candidate_id" class="form-control">
+                            @foreach ($candidate as $item)
+                                <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
+                            @endforeach
+                    </div> --}}
 
                     <button class="btn-info btn btn-icon btn_search" type="submit">{{ __('Search') }}</button>
                 </form>

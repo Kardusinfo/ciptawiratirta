@@ -36,7 +36,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                            <div style="color:red">*Tidak boleh kosong</div>
+                                            <div style="color:red">*Required</div>
                                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -61,7 +61,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -77,7 +77,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -97,7 +97,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -111,7 +111,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <div style="color:red">*Tidak boleh kosong</div>
+                                <div style="color:red">*Required</div>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -159,7 +159,7 @@ unset($__errorArgs, $__bag); ?>
 
             <div class="col-lg-3">
                 <div class="panel">
-                    <div class="panel-title"><strong><?php echo e(__('CV dan Lamaran')); ?></strong></div>
+                    <div class="panel-title"><strong><?php echo e(__('CV (Max 4 MB)')); ?></strong></div>
                     <div class="panel-body">
                         <div class="form-group-item">
                             <div class="g-items-header">
@@ -170,6 +170,23 @@ unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
                             <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('cvs', @$cvs, 'cvs'); ?>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title"><strong><?php echo e(__('SKK (Max 4 MB)')); ?></strong></div>
+                    <div class="panel-body">
+                        <div class="form-group-item">
+                            <div class="g-items-header">
+                                <div class="row">
+                                    <div class="col-md-2"><?php echo e(__('Default')); ?></div>
+                                    <div class="col-md-8"><?php echo e(__('Name')); ?></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                            <?php echo \Modules\Media\Helpers\FileHelper::fieldFileUpload('skk', @$skk, 'skk'); ?>
 
                         </div>
                     </div>

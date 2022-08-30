@@ -44,7 +44,7 @@
                             $company->name . ' (#' . $company->id . ')'
                         ] : false);
 
-                        $candidate = \App\User::find(Request()->input('candidate_id'));
+                        $candidate = \App\Models\User::find(Request()->input('candidate_id'));
                         \App\Helpers\AdminForm::select2('candidate_id', [
                             'configs' => [
                                 'ajax'        => [

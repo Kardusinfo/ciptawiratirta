@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="login-section">
-        <div class="image-layer" style="background-image: url(<?php echo e(asset('popup.png')); ?>);"></div>
+        <div class="image-layer" style="background-image: url(<?php echo e(asset('module/superio/images/background/12.jpg')); ?>);"></div>
         <div class="outer-box">
             <!-- Login Form -->
             <div class="login-form default-form bravo-login-form-page bravo-login-page">

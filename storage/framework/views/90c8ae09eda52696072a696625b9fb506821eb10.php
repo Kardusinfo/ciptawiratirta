@@ -4,28 +4,132 @@
             <h4 class="welcome-title text-uppercase"><?php echo e(__('Welcome :name!', ['name' => Auth::user()->nameOrEmail])); ?></h4>
         </div>
         <br>
-        <div class="row">
-            <?php if(!empty($top_cards)): ?>
-                <?php $__currentLoopData = $top_cards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-sm-<?php echo e($card['size']); ?> col-md-<?php echo e($card['size_md']); ?>">
-                        <div class="dashboard-report-card card <?php echo e($card['class']); ?>">
-                            <div class="card-content">
-                                <span class="card-title"><?php echo e($card['title']); ?></span>
-                                <span class="card-amount"><?php echo e($card['amount']); ?></span>
-                                <span class="card-desc"><?php echo e($card['desc']); ?></span>
-                            </div>
-                            <div class="card-media">
-                                <i class="<?php echo e($card['icon']); ?>"></i>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            <?php endif; ?>
-        </div>
-        <br>
         <?php if(Auth::user()->role_id == 1): ?>
             
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="dashboard-report-card card purple">
+                        <div class="card-content">
+                            <span class="card-title">Jobs</span>
+                            <span class="card-amount">2</span>
+                            <span class="card-desc">Applied Jobs</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-ios-briefcase"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="dashboard-report-card card pink">
+                        <div class="card-content">
+                            <span class="card-title">Applicants</span>
+                            <span class="card-amount">8</span>
+                            <span class="card-desc">Total Applicants</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-ios-paper"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="dashboard-report-card card info">
+                        <div class="card-content">
+                            <span class="card-title">Messages</span>
+                            <span class="card-amount">2</span>
+                            <span class="card-desc">Total Messages</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-md-chatboxes"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="dashboard-report-card card success">
+                        <div class="card-content">
+                            <span class="card-title">Bookmark</span>
+                            <span class="card-amount">0</span>
+                            <span class="card-desc">Total Bookmark</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-ios-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-3">
+                    <div class="panel">
+                        <div class="panel-title d-flex justify-content-between align-items-center">
+                            <strong><?php echo e(is_admin() ? __('Total Pendaftar') : __('Your Profile Views')); ?></strong>
+                            <div id="reportrange"
+                                style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                                <i class="fa fa-calendar"></i>&nbsp;
+                                <span></span> <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <canvas id="earning_chart"></canvas>
+                            <script>
+                                var views_chart_data = <?php echo json_encode($views_chart_data); ?>;
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <div class="panel">
+                        <div class="panel-title d-flex justify-content-between">
+                            <strong><?php echo e(__('Notifications')); ?></strong>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="dropdown-list-items p-0">
+                                <?php $rows = $notifications ?>
+                                <?php echo $__env->make('Core::admin.notification.notification-loop-item', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php else: ?>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="dashboard-report-card card purple">
+                        <div class="card-content">
+                            <span class="card-title">Jobs</span>
+                            <span class="card-amount">2</span>
+                            <span class="card-desc">Applied Jobs</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-ios-briefcase"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="dashboard-report-card card info">
+                        <div class="card-content">
+                            <span class="card-title">Messages</span>
+                            <span class="card-amount">2</span>
+                            <span class="card-desc">Total Messages</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-md-chatboxes"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="dashboard-report-card card success">
+                        <div class="card-content">
+                            <span class="card-title">Bookmark</span>
+                            <span class="card-amount">0</span>
+                            <span class="card-desc">Total Bookmark</span>
+                        </div>
+                        <div class="card-media">
+                            <i class="icon ion-ios-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <div class="col-md-12 col-lg-6 mb-3 ">
                     <div class="panel ">
@@ -35,7 +139,31 @@
                         </div>
                         
                         <div class="panel-body">
-                            Complete your profile and upload your cv with your application first <br> <br>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                </div>
+                            </div><br>
+                            Complete your profile and upload your cv with your application first<br> <br>
+                            
+                            <div class="custom-class">
+                                <input name="progress" class="progress" type="checkbox" value="17" id="customCheck1">
+                                <label for="customCheck1">Name</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="34" id="customCheck1">
+                                <label for="customCheck1">First Name</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="51"
+                                    id="customCheck1">
+                                <label for="customCheck1">Last Name</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="68"
+                                    id="customCheck1">
+                                <label for="customCheck1">Avatar ID</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="85"
+                                    id="customCheck1">
+                                <label for="customCheck1">City</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="99"
+                                    id="customCheck1">
+                                <label for="customCheck1">Gender</label><br>
+                            </div>
                             <a href="/user/profile" class="btn btn-info">
                                 <span class="btn-title">Next</span>
                             </a>
@@ -58,16 +186,26 @@
             </div>
         <?php endif; ?>
         <br>
-        <div class="row">
-            
-            
-        </div>
     </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script.body'); ?>
     <script src="<?php echo e(url('libs/chart_js/Chart.min.js')); ?>"></script>
     <script src="<?php echo e(url('libs/daterange/moment.min.js')); ?>"></script>
+    <script>
+        $(function() {
+            $('input').on('click', function() {
+                var valeur = 0;
+                $('input:checked').each(function() {
+                    if ($(this).attr('value') > valeur) {
+                        valeur = $(this).attr('value');
+                    }
+                });
+                $('.progress-bar').css('width', valeur + '%').attr('aria-valuenow', valeur);
+            });
+
+        });
+    </script>
     <script>
         var ctx = document.getElementById('earning_chart').getContext('2d');
 

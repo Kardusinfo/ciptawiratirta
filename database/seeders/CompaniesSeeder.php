@@ -34,7 +34,7 @@ class CompaniesSeeder extends Seeder
             ];
             DB::table('bc_terms')->insert($terms);
         }
-        $users = \App\User::where('role_id', 2)->take(12)->get();
+        $users = \App\Models\User::where('role_id', 2)->take(12)->get();
         $company_name = ['Netflix','Opendoor','Checkr','Mural','Astronomer','Figma','Stripe','Invision','Samsung','Nokia','VinFast','Apple'];
         $maps = [
             'map_lat' => ['40.94401669296697','40.77055783505125','40.7427837','40.70437865245596','40.641311','41.080938','41.079386','40.77055783505125','40.7427837','40.70437865245596','40.641311', '40.94401669296697'],
