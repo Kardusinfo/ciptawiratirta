@@ -211,44 +211,6 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.office_registered_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.vc_yf')); ?></label>
-                            <?php $__currentLoopData = App\Models\User::VC_YF_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="radio" id="vc_yf_<?php echo e($key); ?>"
-                                        name="vc_yf" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="vc_yf_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($errors->has('vc_yf')): ?>
-                                <div class="invalid-feedback">
-                                    <?php echo e($errors->first('vc_yf')); ?>
-
-                                </div>
-                            <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_yf_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.vc_covid')); ?></label>
-                            <?php $__currentLoopData = App\Models\User::VC_COVID_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="radio" id="vc_covid_<?php echo e($key); ?>"
-                                        name="vc_covid" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="vc_covid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($errors->has('vc_covid')): ?>
-                                <div class="invalid-feedback">
-                                    <?php echo e($errors->first('vc_covid')); ?>
-
-                                </div>
-                            <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_covid_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
                             <label for="age"><?php echo e(trans('cruds.user.fields.age')); ?></label>
                             <input class="form-control <?php echo e($errors->has('age') ? 'is-invalid' : ''); ?>" type="text"
                                 name="age" id="age" value="<?php echo e(old('age', $user->age)); ?>">
@@ -358,20 +320,7 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="photo"><?php echo e(trans('cruds.user.fields.photo')); ?></label>
-                            <div class="needsclick dropzone <?php echo e($errors->has('photo') ? 'is-invalid' : ''); ?>"
-                                id="photo-dropzone">
-                            </div>
-                            <?php if($errors->has('photo')): ?>
-                                <div class="invalid-feedback">
-                                    <?php echo e($errors->first('photo')); ?>
-
-                                </div>
-                            <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.photo_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="cv"><?php echo e(trans('cruds.user.fields.cv')); ?></label>
+                            <label for="cv">CV</label>
                             <div class="needsclick dropzone <?php echo e($errors->has('cv') ? 'is-invalid' : ''); ?>"
                                 id="cv-dropzone">
                             </div>
@@ -384,7 +333,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.cv_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="skk"><?php echo e(trans('cruds.user.fields.skk')); ?></label>
+                            <label for="skk">Surat Keterangan Kerja</label>
                             <div class="needsclick dropzone <?php echo e($errors->has('skk') ? 'is-invalid' : ''); ?>"
                                 id="skk-dropzone">
                             </div>
@@ -395,6 +344,19 @@
                                 </div>
                             <?php endif; ?>
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.skk_helper')); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo"><?php echo e(trans('cruds.user.fields.photo')); ?></label>
+                            <div class="needsclick dropzone <?php echo e($errors->has('photo') ? 'is-invalid' : ''); ?>"
+                                id="photo-dropzone">
+                            </div>
+                            <?php if($errors->has('photo')): ?>
+                                <div class="invalid-feedback">
+                                    <?php echo e($errors->first('photo')); ?>
+
+                                </div>
+                            <?php endif; ?>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.photo_helper')); ?></span>
                         </div>
                         <div class="form-group">
                             <label for="passport"><?php echo e(trans('cruds.user.fields.passport')); ?></label>
@@ -473,6 +435,44 @@
                                 </div>
                             <?php endif; ?>
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.bst_ccm_helper')); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo e(trans('cruds.user.fields.vc_yf')); ?></label>
+                            <?php $__currentLoopData = App\Models\User::VC_YF_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
+                                    <input class="form-check-input" type="datetime-local" id="vc_yf_<?php echo e($key); ?>"
+                                        name="vc_yf" value="<?php echo e($key); ?>"
+                                        <?php echo e(old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : ''); ?>>
+                                    <label class="form-check-label"
+                                        for="vc_yf_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                                </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($errors->has('vc_yf')): ?>
+                                <div class="invalid-feedback">
+                                    <?php echo e($errors->first('vc_yf')); ?>
+
+                                </div>
+                            <?php endif; ?>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_yf_helper')); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo e(trans('cruds.user.fields.vc_covid')); ?></label>
+                            <?php $__currentLoopData = App\Models\User::VC_COVID_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
+                                    <input class="form-check-input" type="datetime-local" id="vc_covid_<?php echo e($key); ?>"
+                                        name="vc_covid" value="<?php echo e($key); ?>"
+                                        <?php echo e(old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : ''); ?>>
+                                    <label class="form-check-label"
+                                        for="vc_covid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                                </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($errors->has('vc_covid')): ?>
+                                <div class="invalid-feedback">
+                                    <?php echo e($errors->first('vc_covid')); ?>
+
+                                </div>
+                            <?php endif; ?>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_covid_helper')); ?></span>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
