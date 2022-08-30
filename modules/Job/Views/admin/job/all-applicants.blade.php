@@ -80,7 +80,7 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->title . ' (#' . $job->id . ')'] : false,
                         );
-// <<<<<<< HEAD
+// // <<<<<<< HEAD
                         
                         \App\Helpers\AdminForm::select2(
                             'job_id',
@@ -96,8 +96,8 @@
                             ],
                             !empty($job->id) ? [$job->id, $job->education_level . ' (#' . $job->id . ')'] : false,
                         );
-// =======
-// >>>>>>> origin/back
+// // =======
+// // >>>>>>> origin/back
                     @endphp
                     {{-- @php
                         $candidate = \Modules\Candidate\Models\Candidate::find(Request()->input('candidate_id'));

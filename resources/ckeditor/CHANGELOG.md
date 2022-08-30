@@ -1,5 +1,5 @@
 Changelog
-=========
+// =========
 
 ## [12.0.0](https://github.com/ckeditor/ckeditor5-build-classic/compare/v11.2.0...v12.0.0) (2019-02-28)
 

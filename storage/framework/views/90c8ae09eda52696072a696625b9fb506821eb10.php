@@ -74,7 +74,7 @@
                             <script>
                                 var views_chart_data = <?php echo json_encode($views_chart_data); ?>;
                             </script>
-=======
+// =======
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endif; ?>
         </div>

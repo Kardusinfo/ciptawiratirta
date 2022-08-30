@@ -192,11 +192,11 @@ if (!empty($custom_modules)) {
 <?php if(Auth::user()->role_id == 1): ?>
     <ul class="main-menu">
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
         
-=======
+// =======
 
->>>>>>> origin/back
+// >>>>>>> origin/back
 
         <li class=" has-children admin_module_job position-24"><a href="/admin/module/job">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
@@ -300,8 +300,8 @@ if (!empty($custom_modules)) {
             </a>
             
             <ul class="children">
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
                 <li class=" has-children admin_module_company position-22"><a href="/admin/module/company">
                         <span class="icon text-center"><i class="ion-md-bookmarks"></i></span>
                         Client
@@ -322,7 +322,7 @@ if (!empty($custom_modules)) {
                         </li>
                     </ul>
                 </li>
->>>>>>> origin/back
+// >>>>>>> origin/back
                 <li class=" has-children admin_module_core_settings_index_general"><a
                         href="/admin/module/core/settings/index/general">
                         General Settings</a>
@@ -440,20 +440,20 @@ if (!empty($custom_modules)) {
                 Dashboard
             </a>
         </li>
-<<<<<<< HEAD
+// <<<<<<< HEAD
         <li class=" admin_module_job_all-applicants position-25">
             
                 <a href="<?php echo e(url('admin/users/'. Auth::user()->id .'/edit')); ?>">
-=======
+// =======
         <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
->>>>>>> origin/back
+// >>>>>>> origin/back
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 My Profile
             </a>
         </li>
 
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
         
 
         <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-applied">
@@ -469,7 +469,7 @@ if (!empty($custom_modules)) {
         </li>
 
         <li class=" admin_module_job_all-applicants position-25"><a href="/admin/messenger">
-=======
+// =======
         <li class=" admin_module_job_all-applicants position-25"><a href="/user/document">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 My Document
@@ -483,7 +483,7 @@ if (!empty($custom_modules)) {
         </li>
 
         <li class=" admin_module_job_all-applicants position-25"><a href="/user/departure">
->>>>>>> origin/back
+// >>>>>>> origin/back
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 Messages
             </a>

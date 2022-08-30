@@ -1,4 +1,4 @@
-// ==================================================
+// // =======// =======// =======// =======// =======// =======// ========
 // fancyBox v3.2.10
 //
 // Licensed GPLv3 for open source use
@@ -7,19 +7,19 @@
 // http://fancyapps.com/fancybox/
 // Copyright 2017 fancyApps
 //
-// ==================================================
+// // =======// =======// =======// =======// =======// =======// ========
 ;(function (window, document, $, undefined) {
     'use strict';
 
     // If there's no jQuery, fancyBox can't work
-    // =========================================
+    // // =======// =======// =======// =======// =============
 
     if ( !$ ) {
         return;
     }
 
     // Check if fancyBox is already initialized
-    // ========================================
+    // // =======// =======// =======// =======// ============
 
     if ( $.fn.fancybox ) {
 
@@ -31,7 +31,7 @@
     }
 
     // Private default settings
-    // ========================
+    // // =======// =======// ==========
 
     var defaults = {
 
@@ -232,7 +232,7 @@
 
 
         // Focus handling
-        // ==============
+        // // =======// =======
 
         // Try to focus on the first focusable element after opening
         autoFocus : false,
@@ -245,7 +245,7 @@
 
 
         // Module specific options
-        // =======================
+        // // =======// =======// =========
 
         fullScreen : {
             autoStart : false,
@@ -291,7 +291,7 @@
         wheel : 'auto',
 
         // Callbacks
-        //==========
+        //// ==========
 
         // See Documentation/API/Events for more information
         // Example:
@@ -318,7 +318,7 @@
 
 
         // Interaction
-        // ===========
+        // // ===========
 
         // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
         // each option can be string or method that returns value.
@@ -349,7 +349,7 @@
 
 
         // Custom options when mobile device is detected
-        // =============================================
+        // // =======// =======// =======// =======// =======// ==========
 
         mobile : {
             idleTime : false,
@@ -371,7 +371,7 @@
 
 
         // Internationalization
-        // ============
+        // // ============
 
         lang : 'en',
         i18n : {
@@ -406,7 +406,7 @@
     };
 
     // Few useful variables and methods
-    // ================================
+    // // =======// =======// =======// ===========
 
     var $W = $(window);
     var $D = $(document);
@@ -415,7 +415,7 @@
 
 
     // Check if an object is a jQuery object and not a native JavaScript object
-    // ========================================================================
+    // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =========
 
     var isQuery = function ( obj ) {
         return obj && obj.hasOwnProperty && obj instanceof $;
@@ -423,7 +423,7 @@
 
 
     // Handle multiple browsers for "requestAnimationFrame" and "cancelAnimationFrame"
-    // ===============================================================================
+    // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// =========
 
     var requestAFrame = (function () {
         return window.requestAnimationFrame ||
@@ -438,7 +438,7 @@
 
 
     // Detect the supported transition-end event property name
-    // =======================================================
+    // // =======// =======// =======// =======// =======// =======// =============
 
     var transitionEnd = (function () {
         var t, el = document.createElement("fakeelement");
@@ -462,7 +462,7 @@
 
     // Force redraw on an element.
     // This helps in cases where the browser doesn't redraw an updated element properly.
-    // =================================================================================
+    // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 
     var forceRedraw = function( $el ) {
         return ( $el && $el.length && $el[0].offsetHeight );
@@ -470,7 +470,7 @@
 
 
     // Class definition
-    // ================
+    // // =======// =========
 
     var FancyBox = function( content, opts, index ) {
         var self = this;
@@ -516,7 +516,7 @@
     $.extend(FancyBox.prototype, {
 
         // Create DOM structure
-        // ====================
+        // // =======// =============
 
         init : function() {
             var self = this,
@@ -532,7 +532,7 @@
 
 
             // Hide scrollbars
-            // ===============
+            // // =======// ========
 
             if ( !$.fancybox.getInstance() ) {
 
@@ -566,7 +566,7 @@
 
 
             // Build html markup and set references
-            // ====================================
+            // // =======// =======// =======// =======// ========
 
             // Build html code for buttons and insert into main template
             buttonStr = '';
@@ -611,7 +611,7 @@
 
         // Simple i18n support - replaces object keys found in template
         // with corresponding values
-        // ============================================================
+        // // =======// =======// =======// =======// =======// =======// =======// ===========
 
         translate : function( obj, str ) {
             var arr = obj.opts.i18n[ obj.opts.lang ];
@@ -629,7 +629,7 @@
 
         // Create array of gally item objects
         // Check if each object has valid type and content
-        // ===============================================
+        // // =======// =======// =======// =======// =======// ============
 
         createGroup : function ( content ) {
             var self  = this;
@@ -645,7 +645,7 @@
                     srcParts;
 
                 // Step 1 - Make sure we have an object
-                // ====================================
+                // // =======// =======// =======// =======// ========
 
                 if ( $.isPlainObject( item ) ) {
 
@@ -697,7 +697,7 @@
 
 
                 // Step 2 - Make sure we have content type, if not - try to guess
-                // ==============================================================
+                // // =======// =======// =======// =======// =======// =======// =======// =============
 
                 type = obj.type || obj.opts.type;
                 src  = obj.src || '';
@@ -730,7 +730,7 @@
 
 
                 // Step 3 - Some adjustments
-                // =========================
+                // // =======// =======// ===========
 
                 obj.index = self.group.length;
 
@@ -823,7 +823,7 @@
                 }
 
                 // Step 4 - Add processed object to group
-                // ======================================
+                // // =======// =======// =======// =======// ==========
 
                 self.group.push( obj );
 
@@ -838,7 +838,7 @@
         //   - focusing
         //   - keyboard
         //   - detect idle
-        // ======================================
+        // // =======// =======// =======// =======// ==========
 
         addEvents : function() {
             var self = this;
@@ -988,7 +988,7 @@
 
 
         // Remove events added by the core
-        // ===============================
+        // // =======// =======// =======// ==========
 
         removeEvents : function() {
             var self = this;
@@ -1007,7 +1007,7 @@
 
 
         // Change to previous gallery item
-        // ===============================
+        // // =======// =======// =======// ==========
 
         previous : function( duration ) {
             return this.jumpTo( this.currPos - 1, duration );
@@ -1015,7 +1015,7 @@
 
 
         // Change to next gallery item
-        // ===========================
+        // // =======// =======// =============
 
         next : function( duration ) {
             return this.jumpTo( this.currPos + 1, duration );
@@ -1023,7 +1023,7 @@
 
 
         // Switch to selected gallery item
-        // ===============================
+        // // =======// =======// =======// ==========
 
         jumpTo : function ( pos, duration, slide ) {
             var self = this,
@@ -1167,7 +1167,7 @@
             }
 
             // Handle previous slide
-            // =====================
+            // // =======// =======// =======
 
             transitionProps = 'fancybox-slide--' + ( previous.pos > current.pos ? 'next' : 'previous' );
 
@@ -1197,7 +1197,7 @@
 
         // Create new "slide" element
         // These are gallery items  that are actually added to DOM
-        // =======================================================
+        // // =======// =======// =======// =======// =======// =======// =============
 
         createSlide : function( pos ) {
 
@@ -1225,7 +1225,7 @@
 
 
         // Scale image to the actual size of the image
-        // ===========================================
+        // // =======// =======// =======// =======// =======// ========
 
         scaleToActual : function( x, y, duration ) {
 
@@ -1306,7 +1306,7 @@
 
 
         // Scale image to fit inside parent element
-        // ========================================
+        // // =======// =======// =======// =======// ============
 
         scaleToFit : function( duration ) {
 
@@ -1340,7 +1340,7 @@
         },
 
         // Calculate image size to fit inside viewport
-        // ===========================================
+        // // =======// =======// =======// =======// =======// ========
 
         getFitPos : function( slide ) {
             var self  = this;
@@ -1387,7 +1387,7 @@
 
 
         // Update content size and position for all slides
-        // ==============================================
+        // // =======// =======// =======// =======// =======// ===========
 
         update : function() {
             var self = this;
@@ -1399,7 +1399,7 @@
 
 
         // Update slide content position and size
-        // ======================================
+        // // =======// =======// =======// =======// ==========
 
         updateSlide : function( slide, duration ) {
             var self  = this,
@@ -1425,7 +1425,7 @@
 
 
         // Horizontally center slide
-        // =========================
+        // // =======// =======// ===========
 
         centerSlide : function( slide, duration ) {
             var self  = this, canvasWidth, pos;
@@ -1444,7 +1444,7 @@
 
 
         // Update cursor style depending if content can be zoomed
-        // ======================================================
+        // // =======// =======// =======// =======// =======// =======// ============
 
         updateCursor : function( nextWidth, nextHeight ) {
 
@@ -1495,7 +1495,7 @@
 
 
         // Check if current slide is zoomable
-        // ==================================
+        // // =======// =======// =======// =============
 
         isZoomable : function() {
 
@@ -1530,7 +1530,7 @@
 
 
         // Check if current image dimensions are smaller than actual
-        // =========================================================
+        // // =======// =======// =======// =======// =======// =======// =======// ========
 
         isScaledDown : function() {
 
@@ -1552,7 +1552,7 @@
 
 
         // Check if image dimensions exceed parent element
-        // ===============================================
+        // // =======// =======// =======// =======// =======// ============
 
         canPan : function() {
 
@@ -1574,7 +1574,7 @@
 
 
         // Load content into the slide
-        // ===========================
+        // // =======// =======// =============
 
         loadSlide : function( slide ) {
 
@@ -1688,7 +1688,7 @@
 
 
         // Use thumbnail image, if possible
-        // ================================
+        // // =======// =======// =======// ===========
 
         setImage : function( slide ) {
 
@@ -1799,7 +1799,7 @@
 
 
         // Create full-size image
-        // ======================
+        // // =======// =======// ========
 
         setBigImage : function ( slide ) {
             var self = this;
@@ -1870,7 +1870,7 @@
 
 
         // Create iframe wrapper, iframe and bindings
-        // ==========================================
+        // // =======// =======// =======// =======// =======// =======
 
         setIframe : function( slide ) {
             var self	= this,
@@ -1902,7 +1902,7 @@
                 });
 
                 // Recalculate iframe content size
-                // ===============================
+                // // =======// =======// =======// ==========
 
                 $slide.on('refresh.fb', function() {
                     var $wrap = slide.$content,
@@ -1986,7 +1986,7 @@
 
 
         // Wrap and append content to the slide
-        // ======================================
+        // // =======// =======// =======// =======// ==========
 
         setContent : function ( slide, content ) {
 
@@ -2005,7 +2005,7 @@
                 // If content is a jQuery object, then it will be moved to the slide.
                 // The placeholder is created so we will know where to put it back.
                 // If user is navigating gallery fast, then the content might be already inside fancyBox
-                // =====================================================================================
+                // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// ========
 
                 // Make sure content is not already moved to fancyBox
                 content.parent( '.fancybox-slide--inline' ).trigger( 'onReset' );
@@ -2069,7 +2069,7 @@
         },
 
         // Display error message
-        // =====================
+        // // =======// =======// =======
 
         setError : function ( slide ) {
 
@@ -2083,7 +2083,7 @@
 
 
         // Show loading icon inside the slide
-        // ==================================
+        // // =======// =======// =======// =============
 
         showLoading : function( slide ) {
 
@@ -2098,7 +2098,7 @@
         },
 
         // Remove loading icon from the slide
-        // ==================================
+        // // =======// =======// =======// =============
 
         hideLoading : function( slide ) {
 
@@ -2116,7 +2116,7 @@
 
 
         // Adjustments after slide content has been loaded
-        // ===============================================
+        // // =======// =======// =======// =======// =======// ============
 
         afterLoad : function( slide ) {
 
@@ -2164,7 +2164,7 @@
         // Make content visible
         // This method is called right after content has been loaded or
         // user navigates gallery and transition should start
-        // ============================================================
+        // // =======// =======// =======// =======// =======// =======// =======// ===========
 
         revealContent : function( slide ) {
 
@@ -2188,7 +2188,7 @@
             }
 
             // Zoom animation
-            // ==============
+            // // =======// =======
 
             if ( effect === 'zoom' ) {
                 end = self.getFitPos( slide );
@@ -2228,7 +2228,7 @@
 
 
             // Simply show content
-            // ===================
+            // // =======// ============
 
             if ( !effect ) {
                 forceRedraw( $slide );
@@ -2266,7 +2266,7 @@
 
 
         // Check if we can and have to zoom from thumbnail
-        //================================================
+        //// =======// =======// =======// =======// =======// =============
 
         getThumbPos : function( slide ) {
 
@@ -2325,7 +2325,7 @@
 
         // Final adjustments after current gallery item is moved to position
         // and it`s content is loaded
-        // ==================================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======// ==========
 
         complete : function() {
             var self = this,
@@ -2378,7 +2378,7 @@
 
 
         // Preload next and previous slides
-        // ================================
+        // // =======// =======// =======// ===========
 
         preload : function( type ) {
             var self = this,
@@ -2396,7 +2396,7 @@
 
 
         // Try to find and focus on the first focusable element
-        // ====================================================
+        // // =======// =======// =======// =======// =======// =======// ==========
 
         focus : function() {
             var current = this.current;
@@ -2424,7 +2424,7 @@
 
         // Activates current instance - brings container to the front and enables keyboard,
         // notifies other instances about deactivating
-        // =================================================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 
         activate : function () {
             var self = this;
@@ -2460,7 +2460,7 @@
 
         // Start closing procedure
         // This will start "zoom-out" animation if needed and clean everything up afterwards
-        // =================================================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 
         close : function( e, d ) {
 
@@ -2578,7 +2578,7 @@
 
 
         // Final adjustments after removing the instance
-        // =============================================
+        // // =======// =======// =======// =======// =======// ==========
 
         cleanUp : function( e ) {
             var self  = this,
@@ -2625,7 +2625,7 @@
 
 
         // Call callback and trigger an event
-        // ==================================
+        // // =======// =======// =======// =============
 
         trigger : function( name, slide ) {
             var args  = Array.prototype.slice.call(arguments, 1),
@@ -2661,7 +2661,7 @@
 
 
         // Update infobar values, navigation button states and reveal caption
-        // ==================================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======// ==========
 
         updateControls : function ( force ) {
 
@@ -2700,7 +2700,7 @@
         },
 
         // Hide toolbar and caption
-        // ========================
+        // // =======// =======// ==========
 
         hideControls : function () {
 
@@ -2735,7 +2735,7 @@
 
 
        // Toggle toolbar and caption
-       // ==========================
+       // // =======// =======// ============
 
        toggleControls : function() {
            if ( this.isHiddenControls ) {
@@ -2767,7 +2767,7 @@
         //   $.fancybox.getInstance( function() {
         //       console.info( this.currIndex );
         //   });
-        // ======================================================
+        // // =======// =======// =======// =======// =======// =======// ============
 
         getInstance : function ( command ) {
             var instance = $('.fancybox-container:not(".fancybox-is-closing"):last').data( 'FancyBox' );
@@ -2791,7 +2791,7 @@
 
 
         // Create new instance
-        // ===================
+        // // =======// ============
 
         open : function ( items, opts, index ) {
             return new FancyBox( items, opts, index );
@@ -2799,7 +2799,7 @@
 
 
         // Close current or all instances
-        // ==============================
+        // // =======// =======// =======// =========
 
         close : function ( all ) {
             var instance = this.getInstance();
@@ -2817,7 +2817,7 @@
         },
 
         // Close instances and unbind all events
-        // ==============================
+        // // =======// =======// =======// =========
 
         destroy : function() {
 
@@ -2829,13 +2829,13 @@
 
 
         // Try to detect mobile devices
-        // ============================
+        // // =======// =======// =======// =======
 
         isMobile : document.createTouch !== undefined && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
 
 
         // Detect if 'translate3d' support is available
-        // ============================================
+        // // =======// =======// =======// =======// =======// =========
 
         use3d : (function() {
             var div = document.createElement('div');
@@ -2845,7 +2845,7 @@
 
         // Helper function to get current visual state of an element
         // returns array[ top, left, horizontal-scale, vertical-scale, opacity ]
-        // =====================================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======// =============
 
         getTranslate : function( $el ) {
             var matrix;
@@ -2903,7 +2903,7 @@
 
         // Shortcut for setting "translate3d" properties for element
         // Can set be used to set opacity, too
-        // ========================================================
+        // // =======// =======// =======// =======// =======// =======// =======// =======
 
         setTranslate : function( $el, props ) {
             var str  = '';
@@ -2949,7 +2949,7 @@
 
 
         // Simple CSS transition handler
-        // =============================
+        // // =======// =======// =======// ========
 
         animate : function ( $el, to, duration, callback, leaveAnimationName ) {
             if ( $.isFunction( duration ) ) {
@@ -3034,7 +3034,7 @@
 
 
     // Default click handler for "fancyboxed" links
-    // ============================================
+    // // =======// =======// =======// =======// =======// =========
 
     function _run( e ) {
         var $target	= $( e.currentTarget ),
@@ -3072,7 +3072,7 @@
 
 
     // Create a jQuery plugin
-    // ======================
+    // // =======// =======// ========
 
     $.fn.fancybox = function (options) {
         var selector;
@@ -3100,18 +3100,18 @@
 
 
     // Self initializing plugin
-    // ========================
+    // // =======// =======// ==========
 
     $D.on( 'click.fb-start', '[data-fancybox]', _run );
 
 }( window, document, window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // Media
 // Adds additional media type support
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function ($) {
 
 	'use strict';
@@ -3318,12 +3318,12 @@
 
 }( window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // Guestures
 // Adds touch guestures, handles click and tap events
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (window, document, $) {
 	'use strict';
 
@@ -4011,7 +4011,7 @@
 	};
 
 	// Limit panning from edges
-	// ========================
+	// // =======// =======// ==========
 
 	Guestures.prototype.endPanning = function() {
 
@@ -4238,7 +4238,7 @@
 
 }( window, document, window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // SlideShow
 // Enables slideshow functionality
@@ -4246,7 +4246,7 @@
 // Example of usage:
 // $.fancybox.getInstance().SlideShow.start()
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (document, $) {
 	'use strict';
 
@@ -4424,12 +4424,12 @@
 
 }( document, window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // FullScreen
 // Adds fullscreen functionality
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (document, $) {
 	'use strict';
 
@@ -4635,12 +4635,12 @@
 
 }( document, window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // Thumbs
 // Displays thumbnails in a grid
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (document, $) {
 	'use strict';
 
@@ -4888,12 +4888,12 @@
 
 }(document, window.jQuery));
 
-//// ==========================================================================
+//// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // Share
 // Displays simple form for sharing current url
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (document, $) {
 	'use strict';
 
@@ -4980,12 +4980,12 @@
 
 }( document, window.jQuery || jQuery ));
 
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 //
 // Hash
 // Enables linking to each modal
 //
-// ==========================================================================
+// // =======// =======// =======// =======// =======// =======// =======// =======// =======// ===========
 ;(function (document, window, $) {
 	'use strict';
 

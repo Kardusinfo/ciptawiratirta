@@ -1994,7 +1994,7 @@
 
 
 	/* DATEPICKER NO CONFLICT
-	* =================== */
+	* // =======// ============ */
 
 	$.fn.datepicker.noConflict = function(){
 		$.fn.datepicker = old;
@@ -2002,7 +2002,7 @@
 	};
 
 	/* DATEPICKER VERSION
-	 * =================== */
+	 * // =======// ============ */
 	$.fn.datepicker.version = '1.8.0';
 
 	$.fn.datepicker.deprecated = function(msg){
@@ -2014,7 +2014,7 @@
 
 
 	/* DATEPICKER DATA-API
-	* ================== */
+	* // =======// =========== */
 
 	$(document).on(
 		'focus.datepicker.data-api click.datepicker.data-api',

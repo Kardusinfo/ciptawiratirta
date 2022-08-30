@@ -28,7 +28,7 @@ url("./fonts/icofont.woff") format("woff");
   word-wrap: normal;
   direction: ltr;
   line-height: 1;
-/* Better Font Rendering =========== */
+/* Better Font Rendering // =========== */
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }

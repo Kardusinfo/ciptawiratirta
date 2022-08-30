@@ -15,11 +15,11 @@ DB_DATABASE=forkomdi_cwt
  DB_USERNAME=forkomdi_all
  DB_PASSWORD=@dmin.1618
 # DB_DATABASE=cwt
-#<<<<<<< HEAD
+#// <<<<<<< HEAD
 #DB_USERNAME=root
 #DB_PASSWORD=
 #APP_URL=localhost:8000
-#=======
+#// =======
 #DB_USERNAME=root
 #DB_PASSWORD=aflowchars
 #APP_URL=localhost:8000
