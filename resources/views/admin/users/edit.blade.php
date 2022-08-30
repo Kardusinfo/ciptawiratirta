@@ -409,7 +409,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ trans('cruds.user.fields.vc_yf') }}</label>
-                            @foreach (App\Models\User::VC_YF_RADIO as $key => $label)
+                            {{-- @foreach (App\Models\User::VC_YF_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="datetime-local" id="vc_yf_{{ $key }}"
                                         name="vc_yf" value="{{ $key }}"
@@ -417,7 +417,13 @@
                                     <label class="form-check-label"
                                         for="vc_yf_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
+                            <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="datetime-local" id="vc_yf_{{ $key }}"
+                                    name="vc_yf" value="{{ $key }}"
+                                    {{ old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : '' }}>
+                                <label class="form-check-label"
+                                    for="vc_yf_{{ $key }}">{{ $label }}</label>
                             @if ($errors->has('vc_yf'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('vc_yf') }}
@@ -427,7 +433,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ trans('cruds.user.fields.vc_covid') }}</label>
-                            @foreach (App\Models\User::VC_COVID_RADIO as $key => $label)
+                            {{-- @foreach (App\Models\User::VC_COVID_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="datetime-local" id="vc_covid_{{ $key }}"
                                         name="vc_covid" value="{{ $key }}"
@@ -435,7 +441,14 @@
                                     <label class="form-check-label"
                                         for="vc_covid_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
+                            <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="datetime-local" id="vc_covid_{{ $key }}"
+                                    name="vc_covid" value="{{ $key }}"
+                                    {{ old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : '' }}>
+                                <label class="form-check-label"
+                                    for="vc_covid_{{ $key }}">{{ $label }}</label>
+                            </div>
                             @if ($errors->has('vc_covid'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('vc_covid') }}
