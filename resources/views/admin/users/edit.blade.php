@@ -349,11 +349,11 @@
                                     {{ $errors->first('seaman_book') }}
                                 </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span>
+                            {{-- <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span> --}}
                         </div>
                         <div class="form-group">
-                            <label>CCM</label>
-                            @foreach (App\Models\User::CCM_RADIO as $key => $label)
+                            <label>CCM Number</label>
+                            {{-- @foreach (App\Models\User::CCM_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="ccm_{{ $key }}"
                                         name="ccm" value="{{ $key }}"
@@ -361,7 +361,14 @@
                                     <label class="form-check-label"
                                         for="ccm_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
+                            <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="radio" id="ccm_{{ $key }}"
+                                    name="ccm" value="{{ $key }}"
+                                    {{ old('ccm', $user->ccm) === (string) $key ? 'checked' : '' }}>
+                                <label class="form-check-label"
+                                    for="ccm_{{ $key }}">{{ $label }}</label>
+                            </div>
                             @if ($errors->has('ccm'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('ccm') }}
@@ -370,8 +377,8 @@
                             <span class="help-block">{{ trans('cruds.user.fields.ccm_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label>CID</label>
-                            @foreach (App\Models\User::CID_RADIO as $key => $label)
+                            <label>CID Number</label>
+                            {{-- @foreach (App\Models\User::CID_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="cid_{{ $key }}"
                                         name="cid" value="{{ $key }}"
@@ -379,7 +386,14 @@
                                     <label class="form-check-label"
                                         for="cid_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
+                            <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="text" id="cid_{{ $key }}"
+                                    name="cid" value="{{ $key }}"
+                                    {{ old('cid', $user->cid) === (string) $key ? 'checked' : '' }}>
+                                <label class="form-check-label"
+                                    for="cid_{{ $key }}">{{ $label }}</label>
+                            </div>
                             @if ($errors->has('cid'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('cid') }}
@@ -474,7 +488,7 @@
                         </div>
                     </div>
                 </div>
-                < </form>
+            </form>
         </div>
     </div>
 

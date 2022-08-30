@@ -22,16 +22,9 @@
                         <td>
                             {{ $user->id }}
                         </td>
-                        <th rowspan="5">
+                        <th>
                             {{ trans('cruds.user.fields.photo') }}
                         </th>
-                        <td  rowspan="5">
-                            @if($user->photo)
-                                <a href="{{ $user->photo->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $user->photo->getUrl('thumb') }}">
-                                </a>
-                            @endif
-                        </td>
                     </tr>
                     <tr>
                         <th>
@@ -39,6 +32,13 @@
                         </th>
                         <td>
                             {{ $user->name }}
+                        </td>
+                        <td  rowspan="5">
+                            @if($user->photo)
+                                <a href="{{ $user->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $user->photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                     <tr>
