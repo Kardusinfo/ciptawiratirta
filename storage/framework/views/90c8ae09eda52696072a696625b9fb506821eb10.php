@@ -4,20 +4,22 @@
             <h4 class="welcome-title text-uppercase"><?php echo e(__('Welcome :name!', ['name' => Auth::user()->nameOrEmail])); ?></h4>
         </div>
         <br>
-        <?php if(Auth::user()->role_id == 1): ?>
-            
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="dashboard-report-card card purple">
-                        <div class="card-content">
-                            <span class="card-title">Jobs</span>
-                            <span class="card-amount">2</span>
-                            <span class="card-desc">Applied Jobs</span>
-                        </div>
-                        <div class="card-media">
-                            <i class="icon ion-ios-briefcase"></i>
+        <div class="row">
+            <?php if(!empty($top_cards)): ?>
+                <?php $__currentLoopData = $top_cards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-sm-<?php echo e($card['size']); ?> col-md-<?php echo e($card['size_md']); ?>">
+                        <div class="dashboard-report-card card <?php echo e($card['class']); ?>">
+                            <div class="card-content">
+                                <span class="card-title"><?php echo e($card['title']); ?></span>
+                                <span class="card-amount"><?php echo e($card['amount']); ?></span>
+                                <span class="card-desc"><?php echo e($card['desc']); ?></span>
+                            </div>
+                            <div class="card-media">
+                                <i class="<?php echo e($card['icon']); ?>"></i>
+                            </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="dashboard-report-card card pink">
@@ -73,6 +75,28 @@
                             <script>
                                 var views_chart_data = <?php echo json_encode($views_chart_data); ?>;
                             </script>
+=======
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
+        </div>
+        <br>
+        <?php if(Auth::user()->role_id == 1): ?>
+            
+        <?php else: ?>
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-3 ">
+                    <div class="panel ">
+                        <div class="panel-title d-flex justify-content-between align-items-center alert alert-warning">
+                            <strong>Warning!</strong>
+
+                        </div>
+                        
+                        <div class="panel-body">
+                            Complete your profile and upload your cv with your application first <br> <br>
+                            <a href="/user/profile" class="btn btn-info">
+                                <span class="btn-title">Next</span>
+                            </a>
+>>>>>>> origin/back
                         </div>
                     </div>
                 </div>
@@ -90,6 +114,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         <?php else: ?>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
@@ -186,26 +211,20 @@
             </div>
         <?php endif; ?>
         <br>
+=======
+        <?php endif; ?>
+        <br>
+        <div class="row">
+            
+            
+        </div>
+>>>>>>> origin/back
     </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script.body'); ?>
     <script src="<?php echo e(url('libs/chart_js/Chart.min.js')); ?>"></script>
     <script src="<?php echo e(url('libs/daterange/moment.min.js')); ?>"></script>
-    <script>
-        $(function() {
-            $('input').on('click', function() {
-                var valeur = 0;
-                $('input:checked').each(function() {
-                    if ($(this).attr('value') > valeur) {
-                        valeur = $(this).attr('value');
-                    }
-                });
-                $('.progress-bar').css('width', valeur + '%').attr('aria-valuenow', valeur);
-            });
-
-        });
-    </script>
     <script>
         var ctx = document.getElementById('earning_chart').getContext('2d');
 

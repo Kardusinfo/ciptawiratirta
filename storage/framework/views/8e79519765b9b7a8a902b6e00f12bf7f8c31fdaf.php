@@ -1,6 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <<<<<<< Updated upstream
     <div class="login-section">
+<<<<<<< HEAD
         <div class="image-layer" style="background-image: url(<?php echo e(asset('module/superio/images/background/12.jpg')); ?>);"></div>
 =======
 <div class="row">
@@ -19,6 +20,9 @@
 
         
 >>>>>>> Stashed changes
+=======
+        <div class="image-layer" style="background-image: url(<?php echo e(asset('popup.png')); ?>);"></div>
+>>>>>>> origin/back
         <div class="outer-box">
             <!-- Login Form -->
             <div class="login-form default-form bravo-login-form-page bravo-login-page">
