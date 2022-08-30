@@ -351,9 +351,9 @@
                             @endif
                             {{-- <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span> --}}
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>CCM Number</label>
-                            {{-- @foreach (App\Models\User::CCM_RADIO as $key => $label)
+                            @foreach (App\Models\User::CCM_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="ccm_{{ $key }}"
                                         name="ccm" value="{{ $key }}"
@@ -361,11 +361,10 @@
                                     <label class="form-check-label"
                                         for="ccm_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach --}}
+                            @endforeach
                             <div class="form-check {{ $errors->has('ccm') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="text" id="ccm_{{ $key }}"
-                                    name="ccm" value="{{ $key }}"
-                                    {{ old('ccm', $user->ccm) === (string) $key ? 'checked' : '' }}>
+                                <input class="form-check-input" type="text" id="ccm"
+                                    name="ccm" value="{{ old('ccm', $user->ccm) }}">
                                 <label class="form-check-label"
                                     for="ccm_{{ $key }}">{{ $label }}</label>
                             </div>
@@ -375,10 +374,21 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.ccm_helper') }}</span>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
+                            <label for="ccm">CCM Number</label>
+                            <input class="form-control {{ $errors->has('ccm') ? 'is-invalid' : '' }}" type="text"
+                                name="ccm" id="ccm" value="{{ old('ccm', $user->ccm) }}">
+                            @if ($errors->has('ccm'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('ccm') }}
+                                </div>
+                            @endif
+                            {{-- <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span> --}}
+                        </div>
+                        {{-- <div class="form-group">
                             <label>CID Number</label>
-                            {{-- @foreach (App\Models\User::CID_RADIO as $key => $label)
+                            @foreach (App\Models\User::CID_RADIO as $key => $label)
                                 <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
                                     <input class="form-check-input" type="radio" id="cid_{{ $key }}"
                                         name="cid" value="{{ $key }}"
@@ -386,11 +396,10 @@
                                     <label class="form-check-label"
                                         for="cid_{{ $key }}">{{ $label }}</label>
                                 </div>
-                            @endforeach --}}
+                            @endforeach
                             <div class="form-check {{ $errors->has('cid') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="text" id="cid_{{ $key }}"
-                                    name="cid" value="{{ $key }}"
-                                    {{ old('cid', $user->cid) === (string) $key ? 'checked' : '' }}>
+                                <input class="form-check-input" type="text" id="cid"
+                                    name="cid" value="{{ old('cid', $user->cid) }}">
                                 <label class="form-check-label"
                                     for="cid_{{ $key }}">{{ $label }}</label>
                             </div>
@@ -400,10 +409,28 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.cid_helper') }}</span>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="ccm">CID Number</label>
+                            <input class="form-control {{ $errors->has('cid') ? 'is-invalid' : '' }}" type="text"
+                                name="cid" id="cid" value="{{ old('cid', $user->cid) }}">
+                            @if ($errors->has('cid'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('cid') }}
+                                </div>
+                            @endif
+                            {{-- <span class="help-block">{{ trans('cruds.user.fields.seamen_book_helper') }}</span> --}}
                         </div>
                         <div class="form-group">
                             <label>COC</label>
-                            <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
+                            <div class="form-check {{ $errors->has('coc') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="text" id="coc_{{ $key }}"
+                                    name="coc" value="{{ $key }}"
+                                    {{ old('coc', $user->coc) === (string) $key ? 'checked' : '' }}>
+                                <label class="form-check-label"
+                                    for="coc_{{ $key }}">{{ $label }}</label>
+                            </div>
+                            {{-- <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
                                 id="coc">
                                 <option value disabled {{ old('coc', null) === null ? 'selected' : '' }}>
                                     {{ trans('global.pleaseSelect') }}</option>
@@ -413,7 +440,7 @@
                                         {{ $label }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                             @if ($errors->has('coc'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('coc') }}
