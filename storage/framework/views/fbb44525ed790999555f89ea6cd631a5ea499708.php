@@ -440,7 +440,7 @@ if (!empty($custom_modules)) {
             
                 <a href="<?php echo e(url('admin/users/'. Auth::user()->id .'/edit')); ?>">
 
-        <li class=" admin_module_job_all-applicants position-25"><a href="/user/profile">
+        
 
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
                 My Profile

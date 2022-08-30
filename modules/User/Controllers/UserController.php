@@ -295,9 +295,9 @@ class UserController extends FrontendController
         } else {
 
             $user = User::create([
-                'first_name' => $request->input('email'),
+                // 'first_name' => $request->input('email'),
                 // 'last_name'  => $request->input('last_name'),
-                'name' => '',
+                'name' => $request->input('email'),
                 'email'      => $request->input('email'),
                 'slug'      => $request->input('email'),
                 'password'   => Hash::make($request->input('password')),
@@ -311,7 +311,8 @@ class UserController extends FrontendController
             } catch (Exception $exception) {
                 Log::warning("SendMailUserRegistered: " . $exception->getMessage());
             }
-            $role = $request->input('type');
+            // $role = $request->input('type');
+            $role = 'candidate';
             if (in_array($role, ['employer', 'candidate'])) {
                 $user->assignRole($role);
                 if ($role == 'employer') {
