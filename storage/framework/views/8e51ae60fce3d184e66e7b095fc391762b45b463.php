@@ -16,18 +16,19 @@
             </div>
         </div>
 
-        <div class="form-group text-left">
+        <div class="form-group">
             <label><?php echo e(__('Email address')); ?></label>
             <input type="email" name="email" placeholder="<?php echo e(__('Email address')); ?>" required>
             <span class="invalid-feedback error error-email"></span>
         </div>
 
-        <div class="form-group text-left">
+        <div class="form-group">
             <label><?php echo e(__('Password')); ?></label>
             <input id="password-field" type="password" name="password" value=""
                 placeholder="<?php echo e(__('Password')); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
+
 
         <div class="form-group text-left">
             <label><?php echo e(__('Retype Password')); ?></label>
@@ -39,30 +40,20 @@
         <input id="password-field" type="hidden" name="job" value="<?php echo e($_GET['job']); ?>"
         placeholder="<?php echo e(__('Retype Password')); ?>">
         <div class="form-group text-left">
+
+        <div class="form-group">
+
             <label><?php echo e(__('No HP')); ?></label>
             <input id="password-field" type="text" name="phone" value=""
                 placeholder="<?php echo e(__('Phone Number')); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-<!-- // <<<<<<< HEAD
-        
-<<<<<<< Updated upstream
-// >>>>>>> origin/back -->
-            <label><?php echo e(__('Posisi')); ?></label>
-            <select name="job_id" id="job_id" class="form-control">
-                <?php $__currentLoopData = $job; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option value="<?php echo e($item->id); ?>"><?php echo e($item->title . ' | ' . $item->category->name . ' | ' . $item->company->name); ?></option>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<!-- <<<<<<< Updated upstream -->
-        </div>
-<!-- // ======= -->
-            </select>
-        </div> --}}
-<!-- >>>>>>> Stashed changes
-// =======
 
->>>>>>> Stashed changes -->
+        
+            
+
+
         <?php if(setting_item('recaptcha_enable')): ?>
             <div class="form-group">
                 <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>
@@ -100,54 +91,4 @@
         </div>
     <?php endif; ?>
 </form>
-
-<script type="text/javascript">
-    $('#country').change(function(){
-    var country_id = $(this).val();    
-    if(country_id){
-        $.ajax({
-           type:"GET",
-           url:"<?php echo e(url('get-state-list')); ?>?country_id="+country_id,
-           success:function(res){ 
-           console.log(res);              
-            if(res){
-                $("#state").empty();
-                $("#state").append('<option>Select</option>');
-                $.each(res,function(key){
-                    $("#state").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
-                });
-           
-            }else{
-               $("#state").empty();
-            }
-           }
-        });
-    }else{
-        $("#state").empty();
-        $("#city").empty();
-    }      
-   });
-    $('#state').on('change',function(){
-    var stateID = $(this).val();    
-    if(stateID){
-        $.ajax({
-           type:"GET",
-           url:"<?php echo e(url('get-city-list')); ?>?state_id="+stateID,
-           success:function(res){               
-            if(res){
-                $("#city").empty();
-                $.each(res,function(key,value){
-                    $("#city").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
-                });
-           
-            }else{
-               $("#city").empty();
-            }
-           }
-        });
-    }else{
-        $("#city").empty();
-    }
-        
-   });
-</script><?php /**PATH /Users/failamir/Sites/localhost/superio200/modules/Layout/auth/register-form.blade.php ENDPATH**/ ?>
+<?php /**PATH /Users/failamir/Sites/localhost/superio200/modules/Layout/auth/register-form.blade.php ENDPATH**/ ?>

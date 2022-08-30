@@ -16,19 +16,20 @@
             </div>
         </div>
 
-        <div class="form-group text-left">
+        <div class="form-group">
             <label>{{ __('Email address') }}</label>
             <input type="email" name="email" placeholder="{{ __('Email address') }}" required>
             <span class="invalid-feedback error error-email"></span>
         </div>
 
-        <div class="form-group text-left">
+        <div class="form-group">
             <label>{{ __('Password') }}</label>
             <input id="password-field" type="password" name="password" value=""
                 placeholder="{{ __('Password') }}">
             <span class="invalid-feedback error error-password"></span>
         </div>
 
+{{-- <<<<<<< HEAD --}}
         <div class="form-group text-left">
             <label>{{ __('Retype Password') }}</label>
             <input id="password-field" type="password" name="retype_password" value=""
@@ -39,6 +40,9 @@
         <input id="password-field" type="hidden" name="job" value="{{ $_GET['job'] }}"
         placeholder="{{ __('Retype Password') }}">
         <div class="form-group text-left">
+{{-- ======= --}}
+        <div class="form-group">
+{{-- >>>>>>> parent of 9b7f5eb (qwerty) --}}
             <label>{{ __('No HP') }}</label>
             <input id="password-field" type="text" name="phone" value=""
                 placeholder="{{ __('Phone Number') }}">
@@ -62,9 +66,12 @@
                     <option value="{{ $item->id }}">{{ $item->title . ' | ' . $item->category->name . ' | ' . $item->company->name}}</option>
                 @endforeach
         </div>
+<<<<<<< HEAD
             </select>
         </div>  --}}
 {{-- >>>>>>> Stashed changes --}}
+{{-- =======
+>>>>>>> parent of 9b7f5eb (qwerty) --}}
         @if (setting_item('recaptcha_enable'))
             <div class="form-group">
                 {{ recaptcha_field($captcha_action ?? 'register') }}
@@ -100,54 +107,3 @@
         </div>
     @endif
 </form>
-
-<script type="text/javascript">
-    $('#country').change(function(){
-    var country_id = $(this).val();    
-    if(country_id){
-        $.ajax({
-           type:"GET",
-           url:"{{url('get-state-list')}}?country_id="+country_id,
-           success:function(res){ 
-           console.log(res);              
-            if(res){
-                $("#state").empty();
-                $("#state").append('<option>Select</option>');
-                $.each(res,function(key){
-                    $("#state").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
-                });
-           
-            }else{
-               $("#state").empty();
-            }
-           }
-        });
-    }else{
-        $("#state").empty();
-        $("#city").empty();
-    }      
-   });
-    $('#state').on('change',function(){
-    var stateID = $(this).val();    
-    if(stateID){
-        $.ajax({
-           type:"GET",
-           url:"{{url('get-city-list')}}?state_id="+stateID,
-           success:function(res){               
-            if(res){
-                $("#city").empty();
-                $.each(res,function(key,value){
-                    $("#city").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
-                });
-           
-            }else{
-               $("#city").empty();
-            }
-           }
-        });
-    }else{
-        $("#city").empty();
-    }
-        
-   });
-</script>
