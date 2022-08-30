@@ -300,7 +300,7 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
+                            <label for="cv">CV</label>
                             <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}"
                                 id="cv-dropzone">
                             </div>
@@ -312,7 +312,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">{{ trans('cruds.user.fields.skk') }}</label>
+                            <label for="skk">Surat Keterangan Kerja</label>
                             <div class="needsclick dropzone {{ $errors->has('skk') ? 'is-invalid' : '' }}"
                                 id="skk-dropzone">
                             </div>
