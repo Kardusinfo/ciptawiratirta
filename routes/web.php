@@ -9,6 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('principal','\Modules\Company\Controllers\CompanyController@principal')->name('principal.select');
+// Route::get('department','\Modules\Company\Controllers\CompanyController@principal')->name('principal.select');
+
 Route::get('/intro','\App\Http\Controllers\LandingpageController@index');
 Route::get('/', '\App\Http\Controllers\HomeController@index')->name('home');
 Route::post('/install/check-db', '\App\Http\Controllers\HomeController@checkConnectDatabase');

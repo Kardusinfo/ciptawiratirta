@@ -13,7 +13,8 @@
 
             <?php default: ?>
                 <?php if(!auth()->check()): ?>
-                    <a href="/register" class="theme-btn btn-style-one "><?php echo e(__('Apply For Job')); ?></a>
+                    <a href="/register?job=<?php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+echo $uriSegments[2]; ?>" class="theme-btn btn-style-one "><?php echo e(__('Apply For Job')); ?></a>
                 <?php else: ?>
                     <?php if($applied): ?>
                         <a href="javascript:void(0)" class="theme-btn btn-style-one bc-apply-job-button"><?php echo e(__('Applied')); ?></a>

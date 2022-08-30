@@ -16,20 +16,20 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-left">
             <label><?php echo e(__('Email address')); ?></label>
             <input type="email" name="email" placeholder="<?php echo e(__('Email address')); ?>" required>
             <span class="invalid-feedback error error-email"></span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-left">
             <label><?php echo e(__('Password')); ?></label>
             <input id="password-field" type="password" name="password" value=""
                 placeholder="<?php echo e(__('Password')); ?>">
             <span class="invalid-feedback error error-password"></span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-left">
             <label><?php echo e(__('No HP')); ?></label>
             <input id="password-field" type="text" name="phone" value=""
                 placeholder="<?php echo e(__('Phone Number')); ?>">
@@ -37,6 +37,16 @@
         </div>
 
         
+<<<<<<< Updated upstream
+=======
+        <?php if(setting_item('recaptcha_enable')): ?>
+            <div class="form-group">
+                <?php echo e(recaptcha_field($captcha_action ?? 'register')); ?>
+
+                <span class="invalid-feedback error error-recaptcha"></span>
+            </div>
+        <?php endif; ?>
+>>>>>>> Stashed changes
 
         <div class="form-group">
             <button class="theme-btn btn-style-one " type="submit" name="Register"><?php echo e(__('Sign Up')); ?>
@@ -67,4 +77,54 @@
         </div>
     <?php endif; ?>
 </form>
-<?php /**PATH /Users/failamir/Sites/localhost/superio200/modules/Layout/auth/register-form.blade.php ENDPATH**/ ?>
+
+<script type="text/javascript">
+    $('#country').change(function(){
+    var country_id = $(this).val();    
+    if(country_id){
+        $.ajax({
+           type:"GET",
+           url:"<?php echo e(url('get-state-list')); ?>?country_id="+country_id,
+           success:function(res){ 
+           console.log(res);              
+            if(res){
+                $("#state").empty();
+                $("#state").append('<option>Select</option>');
+                $.each(res,function(key){
+                    $("#state").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
+                });
+           
+            }else{
+               $("#state").empty();
+            }
+           }
+        });
+    }else{
+        $("#state").empty();
+        $("#city").empty();
+    }      
+   });
+    $('#state').on('change',function(){
+    var stateID = $(this).val();    
+    if(stateID){
+        $.ajax({
+           type:"GET",
+           url:"<?php echo e(url('get-city-list')); ?>?state_id="+stateID,
+           success:function(res){               
+            if(res){
+                $("#city").empty();
+                $.each(res,function(key,value){
+                    $("#city").append('<option value="'+res[key].id+'">'+res[key].title+'</option>');
+                });
+           
+            }else{
+               $("#city").empty();
+            }
+           }
+        });
+    }else{
+        $("#city").empty();
+    }
+        
+   });
+</script><?php /**PATH /Users/failamir/Sites/localhost/superio200/modules/Layout/auth/register-form.blade.php ENDPATH**/ ?>
