@@ -9,7 +9,7 @@
 
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a href="<?php echo e(route("admin.home")); ?>" class="c-sidebar-nav-link">
+            <a href="<?php echo e(url("admin")); ?>" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
 
                 </i>
@@ -28,6 +28,28 @@
                 </a>
             </li>
         <?php endif; ?>
+        <?php if(Auth::user()->roles()->first() == null): ?>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link <?php echo e(request()->is('admin/users/'. Auth::user()->id) || request()->is('admin/users/'. Auth::user()->id .'/*') ? 'c-active' : ''); ?>" href="<?php echo e(url('admin/users/'. Auth::user()->id .'/edit')); ?>">
+                <i class="fa-fw fas fa-user c-sidebar-nav-icon">
+                </i>
+                <?php echo e(trans('My Profile')); ?>
+
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="<?php echo e(url("admin/module/candidate/my-applied")); ?>" class="c-sidebar-nav-link <?php echo e(request()->is("admin/sgps") || request()->is("admin/sgps/*") ? "c-active" : ""); ?>">
+                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                </i>
+                <?php echo e(trans('Applied Position')); ?>
+
+            </a>
+        </li>
+            
+                
+                
+                <?php endif; ?>
         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('user_management_access')): ?>
             <li class="c-sidebar-nav-dropdown <?php echo e(request()->is("admin/permissions*") ? "c-show" : ""); ?> <?php echo e(request()->is("admin/roles*") ? "c-show" : ""); ?> <?php echo e(request()->is("admin/users*") ? "c-show" : ""); ?> <?php echo e(request()->is("admin/audit-logs*") ? "c-show" : ""); ?>">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -246,7 +268,7 @@
                 <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">
 
                 </i>
-                <?php echo e(trans('global.systemCalendar')); ?>
+                <?php echo e(trans('Schedule')); ?>
 
             </a>
         </li>
@@ -263,26 +285,8 @@
 
                 </a>
             </li>
-            <?php if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))): ?>
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('profile_password_edit')): ?>
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link <?php echo e(request()->is('admin/users/'. Auth::user()->id) || request()->is('admin/users/'. Auth::user()->id .'/*') ? 'c-active' : ''); ?>" href="<?php echo e(url('admin/users/'. Auth::user()->id .'/edit')); ?>">
-                        <i class="fa-fw fas fa-user c-sidebar-nav-icon">
-                        </i>
-                        <?php echo e(trans('Update Profile')); ?>
-
-                    </a>
-                </li>
-                    <li class="c-sidebar-nav-item">
-                        <a class="c-sidebar-nav-link <?php echo e(request()->is('profile/password') || request()->is('profile/password/*') ? 'c-active' : ''); ?>" href="<?php echo e(route('profile.password.edit')); ?>">
-                            <i class="fa-fw fas fa-key c-sidebar-nav-icon">
-                            </i>
-                            <?php echo e(trans('global.change_password')); ?>
-
-                        </a>
-                    </li>
-                <?php endif; ?>
-            <?php endif; ?>
+            
+            
             <li class="c-sidebar-nav-item">
                 <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

@@ -430,15 +430,15 @@ if (!empty($custom_modules)) {
             </a>
         </li>
 
-        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-interview">
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/system-calendar">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-                Intereview Scheduled
+                Schedule
             </a>
         </li>
 
-        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/module/candidate/my-departure">
+        <li class=" admin_module_job_all-applicants position-25"><a href="/admin/messenger">
                 <span class="icon text-center"><i class="ion-ios-briefcase"></i></span>
-                Departure Scheduled
+                Messages
             </a>
         </li>
     </ul>

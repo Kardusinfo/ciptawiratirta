@@ -8,7 +8,7 @@
 
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.home") }}" class="c-sidebar-nav-link">
+            <a href="{{ url("admin") }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
 
                 </i>
@@ -25,6 +25,32 @@
                 </a>
             </li>
         @endcan
+        @if(Auth::user()->roles()->first() == null)
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link {{ request()->is('admin/users/'. Auth::user()->id) || request()->is('admin/users/'. Auth::user()->id .'/*') ? 'c-active' : '' }}" href="{{ url('admin/users/'. Auth::user()->id .'/edit') }}">
+                <i class="fa-fw fas fa-user c-sidebar-nav-icon">
+                </i>
+                {{ trans('My Profile') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ url("admin/module/candidate/my-applied") }}" class="c-sidebar-nav-link {{ request()->is("admin/sgps") || request()->is("admin/sgps/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('Applied Position') }}
+            </a>
+        </li>
+            
+                {{-- <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link {{ request()->is('profile/password') || request()->is('profile/password/*') ? 'c-active' : '' }}" href="{{ route('profile.password.edit') }}">
+                        <i class="fa-fw fas fa-key c-sidebar-nav-icon">
+                        </i>
+                        {{ trans('global.change_password') }}
+                    </a>
+                </li> --}}
+                
+                @endif
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/audit-logs*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -224,7 +250,7 @@
                 <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">
 
                 </i>
-                {{ trans('global.systemCalendar') }}
+                {{ trans('Schedule') }}
             </a>
         </li>
         @php($unread = \App\Models\QaTopic::unreadCount())
@@ -240,7 +266,8 @@
 
                 </a>
             </li>
-            @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
+            
+            {{-- @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
                 @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link {{ request()->is('admin/users/'. Auth::user()->id) || request()->is('admin/users/'. Auth::user()->id .'/*') ? 'c-active' : '' }}" href="{{ url('admin/users/'. Auth::user()->id .'/edit') }}">
@@ -256,8 +283,16 @@
                             {{ trans('global.change_password') }}
                         </a>
                     </li>
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ url("admin.sgps.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sgps") || request()->is("admin/sgps/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+        
+                            </i>
+                            {{ trans('Applied Position') }}
+                        </a>
+                    </li>
                 @endcan
-            @endif
+            @endif --}}
             <li class="c-sidebar-nav-item">
                 <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
