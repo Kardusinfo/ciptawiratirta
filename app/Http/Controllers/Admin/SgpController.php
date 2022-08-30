@@ -33,7 +33,7 @@ class SgpController extends Controller
     {
         abort_if(Gate::denies('sgp_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $candidates = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $candidates = User::pluck('first_name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $applied_positions = Job::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
