@@ -438,15 +438,13 @@
                         </div>
                         <div class="form-group">
                             <label><?php echo e(trans('cruds.user.fields.vc_yf')); ?></label>
-                            <?php $__currentLoopData = App\Models\User::VC_YF_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="datetime-local" id="vc_yf_<?php echo e($key); ?>"
-                                        name="vc_yf" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="vc_yf_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            
+                            <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
+                                <input class="form-check-input" type="datetime-local" id="vc_yf_<?php echo e($key); ?>"
+                                    name="vc_yf" value="<?php echo e($key); ?>"
+                                    <?php echo e(old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : ''); ?>>
+                                <label class="form-check-label"
+                                    for="vc_yf_<?php echo e($key); ?>"><?php echo e($label); ?></label>
                             <?php if($errors->has('vc_yf')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('vc_yf')); ?>
@@ -457,15 +455,14 @@
                         </div>
                         <div class="form-group">
                             <label><?php echo e(trans('cruds.user.fields.vc_covid')); ?></label>
-                            <?php $__currentLoopData = App\Models\User::VC_COVID_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
-                                    <input class="form-check-input" type="datetime-local" id="vc_covid_<?php echo e($key); ?>"
-                                        name="vc_covid" value="<?php echo e($key); ?>"
-                                        <?php echo e(old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : ''); ?>>
-                                    <label class="form-check-label"
-                                        for="vc_covid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            
+                            <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
+                                <input class="form-check-input" type="datetime-local" id="vc_covid_<?php echo e($key); ?>"
+                                    name="vc_covid" value="<?php echo e($key); ?>"
+                                    <?php echo e(old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : ''); ?>>
+                                <label class="form-check-label"
+                                    for="vc_covid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                            </div>
                             <?php if($errors->has('vc_covid')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('vc_covid')); ?>
