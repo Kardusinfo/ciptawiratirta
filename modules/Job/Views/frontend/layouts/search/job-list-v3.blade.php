@@ -69,7 +69,7 @@
                         <div class="row">
                             @foreach($rows as $row)
                             <!-- Job Block -->
-                            <div class="job-block-four col-lg-6 col-md-6 col-sm-12">
+                            <div class="job-block-four col-lg-4 col-md-6 col-sm-12">
                                 @include("Job::frontend.layouts.loop.job-item-4")
                             </div>
                             @endforeach
