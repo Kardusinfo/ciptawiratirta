@@ -4,7 +4,8 @@
         rel="stylesheet" />
     <div class="card">
         <div class="card-header">
-            {{ trans('global.edit') }} {{ trans('cruds.user.title_singular') }}
+            {{-- {{ trans('global.edit') }} {{ trans('cruds.user.title_singular') }} --}}
+            Personal Detail
         </div>
 
         <div class="card-body">
@@ -192,7 +193,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.address_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="b_o_d">B.O.D<span style="color:red">*</span></label>
+                            <label for="b_o_d">Date Of Birth (Tanggal Lahir)<span style="color:red">*</span></label>
                             <input class="form-control date {{ $errors->has('b_o_d') ? 'is-invalid' : '' }}"
                                 type="date" name="b_o_d" id="b_o_d" value="{{ old('b_o_d', $user->b_o_d) }}">
                             @if ($errors->has('b_o_d'))
@@ -325,16 +326,16 @@
                             <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">Surat Keterangan Kerja</label>
+                            <label for="skk">Crew Evaluation Form / Reference Letter<span style="color:red">*</span></label>
                             <div class="needsclick dropzone {{ $errors->has('skk') ? 'is-invalid' : '' }}"
                                 id="skk-dropzone">
                             </div>
-                            {{-- @if ($errors->has('skk'))
-                                <div class="invalid-feedback">
+                            @if ($errors->has('skk'))
+                                {{-- <div class="invalid-feedback">
                                     {{ $errors->first('skk') }}
-                                </div>
+                                </div> --}}
                                 <div style="color:red">Required</div>
-                            @endif --}}
+                            @endif
                             <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
                         </div>
                         <div class="form-group">
@@ -468,8 +469,8 @@
                             <span class="help-block">{{ trans('cruds.user.fields.coc_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="bst_ccm">BST/CCM</label>
-                            <input class="form-control {{ $errors->has('bst_ccm') ? 'is-invalid' : '' }}" type="text"
+                            <label for="bst_ccm">BST (16 Digits)</label>
+                            <input class="form-control {{ $errors->has('bst_ccm') ? 'is-invalid' : '' }}" type="date"
                                 name="bst_ccm" id="bst_ccm" value="{{ old('bst_ccm', $user->bst_ccm) }}">
                             {{-- @if ($errors->has('bst_ccm'))
                                 <div class="invalid-feedback">
