@@ -299,6 +299,19 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
+                            <label for="photo">Photo<span style="color:red">*</span></label>
+                            <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
+                                id="photo-dropzone">
+                            </div>
+                            @if ($errors->has('photo'))
+                                {{-- <div class="invalid-feedback">
+                                    {{ $errors->first('photo') }}
+                                </div> --}}
+                                <div style="color:red">Required</div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
+                        </div>
+                        <div class="form-group">
                             <label for="cv">CV<span style="color:red">*</span></label>
                             <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}"
                                 id="cv-dropzone">
@@ -312,30 +325,17 @@
                             <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">Surat Keterangan Kerja<span style="color:red">*</span></label>
+                            <label for="skk">Surat Keterangan Kerja</label>
                             <div class="needsclick dropzone {{ $errors->has('skk') ? 'is-invalid' : '' }}"
                                 id="skk-dropzone">
                             </div>
-                            @if ($errors->has('skk'))
-                                {{-- <div class="invalid-feedback">
-                                    {{ $errors->first('skk') }}
-                                </div> --}}
-                                <div style="color:red">Required</div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">{{ trans('cruds.user.fields.photo') }}</label>
-                            <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
-                                id="photo-dropzone">
-                            </div>
-                            {{-- @if ($errors->has('photo'))
+                            {{-- @if ($errors->has('skk'))
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('photo') }}
+                                    {{ $errors->first('skk') }}
                                 </div>
                                 <div style="color:red">Required</div>
                             @endif --}}
-                            <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <label for="passport">Passport ID</label>
@@ -487,12 +487,19 @@
                                         for="vc_yf_{{ $key }}">{{ $label }}</label>
                                 </div>
                             @endforeach --}}
-                            <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="date" id="vc_yf"
-                                    name="vc_yf" value="{{ old('vc_yf', $user->vc_yf) }}">
+                            {{-- <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="date" id="vc_yf_{{ $key }}"
+                                    name="vc_yf" value="{{ old('vc_yf', $user->vc_yf) }}"> --}}
                             {{-- @if ($errors->has('vc_yf'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('vc_yf') }}
+                                </div>
+                            @endif --}}
+                            <input class="form-control {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}" type="date"
+                                name="vc_yf" id="vc_yf" value="{{ old('vc_yf', $user->vc_yf) }}">
+                            {{-- @if ($errors->has('bst_ccm'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('bst_ccm') }}
                                 </div>
                             @endif --}}
                             <span class="help-block">{{ trans('cruds.user.fields.vc_yf_helper') }}</span>
@@ -508,15 +515,17 @@
                                         for="vc_covid_{{ $key }}">{{ $label }}</label>
                                 </div>
                             @endforeach --}}
-                            <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="date" id="vc_covid"
+                            {{-- <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
+                                <input class="form-check-input" type="date" id="vc_covid_{{ $key }}"
                                     name="vc_covid" value="{{ old('vc_covid', $user->vc_covid) }}">
-                            </div>
+                            </div> --}}
                             {{-- @if ($errors->has('vc_covid'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('vc_covid') }}
                                 </div>
                             @endif --}}
+                            <input class="form-control {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}" type="date"
+                                name="vc_covid" id="vc_covid" value="{{ old('vc_covid', $user->vc_covid) }}">
                             <span class="help-block">{{ trans('cruds.user.fields.vc_covid_helper') }}</span>
                         </div>
                         <div class="form-group">
