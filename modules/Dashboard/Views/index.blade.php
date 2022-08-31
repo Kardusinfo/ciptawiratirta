@@ -162,22 +162,40 @@
                             Complete your profile and upload your cv with your application first<br> <br>
                             {{-- <div class="col-md-2"> --}}
                             <div class="custom-class">
-                                <input name="progress" class="progress" type="checkbox" value="17" id="customCheck1">
-                                <label for="customCheck1">Name</label><br>
-                                <input name="progress" class="progress" type="checkbox" value="34" id="customCheck1">
-                                <label for="customCheck1">First Name</label><br>
-                                <input name="progress" class="progress" type="checkbox" value="51"
+                                <input name="progress" class="progress" type="checkbox" value="8" id="customCheck1">
+                                <label for="customCheck1">Experience</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="16" id="customCheck1">
+                                <label for="customCheck1">Rating Able</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="24"
                                     id="customCheck1">
-                                <label for="customCheck1">Last Name</label><br>
-                                <input name="progress" class="progress" type="checkbox" value="68"
+                                <label for="customCheck1">Application Form</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="32"
                                     id="customCheck1">
-                                <label for="customCheck1">Avatar ID</label><br>
-                                <input name="progress" class="progress" type="checkbox" value="85"
+                                <label for="customCheck1">Passport ID</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="40"
                                     id="customCheck1">
-                                <label for="customCheck1">City</label><br>
+                                <label for="customCheck1">Visa ID</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="48"
+                                    id="customCheck1">
+                                <label for="customCheck1">Seaman Book</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="56"
+                                    id="customCheck1">
+                                <label for="customCheck1">CCM</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="64"
+                                    id="customCheck1">
+                                <label for="customCheck1">CID</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="72"
+                                    id="customCheck1">
+                                <label for="customCheck1">COC</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="80"
+                                    id="customCheck1">
+                                <label for="customCheck1">BST/CCM</label><br>
+                                <input name="progress" class="progress" type="checkbox" value="88"
+                                    id="customCheck1">
+                                <label for="customCheck1">Vaccine YF</label><br>
                                 <input name="progress" class="progress" type="checkbox" value="99"
                                     id="customCheck1">
-                                <label for="customCheck1">Gender</label><br>
+                                <label for="customCheck1">Vaccine COVID</label><br>
                             </div>
                             <a href="/user/profile" class="btn btn-info">
                                 <span class="btn-title">Next</span>
