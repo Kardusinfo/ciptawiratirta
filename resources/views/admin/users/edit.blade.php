@@ -192,7 +192,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.address_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="b_o_d">B.O.D<div style="color:red">*</div></label>
+                            <label for="b_o_d">B.O.D<span style="color:red">*</span></label>
                             <input class="form-control date {{ $errors->has('b_o_d') ? 'is-invalid' : '' }}"
                                 type="date" name="b_o_d" id="b_o_d" value="{{ old('b_o_d', $user->b_o_d) }}">
                             @if ($errors->has('b_o_d'))
@@ -204,7 +204,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.b_o_d_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="office_registered_id">{{ trans('cruds.user.fields.office_registered') }}<div style="color:red">*</div></label>
+                            <label for="office_registered_id">{{ trans('cruds.user.fields.office_registered') }}<span style="color:red">*</span></label>
                             <select
                                 class="form-control select2 {{ $errors->has('office_registered') ? 'is-invalid' : '' }}"
                                 name="office_registered_id" id="office_registered_id">
@@ -223,7 +223,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.office_registered_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="age">{{ trans('cruds.user.fields.age') }}<div style="color:red">*</div></label>
+                            <label for="age">{{ trans('cruds.user.fields.age') }}<span style="color:red">*</span></label>
                             <input class="form-control {{ $errors->has('age') ? 'is-invalid' : '' }}" type="text"
                                 name="age" id="age" value="{{ old('age', $user->age) }}">
                             @if ($errors->has('age'))
@@ -445,8 +445,7 @@
                             <label>COC</label>
                             <div class="form-check {{ $errors->has('coc') ? 'is-invalid' : '' }}">
                                 <input class="form-check-input" type="text" id="coc_{{ $key }}"
-                                    name="coc" value="{{ $key }}"
-                                    {{ old('coc', $user->coc) === (string) $key ? 'checked' : '' }}>
+                                    name="coc" value="{{ old('coc', $user->coc)}}">
                                 <label class="form-check-label"
                                     for="coc_{{ $key }}">{{ $label }}</label>
                             </div>
