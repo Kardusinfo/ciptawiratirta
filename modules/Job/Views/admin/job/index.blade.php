@@ -61,7 +61,7 @@
                                         'url' => route('company.admin.getForSelect2'),
                                         'dataType' => 'json',
                                     ],
-                                    'allowClear' => true,
+                                    'allowClear' => 'true',
                                     'placeholder' => __('-- Select Principal --'),
                                 ],
                             ],

@@ -33,25 +33,8 @@
                     class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <?php if(is_admin()): ?>
                         <?php
-
                         $company = \Modules\Job\Models\JobCategory::all();
                         // var_dump($company);
-
-                        $company = \Modules\Job\Models\Job::find(Request()->input('category_id'));
-                        \App\Helpers\AdminForm::select2('category_id', [
-                            'configs' => [
-                                'ajax'        => [
-                                    'url' => route('job.admin.getForSelect2'),
-                                    'dataType' => 'json'
-                                ],
-                                'allowClear'  => true,
-                                'placeholder' => __('-- Select Department --')
-                            ]
-                        ], !empty($category->id) ? [
-                            $category->id,
-                            $category->name . ' (#' . $category->id . ')'
-                        ] : false)
-
                         ?>
                         <select name="category_id" id="category_id" class="form-control">
                             <option value=""><?php echo e('-- Select Department --'); ?></option>
@@ -75,22 +58,12 @@
                                         'url' => route('company.admin.getForSelect2'),
                                         'dataType' => 'json',
                                     ],
-                                    'allowClear' => true,
+                                    'allowClear' => 'true',
                                     'placeholder' => __('-- Select Principal --'),
                                 ],
-
                             ],
                             !empty($company->id) ? [$company->id, $company->name . ' (#' . $company->id . ')'] : false,
                         );
-
-                                'allowClear'  => true,
-                                'placeholder' => __('-- Select Principal --')
-                            ]
-                        ], !empty($company->id) ? [
-                            $company->id,
-                            $company->name . ' (#' . $company->id . ')'
-                        ] : false)
-
                         ?>
                     <?php endif; ?>
                     <input type="text" name="s" value="<?php echo e(Request()->input('s')); ?>"
@@ -108,7 +81,6 @@
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
-
                                 <tr>
                                     <th width="60px"><input type="checkbox" class="check-all"></th>
                                     <th width="150px"> <?php echo e(__('Name Position')); ?></th>
@@ -139,35 +111,6 @@
                                             <td>
                                                 <a href="<?php echo e($row->getEditUrl()); ?>" class="btn btn-default btn-sm"><i
                                                         class="fa fa-edit"></i> <?php echo e(__('Edit')); ?>
-
-                            <tr>
-                                <th width="60px"><input type="checkbox" class="check-all"></th>
-                                <th width="150px"> <?php echo e(__('Name Position')); ?></th>
-                                
-                                <th width="150px"> <?php echo e(__('Department')); ?></th>
-                                <th width="150px"> <?php echo e(__('Principal')); ?></th>
-                                <th width="100px"> <?php echo e(__('Status')); ?></th>
-                                <th width="100px"> <?php echo e(__('Date')); ?></th>
-                                <th width="100px"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if($rows->total() > 0): ?>
-                                <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr class="<?php echo e($row->status); ?>">
-                                        <td><input type="checkbox" name="ids[]" class="check-item" value="<?php echo e($row->id); ?>">
-                                        </td>
-                                        <td class="title">
-                                            <a href="<?php echo e($row->getEditUrl()); ?>"><?php echo e($row->title); ?></a>
-                                        </td>
-                                        
-                                        <td><?php echo e($row->category->name ?? ''); ?></td>
-                                        <td><?php echo e($row->company->name ?? ''); ?></td>
-                                        <td><span class="badge badge-<?php echo e($row->status); ?>"><?php echo e($row->status); ?></span></td>
-                                        <td><?php echo e(display_date($row->updated_at)); ?></td>
-                                        <td>
-                                            <a href="<?php echo e($row->getEditUrl()); ?>" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> <?php echo e(__('Edit')); ?>
-
 
                                                 </a>
                                             </td>
