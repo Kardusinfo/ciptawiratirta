@@ -36,6 +36,7 @@ use Modules\Candidate\Models\CandidateVisa;
 use Modules\Company\Models\Company;
 use Modules\Job\Models\JobCandidate;
 use Modules\Job\Models\Job;
+
 class UserController extends FrontendController
 {
     use AuthenticatesUsers;
@@ -224,14 +225,18 @@ class UserController extends FrontendController
                         'redirect' => false
                     ], 200);
                 }
-                // if(Request::expectsJson())
-                return response()->json([
-                    'error'    => false,
-                    'messages' => false,
-                    // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
-                    'redirect' => url('/admin')
-                ], 200);
-                // redirect()->intended(url('/admin'));
+                if ($request->expectsJson() == true) {
+                    return response()->json([
+                        'error'    => false,
+                        'messages' => false,
+                        // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                        'redirect' => url('/admin')
+                    ], 200);
+                } else {
+                    //     echo 'Success Login';
+                    // redirect('admin');
+                    return redirect()->to('/admin')->with('message', 'Success Login.');
+                }
             } else {
                 $errors = new MessageBag(['email' => __('Email or password incorrect')]);
                 return response()->json([
@@ -326,25 +331,28 @@ class UserController extends FrontendController
                     Candidate::query()->insert(['id' => $user->id]);
                 }
             }
-            $row = new JobCandidate();
-            $row->job_id = Job::where('slug',$request->input('job'))->first()->id;
-            $row->candidate_id = $user->id;
-            $row->email = $request->input('email');
-            $row->contact_no = $request->input('phone');
-            $row->status = 'pending';
-            // $row->company_id = $company_id;
-            $row->save();
-            // return response()->json([
-            //     'error'    => false,
-            //     'messages' => false,
-            //     // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
-            //     'redirect' => url('/admin')
-            // ], 200);
-            if($request->input('job') == 'urgent'){
-             redirect(url('/admin/job/urgent'));   
-            };
-            session()->flash('message', "You have successfully registered. Please Verify your Email.");
-            return view('auth.login',['page_title'=> __("Login")]);
+
+            if ($request->input('job') == 'urgent') {
+                return redirect()->to('/job?orderby=urgent&limit=10');
+            } else {
+                $row = new JobCandidate();
+                $row->job_id = Job::where('slug', $request->input('job'))->first()->id;
+                $row->candidate_id = $user->id;
+                $row->email = $request->input('email');
+                $row->contact_no = $request->input('phone');
+                $row->status = 'pending';
+                // $row->company_id = $company_id;
+                $row->save();
+                // return response()->json([
+                //     'error'    => false,
+                //     'messages' => false,
+                //     // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+                //     'redirect' => url('/admin')
+                // ], 200);
+
+                session()->flash('message', "You have successfully registered. Please Verify your Email.");
+                return view('auth.login', ['page_title' => __("Login")]);
+            }
         }
     }
 
