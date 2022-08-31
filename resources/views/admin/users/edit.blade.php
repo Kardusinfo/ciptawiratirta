@@ -444,10 +444,8 @@
                         <div class="form-group">
                             <label>COC</label>
                             <div class="form-check {{ $errors->has('coc') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="text" id="coc_{{ $key }}"
+                                <input class="form-check-input" type="text" id="coc"
                                     name="coc" value="{{ old('coc', $user->coc)}}">
-                                <label class="form-check-label"
-                                    for="coc_{{ $key }}">{{ $label }}</label>
                             </div>
                             {{-- <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
                                 id="coc">
@@ -490,11 +488,8 @@
                                 </div>
                             @endforeach --}}
                             <div class="form-check {{ $errors->has('vc_yf') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="date" id="vc_yf_{{ $key }}"
-                                    name="vc_yf" value="{{ $key }}"
-                                    {{ old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : '' }}>
-                                <label class="form-check-label"
-                                    for="vc_yf_{{ $key }}">{{ $label }}</label>
+                                <input class="form-check-input" type="date" id="vc_yf"
+                                    name="vc_yf" value="{{ old('vc_yf', $user->vc_yf) }}">
                             {{-- @if ($errors->has('vc_yf'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('vc_yf') }}
@@ -514,11 +509,8 @@
                                 </div>
                             @endforeach --}}
                             <div class="form-check {{ $errors->has('vc_covid') ? 'is-invalid' : '' }}">
-                                <input class="form-check-input" type="date" id="vc_covid_{{ $key }}"
-                                    name="vc_covid" value="{{ $key }}"
-                                    {{ old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : '' }}>
-                                <label class="form-check-label"
-                                    for="vc_covid_{{ $key }}">{{ $label }}</label>
+                                <input class="form-check-input" type="date" id="vc_covid"
+                                    name="vc_covid" value="{{ old('vc_covid', $user->vc_covid) }}">
                             </div>
                             {{-- @if ($errors->has('vc_covid'))
                                 <div class="invalid-feedback">
