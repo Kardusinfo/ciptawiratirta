@@ -224,12 +224,14 @@ class UserController extends FrontendController
                         'redirect' => false
                     ], 200);
                 }
+                // if(Request::expectsJson())
                 return response()->json([
                     'error'    => false,
                     'messages' => false,
                     // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
                     'redirect' => url('/admin')
                 ], 200);
+                // redirect()->intended(url('/admin'));
             } else {
                 $errors = new MessageBag(['email' => __('Email or password incorrect')]);
                 return response()->json([
