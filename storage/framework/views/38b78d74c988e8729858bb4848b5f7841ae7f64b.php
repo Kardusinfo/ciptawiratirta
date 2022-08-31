@@ -182,7 +182,7 @@
                         <div class="form-group">
                             <label for="b_o_d">B.O.D</label>
                             <input class="form-control date <?php echo e($errors->has('b_o_d') ? 'is-invalid' : ''); ?>"
-                                type="datetime-local" name="b_o_d" id="b_o_d" value="<?php echo e(old('b_o_d', $user->b_o_d)); ?>">
+                                type="date" name="b_o_d" id="b_o_d" value="<?php echo e(old('b_o_d', $user->b_o_d)); ?>">
                             <?php if($errors->has('b_o_d')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('b_o_d')); ?>
@@ -380,7 +380,7 @@
                             <label>CCM Number</label>
                             
                             <div class="form-check <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="radio" id="ccm_<?php echo e($key); ?>"
+                                <input class="form-check-input" type="text" id="ccm_<?php echo e($key); ?>"
                                     name="ccm" value="<?php echo e($key); ?>"
                                     <?php echo e(old('ccm', $user->ccm) === (string) $key ? 'checked' : ''); ?>>
                                 <label class="form-check-label"
@@ -450,7 +450,7 @@
                             <label><?php echo e(trans('cruds.user.fields.vc_yf')); ?></label>
                             
                             <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="datetime-local" id="vc_yf_<?php echo e($key); ?>"
+                                <input class="form-check-input" type="date" id="vc_yf_<?php echo e($key); ?>"
                                     name="vc_yf" value="<?php echo e($key); ?>"
                                     <?php echo e(old('vc_yf', $user->vc_yf) === (string) $key ? 'checked' : ''); ?>>
                                 <label class="form-check-label"
@@ -467,7 +467,7 @@
                             <label><?php echo e(trans('cruds.user.fields.vc_covid')); ?></label>
                             
                             <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="datetime-local" id="vc_covid_<?php echo e($key); ?>"
+                                <input class="form-check-input" type="date" id="vc_covid_<?php echo e($key); ?>"
                                     name="vc_covid" value="<?php echo e($key); ?>"
                                     <?php echo e(old('vc_covid', $user->vc_covid) === (string) $key ? 'checked' : ''); ?>>
                                 <label class="form-check-label"
