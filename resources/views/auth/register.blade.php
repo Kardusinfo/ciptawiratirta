@@ -41,6 +41,14 @@
                         @endif
                     </div>
 
+                    @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
+        <?php if(isset($_GET['job']) == true)
+        $job = $_GET['job'];
+        ?>
+        <?php if(isset($_GET['job']) == false)
+        $job = '';
+        ?>
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
