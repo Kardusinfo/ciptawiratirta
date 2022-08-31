@@ -443,10 +443,12 @@
                         </div>
                         <div class="form-group">
                             <label>COC</label>
-                            <div class="form-check {{ $errors->has('coc') ? 'is-invalid' : '' }}">
+                            <input class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" type="text"
+                                name="coc" id="coc" value="{{ old('coc', $user->coc) }}">
+                            {{-- <div class="form- {{ $errors->has('coc') ? 'is-invalid' : '' }}">
                                 <input class="form-check-input" type="text" id="coc"
                                     name="coc" value="{{ old('coc', $user->coc)}}">
-                            </div>
+                            </div> --}}
                             {{-- <select class="form-control {{ $errors->has('coc') ? 'is-invalid' : '' }}" name="coc"
                                 id="coc">
                                 <option value disabled {{ old('coc', null) === null ? 'selected' : '' }}>
