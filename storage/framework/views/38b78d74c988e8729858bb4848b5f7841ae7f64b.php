@@ -13,20 +13,9 @@
                 <?php echo csrf_field(); ?>
                 <div class="row">
                     <div class="col-9">
+                        
                         <div class="form-group">
-                            <label class="required" for="name"><?php echo e(trans('cruds.user.fields.name')); ?></label>
-                            <input class="form-control <?php echo e($errors->has('name') ? 'is-invalid' : ''); ?>" type="text"
-                                name="name" id="name" value="<?php echo e(old('name', $user->name)); ?>" required>
-                            <?php if($errors->has('name')): ?>
-                                <div class="invalid-feedback">
-                                    <?php echo e($errors->first('name')); ?>
-
-                                </div>
-                            <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.name_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="first_name"><?php echo e(trans('cruds.user.fields.first_name')); ?></label>
+                            <label for="first_name"><?php echo e(trans('cruds.user.fields.first_name')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('first_name') ? 'is-invalid' : ''); ?>" type="text"
                                 name="first_name" id="first_name" value="<?php echo e(old('first_name', $user->first_name)); ?>">
                             <?php if($errors->has('first_name')): ?>
@@ -35,7 +24,7 @@
 
                                 </div>
                             <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.first_name_helper')); ?></span>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.first_name_helper')); ?><div style="color:red">*</div></label></span>
                         </div>
                         <div class="form-group">
                             <label for="last_name"><?php echo e(trans('cruds.user.fields.last_name')); ?></label>
@@ -50,7 +39,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.last_name_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.gender')); ?></label>
+                            <label><?php echo e(trans('cruds.user.fields.gender')); ?><div style="color:red">*</div></label></label>
                             <select class="form-control <?php echo e($errors->has('gender') ? 'is-invalid' : ''); ?>" name="gender"
                                 id="gender">
                                 <option value disabled <?php echo e(old('gender', null) === null ? 'selected' : ''); ?>>
@@ -70,7 +59,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.gender_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label class="required" for="email"><?php echo e(trans('cruds.user.fields.email')); ?></label>
+                            <label class="required" for="email"><?php echo e(trans('cruds.user.fields.email')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('email') ? 'is-invalid' : ''); ?>" type="email"
                                 name="email" id="email" value="<?php echo e(old('email', $user->email)); ?>" required>
                             <?php if($errors->has('email')): ?>
@@ -83,7 +72,7 @@
                         </div>
                         <?php if(Auth::user()->roles()->first() != null): ?>
                             <div class="form-group">
-                                <label class="required" for="password">ID Passport</label>
+                                <label class="required" for="password">ID Passport<div style="color:red">*</div></label>
                                 <input class="form-control <?php echo e($errors->has('password') ? 'is-invalid' : ''); ?>"
                                     type="password" name="password" id="password">
                                 <?php if($errors->has('password')): ?>
@@ -95,7 +84,7 @@
                                 <span class="help-block"><?php echo e(trans('cruds.user.fields.password_helper')); ?></span>
                             </div>
                             <div class="form-group">
-                                <label class="required" for="roles"><?php echo e(trans('cruds.user.fields.roles')); ?></label>
+                                <label class="required" for="roles"><?php echo e(trans('cruds.user.fields.roles')); ?><div style="color:red">*</div></label>
                                 <div style="padding-bottom: 4px">
                                     <span class="btn btn-info btn-xs select-all"
                                         style="border-radius: 0"><?php echo e(trans('global.select_all')); ?></span>
@@ -120,7 +109,7 @@
                             </div>
                         <?php endif; ?>
                         <div class="form-group">
-                            <label for="ktp"><?php echo e(trans('cruds.user.fields.ktp')); ?></label>
+                            <label for="ktp"><?php echo e(trans('cruds.user.fields.ktp')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('ktp') ? 'is-invalid' : ''); ?>" type="text"
                                 name="ktp" id="ktp" value="<?php echo e(old('ktp', $user->ktp)); ?>">
                             <?php if($errors->has('ktp')): ?>
@@ -132,7 +121,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.ktp_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="country"><?php echo e(trans('cruds.user.fields.country')); ?></label>
+                            <label for="country"><?php echo e(trans('cruds.user.fields.country')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('country') ? 'is-invalid' : ''); ?>" type="text"
                                 name="country" id="country" value="<?php echo e(old('country', $user->country)); ?>">
                             <?php if($errors->has('country')): ?>
@@ -144,7 +133,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.country_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="state"><?php echo e(trans('cruds.user.fields.state')); ?></label>
+                            <label for="state"><?php echo e(trans('cruds.user.fields.state')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('state') ? 'is-invalid' : ''); ?>" type="text"
                                 name="state" id="state" value="<?php echo e(old('state', $user->state)); ?>">
                             <?php if($errors->has('state')): ?>
@@ -156,7 +145,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.state_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="city"><?php echo e(trans('cruds.user.fields.city')); ?></label>
+                            <label for="city"><?php echo e(trans('cruds.user.fields.city')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('city') ? 'is-invalid' : ''); ?>" type="text"
                                 name="city" id="city" value="<?php echo e(old('city', $user->city)); ?>">
                             <?php if($errors->has('city')): ?>
@@ -168,7 +157,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.city_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="address"><?php echo e(trans('cruds.user.fields.address')); ?></label>
+                            <label for="address"><?php echo e(trans('cruds.user.fields.address')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('address') ? 'is-invalid' : ''); ?>" type="text"
                                 name="address" id="address" value="<?php echo e(old('address', $user->address)); ?>">
                             <?php if($errors->has('address')): ?>
@@ -180,7 +169,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.address_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="b_o_d">B.O.D</label>
+                            <label for="b_o_d">B.O.D<div style="color:red">*</div></label>
                             <input class="form-control date <?php echo e($errors->has('b_o_d') ? 'is-invalid' : ''); ?>"
                                 type="date" name="b_o_d" id="b_o_d" value="<?php echo e(old('b_o_d', $user->b_o_d)); ?>">
                             <?php if($errors->has('b_o_d')): ?>
@@ -192,7 +181,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.b_o_d_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="office_registered_id"><?php echo e(trans('cruds.user.fields.office_registered')); ?></label>
+                            <label for="office_registered_id"><?php echo e(trans('cruds.user.fields.office_registered')); ?><div style="color:red">*</div></label>
                             <select
                                 class="form-control select2 <?php echo e($errors->has('office_registered') ? 'is-invalid' : ''); ?>"
                                 name="office_registered_id" id="office_registered_id">
@@ -211,7 +200,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.office_registered_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="age"><?php echo e(trans('cruds.user.fields.age')); ?></label>
+                            <label for="age"><?php echo e(trans('cruds.user.fields.age')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('age') ? 'is-invalid' : ''); ?>" type="text"
                                 name="age" id="age" value="<?php echo e(old('age', $user->age)); ?>">
                             <?php if($errors->has('age')): ?>
@@ -266,7 +255,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.experience_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label><?php echo e(trans('cruds.user.fields.application_form')); ?></label>
+                            <label><?php echo e(trans('cruds.user.fields.application_form')); ?><div style="color:red">*</div></label>
                             <?php $__currentLoopData = App\Models\User::APPLICATION_FORM_RADIO; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="form-check <?php echo e($errors->has('application_form') ? 'is-invalid' : ''); ?>">
                                     <input class="form-check-input" type="radio"
@@ -286,7 +275,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.application_form_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="contact_no"><?php echo e(trans('cruds.user.fields.contact_no')); ?></label>
+                            <label for="contact_no"><?php echo e(trans('cruds.user.fields.contact_no')); ?><div style="color:red">*</div></label>
                             <input class="form-control <?php echo e($errors->has('contact_no') ? 'is-invalid' : ''); ?>"
                                 type="text" name="contact_no" id="contact_no"
                                 value="<?php echo e(old('contact_no', $user->contact_no)); ?>">
@@ -301,7 +290,7 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="cv">CV</label>
+                            <label for="cv">CV<div style="color:red">*</div></label>
                             <div class="needsclick dropzone <?php echo e($errors->has('cv') ? 'is-invalid' : ''); ?>"
                                 id="cv-dropzone">
                             </div>
@@ -314,7 +303,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.cv_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">Surat Keterangan Kerja</label>
+                            <label for="skk">Surat Keterangan Kerja<div style="color:red">*</div></label>
                             <div class="needsclick dropzone <?php echo e($errors->has('skk') ? 'is-invalid' : ''); ?>"
                                 id="skk-dropzone">
                             </div>
@@ -327,7 +316,7 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.skk_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="photo"><?php echo e(trans('cruds.user.fields.photo')); ?></label>
+                            <label for="photo"><?php echo e(trans('cruds.user.fields.photo')); ?><div style="color:red">*</div></label>
                             <div class="needsclick dropzone <?php echo e($errors->has('photo') ? 'is-invalid' : ''); ?>"
                                 id="photo-dropzone">
                             </div>
@@ -376,56 +365,42 @@
                             <?php endif; ?>
                             
                         </div>
+                        
                         <div class="form-group">
-                            <label>CCM Number</label>
-                            
-                            <div class="form-check <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="text" id="ccm_<?php echo e($key); ?>"
-                                    name="ccm" value="<?php echo e($key); ?>"
-                                    <?php echo e(old('ccm', $user->ccm) === (string) $key ? 'checked' : ''); ?>>
-                                <label class="form-check-label"
-                                    for="ccm_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                            </div>
+                            <label for="ccm">CCM Number</label>
+                            <input class="form-control <?php echo e($errors->has('ccm') ? 'is-invalid' : ''); ?>" type="text"
+                                name="ccm" id="ccm" value="<?php echo e(old('ccm', $user->ccm)); ?>">
                             <?php if($errors->has('ccm')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('ccm')); ?>
 
                                 </div>
                             <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.ccm_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>CID Number</label>
                             
-                            <div class="form-check <?php echo e($errors->has('cid') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="text" id="cid_<?php echo e($key); ?>"
-                                    name="cid" value="<?php echo e($key); ?>"
-                                    <?php echo e(old('cid', $user->cid) === (string) $key ? 'checked' : ''); ?>>
-                                <label class="form-check-label"
-                                    for="cid_<?php echo e($key); ?>"><?php echo e($label); ?></label>
-                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ccm">CID Number</label>
+                            <input class="form-control <?php echo e($errors->has('cid') ? 'is-invalid' : ''); ?>" type="text"
+                                name="cid" id="cid" value="<?php echo e(old('cid', $user->cid)); ?>">
                             <?php if($errors->has('cid')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('cid')); ?>
 
                                 </div>
                             <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.cid_helper')); ?></span>
+                            
                         </div>
                         <div class="form-group">
                             <label>COC</label>
-                            <select class="form-control <?php echo e($errors->has('coc') ? 'is-invalid' : ''); ?>" name="coc"
-                                id="coc">
-                                <option value disabled <?php echo e(old('coc', null) === null ? 'selected' : ''); ?>>
-                                    <?php echo e(trans('global.pleaseSelect')); ?></option>
-                                <?php $__currentLoopData = App\Models\User::COC_SELECT; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($key); ?>"
-                                        <?php echo e(old('coc', $user->coc) === (string) $key ? 'selected' : ''); ?>>
-                                        <?php echo e($label); ?>
-
-                                    </option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </select>
+                            <div class="form-check <?php echo e($errors->has('coc') ? 'is-invalid' : ''); ?>">
+                                <input class="form-check-input" type="text" id="coc_<?php echo e($key); ?>"
+                                    name="coc" value="<?php echo e($key); ?>"
+                                    <?php echo e(old('coc', $user->coc) === (string) $key ? 'checked' : ''); ?>>
+                                <label class="form-check-label"
+                                    for="coc_<?php echo e($key); ?>"><?php echo e($label); ?></label>
+                            </div>
+                            
                             <?php if($errors->has('coc')): ?>
                                 <div class="invalid-feedback">
                                     <?php echo e($errors->first('coc')); ?>
