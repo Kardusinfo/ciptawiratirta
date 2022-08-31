@@ -245,6 +245,17 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
+                            <label for="photo">Photo<span style="color:red">*</span></label>
+                            <div class="needsclick dropzone <?php echo e($errors->has('photo') ? 'is-invalid' : ''); ?>"
+                                id="photo-dropzone">
+                            </div>
+                            <?php if($errors->has('photo')): ?>
+                                
+                                <div style="color:red">Required</div>
+                            <?php endif; ?>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.photo_helper')); ?></span>
+                        </div>
+                        <div class="form-group">
                             <label for="cv">CV<span style="color:red">*</span></label>
                             <div class="needsclick dropzone <?php echo e($errors->has('cv') ? 'is-invalid' : ''); ?>"
                                 id="cv-dropzone">
@@ -256,23 +267,12 @@
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.cv_helper')); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="skk">Surat Keterangan Kerja<span style="color:red">*</span></label>
+                            <label for="skk">Surat Keterangan Kerja</label>
                             <div class="needsclick dropzone <?php echo e($errors->has('skk') ? 'is-invalid' : ''); ?>"
                                 id="skk-dropzone">
                             </div>
-                            <?php if($errors->has('skk')): ?>
-                                
-                                <div style="color:red">Required</div>
-                            <?php endif; ?>
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.skk_helper')); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="photo"><?php echo e(trans('cruds.user.fields.photo')); ?></label>
-                            <div class="needsclick dropzone <?php echo e($errors->has('photo') ? 'is-invalid' : ''); ?>"
-                                id="photo-dropzone">
-                            </div>
                             
-                            <span class="help-block"><?php echo e(trans('cruds.user.fields.photo_helper')); ?></span>
+                            <span class="help-block"><?php echo e(trans('cruds.user.fields.skk_helper')); ?></span>
                         </div>
                         <div class="form-group">
                             <label for="passport">Passport ID</label>
@@ -332,20 +332,20 @@
                         <div class="form-group">
                             <label><?php echo e(trans('cruds.user.fields.vc_yf')); ?></label>
                             
-                            <div class="form-check <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="date" id="vc_yf"
-                                    name="vc_yf" value="<?php echo e(old('vc_yf', $user->vc_yf)); ?>">
+                            
+                            
+                            <input class="form-control <?php echo e($errors->has('vc_yf') ? 'is-invalid' : ''); ?>" type="date"
+                                name="vc_yf" id="vc_yf" value="<?php echo e(old('vc_yf', $user->vc_yf)); ?>">
                             
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_yf_helper')); ?></span>
                         </div>
                         <div class="form-group">
                             <label><?php echo e(trans('cruds.user.fields.vc_covid')); ?></label>
                             
-                            <div class="form-check <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>">
-                                <input class="form-check-input" type="date" id="vc_covid"
-                                    name="vc_covid" value="<?php echo e(old('vc_covid', $user->vc_covid)); ?>">
-                            </div>
                             
+                            
+                            <input class="form-control <?php echo e($errors->has('vc_covid') ? 'is-invalid' : ''); ?>" type="date"
+                                name="vc_covid" id="vc_covid" value="<?php echo e(old('vc_covid', $user->vc_covid)); ?>">
                             <span class="help-block"><?php echo e(trans('cruds.user.fields.vc_covid_helper')); ?></span>
                         </div>
                         <div class="form-group">
