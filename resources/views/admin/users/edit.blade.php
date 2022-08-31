@@ -325,16 +325,16 @@
                             <span class="help-block">{{ trans('cruds.user.fields.skk_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="photo">{{ trans('cruds.user.fields.photo') }}<span style="color:red">*</span></label>
+                            <label for="photo">{{ trans('cruds.user.fields.photo') }}</label>
                             <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}"
                                 id="photo-dropzone">
                             </div>
-                            @if ($errors->has('photo'))
-                                {{-- <div class="invalid-feedback">
+                            {{-- @if ($errors->has('photo'))
+                                <div class="invalid-feedback">
                                     {{ $errors->first('photo') }}
-                                </div> --}}
+                                </div>
                                 <div style="color:red">Required</div>
-                            @endif
+                            @endif --}}
                             <span class="help-block">{{ trans('cruds.user.fields.photo_helper') }}</span>
                         </div>
                         <div class="form-group">
