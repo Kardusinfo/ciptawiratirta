@@ -41,14 +41,32 @@
                         @endif
                     </div>
 
-                    @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
-        <?php if(isset($_GET['job']) == true)
-        $job = $_GET['job'];
-        ?>
-        <?php if(isset($_GET['job']) == false)
-        $job = '';
-        ?>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="phone" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" required placeholder="{{ trans('WA Number') }}" value="{{ old('phone', null) }}">
+                        @if($errors->has('phone'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('phone') }}
+                            </div>
+                        @endif
+                    </div>
 
+                    @php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); @endphp
+                    <?php if(isset($_GET['job']) == true)
+                    $job = $_GET['job'];
+                    ?>
+                    <?php if(isset($_GET['job']) == false)
+                    $job = '';
+                    ?>
+
+                <input id="password-field" type="hidden" name="job" value="<?= $job ?>"
+                        placeholder="{{ __('Retype Password') }}">
+                        
+                        
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">

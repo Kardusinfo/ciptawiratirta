@@ -35,6 +35,7 @@ use Modules\Candidate\Models\CandidateSkk;
 use Modules\Candidate\Models\CandidateVisa;
 use Modules\Company\Models\Company;
 use Modules\Job\Models\JobCandidate;
+use Modules\Job\Models\Job;
 class UserController extends FrontendController
 {
     use AuthenticatesUsers;
@@ -242,6 +243,7 @@ class UserController extends FrontendController
 
     public function userRegister(Request $request)
     {
+        // var_dump($request->all());die;
         $rules = [
             //            'first_name' => [
             //                'required',
@@ -325,17 +327,22 @@ class UserController extends FrontendController
             $row = new JobCandidate();
             $row->job_id = Job::where('slug',$request->input('job'))->first()->id;
             $row->candidate_id = $user->id;
-            // $row->cv_id = $apply_cv_id;
-            // $row->message = $message;
+            $row->email = $request->input('email');
+            $row->contact_no = $request->input('phone');
             $row->status = 'pending';
             // $row->company_id = $company_id;
             $row->save();
-            return response()->json([
-                'error'    => false,
-                'messages' => false,
-                // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
-                'redirect' => url('/admin')
-            ], 200);
+            // return response()->json([
+            //     'error'    => false,
+            //     'messages' => false,
+            //     // 'redirect' => $request->input('redirect') ?? $request->headers->get('referer') ?? url(app_get_locale(false, '/'))
+            //     'redirect' => url('/admin')
+            // ], 200);
+            if($request->input('job') == 'urgent'){
+             redirect(url('/admin/job/urgent'));   
+            };
+            session()->flash('message', "You have successfully registered. Please Verify your Email.");
+            return view('auth.login',['page_title'=> __("Login")]);
         }
     }
 
