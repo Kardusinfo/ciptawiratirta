@@ -70,6 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // var_dump($data);die;
         return User::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
@@ -78,5 +79,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'status'=>'publish'
         ]);
+
     }
 }

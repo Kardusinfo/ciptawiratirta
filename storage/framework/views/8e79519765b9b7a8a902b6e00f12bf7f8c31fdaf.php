@@ -46,6 +46,33 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
+                                <i class="fa fa-envelope fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="phone" class="form-control<?php echo e($errors->has('phone') ? ' is-invalid' : ''); ?>" required placeholder="<?php echo e(trans('WA Number')); ?>" value="<?php echo e(old('phone', null)); ?>">
+                        <?php if($errors->has('phone')): ?>
+                            <div class="invalid-feedback">
+                                <?php echo e($errors->first('phone')); ?>
+
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); ?>
+                    <?php if(isset($_GET['job']) == true)
+                    $job = $_GET['job'];
+                    ?>
+                    <?php if(isset($_GET['job']) == false)
+                    $job = '';
+                    ?>
+
+                <input id="password-field" type="hidden" name="job" value="<?= $job ?>"
+                        placeholder="<?php echo e(__('Retype Password')); ?>">
+                        
+                        
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
                                 <i class="fa fa-lock fa-fw"></i>
                             </span>
                         </div>
